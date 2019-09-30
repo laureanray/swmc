@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
     <e p="C:\Users\Laurean Ray Bahala\.Rider2019.2\system\extResources" t="IncludeRecursive" />
@@ -8,8 +8,73 @@
       <e p="appsettings.json" t="Include" />
       <e p="Areas" t="Include">
         <e p="Identity" t="Include">
+          <e p="IdentityHostingStartup.cs" t="Include" />
           <e p="Pages" t="Include">
+            <e p="_ValidationScriptsPartial.cshtml" t="Include" />
+            <e p="_ViewImports.cshtml" t="Include" />
             <e p="_ViewStart.cshtml" t="Include" />
+            <e p="Account" t="Include">
+              <e p="_ViewImports.cshtml" t="Include" />
+              <e p="AccessDenied.cshtml" t="Include" />
+              <e p="AccessDenied.cshtml.cs" t="Include" />
+              <e p="ConfirmEmail.cshtml" t="Include" />
+              <e p="ConfirmEmail.cshtml.cs" t="Include" />
+              <e p="ExternalLogin.cshtml" t="Include" />
+              <e p="ExternalLogin.cshtml.cs" t="Include" />
+              <e p="ForgotPassword.cshtml" t="Include" />
+              <e p="ForgotPassword.cshtml.cs" t="Include" />
+              <e p="ForgotPasswordConfirmation.cshtml" t="Include" />
+              <e p="ForgotPasswordConfirmation.cshtml.cs" t="Include" />
+              <e p="Lockout.cshtml" t="Include" />
+              <e p="Lockout.cshtml.cs" t="Include" />
+              <e p="Login.cshtml" t="Include" />
+              <e p="Login.cshtml.cs" t="Include" />
+              <e p="LoginWith2fa.cshtml" t="Include" />
+              <e p="LoginWith2fa.cshtml.cs" t="Include" />
+              <e p="LoginWithRecoveryCode.cshtml" t="Include" />
+              <e p="LoginWithRecoveryCode.cshtml.cs" t="Include" />
+              <e p="Logout.cshtml" t="Include" />
+              <e p="Logout.cshtml.cs" t="Include" />
+              <e p="Manage" t="Include">
+                <e p="_Layout.cshtml" t="Include" />
+                <e p="_ManageNav.cshtml" t="Include" />
+                <e p="_StatusMessage.cshtml" t="Include" />
+                <e p="_ViewImports.cshtml" t="Include" />
+                <e p="ChangePassword.cshtml" t="Include" />
+                <e p="ChangePassword.cshtml.cs" t="Include" />
+                <e p="DeletePersonalData.cshtml" t="Include" />
+                <e p="DeletePersonalData.cshtml.cs" t="Include" />
+                <e p="Disable2fa.cshtml" t="Include" />
+                <e p="Disable2fa.cshtml.cs" t="Include" />
+                <e p="DownloadPersonalData.cshtml" t="Include" />
+                <e p="DownloadPersonalData.cshtml.cs" t="Include" />
+                <e p="EnableAuthenticator.cshtml" t="Include" />
+                <e p="EnableAuthenticator.cshtml.cs" t="Include" />
+                <e p="ExternalLogins.cshtml" t="Include" />
+                <e p="ExternalLogins.cshtml.cs" t="Include" />
+                <e p="GenerateRecoveryCodes.cshtml" t="Include" />
+                <e p="GenerateRecoveryCodes.cshtml.cs" t="Include" />
+                <e p="Index.cshtml" t="Include" />
+                <e p="Index.cshtml.cs" t="Include" />
+                <e p="ManageNavPages.cs" t="Include" />
+                <e p="PersonalData.cshtml" t="Include" />
+                <e p="PersonalData.cshtml.cs" t="Include" />
+                <e p="ResetAuthenticator.cshtml" t="Include" />
+                <e p="ResetAuthenticator.cshtml.cs" t="Include" />
+                <e p="SetPassword.cshtml" t="Include" />
+                <e p="SetPassword.cshtml.cs" t="Include" />
+                <e p="TwoFactorAuthentication.cshtml" t="Include" />
+                <e p="TwoFactorAuthentication.cshtml.cs" t="Include" />
+              </e>
+              <e p="Register.cshtml" t="Include" />
+              <e p="Register.cshtml.cs" t="Include" />
+              <e p="ResetPassword.cshtml" t="Include" />
+              <e p="ResetPassword.cshtml.cs" t="Include" />
+              <e p="ResetPasswordConfirmation.cshtml" t="Include" />
+              <e p="ResetPasswordConfirmation.cshtml.cs" t="Include" />
+            </e>
+            <e p="Error.cshtml" t="Include" />
+            <e p="Error.cshtml.cs" t="Include" />
           </e>
         </e>
       </e>
@@ -20,15 +85,18 @@
       </e>
       <e p="Data" t="Include">
         <e p="ApplicationDbContext.cs" t="Include" />
-        <e p="Migrations" t="Include">
-          <e p="00000000000000_CreateIdentitySchema.cs" t="Include" />
-          <e p="00000000000000_CreateIdentitySchema.Designer.cs" t="Include" />
-          <e p="ApplicationDbContextModelSnapshot.cs" t="Include" />
-        </e>
+        <e p="DataBootstrapper.cs" t="Include" />
+      </e>
+      <e p="Migrations" t="Include">
+        <e p="20190930171611_initial_migration.cs" t="Include" />
+        <e p="20190930171611_initial_migration.Designer.cs" t="Include" />
+        <e p="ApplicationDbContextModelSnapshot.cs" t="Include" />
       </e>
       <e p="Models" t="Include">
         <e p="Applicant.cs" t="Include" />
-        <e p="Documents.cs" t="Include" />
+        <e p="ApplicationRole.cs" t="Include" />
+        <e p="ApplicationUser.cs" t="Include" />
+        <e p="Document.cs" t="Include" />
         <e p="EmbarkationRecord.cs" t="Include" />
         <e p="ErrorViewModel.cs" t="Include" />
         <e p="Family.cs" t="Include" />
@@ -47,14 +115,15 @@
       <e p="Properties" t="Include">
         <e p="launchSettings.json" t="Include" />
       </e>
+      <e p="ScaffoldingReadme.txt" t="Include" />
       <e p="Startup.cs" t="Include" />
       <e p="swmc.csproj" t="IncludeRecursive" />
       <e p="Views" t="Include">
         <e p="_ViewImports.cshtml" t="Include" />
         <e p="_ViewStart.cshtml" t="Include" />
+        <e p="Dashboard" t="Include" />
         <e p="Home" t="Include">
           <e p="Index.cshtml" t="Include" />
-          <e p="Privacy.cshtml" t="Include" />
         </e>
         <e p="Shared" t="Include">
           <e p="_CookieConsentPartial.cshtml" t="Include" />
@@ -68,7 +137,7 @@
         <e p="css" t="Include">
           <e p="site.css" t="Include" />
         </e>
-        <e p="favicon.ico" t="Include" />
+        <e p="favicon.png" t="Include" />
         <e p="js" t="Include">
           <e p="site.js" t="Include" />
         </e>

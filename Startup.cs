@@ -13,6 +13,7 @@ using Microsoft.EntityFrameworkCore;
 using swmc.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using swmc.Models;
 
 namespace swmc
 {
@@ -40,15 +41,23 @@ namespace swmc
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddDefaultIdentity<IdentityUser>()
-                .AddDefaultUI(UIFramework.Bootstrap4)
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+            // Add the identity
+            services.AddIdentity<ApplicationUser, ApplicationRole>(
+                    options =>
+                    {
+                        options.Stores.MaxLengthForKeys = 128;
+                        // Set this to true when deploying
+                        options.SignIn.RequireConfirmedEmail = false;
+                    })
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultUI()
+                .AddDefaultTokenProviders();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ApplicationDbContext context, UserManager<ApplicationUser> userManager)
         {
             if (env.IsDevelopment())
             {
@@ -74,6 +83,8 @@ namespace swmc
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            DataBootstrapper.Initialize(context, userManager, env).Wait();
         }
     }
 }

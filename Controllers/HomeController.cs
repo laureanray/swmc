@@ -12,14 +12,12 @@ namespace swmc.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            // Redirect to login since we don't have homepage 
+            // return View();
+            return RedirectToPage ( "/Account/Login", new { Area = "Identity" } );
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
+        
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
