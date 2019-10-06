@@ -85,6 +85,10 @@ namespace swmc.Areas.Identity.Pages.Account
                     if (result.Succeeded)
                     {
                         _logger.LogInformation("User logged in.");
+                        if (returnUrl.Equals("/"))
+                        {
+                            return RedirectToAction("Index", "Dashboard");
+                        }
                         return LocalRedirect(returnUrl);
                     }
                     if (result.RequiresTwoFactor)

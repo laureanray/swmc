@@ -62,3 +62,6 @@ C:\Users\Laurean Ray Bahala\Desktop\ongoing-projects\swmc\obj\Debug\netcoreapp2.
 C:\Users\Laurean Ray Bahala\Desktop\ongoing-projects\swmc\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Error.g.cshtml.cs
 C:\Users\Laurean Ray Bahala\Desktop\ongoing-projects\swmc\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.g.cshtml.cs
 C:\Users\Laurean Ray Bahala\Desktop\ongoing-projects\swmc\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\_ViewImports.g.cshtml.cs
+C:\Users\Laurean Ray Bahala\Desktop\ongoing-projects\swmc\obj\Debug\netcoreapp2.2\Razor\Views\Dashboard\Index.g.cshtml.cs
+C:\Users\Laurean Ray Bahala\Desktop\ongoing-projects\swmc\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_DashboardLayout.g.cshtml.cs
+C:\Users\Laurean Ray Bahala\Desktop\ongoing-projects\swmc\obj\Debug\netcoreapp2.2\Razor\Views\Applicant\Index.g.cshtml.cs
