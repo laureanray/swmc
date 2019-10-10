@@ -19,7 +19,8 @@
     <setting file="file://$PROJECT_DIR$/Models/ApplicationRole.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Models/Request.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Models/Vessel.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Views/Applicant/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Views/Applicant/CreateApplicant.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/FormModel/CreateApplicantForm.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Areas/Identity/Pages/Account/LoginWith2fa.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Areas/Identity/Pages/Account/Login.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Areas/Identity/Pages/Account/Manage/_Layout.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
@@ -42,7 +43,6 @@
         <option value="$PROJECT_DIR$/Models/Request.cs" />
         <option value="$PROJECT_DIR$/Models/Embarkation.cs" />
         <option value="$PROJECT_DIR$/Models/Family.cs" />
-        <option value="$PROJECT_DIR$/Models/Applicant.cs" />
         <option value="$PROJECT_DIR$/appsettings.json" />
         <option value="$PROJECT_DIR$/Views/Shared/_CookieConsentPartial.cshtml" />
         <option value="$PROJECT_DIR$/Models/Documents.cs" />
@@ -58,13 +58,17 @@
         <option value="$PROJECT_DIR$/Controllers/HomeController.cs" />
         <option value="$PROJECT_DIR$/Areas/Identity/Pages/Account/Login.cshtml.cs" />
         <option value="$PROJECT_DIR$/Views/Shared/_NavBarPartial.cshtml" />
-        <option value="$PROJECT_DIR$/Views/Dashboard/Index.cshtml" />
-        <option value="$PROJECT_DIR$/Views/Shared/_DashboardLayout.cshtml" />
         <option value="$PROJECT_DIR$/Areas/Identity/Pages/Account/Login.cshtml" />
         <option value="$PROJECT_DIR$/Views/Shared/_Layout.cshtml" />
         <option value="$PROJECT_DIR$/Views/Shared/_LoginPartial.cshtml" />
-        <option value="$PROJECT_DIR$/Controllers/ApplicantController.cs" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/Views/Dashboard/Index.cshtml" />
+        <option value="$PROJECT_DIR$/wwwroot/css/site.css" />
+        <option value="$PROJECT_DIR$/Views/Shared/_DashboardLayout.cshtml" />
+        <option value="$PROJECT_DIR$/Models/FormModel/CreateApplicantForm.cs" />
+        <option value="$PROJECT_DIR$/Controllers/ApplicantController.cs" />
+        <option value="$PROJECT_DIR$/Models/Applicant.cs" />
+        <option value="$PROJECT_DIR$/Views/Applicant/CreateApplicant.cshtml" />
       </list>
     </option>
   </component>
@@ -74,8 +78,9 @@
     <property name="Rider.DefaultBreakpoints.AreToggled" value="true" />
     <property name="Rider.ProjectViewActivator.IsNotFirstRun" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/wwwroot/css/site.css" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Color Scheme Font" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -138,7 +143,8 @@
       <workItem from="1570342228242" duration="1034000" />
       <workItem from="1570360462061" duration="1636000" />
       <workItem from="1570372365962" duration="2147000" />
-      <workItem from="1570380321332" duration="3233000" />
+      <workItem from="1570380321332" duration="5338000" />
+      <workItem from="1570613798342" duration="5772000" />
     </task>
     <servers />
   </component>
@@ -156,14 +162,14 @@
   <component name="WindowStateProjectService">
     <state x="740" y="279" key="FileChooserDialogImpl" />
     <state x="740" y="279" key="FileChooserDialogImpl/1366.768/1920.1080" />
-    <state width="1877" height="263" key="GridCell.Tab.0.bottom" />
-    <state width="1877" height="263" key="GridCell.Tab.0.bottom/1366.768/1920.1080" />
-    <state width="1877" height="263" key="GridCell.Tab.0.center" />
-    <state width="1877" height="263" key="GridCell.Tab.0.center/1366.768/1920.1080" />
-    <state width="1877" height="263" key="GridCell.Tab.0.left" />
-    <state width="1877" height="263" key="GridCell.Tab.0.left/1366.768/1920.1080" />
-    <state width="1877" height="263" key="GridCell.Tab.0.right" />
-    <state width="1877" height="263" key="GridCell.Tab.0.right/1366.768/1920.1080" />
+    <state width="1877" height="386" key="GridCell.Tab.0.bottom" />
+    <state width="1877" height="386" key="GridCell.Tab.0.bottom/1366.768/1920.1080" />
+    <state width="1877" height="386" key="GridCell.Tab.0.center" />
+    <state width="1877" height="386" key="GridCell.Tab.0.center/1366.768/1920.1080" />
+    <state width="1877" height="386" key="GridCell.Tab.0.left" />
+    <state width="1877" height="386" key="GridCell.Tab.0.left/1366.768/1920.1080" />
+    <state width="1877" height="386" key="GridCell.Tab.0.right" />
+    <state width="1877" height="386" key="GridCell.Tab.0.right/1366.768/1920.1080" />
     <state width="1877" height="386" key="GridCell.Tab.1.bottom" />
     <state width="1877" height="386" key="GridCell.Tab.1.bottom/1366.768/1920.1080" />
     <state width="1877" height="386" key="GridCell.Tab.1.center" />
@@ -196,6 +202,8 @@
     <state width="1877" height="386" key="GridCell.Tab.4.left/1366.768/1920.1080" />
     <state width="1877" height="386" key="GridCell.Tab.4.right" />
     <state width="1877" height="386" key="GridCell.Tab.4.right/1366.768/1920.1080" />
+    <state x="670" y="220" key="RiderGenerateDialog" />
+    <state x="670" y="220" key="RiderGenerateDialog/1366.768/1920.1080" />
     <state x="448" y="85" key="SettingsEditor" />
     <state x="448" y="85" key="SettingsEditor/1366.768/1920.1080" />
     <state x="616" y="243" width="672" height="677" key="run.anything.popup" />
@@ -235,6 +243,45 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Controllers/ApplicantController.cs</url>
+          <line>60</line>
+          <properties documentPath="$PROJECT_DIR$/Controllers/ApplicantController.cs" initialLine="12">
+            <startOffsets>
+              <option value="2020" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2065" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Controllers/ApplicantController.cs</url>
+          <line>61</line>
+          <properties documentPath="$PROJECT_DIR$/Controllers/ApplicantController.cs" initialLine="13">
+            <startOffsets>
+              <option value="2078" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2092" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Controllers/ApplicantController.cs</url>
+          <line>52</line>
+          <properties documentPath="$PROJECT_DIR$/Controllers/ApplicantController.cs" initialLine="52">
+            <startOffsets>
+              <option value="1834" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1890" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="16" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

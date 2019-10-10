@@ -1,47 +1,49 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace swmc.Models
 {
-    public enum CivilStatus
-    {
-        Married,
-        Single,
-        Divorced,
-        Widowed
-    }
-
-    public enum Gender
-    {
-        Male, 
-        Female
-    }
-
-    public enum Position
-    {
-        EngineeringOfficer,
-        Cadet
-    }
-    
     public class Applicant
     {
         public int ApplicantId { get; set; }
+        [Required]
         public string FirstName { get; set; }
+        [Required]
+        public string MiddleName { get; set; }
+        [Required]
         public string LastName { get; set; }
         public string Suffix { get; set; }
-        public CivilStatus CivilStatus { get; set; }
-        public Gender Gender { get; set; }
+        [Required]
+        public string CivilStatus { get; set; }
+        [Required]
+        public string Gender { get; set; }
+        [Required]
         public int Age { get; set; }
+        [Required]
         public string Address { get; set; }
+        [Required]
         public string Religion { get; set; }
+        [Required]
         public string Citizenship { get; set; }
+        [Required]
         public DateTime DateOfBirth { get; set; }
+        [Required]
         public string PlaceOfBirth { get; set; }
+        [Required]
         public string Height { get; set; }
+        [Required]
+        public string Weight { get; set; }
+        [Required]
         public string Cellphone { get; set; }
+        [Required]
         public string Telephone { get; set; }
+        [Required]
         public bool IsActive { get; set; }
-        public Position Position { get; set; }
+        [Required]
+        public string Position { get; set; }
         public Family Family { get; set; }
         public byte[] Photo { get; set; }
+        public List<Document> Documents { get; set; }
     }
 }

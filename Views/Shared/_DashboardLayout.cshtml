@@ -22,11 +22,29 @@
     <link rel="icon"
           type="image/png"
           href="~/favicon.png"/>
+    
+    
+<!-- Bootstrap core JavaScript-->
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
+
+<!-- Core plugin JavaScript-->
+<script src="~/lib/jquery-easing/jquery.easing.min.js"></script>
+
+<!-- Page level plugin JavaScript-->
+<script src="~/lib/chart.js/Chart.min.js"></script>
+<script src="~/lib/datatables/jquery.dataTables.min.js"></script>
+<script src="~/lib/datatables/dataTables.bootstrap4.js"></script>
+
+<!-- Custom scripts for all pages-->
+<script src="~/js/sb-admin.js"></script>
+
+<script src="~/js/site.js" asp-append-version="true"></script>
 </head>
-<body>
+<body id="page-top">
 <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-    <a class="navbar-brand mr-1" href="index.html">
+    <a class="navbar-brand mr-1" asp-controller="Dashboard" asp-action="Index">
         <img src="~/favicon.png" height="40px" class="p-1" alt="">
         Sea World Maritime Corporation
     </a>
@@ -63,7 +81,7 @@
     <!-- Sidebar -->
     <ul class="sidebar navbar-nav">
         <li class="nav-item">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" asp-controller="Dashboard" asp-action="Index">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Dashboard</span>
             </a>
@@ -75,12 +93,12 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="pagesDropdown">
                 <h6 class="dropdown-header">Applicant</h6>
-                <a class="dropdown-item" href="login.html">Create Applicant</a>
-                <a class="dropdown-item" href="register.html">View Applicant</a>
-                <a class="dropdown-item" href="register.html">Applicant Documents </a>
+                <a class="dropdown-item" asp-controller="Applicant" asp-action="CreateApplicant">Create Applicant</a>
+                <a class="dropdown-item" >View Applicant</a>
+                <a class="dropdown-item" >Applicant Documents </a>
                 <div class="dropdown-divider"></div>
                 <h6 class="dropdown-header">Positions</h6>
-                <a class="dropdown-item" href="404.html">Manage Positions</a>
+                <a class="dropdown-item" >Manage Positions</a>
             </div>
         </li>
         <li class="nav-item dropdown">
@@ -132,15 +150,15 @@
             <!-- Breadcrumbs-->
 
 
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item">
-                    <a href="#">Dashboard</a>
-                </li>
-                <li class="breadcrumb-item active">Overview</li>
-            </ol>
+            @* <ol class="breadcrumb"> *@
+            @*     <li class="breadcrumb-item"> *@
+            @*         <a href="#">Dashboard</a> *@
+            @*     </li> *@
+            @*     <li class="breadcrumb-item active">Overview</li> *@
+            @* </ol> *@
 
             <partial name="_CookieConsentPartial"/>
-            <main role="main" class="pb-3">
+            <main role="main" class="pt-2">
                 @RenderBody()
             </main>
 
@@ -152,7 +170,7 @@
         <footer class="sticky-footer">
             <div class="container my-auto">
                 <div class="copyright text-center my-auto">
-                    <span>Copyright © Your Website 2019</span>
+                    <span>Copyright © Sea World Maritime Corporation </span>
                 </div>
             </div>
         </footer>
@@ -189,22 +207,6 @@
     </div>
 </div>
 
-<!-- Bootstrap core JavaScript-->
-<script src="~/lib/jquery/dist/jquery.min.js"></script>
-<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
-
-<!-- Core plugin JavaScript-->
-<script src="~/lib/jquery-easing/jquery.easing.min.js"></script>
-
-<!-- Page level plugin JavaScript-->
-<script src="~/lib/chart.js/Chart.min.js"></script>
-<script src="~/lib/datatables/jquery.dataTables.min.js"></script>
-<script src="~/lib/datatables/dataTables.bootstrap4.js"></script>
-
-<!-- Custom scripts for all pages-->
-<script src="~/js/sb-admin.js"></script>
-
-<script src="~/js/site.js" asp-append-version="true"></script>
 @RenderSection("Scripts", required: false)
 </body>
 </html>
