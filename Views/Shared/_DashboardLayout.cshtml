@@ -12,13 +12,12 @@
     <!-- Custom fonts for this template-->
     <link href="~/lib/fa/css/all.css" rel="stylesheet" type="text/css">
 
-    <!-- Page level plugin CSS-->
-    <link href="~/lib/datatables/dataTables.bootstrap4.css" rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="~/css/sb-admin.css" rel="stylesheet">
     <link rel="stylesheet" href="~/css/site.css"/>
-
+    <!-- Page level plugin CSS-->
+    <link href="~/lib/datatables/datatables.min.css" rel="stylesheet">
     <link rel="icon"
           type="image/png"
           href="~/favicon.png"/>
@@ -33,8 +32,7 @@
 
 <!-- Page level plugin JavaScript-->
 <script src="~/lib/chart.js/Chart.min.js"></script>
-<script src="~/lib/datatables/jquery.dataTables.min.js"></script>
-<script src="~/lib/datatables/dataTables.bootstrap4.js"></script>
+<script src="~/lib/datatables/datatables.min.js"></script>
 
 <!-- Custom scripts for all pages-->
 <script src="~/js/sb-admin.js"></script>
@@ -108,7 +106,7 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="pagesDropdown">
                 <h6 class="dropdown-header">Vessel Records</h6>
-                <a class="dropdown-item" href="login.html">Manage Vessel</a>
+                <a class="dropdown-item" asp-controller="Vessel" asp-action="Index">Manage Vessel</a>
             </div>
         </li>
         <li class="nav-item dropdown">

@@ -8,6 +8,20 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Controllers/HomeController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Controllers/ApplicantController.cs" root0="FORCE_HIGHLIGHTING" />
@@ -23,10 +37,14 @@
     <setting file="file://$PROJECT_DIR$/Models/FormModel/CreateApplicantForm.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Areas/Identity/Pages/Account/LoginWith2fa.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Areas/Identity/Pages/Account/Login.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Controllers/API/VesselController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Areas/Identity/Pages/Account/Manage/_Layout.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Views/Vessel/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Controllers/VesselController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Areas/Identity/Pages/Account/Login.cshtml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Program.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Data/ApplicationDbContext.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Views/_ViewStart.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Data/DataBootstrapper.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Startup.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Views/Shared/_DashboardLayout.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
@@ -46,13 +64,11 @@
         <option value="$PROJECT_DIR$/appsettings.json" />
         <option value="$PROJECT_DIR$/Views/Shared/_CookieConsentPartial.cshtml" />
         <option value="$PROJECT_DIR$/Models/Documents.cs" />
-        <option value="$PROJECT_DIR$/Models/Vessel.cs" />
         <option value="$PROJECT_DIR$/Models/ApplicationUser.cs" />
         <option value="$PROJECT_DIR$/Models/Document.cs" />
         <option value="$PROJECT_DIR$/Data/DataBootstrapper.cs" />
         <option value="$PROJECT_DIR$/Startup.cs" />
         <option value="$PROJECT_DIR$/Models/ApplicationRole.cs" />
-        <option value="$PROJECT_DIR$/Data/ApplicationDbContext.cs" />
         <option value="$PROJECT_DIR$/Areas/Identity/Pages/Account/Manage/_Layout.cshtml" />
         <option value="$PROJECT_DIR$/Controllers/DashboardController.cs" />
         <option value="$PROJECT_DIR$/Controllers/HomeController.cs" />
@@ -64,17 +80,23 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/Views/Dashboard/Index.cshtml" />
         <option value="$PROJECT_DIR$/wwwroot/css/site.css" />
-        <option value="$PROJECT_DIR$/Views/Shared/_DashboardLayout.cshtml" />
         <option value="$PROJECT_DIR$/Models/FormModel/CreateApplicantForm.cs" />
         <option value="$PROJECT_DIR$/Controllers/ApplicantController.cs" />
         <option value="$PROJECT_DIR$/Models/Applicant.cs" />
         <option value="$PROJECT_DIR$/Views/Applicant/CreateApplicant.cshtml" />
+        <option value="$PROJECT_DIR$/Views/Shared/_DashboardLayout.cshtml" />
+        <option value="$PROJECT_DIR$/Data/ApplicationDbContext.cs" />
+        <option value="$PROJECT_DIR$/Models/Vessel.cs" />
+        <option value="$PROJECT_DIR$/Controllers/VesselController.cs" />
+        <option value="$PROJECT_DIR$/Controllers/API/VesselController.cs" />
+        <option value="$PROJECT_DIR$/Views/Vessel/Index.cshtml" />
       </list>
     </option>
   </component>
   <component name="ProjectId" id="1RNwBsynj19b75sVUCSgbWS3cNd" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="sqlserver" />
     <property name="Rider.DefaultBreakpoints.AreToggled" value="true" />
     <property name="Rider.ProjectViewActivator.IsNotFirstRun" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -145,6 +167,11 @@
       <workItem from="1570372365962" duration="2147000" />
       <workItem from="1570380321332" duration="5338000" />
       <workItem from="1570613798342" duration="5772000" />
+      <workItem from="1570714530092" duration="441000" />
+      <workItem from="1571596805835" duration="1197000" />
+      <workItem from="1571639733115" duration="2349000" />
+      <workItem from="1571658502855" duration="8275000" />
+      <workItem from="1571678727431" duration="978000" />
     </task>
     <servers />
   </component>
@@ -160,16 +187,18 @@
     </ignored-roots>
   </component>
   <component name="WindowStateProjectService">
+    <state x="552" y="198" key="#com.intellij.execution.impl.EditConfigurationsDialog" />
+    <state x="552" y="198" key="#com.intellij.execution.impl.EditConfigurationsDialog/1366.768/1920.1080" />
     <state x="740" y="279" key="FileChooserDialogImpl" />
     <state x="740" y="279" key="FileChooserDialogImpl/1366.768/1920.1080" />
-    <state width="1877" height="386" key="GridCell.Tab.0.bottom" />
-    <state width="1877" height="386" key="GridCell.Tab.0.bottom/1366.768/1920.1080" />
-    <state width="1877" height="386" key="GridCell.Tab.0.center" />
-    <state width="1877" height="386" key="GridCell.Tab.0.center/1366.768/1920.1080" />
-    <state width="1877" height="386" key="GridCell.Tab.0.left" />
-    <state width="1877" height="386" key="GridCell.Tab.0.left/1366.768/1920.1080" />
-    <state width="1877" height="386" key="GridCell.Tab.0.right" />
-    <state width="1877" height="386" key="GridCell.Tab.0.right/1366.768/1920.1080" />
+    <state width="1877" height="677" key="GridCell.Tab.0.bottom" />
+    <state width="1877" height="677" key="GridCell.Tab.0.bottom/1366.768/1920.1080" />
+    <state width="1877" height="677" key="GridCell.Tab.0.center" />
+    <state width="1877" height="677" key="GridCell.Tab.0.center/1366.768/1920.1080" />
+    <state width="1877" height="677" key="GridCell.Tab.0.left" />
+    <state width="1877" height="677" key="GridCell.Tab.0.left/1366.768/1920.1080" />
+    <state width="1877" height="677" key="GridCell.Tab.0.right" />
+    <state width="1877" height="677" key="GridCell.Tab.0.right/1366.768/1920.1080" />
     <state width="1877" height="386" key="GridCell.Tab.1.bottom" />
     <state width="1877" height="386" key="GridCell.Tab.1.bottom/1366.768/1920.1080" />
     <state width="1877" height="386" key="GridCell.Tab.1.center" />

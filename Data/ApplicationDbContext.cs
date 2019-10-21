@@ -17,5 +17,6 @@ namespace swmc.Data
         public DbSet<Applicant> Applicants { get; set; }
         public DbSet<Document> Documents { get; set; }
         public DbSet<Family> Families { get; set; }
+        public DbSet<Vessel> Vessels { get; set; }
     }
 }

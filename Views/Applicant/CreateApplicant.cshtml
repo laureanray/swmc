@@ -5,7 +5,7 @@
 }
 
 
-<form asp-controller="Applicant" asp-action="CreateApplicant" enctype="multipart/form-data" >
+<form asp-controller="Applicant" asp-action="CreateApplicant" enctype="multipart/form-data">
 <div class="container-fluid">
 <h3> Applicant Registration</h3>
 
@@ -29,7 +29,7 @@
                 <label class="text-dark"> Applicant Photo </label>
 
                 <div class="input-group mb-3">
-                
+
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
                     </div>
@@ -38,13 +38,13 @@
                         <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
                     </div>
                 </div>
-                
-            
+
+
                 <div class="box">
                     <img id="image" class="box" style="height: auto; width: 100%;"/>
                 </div>
 
-                
+
             </div>
 
             <div class="col-md-9">
@@ -63,7 +63,7 @@
                         <label class="text-dark"> Middle Name </label>
                         <input type="text" class="form-control form-control-user" asp-for="Applicant.MiddleName" placeholder="Middle Name">
                         <span asp-validation-for="Applicant.MiddleName" class="text-danger"></span>
-                    </div>    
+                    </div>
                 </div>
 
                 <br>
@@ -75,7 +75,7 @@
                             <option value="" disabled selected>Civil Status</option>
                             <option value="Married">Married</option>
                             <option value="Single">Single</option>
-                            <option value="Divorced">Divorced</option>    
+                            <option value="Divorced">Divorced</option>
                             <option value="Widowed">Widowed</option>
                         </select>
                         <span asp-validation-for="Applicant.CivilStatus" class="text-danger"></span>
@@ -106,7 +106,8 @@
                 <div class="row">
                     <div class="col-md-12">
                         <label class="text-dark"> Address </label>
-                        <input type="text" class="form-control form-control-user" id="address" name="address" placeholder="Address">
+                        <input type="text" class="form-control form-control-user" asp-for="Applicant.Address" placeholder="Address">
+                        <span asp-validation-for="Applicant.Address" class="text-danger"></span>
                     </div>
                 </div>
 
@@ -115,11 +116,13 @@
                 <div class="row">
                     <div class="col-md-6">
                         <label class="text-dark"> Religion </label>
-                        <input type="text" class="form-control form-control-user" id="religion" name="religion" placeholder="Religion">
+                        <input type="text" class="form-control form-control-user" asp-for="Applicant.Religion" placeholder="Religion">
+                        <span asp-validation-for="Applicant.Religion" class="text-danger"></span>
                     </div>
                     <div class="col-md-6">
                         <label class="text-dark"> Citizenship </label>
-                        <input type="text" class="form-control form-control-user" id="citizenship" name="citizenship" placeholder="Citizenship">
+                        <input type="text" class="form-control form-control-user" asp-for="Applicant.Citizenship" placeholder="Citizenship">
+                        <span asp-validation-for="Applicant.Citizenship" class="text-danger"></span>
                     </div>
                 </div>
 
@@ -128,11 +131,13 @@
                 <div class="row">
                     <div class="col-md-6">
                         <label class="text-dark"> Date of Birth </label>
-                        <input type="date" id="dob" name="dob" class="form-control form-control-user">
+                        <input type="date" asp-for="Applicant.DateOfBirth" class="form-control form-control-user">
+                        <span asp-validation-for="Applicant.PlaceOfBirth" class="text-danger"></span>
                     </div>
                     <div class="col-md-6">
                         <label class="text-dark"> Place of Birth </label>
-                        <input type="text" class="form-control form-control-user" id="placeofbirth" name="placeofbirth" placeholder="Place of Birth">
+                        <input type="text" class="form-control form-control-user" asp-for="Applicant.PlaceOfBirth" placeholder="Place of Birth">
+                        <span asp-validation-for="Applicant.PlaceOfBirth" class="text-danger"></span>
                     </div>
                 </div>
 
@@ -141,46 +146,47 @@
                 <div class="row">
                     <div class="col-md-2">
                         <label class="text-dark"> Height </label>
-                        <input type="text" class="form-control form-control-user" id="height" name="height" placeholder="Height">
+                        <input type="text" class="form-control form-control-user" asp-for="Applicant.Height" placeholder="Height">
+                        <span asp-validation-for="Applicant.PlaceOfBirth" class="text-danger"></span>
                     </div>
                     <div class="col-md-2">
                         <label class="text-dark"> Weight </label>
-                        <input type="text" class="form-control form-control-user" id="weight" name="weight" placeholder="Weight">
+                        <input type="text" class="form-control form-control-user" asp-for="Applicant.Weight" placeholder="Weight">
+                        <span asp-validation-for="Applicant.Weight" class="text-danger"></span>
                     </div>
                     <div class="col-md-4">
                         <label class="text-dark"> Cellphone </label>
-                        <input type="text" class="form-control form-control-user" id="cellphone" name="cellphone" placeholder="Cellphone">
+                        <input type="text" class="form-control form-control-user" asp-for="Applicant.Cellphone" placeholder="Cellphone">
+                        <span asp-validation-for="Applicant.Cellphone" class="text-danger"></span>
                     </div>
                     <div class="col-md-4">
                         <label class="text-dark"> Telephone </label>
-                        <input type="text" class="form-control form-control-user" id="telephone" name="telephone" placeholder="Telephone">
+                        <input type="text" class="form-control form-control-user" asp-for="Applicant.Telephone" placeholder="Telephone">
+                        <span asp-validation-for="Applicant.Telephone" class="text-danger"></span>
                     </div>
                 </div>
 
                 <br>
 
                 <div class="row">
-                    <div class="col-md-6">
-                        <label class="text-dark"> Status </label>
-
-                        <select class="form-control" id="applicant_status" name="applicant_status">
-                            <option value="" disabled selected>Status</option>
-                            <option>Active</option>
-                            <option>Not Active</option>
-                        </select>
-                    </div>
+                    @* <div class="col-md-6"> *@
+                    @*     <label class="text-dark"> Status </label> *@
+                    @*     <select class="form-control" > *@
+                    @*         <option value="" disabled selected>Status</option> *@
+                    @*         <option>Active</option> *@
+                    @*         <option>Not Active</option> *@
+                    @*     </select> *@
+                    @* </div> *@
                     <div class="col-md-6">
                         <label class="text-dark"> Position </label>
-
-                        <select class="form-control" id="applicant_position" name="applicant_position">
+                        <select class="form-control" asp-for="Applicant.Position">
                             <option value="" disabled selected>Position</option>
                             <option>1</option>
                             <option>2</option>
                         </select>
+                        <span asp-validation-for="Applicant.Position" class="text-danger"></span>
                     </div>
                 </div>
-
-
             </div>
         </div>
     </div>
@@ -268,12 +274,10 @@
                     </div>
                     <div class="col-md-3">
                         <label class="text-dark"> Last Name </label>
-
                         <input type="text" class="form-control form-control-user" id="motherLastName" name="motherLastName" placeholder="Last Name">
                     </div>
                     <div class="col-md-3">
                         <label class="text-dark"> Middle Name </label>
-
                         <input type="text" class="form-control form-control-user" id="motherMiddleName" name="motherMiddleName" placeholder="Middle Name">
                     </div>
                     <div class="col-md-2">
@@ -322,45 +326,7 @@
 
         <br>
 
-        <div class="row">
-            <div class="col-md-3">
-                <label class="text-dark"> SSS No. </label>
 
-                <input type="text" class="form-control form-control-user" id="sssno" name="sssno" placeholder="SSS No.">
-            </div>
-
-            <div class="col-md-3">
-                <label class="text-dark"> SRC/SID No.</label>
-
-                <input type="text" class="form-control form-control-user" id="srcNo" name="srcNo" placeholder="SRC/SID No.">
-            </div>
-
-            <div class="col-md-3">
-                <label class="text-dark"> OFW E-Card No.</label>
-
-                <input type="text" class="form-control form-control-user" id="ofwNo" name="ofwNo" placeholder="OFW E-Card No.">
-            </div>
-
-            <div class="col-md-3">
-                <label class="text-dark"> Philhealth No. </label>
-                <input type="text" class="form-control form-control-user" id="phNo" name="phNo" placeholder="Philhealth No.">
-            </div>
-        </div>
-
-        <br>
-
-        <div class="row">
-            <div class="col-md-3">
-                <label class="text-dark"> Pagibig No. </label>
-
-                <input type="text" class="form-control form-control-user" id="pgbno" name="pgbno" placeholder="Pag-ibig No.">
-            </div>
-
-            <div class="col-md-3">
-                <label class="text-dark"> Passport No. </label>
-                <input type="text" class="form-control form-control-user" id="passno" name="passno" placeholder="Passport No.">
-            </div>
-        </div>
     </div>
 </div>
 <div class="card mb-4">
@@ -394,61 +360,6 @@
                 <button type="button" name="addBen" id="addBen" class="btn btn-success btn-xs">+</button>
             </div>
         </div>
-
-        <!-- <div class="row">
-            <div class="col-md-4"> 
-                <input type="text" class="form-control form-control-user" id="benNAme1" name = "benNAme1" placeholder="Name">
-            </div>
-            <div class="col-md-2"> 
-                <input type="text" class="form-control form-control-user" id="benRel1" name = "benRel1" placeholder="Relationship">
-            </div>
-            <div class="col-md-6"> 
-                <input type="text" class="form-control form-control-user" id="benAddress1" name = "benAddress1" placeholder="Address">
-            </div>
-        </div>
-         
-        <br>
-         
-        <div class="row">
-            <div class="col-md-4"> 
-                <input type="text" class="form-control form-control-user" id="benNAme2" name = "benNAme2" placeholder="Name">
-            </div>
-            <div class="col-md-2"> 
-                <input type="text" class="form-control form-control-user" id="benRel2" name = "benRel2" placeholder="Relationship">
-            </div>
-            <div class="col-md-6"> 
-                <input type="text" class="form-control form-control-user" id="benAddress2" name = "benAddress2" placeholder="Address">
-            </div>
-        </div>
-         
-        <br>
-         
-        <div class="row">
-            <div class="col-md-4"> 
-                <input type="text" class="form-control form-control-user" id="benNAme3" name = "benNAme3" placeholder="Name">
-            </div>
-            <div class="col-md-2"> 
-                <input type="text" class="form-control form-control-user" id="benRel3" name = "benRel3" placeholder="Relationship">
-            </div>
-            <div class="col-md-6"> 
-                <input type="text" class="form-control form-control-user" id="benAddress3" name = "benAddress3" placeholder="Address">
-            </div>
-        </div>
-         
-        <br>
-         
-        <div class="row">
-            <div class="col-md-4"> 
-                <input type="text" class="form-control form-control-user" id="benNAme4" name = "benNAme4" placeholder="Name">
-            </div>
-            <div class="col-md-2"> 
-                <input type="text" class="form-control form-control-user" id="benRel4" name = "benRel4" placeholder="Relationship">
-            </div>
-            <div class="col-md-6"> 
-                <input type="text" class="form-control form-control-user" id="benAddress4" name = "benAddress4" placeholder="Address">
-            </div>
-        </div> -->
-
         <br>
 
         <h1 class="h6 text-gray-900 mb-4">Dependents:</h1>
@@ -472,46 +383,6 @@
                 <button type="button" name="addDep" id="addDep" class="btn btn-success btn-xs">+</button>
             </div>
         </div>
-
-        <!-- <div class="row">
-            <div class="col-md-6"> 
-                <input type="text" class="form-control form-control-user" id="dependentsName1" name = "dependentsName1" placeholder="Name">
-            </div>
-            <div class="col-md-2"> 
-                <input type="text" class="form-control form-control-user" id="dependetsRel1" name = "dependetsRel1" placeholder="Relationship">
-            </div>
-            <div class="col-md-4"> 
-                <input type="date" id="dateofbirthdependent1" name = "dateofbirthdependent1" class="form-control form-control-user" >
-            </div>
-        </div>
-         
-        <br>
-         
-        <div class="row">
-            <div class="col-md-6"> 
-                <input type="text" class="form-control form-control-user" id="dependentsName2" name = "dependentsName2" placeholder="Name">
-            </div>
-            <div class="col-md-2"> 
-                <input type="text" class="form-control form-control-user" id="dependetsRel2" name = "dependetsRel2" placeholder="Relationship">
-            </div>
-            <div class="col-md-4"> 
-                <input type="date" id="dateofbirthdependent2" name = "dateofbirthdependent2" class="form-control form-control-user" >
-            </div>
-        </div>
-         
-        <br>
-         
-        <div class="row">
-            <div class="col-md-6"> 
-                <input type="text" class="form-control form-control-user" id="dependentsName3" name = "dependentsName3" placeholder="Name">
-            </div>
-            <div class="col-md-2"> 
-                <input type="text" class="form-control form-control-user" id="dependetsRel3" name = "dependetsRel3" placeholder="Relationship">
-            </div>
-            <div class="col-md-4"> 
-                <input type="date" id="dateofbirthdependent3" name = "dateofbirthdependent3" class="form-control form-control-user" >
-            </div>
-        </div> -->
     </div>
 </div>
 
@@ -577,165 +448,21 @@
         </div>
     </div>
 </div>
-
-
-<!-- <div class="card mb-4">
-    <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Allottee</h6>
-    </div>
-    <div class="card-body">
-         
-        <div class="row">
-            <div class="col-md-4"> 
-                <input type="text" class="form-control form-control-user" id="nameAllottee1" name = "nameAllottee1" placeholder="Name">
-            </div>
-            <div class="col-md-4"> 
-                <input type="text" class="form-control form-control-user" id="relAllottee1" name = "relAllottee1" placeholder="Relationship">
-            </div>
-            <div class="col-md-4"> 
-                <input type="text" class="form-control form-control-user" id="addAllottee1" name = "addAllottee1" placeholder="Address">
-            </div>
-        </div>
-         
-        <br>
-         
-        <div class="row">
-            <div class="col-md-4"> 
-                <input type="text" class="form-control form-control-user" id="nameAllottee2" name = "nameAllottee2" placeholder="Name">
-            </div>
-            <div class="col-md-4"> 
-                <input type="text" class="form-control form-control-user" id="relAllottee2"  name = "relAllottee2" placeholder="Relationship">
-            </div>
-            <div class="col-md-4"> 
-                <input type="text" class="form-control form-control-user" id="addAllottee2" name = "addAllottee2" placeholder="Address">
-            </div>
-        </div>
-         
-        <br>
-         
-        <div class="row">
-            <div class="col-md-4"> 
-                <input type="text" class="form-control form-control-user" id="nameAllottee3" name = "nameAllottee3" placeholder="Name">
-            </div>
-            <div class="col-md-4"> 
-                <input type="text" class="form-control form-control-user" id="relAllottee3" name = "relAllottee3" placeholder="Relationship">
-            </div>
-            <div class="col-md-4"> 
-                <input type="text" class="form-control form-control-user" id="addAllottee3" name = "addAllottee3" placeholder="Address">
-            </div>
-        </div>
-         
-        <br>
-         
-        <div class="row">
-            <div class="col-md-4"> 
-                <input type="text" class="form-control form-control-user" id="nameAllottee4" name = "nameAllottee4" placeholder="Name">
-            </div>
-            <div class="col-md-4"> 
-                <input type="text" class="form-control form-control-user" id="relAllottee4"  name = "relAllottee4" placeholder="Relationship">
-            </div>
-            <div class="col-md-4"> 
-                <input type="text" class="form-control form-control-user" id="addAllottee4" name = "addAllottee4" placeholder="Address">
-            </div>
-        </div>
-         
-        <br>
-         
-        <div class="row">
-            <div class="col-md-4"> 
-                <input type="text" class="form-control form-control-user" id="nameAllottee5" name = "nameAllottee5" placeholder="Name">
-            </div>
-            <div class="col-md-4"> 
-                <input type="text" class="form-control form-control-user" id="relAllottee5" name = "relAllottee5" placeholder="Relationship">
-            </div>
-            <div class="col-md-4"> 
-                <input type="text" class="form-control form-control-user" id="addAllottee5" name = "addAllottee5" placeholder="Address">
-            </div>
-        </div>
-         
-        <br>
-         
-        <div class="row">
-            <div class="col-md-4"> 
-                <input type="text" class="form-control form-control-user" id="nameAllottee6" name = "nameAllottee6" placeholder="Name">
-            </div>
-            <div class="col-md-4"> 
-                <input type="text" class="form-control form-control-user" id="relAllottee6" name = "relAllottee6" placeholder="Relationship">
-            </div>
-            <div class="col-md-4"> 
-                <input type="text" class="form-control form-control-user" id="addressAllotte6" name = "addressAllotte6" placeholder="Address">
-            </div>
-        </div>
-    </div>
-</div> -->
-
-<div class="card mb-4">
-    <div class="card-header py-3">
-        <!-- <h6 class="m-0 font-weight-bold text-primary">RPS</h6> -->
-        <button class="btn btn-dark" type="button" data-toggle="collapse" data-target="#collapse_6" aria-expanded="false" aria-controls="collapseExample">
-            RPS
-        </button>
-    </div>
-    <div class="card-body collapse" id="collapse_6">
-        <div class="row">
-            <div class="col-md-6">
-                <label class="text-dark"> Agency </label>
-                <input type="text" class="form-control form-control-user" id="agency" name="agency" placeholder="Agency">
-            </div>
-        </div>
-
-        <br>
-
-        <div class="row">
-            <div class="col-md-6">
-                <label class="text-dark"> Principal </label>
-                <input type="text" class="form-control form-control-user" id="principal" name="principal" placeholder="Principal">
-            </div>
-        </div>
-
-        <br>
-
-        <div class="row">
-            <div class="col-md-6">
-                <label class="text-dark"> Vessel </label>
-                <input type="text" class="form-control form-control-user" id="vessel" name="vessel" placeholder="Vessel">
-            </div>
-        </div>
-
-        <br>
-
-        <div class="row">
-            <div class="col-md-12">
-                <button class="btn btn-dark btn-user btn-block" id="registerApplicants" type="submit">
-                    Register Applicant
-                </button>
-            </div>
-            <br>
-        </div>
-        @* <div class="alert alert-danger" role="alert" id="loginAlert"> *@
-        @*     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> *@
-        @*     <span id="textLoginAlert"> </span> *@
-        @* </div> *@
-    </div>
-
-</div>
 </div>
 </form>
-
-
 <script>
-             $(document).ready(function(){
-                  document.getElementById("files").onchange = function() {
-                                  var reader = new FileReader();
-                  
-                                  reader.onload = function(e) {
-                                      // get loaded data and render thumbnail.
-                                      document.getElementById("image").src = e.target.result;
-                                  };
-                  
-                                  // read the image file as a data URL.
-                                  reader.readAsDataURL(this.files[0]);
-                              };
-                  console.log('ready');
-             });
-         </script>
+    $(document).ready(function(){
+      document.getElementById("files").onchange = function() {
+        var reader = new FileReader();
+        
+        reader.onload = function(e) {
+          // get loaded data and render thumbnail.
+          document.getElementById("image").src = e.target.result;
+        };
+        
+        // read the image file as a data URL.
+        reader.readAsDataURL(this.files[0]);
+        };
+      console.log('ready');
+    });
+</script>

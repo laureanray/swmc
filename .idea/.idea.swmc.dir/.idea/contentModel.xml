@@ -81,9 +81,13 @@
       </e>
       <e p="bin" t="ExcludeRecursive" />
       <e p="Controllers" t="Include">
+        <e p="API" t="Include">
+          <e p="VesselController.cs" t="Include" />
+        </e>
         <e p="ApplicantController.cs" t="Include" />
         <e p="DashboardController.cs" t="Include" />
         <e p="HomeController.cs" t="Include" />
+        <e p="VesselController.cs" t="Include" />
       </e>
       <e p="Data" t="Include">
         <e p="ApplicationDbContext.cs" t="Include" />
@@ -92,6 +96,10 @@
       <e p="Migrations" t="Include">
         <e p="20190930171611_initial_migration.cs" t="Include" />
         <e p="20190930171611_initial_migration.Designer.cs" t="Include" />
+        <e p="20191021153807_new.cs" t="Include" />
+        <e p="20191021153807_new.Designer.cs" t="Include" />
+        <e p="20191021160125_new_.cs" t="Include" />
+        <e p="20191021160125_new_.Designer.cs" t="Include" />
         <e p="ApplicationDbContextModelSnapshot.cs" t="Include" />
       </e>
       <e p="Models" t="Include">
@@ -142,6 +150,9 @@
           <e p="_LoginPartial.cshtml" t="Include" />
           <e p="_ValidationScriptsPartial.cshtml" t="Include" />
           <e p="Error.cshtml" t="Include" />
+        </e>
+        <e p="Vessel" t="Include">
+          <e p="Index.cshtml" t="Include" />
         </e>
       </e>
       <e p="wwwroot" t="Include">
@@ -200,12 +211,47 @@
             <e p="Chart.min.js" t="Include" />
           </e>
           <e p="datatables" t="Include">
-            <e p="dataTables.bootstrap4.css" t="Include" />
-            <e p="dataTables.bootstrap4.js" t="Include" />
-            <e p="dataTables.bootstrap4.min.css" t="Include" />
-            <e p="dataTables.bootstrap4.min.js" t="Include" />
-            <e p="jquery.dataTables.js" t="Include" />
-            <e p="jquery.dataTables.min.js" t="Include" />
+            <e p="DataTables-1.10.20" t="Include">
+              <e p="css" t="Include">
+                <e p="dataTables.bootstrap.css" t="Include" />
+                <e p="dataTables.bootstrap.min.css" t="Include" />
+                <e p="dataTables.bootstrap4.css" t="Include" />
+                <e p="dataTables.bootstrap4.min.css" t="Include" />
+                <e p="dataTables.foundation.css" t="Include" />
+                <e p="dataTables.foundation.min.css" t="Include" />
+                <e p="dataTables.jqueryui.css" t="Include" />
+                <e p="dataTables.jqueryui.min.css" t="Include" />
+                <e p="dataTables.semanticui.css" t="Include" />
+                <e p="dataTables.semanticui.min.css" t="Include" />
+                <e p="jquery.dataTables.css" t="Include" />
+                <e p="jquery.dataTables.min.css" t="Include" />
+              </e>
+              <e p="images" t="Include">
+                <e p="sort_asc.png" t="Include" />
+                <e p="sort_asc_disabled.png" t="Include" />
+                <e p="sort_both.png" t="Include" />
+                <e p="sort_desc.png" t="Include" />
+                <e p="sort_desc_disabled.png" t="Include" />
+              </e>
+              <e p="js" t="Include">
+                <e p="dataTables.bootstrap.js" t="Include" />
+                <e p="dataTables.bootstrap.min.js" t="Include" />
+                <e p="dataTables.bootstrap4.js" t="Include" />
+                <e p="dataTables.bootstrap4.min.js" t="Include" />
+                <e p="dataTables.foundation.js" t="Include" />
+                <e p="dataTables.foundation.min.js" t="Include" />
+                <e p="dataTables.jqueryui.js" t="Include" />
+                <e p="dataTables.jqueryui.min.js" t="Include" />
+                <e p="dataTables.semanticui.js" t="Include" />
+                <e p="dataTables.semanticui.min.js" t="Include" />
+                <e p="jquery.dataTables.js" t="Include" />
+                <e p="jquery.dataTables.min.js" t="Include" />
+              </e>
+            </e>
+            <e p="datatables.css" t="Include" />
+            <e p="datatables.js" t="Include" />
+            <e p="datatables.min.css" t="Include" />
+            <e p="datatables.min.js" t="Include" />
           </e>
           <e p="fa" t="Include">
             <e p="css" t="Include">
