@@ -9,9 +9,11 @@
         public string SpouseSuffix { get; set; }
         public int NumberOfChildren { get; set; }
         public string FathersFirstName { get; set; }
+        public string FathersMiddleName { get; set; }
         public string FathersLastName { get; set; }
         public string FathersSuffix { get; set; }
         public string MothersFirstName { get; set; }
+        public string MothersMiddleName { get; set; }
         public string MothersLastName { get; set; }
         public string MothersSuffix { get; set; }
     }

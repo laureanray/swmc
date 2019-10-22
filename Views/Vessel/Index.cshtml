@@ -5,7 +5,7 @@
 
 <!-- Modal Form -->
 <div class="modal fade" id="addVesselForm" tabindex="-1" role="dialog" aria-labelledby="addVesselFormTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="addVesselFormTitle">Add Vessel</h5>
@@ -16,22 +16,22 @@
             <div class="modal-body">
                               <div class="row">
                                   <div class="col-md-4">
-                                      <label class="text-dark"> First Name </label>
-                                      <input type="text" class="form-control form-control-user" placeholder="First Name">
+                                      <label class="text-dark"> Vessel Name </label>
+                                      <input type="text" class="form-control form-control-user" placeholder="Vessel Name">
                                   </div>
                                   <div class="col-md-4">
-                                      <label class="text-dark"> Last Name </label>
-                                      <input type="text" class="form-control form-control-user" placeholder="Last Name">
+                                      <label class="text-dark"> Principal </label>
+                                      <input type="text" class="form-control form-control-user" placeholder="Principal">
                                   </div>
                                   <div class="col-md-4">
-                                      <label class="text-dark"> Middle Name </label>
-                                      <input type="text" class="form-control form-control-user"  placeholder="Middle Name">
+                                      <label class="text-dark"> Flag </label>
+                                      <input type="text" class="form-control form-control-user"  placeholder="Flag">
                                   </div>
                               </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary">Add Vessel </button>
             </div>
         </div>
     </div>
@@ -56,19 +56,14 @@
             <table id="vesselTable" class="display">
                 <thead>
                 <tr>
-                    <th>Column 1</th>
-                    <th>Column 2</th>
+                    <th>ID</th>
+                    <th>Vessel Name</th>
+                    <th>Principal</th>
+                    <th>Gross Tonnage</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>Row 1 Data 1</td>
-                    <td>Row 1 Data 2</td>
-                </tr>
-                <tr>
-                    <td>Row 2 Data 1</td>
-                    <td>Row 2 Data 2</td>
-                </tr>
+               
                 </tbody>
             </table>
         </div>
@@ -77,5 +72,36 @@
 
 
 <script >
-    $("#vesselTable").DataTable();
+    function initDataTable(data){
+        $("#vesselTable").DataTable({
+            data: data,
+            columns: [
+                { "data": "vesselId" },
+                { "data": "vesselName" },
+                { "data": "principal" },
+                { "data": "grossTonnage" }
+            ],
+            destroy: true            
+        });
+    }
+    
+    function getData(callback){
+        $.ajax({
+            type: 'GET',
+            dataType: 'json',
+            url: '/api/Vessel',
+            success: function(data){
+                callback(data);
+            },
+            error: function(err){
+                console.log(err);
+            }
+        })
+    }
+    
+    getData(function(data){
+        console.log(data);
+        initDataTable(data);
+    });
+    
 </script>

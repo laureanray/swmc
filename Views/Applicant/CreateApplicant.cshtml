@@ -208,22 +208,23 @@
                 <div class="row">
                     <div class="col-md-3">
                         <label class="text-dark"> First Name </label>
-                        <input type="text" class="form-control form-control-user" id="firstNameSpouse" name="firstNameSpouse" placeholder="First Name">
+                        <input type="text" class="form-control form-control-user" asp-for="Family.SpouseFirstName" placeholder="First Name">
+                        <span asp-validation-for="Family.SpouseFirstName" class="text-danger"></span>
                     </div>
                     <div class="col-md-3">
                         <label class="text-dark"> Last Name </label>
-
-                        <input type="text" class="form-control form-control-user" id="lastNameSpouse" name="lastNameSpouse" placeholder="Last Name">
+                        <input type="text" class="form-control form-control-user" asp-for="Family.SpouseLastName" placeholder="Last Name">
+                        <span asp-validation-for="Family.SpouseLastName" class="text-danger"></span>
                     </div>
                     <div class="col-md-3">
                         <label class="text-dark"> Middle Name </label>
-
-                        <input type="text" class="form-control form-control-user" id="middleNameSpouse" name="middleNameSpouse" placeholder="Middle Name">
+                        <input type="text" class="form-control form-control-user" asp-for="Family.SpouseMiddleName" placeholder="Middle Name">
+                        <span asp-validation-for="Family.SpouseMiddleName" class="text-danger"></span>
                     </div>
                     <div class="col-md-2">
                         <label class="text-dark"> Suffix </label>
-
-                        <input type="text" class="form-control form-control-user" id="suffixSpouse" name="suffixSpouse" placeholder="Suffix">
+                        <input type="text" class="form-control form-control-user" asp-for="Family.SpouseSuffix" placeholder="Suffix">
+                        <span asp-validation-for="Family.SpouseSuffix" class="text-danger"></span>
                     </div>
                 </div>
 
@@ -232,8 +233,8 @@
                 <div class="row">
                     <div class="col-md-2">
                         <label class="text-dark"> No. of Children </label>
-
-                        <input type="text" class="form-control form-control-user" id="children" name="children" placeholder="No. of Children">
+                        <input type="text" class="form-control form-control-user" asp-for="Family.NumberOfChildren" placeholder="No. of Children">
+                        <span asp-validation-for="Family.NumberOfChildren" class="text-danger"></span>
                     </div>
                 </div>
 
@@ -243,26 +244,25 @@
                 <div class="row">
                     <div class="col-md-3">
                         <label class="text-dark"> First Name </label>
-
-                        <input type="text" class="form-control form-control-user" id="fatherfirstName" name="fatherfirstName" placeholder="First Name">
+                        <input type="text" class="form-control form-control-user" asp-for="Family.FathersFirstName" placeholder="First Name">
+                        <span asp-validation-for="Family.FathersFirstName" class="text-danger"></span>
                     </div>
                     <div class="col-md-3">
                         <label class="text-dark"> Last Name </label>
-
-                        <input type="text" class="form-control form-control-user" id="fatherlastName" name="fatherlastName" placeholder="Last Name">
+                        <input type="text" class="form-control form-control-user" asp-for="Family.FathersLastName" placeholder="Last Name">
+                        <span asp-validation-for="Family.FathersLastName" class="text-danger"></span>
                     </div>
                     <div class="col-md-3">
                         <label class="text-dark"> Middle Name </label>
-
-                        <input type="text" class="form-control form-control-user" id="fathermiddleName" name="fathermiddleName" placeholder="Middle Name">
+                        <input type="text" class="form-control form-control-user" asp-for="Family.FathersMiddleName" placeholder="Middle Name">
+                        <span asp-validation-for="Family.FathersMiddleName" class="text-danger"></span>
                     </div>
                     <div class="col-md-2">
                         <label class="text-dark"> Suffix </label>
-
-                        <input type="text" class="form-control form-control-user" id="fatherSuffix" name="fatherSuffix" placeholder="Suffix">
+                        <input type="text" class="form-control form-control-user" asp-for="Family.FathersSuffix" placeholder="Suffix">
+                        <span asp-validation-for="Family.FathersSuffix" class="text-danger"></span>
                     </div>
                 </div>
-
 
                 <br>
 
@@ -270,22 +270,21 @@
                 <div class="row">
                     <div class="col-md-3">
                         <label class="text-dark"> First Name </label>
-                        <input type="text" class="form-control form-control-user" id="motherFirstName" name="motherFirstName" placeholder="First Name">
+                        <input type="text" class="form-control form-control-user" asp-for="Family.MothersFirstName" placeholder="First Name">
                     </div>
                     <div class="col-md-3">
                         <label class="text-dark"> Last Name </label>
-                        <input type="text" class="form-control form-control-user" id="motherLastName" name="motherLastName" placeholder="Last Name">
+                        <input type="text" class="form-control form-control-user" asp-for="Family.MothersLastName" placeholder="Last Name">
                     </div>
                     <div class="col-md-3">
                         <label class="text-dark"> Middle Name </label>
-                        <input type="text" class="form-control form-control-user" id="motherMiddleName" name="motherMiddleName" placeholder="Middle Name">
+                        <input type="text" class="form-control form-control-user" asp-for="Family.MothersMiddleName" placeholder="Middle Name">
                     </div>
                     <div class="col-md-2">
                         <label class="text-dark"> Suffix </label>
-                        <input type="text" class="form-control form-control-user" id="motherSuffix" name="motherSuffix" placeholder="Suffix">
+                        <input type="text" class="form-control form-control-user" asp-for="Family.MothersSuffix" placeholder="Suffix">
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
@@ -341,23 +340,38 @@
 
         <h1 class="h6 text-gray-900 mb-4">Beneficiaries:</h1>
 
-        <div class="table-responsive">
-            <table class="table table-bordered" id="ben_table">
-                <tr>
-                    <th width="30%">Name</th>
-                    <th width="10%">Relationship</th>
-                    <th width="45%">Address</th>
-                    <th width="5%"></th>
-                </tr>
-                <tr>
-                    <td contenteditable="true" class="item_name"></td>
-                    <td contenteditable="true" class="item_rel"></td>
-                    <td contenteditable="true" class="item_add"></td>
-                    <td></td>
-                </tr>
-            </table>
-            <div align="right">
-                <button type="button" name="addBen" id="addBen" class="btn btn-success btn-xs">+</button>
+        <div class="row">
+            <div class="col-md-4">
+                <label class="text-dark"> Name </label>
+            </div>
+            <div class="col-md-4">
+                <label class="text-dark"> Relationship </label>
+            </div>
+            <div class="col-md-4">
+                <label class="text-dark"> Address </label>
+            </div>
+        </div>
+
+        <div id="benRow">
+            <div class="row">
+                <div class="col-md-4">
+                    <input type="text" class="form-control form-control-user" asp-for="@Model.Beneficiaries[0].Name" placeholder="Name">
+                </div>
+                <div class="col-md-4">
+                    <input type="text" class="form-control form-control-user" asp-for="@Model.Beneficiaries[0].Relationship" placeholder="Relationship">
+                </div>
+                <div class="col-md-4">
+                    <input type="text" class="form-control form-control-user" asp-for="@Model.Beneficiaries[0].Address" placeholder="Address">
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row justify-content-end mt-2">
+            <div class="col text-right">
+                <button class="btn btn-success" id="addBeneficiaries">
+                    <i class="fas fa-fw fa-plus"></i>
+                </button>
             </div>
         </div>
         <br>
@@ -448,10 +462,36 @@
         </div>
     </div>
 </div>
+
+<button type="submit" class="btn btn-success btn-lg mb-4"> Add Applicant</button>
+
 </div>
+
+
 </form>
 <script>
     $(document).ready(function(){
+      $("#addBeneficiaries").click(function(event){
+          event.preventDefault();
+          
+          var numOfRows = $("#benRow .row").length;
+
+          $("#benRow").append(
+              '<div class="row mt-2">\n'+
+               '                <div class="col-md-4">\n'+
+               '                    <input type="text" class="form-control form-control-user" id="Beneficiaries_'+ numOfRows +'__Name" name="Beneficiaries[' + numOfRows +  '].Name" placeholder="Name">\n'+
+               '                </div>\n'+
+               '                <div class="col-md-4">\n'+
+               '                    <input type="text" class="form-control form-control-user" id="Beneficiaries_'+ numOfRows +'__Relationship"  name="Beneficiaries[' + numOfRows +  '].Relationship" placeholder="Relationship">\n'+
+               '                </div>\n'+
+               '                <div class="col-md-4">\n'+
+               '                    <input type="text" class="form-control form-control-user" id="Beneficiaries_'+ numOfRows +'__Address" name="Beneficiaries[' + numOfRows +  '].Address"  placeholder="Address">\n'+
+               '                </div>\n'+
+               '            </div>'
+          );
+      }); 
+        
+        
       document.getElementById("files").onchange = function() {
         var reader = new FileReader();
         

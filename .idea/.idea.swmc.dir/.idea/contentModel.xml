@@ -103,9 +103,12 @@
         <e p="ApplicationDbContextModelSnapshot.cs" t="Include" />
       </e>
       <e p="Models" t="Include">
+        <e p="Allottee.cs" t="Include" />
         <e p="Applicant.cs" t="Include" />
         <e p="ApplicationRole.cs" t="Include" />
         <e p="ApplicationUser.cs" t="Include" />
+        <e p="Beneficiary.cs" t="Include" />
+        <e p="Dependents.cs" t="Include" />
         <e p="Document.cs" t="Include" />
         <e p="EmbarkationRecord.cs" t="Include" />
         <e p="ErrorViewModel.cs" t="Include" />

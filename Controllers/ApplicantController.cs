@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
@@ -29,6 +30,21 @@ namespace swmc.Controllers
 
             if (ModelState.IsValid)
             {
+                var family = new Family()
+                {
+                    FathersSuffix = model.Family.FathersSuffix,
+                    FathersFirstName = model.Family.FathersFirstName,
+                    FathersLastName = model.Family.FathersLastName,
+                    MothersSuffix = model.Family.MothersSuffix,
+                    MothersFirstName = model.Family.MothersFirstName,
+                    MothersLastName = model.Family.MothersLastName,
+                    SpouseSuffix = model.Family.SpouseSuffix,
+                    SpouseFirstName = model.Family.SpouseFirstName,
+                    SpouseLastName = model.Family.SpouseLastName,
+                    SpouseMiddleName = model.Family.SpouseMiddleName,
+                    NumberOfChildren = model.Family.NumberOfChildren
+                };
+                
                 var applicant = new Applicant()
                 {
                     FirstName = model.Applicant.FirstName,
@@ -47,8 +63,11 @@ namespace swmc.Controllers
                     DateOfBirth = model.Applicant.DateOfBirth,
                     PlaceOfBirth = model.Applicant.PlaceOfBirth,
                     Telephone = model.Applicant.Telephone,
-                    IsActive = true
+                    IsActive = true,
+                    Family = family
                 };
+                
+                
 
                 var res = await _context.Applicants.AddAsync(applicant);
                 
