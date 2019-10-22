@@ -10,8 +10,8 @@ using swmc.Data;
 namespace swmc.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20190930171611_initial_migration")]
-    partial class initial_migration
+    [Migration("20191022175150_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -111,51 +111,96 @@ namespace swmc.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("swmc.Models.Allottee", b =>
+                {
+                    b.Property<int>("AllotteeId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Address");
+
+                    b.Property<int>("ApplicantId");
+
+                    b.Property<string>("Name");
+
+                    b.Property<string>("Relationship");
+
+                    b.HasKey("AllotteeId");
+
+                    b.HasIndex("ApplicantId");
+
+                    b.ToTable("Allottee");
+                });
+
             modelBuilder.Entity("swmc.Models.Applicant", b =>
                 {
                     b.Property<int>("ApplicantId")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Address");
+                    b.Property<string>("Address")
+                        .IsRequired();
 
                     b.Property<int>("Age");
 
-                    b.Property<string>("Cellphone");
+                    b.Property<string>("Cellphone")
+                        .IsRequired();
 
-                    b.Property<string>("Citizenship");
+                    b.Property<string>("Citizenship")
+                        .IsRequired();
 
-                    b.Property<int>("CivilStatus");
+                    b.Property<string>("CivilStatus")
+                        .IsRequired();
 
                     b.Property<DateTime>("DateOfBirth");
 
-                    b.Property<int?>("FamilyId");
+                    b.Property<string>("FirstName")
+                        .IsRequired();
 
-                    b.Property<string>("FirstName");
+                    b.Property<string>("Gender")
+                        .IsRequired();
 
-                    b.Property<int>("Gender");
-
-                    b.Property<string>("Height");
+                    b.Property<string>("Height")
+                        .IsRequired();
 
                     b.Property<bool>("IsActive");
 
-                    b.Property<string>("LastName");
+                    b.Property<string>("LastName")
+                        .IsRequired();
+
+                    b.Property<string>("LastSchoolAttended")
+                        .IsRequired();
+
+                    b.Property<string>("MiddleName")
+                        .IsRequired();
 
                     b.Property<byte[]>("Photo");
 
-                    b.Property<string>("PlaceOfBirth");
+                    b.Property<string>("PlaceOfBirth")
+                        .IsRequired();
 
-                    b.Property<int>("Position");
+                    b.Property<string>("Position")
+                        .IsRequired();
 
-                    b.Property<string>("Religion");
+                    b.Property<string>("Religion")
+                        .IsRequired();
+
+                    b.Property<string>("SchoolFrom")
+                        .IsRequired();
+
+                    b.Property<string>("SchoolTo");
+
+                    b.Property<string>("Status");
 
                     b.Property<string>("Suffix");
 
-                    b.Property<string>("Telephone");
+                    b.Property<string>("Telephone")
+                        .IsRequired();
+
+                    b.Property<string>("Weight")
+                        .IsRequired();
 
                     b.HasKey("ApplicantId");
-
-                    b.HasIndex("FamilyId");
 
                     b.ToTable("Applicants");
                 });
@@ -243,11 +288,55 @@ namespace swmc.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
+            modelBuilder.Entity("swmc.Models.Beneficiary", b =>
+                {
+                    b.Property<int>("BeneficiaryId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Address");
+
+                    b.Property<int>("ApplicantId");
+
+                    b.Property<string>("Name");
+
+                    b.Property<string>("Relationship");
+
+                    b.HasKey("BeneficiaryId");
+
+                    b.HasIndex("ApplicantId");
+
+                    b.ToTable("Beneficiary");
+                });
+
+            modelBuilder.Entity("swmc.Models.Dependent", b =>
+                {
+                    b.Property<int>("DependentId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Age");
+
+                    b.Property<int>("ApplicantId");
+
+                    b.Property<string>("Name");
+
+                    b.Property<string>("Relationship");
+
+                    b.HasKey("DependentId");
+
+                    b.HasIndex("ApplicantId");
+
+                    b.ToTable("Dependent");
+                });
+
             modelBuilder.Entity("swmc.Models.Document", b =>
                 {
                     b.Property<int>("DocumentId")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("ApplicantId");
 
                     b.Property<DateTime>("DateExpiry");
 
@@ -256,6 +345,8 @@ namespace swmc.Migrations
                     b.Property<string>("DocumentName");
 
                     b.HasKey("DocumentId");
+
+                    b.HasIndex("ApplicantId");
 
                     b.ToTable("Documents");
                 });
@@ -266,15 +357,21 @@ namespace swmc.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("ApplicantId");
+
                     b.Property<string>("FathersFirstName");
 
                     b.Property<string>("FathersLastName");
+
+                    b.Property<string>("FathersMiddleName");
 
                     b.Property<string>("FathersSuffix");
 
                     b.Property<string>("MothersFirstName");
 
                     b.Property<string>("MothersLastName");
+
+                    b.Property<string>("MothersMiddleName");
 
                     b.Property<string>("MothersSuffix");
 
@@ -290,7 +387,67 @@ namespace swmc.Migrations
 
                     b.HasKey("FamilyId");
 
+                    b.HasIndex("ApplicantId")
+                        .IsUnique();
+
                     b.ToTable("Families");
+                });
+
+            modelBuilder.Entity("swmc.Models.Vessel", b =>
+                {
+                    b.Property<int>("VesselId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CBA");
+
+                    b.Property<string>("Classification");
+
+                    b.Property<DateTime>("DateAdded");
+
+                    b.Property<DateTime>("DateEnrolled");
+
+                    b.Property<DateTime>("DateModified");
+
+                    b.Property<string>("EngineMake")
+                        .IsRequired();
+
+                    b.Property<string>("Flag")
+                        .IsRequired();
+
+                    b.Property<string>("GrossTonnage")
+                        .IsRequired();
+
+                    b.Property<string>("HorsePower");
+
+                    b.Property<string>("IMONumber");
+
+                    b.Property<bool>("IsArchived");
+
+                    b.Property<string>("JSU")
+                        .IsRequired();
+
+                    b.Property<string>("OfficialNumber");
+
+                    b.Property<string>("PortRegistry");
+
+                    b.Property<string>("Principal")
+                        .IsRequired();
+
+                    b.Property<string>("Status");
+
+                    b.Property<string>("Type");
+
+                    b.Property<string>("VesselAbr");
+
+                    b.Property<string>("VesselName")
+                        .IsRequired();
+
+                    b.Property<string>("YearBuilt");
+
+                    b.HasKey("VesselId");
+
+                    b.ToTable("Vessels");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -338,11 +495,44 @@ namespace swmc.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("swmc.Models.Applicant", b =>
+            modelBuilder.Entity("swmc.Models.Allottee", b =>
                 {
-                    b.HasOne("swmc.Models.Family", "Family")
-                        .WithMany()
-                        .HasForeignKey("FamilyId");
+                    b.HasOne("swmc.Models.Applicant", "Applicant")
+                        .WithMany("Allottees")
+                        .HasForeignKey("ApplicantId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("swmc.Models.Beneficiary", b =>
+                {
+                    b.HasOne("swmc.Models.Applicant", "Applicant")
+                        .WithMany("Beneficiaries")
+                        .HasForeignKey("ApplicantId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("swmc.Models.Dependent", b =>
+                {
+                    b.HasOne("swmc.Models.Applicant", "Applicant")
+                        .WithMany("Dependents")
+                        .HasForeignKey("ApplicantId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("swmc.Models.Document", b =>
+                {
+                    b.HasOne("swmc.Models.Applicant", "Applicant")
+                        .WithMany("Documents")
+                        .HasForeignKey("ApplicantId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("swmc.Models.Family", b =>
+                {
+                    b.HasOne("swmc.Models.Applicant", "Applicant")
+                        .WithOne("Family")
+                        .HasForeignKey("swmc.Models.Family", "ApplicantId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

@@ -3,6 +3,8 @@
     public class Family
     {
         public int FamilyId { get; set; }
+        public int ApplicantId { get; set; }
+        public Applicant Applicant { get; set; }
         public string SpouseFirstName { get; set; }
         public string SpouseLastName { get; set; }
         public string SpouseMiddleName { get; set; }

@@ -94,12 +94,8 @@
         <e p="DataBootstrapper.cs" t="Include" />
       </e>
       <e p="Migrations" t="Include">
-        <e p="20190930171611_initial_migration.cs" t="Include" />
-        <e p="20190930171611_initial_migration.Designer.cs" t="Include" />
-        <e p="20191021153807_new.cs" t="Include" />
-        <e p="20191021153807_new.Designer.cs" t="Include" />
-        <e p="20191021160125_new_.cs" t="Include" />
-        <e p="20191021160125_new_.Designer.cs" t="Include" />
+        <e p="20191022175150_initial.cs" t="Include" />
+        <e p="20191022175150_initial.Designer.cs" t="Include" />
         <e p="ApplicationDbContextModelSnapshot.cs" t="Include" />
       </e>
       <e p="Models" t="Include">
@@ -108,7 +104,7 @@
         <e p="ApplicationRole.cs" t="Include" />
         <e p="ApplicationUser.cs" t="Include" />
         <e p="Beneficiary.cs" t="Include" />
-        <e p="Dependents.cs" t="Include" />
+        <e p="Dependent.cs" t="Include" />
         <e p="Document.cs" t="Include" />
         <e p="EmbarkationRecord.cs" t="Include" />
         <e p="ErrorViewModel.cs" t="Include" />
@@ -166,6 +162,9 @@
           <e p="site.css" t="Include" />
         </e>
         <e p="favicon.png" t="Include" />
+        <e p="images" t="Include">
+          <e p="avatar.png" t="Include" />
+        </e>
         <e p="js" t="Include">
           <e p="demo" t="Include">
             <e p="chart-area-demo.js" t="Include" />

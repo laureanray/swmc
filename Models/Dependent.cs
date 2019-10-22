@@ -4,9 +4,11 @@ using System.ComponentModel.DataAnnotations;
 
 namespace swmc.Models
 {
-    public class Dependents
+    public class Dependent
     {
-        public int DependentsId { get; set; }
+        public int DependentId { get; set; }
+        public int ApplicantId { get; set; }
+        public Applicant Applicant { get; set; }
         public string Name { get; set; }
         public string Relationship { get; set; }
         public int Age { get; set; }

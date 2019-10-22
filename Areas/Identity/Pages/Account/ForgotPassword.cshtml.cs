@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using SendGrid;
+using SendGrid.Helpers.Mail;
 using swmc.Models;
 
 namespace swmc.Areas.Identity.Pages.Account
@@ -54,15 +56,25 @@ namespace swmc.Areas.Identity.Pages.Account
                     values: new { code },
                     protocol: Request.Scheme);
 
-                await _emailSender.SendEmailAsync(
-                    Input.Email,
-                    "Reset Password",
+                await SendEmail("Reset Password", new EmailAddress(user.Email, user.FirstName + " " + user.LastName),
                     $"Please reset your password by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
 
                 return RedirectToPage("./ForgotPasswordConfirmation");
             }
 
             return Page();
+        }
+        
+        public static async Task SendEmail(string subject, EmailAddress to, string content)
+        {
+            var apiKey = Environment.GetEnvironmentVariable("SENDGRID");
+            var client = new SendGridClient(apiKey);
+            var from = new EmailAddress("admin@swmc.com", "No Reply");
+            subject = "Sending with SendGrid is Fun";
+            var plainTextContent = "and easy to do anywhere, even with C#";
+            var htmlContent = "<strong>and easy to do anywhere, even with C#</strong>";
+            var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
+            var response = await client.SendEmailAsync(msg);
         }
     }
 }

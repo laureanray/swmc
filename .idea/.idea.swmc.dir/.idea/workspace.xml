@@ -45,12 +45,14 @@
     <setting file="file://$PROJECT_DIR$/Program.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Data/ApplicationDbContext.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Views/_ViewStart.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/DBC57F52-BDD4-45DA-8B29-C21452AD12F4/55/2b34e891/RazorPage`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Data/DataBootstrapper.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Models/Allottee.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Models/Dependents.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/Dependent.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Models/Beneficiary.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Startup.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Views/Shared/_DashboardLayout.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Areas/Identity/Pages/Account/ForgotPassword.cshtml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Views/Shared/_Layout.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Views/Shared/_LoginPartial.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Models/ApplicationUser.cs" root0="FORCE_HIGHLIGHTING" />
@@ -67,14 +69,11 @@
         <option value="$PROJECT_DIR$/Views/Shared/_CookieConsentPartial.cshtml" />
         <option value="$PROJECT_DIR$/Models/Documents.cs" />
         <option value="$PROJECT_DIR$/Models/ApplicationUser.cs" />
-        <option value="$PROJECT_DIR$/Models/Document.cs" />
-        <option value="$PROJECT_DIR$/Data/DataBootstrapper.cs" />
         <option value="$PROJECT_DIR$/Startup.cs" />
         <option value="$PROJECT_DIR$/Models/ApplicationRole.cs" />
         <option value="$PROJECT_DIR$/Areas/Identity/Pages/Account/Manage/_Layout.cshtml" />
         <option value="$PROJECT_DIR$/Controllers/DashboardController.cs" />
         <option value="$PROJECT_DIR$/Controllers/HomeController.cs" />
-        <option value="$PROJECT_DIR$/Areas/Identity/Pages/Account/Login.cshtml.cs" />
         <option value="$PROJECT_DIR$/Views/Shared/_NavBarPartial.cshtml" />
         <option value="$PROJECT_DIR$/Areas/Identity/Pages/Account/Login.cshtml" />
         <option value="$PROJECT_DIR$/Views/Shared/_Layout.cshtml" />
@@ -82,7 +81,6 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/Views/Dashboard/Index.cshtml" />
         <option value="$PROJECT_DIR$/wwwroot/css/site.css" />
-        <option value="$PROJECT_DIR$/Models/Applicant.cs" />
         <option value="$PROJECT_DIR$/Views/Shared/_DashboardLayout.cshtml" />
         <option value="$PROJECT_DIR$/Data/ApplicationDbContext.cs" />
         <option value="$PROJECT_DIR$/Models/Vessel.cs" />
@@ -90,11 +88,17 @@
         <option value="$PROJECT_DIR$/Controllers/API/VesselController.cs" />
         <option value="$PROJECT_DIR$/Views/Vessel/Index.cshtml" />
         <option value="$PROJECT_DIR$/Models/Benificiary.cs" />
-        <option value="$PROJECT_DIR$/Models/Beneficiary.cs" />
         <option value="$PROJECT_DIR$/Models/Dependents.cs" />
-        <option value="$PROJECT_DIR$/Models/Allottee.cs" />
+        <option value="$PROJECT_DIR$/Areas/Identity/Pages/Account/ForgotPassword.cshtml.cs" />
+        <option value="$PROJECT_DIR$/Areas/Identity/Pages/Account/Login.cshtml.cs" />
+        <option value="$PROJECT_DIR$/Data/DataBootstrapper.cs" />
         <option value="$PROJECT_DIR$/Models/Family.cs" />
         <option value="$PROJECT_DIR$/Models/FormModel/CreateApplicantForm.cs" />
+        <option value="$PROJECT_DIR$/Models/Beneficiary.cs" />
+        <option value="$PROJECT_DIR$/Models/Allottee.cs" />
+        <option value="$PROJECT_DIR$/Models/Dependent.cs" />
+        <option value="$PROJECT_DIR$/Models/Document.cs" />
+        <option value="$PROJECT_DIR$/Models/Applicant.cs" />
         <option value="$PROJECT_DIR$/Controllers/ApplicantController.cs" />
         <option value="$PROJECT_DIR$/Views/Applicant/CreateApplicant.cshtml" />
       </list>
@@ -110,6 +114,11 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/wwwroot/css/site.css" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Color Scheme Font" />
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="file" />
+    </option>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -179,7 +188,7 @@
       <workItem from="1571639733115" duration="2349000" />
       <workItem from="1571658502855" duration="8275000" />
       <workItem from="1571678727431" duration="7429000" />
-      <workItem from="1571753572939" duration="5075000" />
+      <workItem from="1571753572939" duration="13575000" />
     </task>
     <servers />
   </component>
@@ -256,82 +265,173 @@
           <option name="timeStamp" value="1" />
         </breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Areas/Identity/Pages/Account/Login.cshtml.cs</url>
-          <line>86</line>
-          <properties documentPath="$PROJECT_DIR$/Areas/Identity/Pages/Account/Login.cshtml.cs" initialLine="86">
-            <startOffsets>
-              <option value="2921" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2963" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Areas/Identity/Pages/Account/Login.cshtml.cs</url>
-          <line>91</line>
-          <properties documentPath="$PROJECT_DIR$/Areas/Identity/Pages/Account/Login.cshtml.cs" initialLine="87">
-            <startOffsets>
-              <option value="3166" />
-            </startOffsets>
-            <endOffsets>
-              <option value="3198" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Controllers/ApplicantController.cs</url>
-          <line>79</line>
+          <line>106</line>
           <properties documentPath="$PROJECT_DIR$/Controllers/ApplicantController.cs" initialLine="12">
             <startOffsets>
-              <option value="2960" />
+              <option value="3980" />
             </startOffsets>
             <endOffsets>
-              <option value="3005" />
+              <option value="4025" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Controllers/ApplicantController.cs</url>
-          <line>80</line>
+          <line>107</line>
           <properties documentPath="$PROJECT_DIR$/Controllers/ApplicantController.cs" initialLine="13">
             <startOffsets>
-              <option value="3018" />
+              <option value="4038" />
             </startOffsets>
             <endOffsets>
-              <option value="3032" />
+              <option value="4052" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="15" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Controllers/ApplicantController.cs</url>
-          <line>71</line>
-          <properties documentPath="$PROJECT_DIR$/Controllers/ApplicantController.cs" initialLine="52">
-            <startOffsets>
-              <option value="2774" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2830" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Controllers/ApplicantController.cs</url>
-          <line>47</line>
+          <line>49</line>
           <properties documentPath="$PROJECT_DIR$/Controllers/ApplicantController.cs" initialLine="31">
             <startOffsets>
-              <option value="1661" />
+              <option value="1695" />
             </startOffsets>
             <endOffsets>
-              <option value="2722" />
+              <option value="3214" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Areas/Identity/Pages/Account/ForgotPassword.cshtml.cs</url>
+          <line>76</line>
+          <properties documentPath="$PROJECT_DIR$/Areas/Identity/Pages/Account/ForgotPassword.cshtml.cs" initialLine="77">
+            <startOffsets>
+              <option value="3055" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3103" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Areas/Identity/Pages/Account/ForgotPassword.cshtml.cs</url>
+          <line>75</line>
+          <properties documentPath="$PROJECT_DIR$/Areas/Identity/Pages/Account/ForgotPassword.cshtml.cs" initialLine="76">
+            <startOffsets>
+              <option value="2953" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3042" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Areas/Identity/Pages/Account/ForgotPassword.cshtml.cs</url>
+          <line>74</line>
+          <properties documentPath="$PROJECT_DIR$/Areas/Identity/Pages/Account/ForgotPassword.cshtml.cs" initialLine="75">
+            <startOffsets>
+              <option value="2865" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2940" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Areas/Identity/Pages/Account/ForgotPassword.cshtml.cs</url>
+          <line>73</line>
+          <properties documentPath="$PROJECT_DIR$/Areas/Identity/Pages/Account/ForgotPassword.cshtml.cs" initialLine="74">
+            <startOffsets>
+              <option value="2789" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2852" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Areas/Identity/Pages/Account/ForgotPassword.cshtml.cs</url>
+          <line>72</line>
+          <properties documentPath="$PROJECT_DIR$/Areas/Identity/Pages/Account/ForgotPassword.cshtml.cs" initialLine="72">
+            <startOffsets>
+              <option value="2735" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2776" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Controllers/ApplicantController.cs</url>
+          <line>34</line>
+          <properties documentPath="$PROJECT_DIR$/Controllers/ApplicantController.cs" initialLine="32">
+            <startOffsets>
+              <option value="860" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1661" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Controllers/ApplicantController.cs</url>
+          <line>31</line>
+          <properties documentPath="$PROJECT_DIR$/Controllers/ApplicantController.cs" initialLine="30">
+            <startOffsets>
+              <option value="789" />
+            </startOffsets>
+            <endOffsets>
+              <option value="812" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Controllers/ApplicantController.cs</url>
+          <line>95</line>
+          <properties documentPath="$PROJECT_DIR$/Controllers/ApplicantController.cs" initialLine="98">
+            <startOffsets>
+              <option value="3768" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3803" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Controllers/ApplicantController.cs</url>
+          <line>97</line>
+          <properties documentPath="$PROJECT_DIR$/Controllers/ApplicantController.cs" initialLine="96">
+            <startOffsets>
+              <option value="3831" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3865" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="28" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Controllers/ApplicantController.cs</url>
+          <line>103</line>
+          <properties documentPath="$PROJECT_DIR$/Controllers/ApplicantController.cs" initialLine="102">
+            <startOffsets>
+              <option value="3929" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3943" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="29" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

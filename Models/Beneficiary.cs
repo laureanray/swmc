@@ -7,6 +7,8 @@ namespace swmc.Models
     public class Beneficiary
     {
         public int BeneficiaryId { get; set; }
+        public int ApplicantId { get; set; }
+        public Applicant Applicant { get; set; }
         public string Name { get; set; }
         public string Relationship { get; set; }
         public string Address { get; set; }

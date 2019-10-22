@@ -42,8 +42,17 @@ namespace swmc.Models
         public bool IsActive { get; set; }
         [Required]
         public string Position { get; set; }
+        [Required]
+        public string LastSchoolAttended { get; set; }
+        [Required]
+        public string SchoolFrom { get; set; }
+        public string SchoolTo { get; set; }
+        public string Status { get; set; }
         public Family Family { get; set; }
         public byte[] Photo { get; set; }
         public List<Document> Documents { get; set; }
+        public List<Beneficiary> Beneficiaries { get; set; }
+        public List<Allottee> Allottees { get; set; }
+        public List<Dependent> Dependents { get; set; }
     }
 }

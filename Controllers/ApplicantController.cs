@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
@@ -30,6 +31,7 @@ namespace swmc.Controllers
 
             if (ModelState.IsValid)
             {
+                
                 var family = new Family()
                 {
                     FathersSuffix = model.Family.FathersSuffix,
@@ -64,20 +66,45 @@ namespace swmc.Controllers
                     PlaceOfBirth = model.Applicant.PlaceOfBirth,
                     Telephone = model.Applicant.Telephone,
                     IsActive = true,
-                    Family = family
+                    Family = family,
+                    LastSchoolAttended = model.Applicant.LastSchoolAttended,
+                    SchoolFrom = model.Applicant.SchoolFrom,
+                    SchoolTo = model.Applicant.SchoolTo,
+                    Beneficiaries = model.Beneficiaries,
+                    Dependents = model.Dependents,
+                    Allottees = model.Allottees,
+                    Documents = model.Documents,
+                    Position = model.Applicant.Position
                 };
-                
-                
 
-                var res = await _context.Applicants.AddAsync(applicant);
+                if (model.Applicant.Photo != null)
+                {
+                    using (var memoryStream = new MemoryStream())
+                    {
+                        await model.ApplicantPhoto.CopyToAsync(memoryStream);
+                        applicant.Photo = memoryStream.ToArray();
+                    }
+                }
+                else
+                {
+                    // Use default image
+                }
                 
+                
+                
+                Console.WriteLine(applicant);
+                _context.Applicants.Add(applicant);
+
+                var res = await _context.SaveChangesAsync();
+
+
             }
             else
             {
                 return View();
             }
          
-            Console.WriteLine(model.Applicant.FirstName);
+                Console.WriteLine(model.Applicant.FirstName);
             return View();
         }
     }
