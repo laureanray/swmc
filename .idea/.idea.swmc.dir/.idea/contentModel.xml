@@ -96,6 +96,8 @@
       <e p="Migrations" t="Include">
         <e p="20191022175150_initial.cs" t="Include" />
         <e p="20191022175150_initial.Designer.cs" t="Include" />
+        <e p="20191023124139_required.cs" t="Include" />
+        <e p="20191023124139_required.Designer.cs" t="Include" />
         <e p="ApplicationDbContextModelSnapshot.cs" t="Include" />
       </e>
       <e p="Models" t="Include">
@@ -136,6 +138,7 @@
         <e p="Applicant" t="Include">
           <e p="CreateApplicant.cshtml" t="Include" />
           <e p="Index.cshtml" t="Include" />
+          <e p="Success.cshtml" t="Include" />
         </e>
         <e p="Dashboard" t="Include">
           <e p="Index.cshtml" t="Include" />

@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using swmc.Data;
 using swmc.Models;
@@ -77,7 +79,7 @@ namespace swmc.Controllers
                     Position = model.Applicant.Position
                 };
 
-                if (model.Applicant.Photo != null)
+                if (model.ApplicantPhoto != null)
                 {
                     using (var memoryStream = new MemoryStream())
                     {
@@ -90,6 +92,8 @@ namespace swmc.Controllers
                 Console.WriteLine(applicant);
                 _context.Applicants.Add(applicant);
                 var res = await _context.SaveChangesAsync();
+
+                return RedirectToAction(nameof(Success));
             }
             else
             {
@@ -100,6 +104,19 @@ namespace swmc.Controllers
         }
 
         public IActionResult Index()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Applicant>>> GetApplicants()
+        {
+            var applicants = await _context.Applicants.ToListAsync();
+            return Json(applicants);
+        }
+
+
+        public IActionResult Success()
         {
             return View();
         }

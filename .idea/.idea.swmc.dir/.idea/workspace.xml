@@ -40,6 +40,7 @@
     <setting file="file://$PROJECT_DIR$/Views/Applicant/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Controllers/API/VesselController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Areas/Identity/Pages/Account/Manage/_Layout.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Views/Applicant/Success.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Views/Vessel/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Controllers/VesselController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Areas/Identity/Pages/Account/Login.cshtml.cs" root0="FORCE_HIGHLIGHTING" />
@@ -101,8 +102,9 @@
         <option value="$PROJECT_DIR$/Views/Applicant/CreateApplicant.cshtml" />
         <option value="$PROJECT_DIR$/Views/Shared/_DashboardLayout.cshtml" />
         <option value="$PROJECT_DIR$/Views/Applicant/Index.cshtml" />
-        <option value="$PROJECT_DIR$/Controllers/ApplicantController.cs" />
         <option value="$PROJECT_DIR$/Models/Applicant.cs" />
+        <option value="$PROJECT_DIR$/Views/Applicant/Success.cshtml" />
+        <option value="$PROJECT_DIR$/Controllers/ApplicantController.cs" />
       </list>
     </option>
   </component>
@@ -191,7 +193,7 @@
       <workItem from="1571658502855" duration="8275000" />
       <workItem from="1571678727431" duration="7429000" />
       <workItem from="1571753572939" duration="13844000" />
-      <workItem from="1571831179367" duration="2288000" />
+      <workItem from="1571831179367" duration="3574000" />
     </task>
     <servers />
   </component>
@@ -213,14 +215,14 @@
     <state x="552" y="198" key="#com.intellij.execution.impl.EditConfigurationsDialog/1366.768/1920.1080" />
     <state x="740" y="279" key="FileChooserDialogImpl" />
     <state x="740" y="279" key="FileChooserDialogImpl/1366.768/1920.1080" />
-    <state width="1877" height="677" key="GridCell.Tab.0.bottom" />
-    <state width="1877" height="677" key="GridCell.Tab.0.bottom/1366.768/1920.1080" />
-    <state width="1877" height="677" key="GridCell.Tab.0.center" />
-    <state width="1877" height="677" key="GridCell.Tab.0.center/1366.768/1920.1080" />
-    <state width="1877" height="677" key="GridCell.Tab.0.left" />
-    <state width="1877" height="677" key="GridCell.Tab.0.left/1366.768/1920.1080" />
-    <state width="1877" height="677" key="GridCell.Tab.0.right" />
-    <state width="1877" height="677" key="GridCell.Tab.0.right/1366.768/1920.1080" />
+    <state width="1877" height="386" key="GridCell.Tab.0.bottom" />
+    <state width="1877" height="386" key="GridCell.Tab.0.bottom/1366.768/1920.1080" />
+    <state width="1877" height="386" key="GridCell.Tab.0.center" />
+    <state width="1877" height="386" key="GridCell.Tab.0.center/1366.768/1920.1080" />
+    <state width="1877" height="386" key="GridCell.Tab.0.left" />
+    <state width="1877" height="386" key="GridCell.Tab.0.left/1366.768/1920.1080" />
+    <state width="1877" height="386" key="GridCell.Tab.0.right" />
+    <state width="1877" height="386" key="GridCell.Tab.0.right/1366.768/1920.1080" />
     <state width="1877" height="386" key="GridCell.Tab.1.bottom" />
     <state width="1877" height="386" key="GridCell.Tab.1.bottom/1366.768/1920.1080" />
     <state width="1877" height="386" key="GridCell.Tab.1.center" />
@@ -333,6 +335,84 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Controllers/ApplicantController.cs</url>
+          <line>93</line>
+          <properties documentPath="$PROJECT_DIR$/Controllers/ApplicantController.cs" initialLine="93">
+            <startOffsets>
+              <option value="3772" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3816" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="34" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Controllers/ApplicantController.cs</url>
+          <line>91</line>
+          <properties documentPath="$PROJECT_DIR$/Controllers/ApplicantController.cs" initialLine="91">
+            <startOffsets>
+              <option value="3674" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3703" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Controllers/ApplicantController.cs</url>
+          <line>92</line>
+          <properties documentPath="$PROJECT_DIR$/Controllers/ApplicantController.cs" initialLine="92">
+            <startOffsets>
+              <option value="3720" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3755" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="37" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Controllers/ApplicantController.cs</url>
+          <line>90</line>
+          <properties documentPath="$PROJECT_DIR$/Controllers/ApplicantController.cs" initialLine="90">
+            <startOffsets>
+              <option value="3629" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3657" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="38" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Controllers/ApplicantController.cs</url>
+          <line>33</line>
+          <properties documentPath="$PROJECT_DIR$/Controllers/ApplicantController.cs" initialLine="33">
+            <startOffsets>
+              <option value="845" />
+            </startOffsets>
+            <endOffsets>
+              <option value="868" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="39" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Controllers/ApplicantController.cs</url>
+          <line>36</line>
+          <properties documentPath="$PROJECT_DIR$/Controllers/ApplicantController.cs" initialLine="36">
+            <startOffsets>
+              <option value="916" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1717" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="40" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
