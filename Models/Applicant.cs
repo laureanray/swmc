@@ -47,6 +47,7 @@ namespace swmc.Models
         [Required]
         public string SchoolFrom { get; set; }
         public string SchoolTo { get; set; }
+        [Required]
         public string Status { get; set; }
         public Family Family { get; set; }
         public byte[] Photo { get; set; }

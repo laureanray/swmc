@@ -135,6 +135,7 @@
         <e p="_ViewStart.cshtml" t="Include" />
         <e p="Applicant" t="Include">
           <e p="CreateApplicant.cshtml" t="Include" />
+          <e p="Index.cshtml" t="Include" />
         </e>
         <e p="Dashboard" t="Include">
           <e p="Index.cshtml" t="Include" />

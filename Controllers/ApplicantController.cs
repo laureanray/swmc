@@ -85,26 +85,22 @@ namespace swmc.Controllers
                         applicant.Photo = memoryStream.ToArray();
                     }
                 }
-                else
-                {
-                    // Use default image
-                }
-                
-                
-                
+
+                applicant.Status = "ACTIVE";
                 Console.WriteLine(applicant);
                 _context.Applicants.Add(applicant);
-
                 var res = await _context.SaveChangesAsync();
-
-
             }
             else
             {
                 return View();
             }
-         
-                Console.WriteLine(model.Applicant.FirstName);
+            Console.WriteLine(model.Applicant.FirstName);
+            return View();
+        }
+
+        public IActionResult Index()
+        {
             return View();
         }
     }
