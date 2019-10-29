@@ -181,12 +181,11 @@
                     @* </div> *@
                     <div class="col-md-6">
                         <label class="text-dark"> Position </label>
-                        <select class="form-control" asp-for="Applicant.Position">
-                            <option value="" disabled selected>Position</option>
-                            <option>1</option>
-                            <option>2</option>
-                        </select>
-                        <span asp-validation-for="Applicant.Position" class="text-danger"></span>
+                      <select class="form-control" asp-for="Applicant.PositionId" 
+                                  asp-items="@(new SelectList(Model.Positions,"PositionId","PositionName"))">
+                              <option>Please select one</option>
+                          </select>
+                        <span asp-validation-for="Applicant.PositionId" class="text-danger"></span>
                     </div>
                 </div>
             </div>

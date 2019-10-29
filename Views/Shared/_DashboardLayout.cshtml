@@ -35,7 +35,6 @@
 <script src="~/lib/datatables/datatables.min.js"></script>
 
 <!-- Custom scripts for all pages-->
-<script src="~/js/sb-admin.js"></script>
 
 <script src="~/js/site.js" asp-append-version="true"></script>
 </head>
@@ -95,10 +94,13 @@
                 <a class="dropdown-item" asp-controller="Applicant" asp-action="Index"><i class="fas fa-fw fa-file-alt"></i> Applicants</a>
                 <a class="dropdown-item" asp-controller="Applicant" asp-action="Archived"><i class="fas fa-fw fa-archive"></i> Archived </a>
                 <a class="dropdown-item" asp-controller="Applicant" asp-action="Index"><i class="fas fa-fw fa-certificate"></i> Credential/Skills</a>
-                <a class="dropdown-item" ><i class="fas fa-fw fa-file"></i>  Documents </a>
+                <a class="dropdown-item" ><i class="fas fa-fw fa-file"></i>   Documents </a>
+                <div class="dropdown-divider"></div>
+                <h6 class="dropdown-header">Document Type</h6>
+                <a class="dropdown-item" asp-controller="Applicant" asp-action="DocumentTypes"><i class="fas fa-fw fa-file-alt"></i> Document Types  </a>
                 <div class="dropdown-divider"></div>
                 <h6 class="dropdown-header">Positions</h6>
-                <a class="dropdown-item" ><i class="fas fa-fw fa-users"></i> Manage Positions</a>
+                <a class="dropdown-item" asp-controller="Applicant" asp-action="Positions" ><i class="fas fa-fw fa-users"></i> Manage Positions</a>
             </div>
         </li>
         <li class="nav-item dropdown">
@@ -206,6 +208,7 @@
         </div>
     </div>
 </div>
+<script src="~/js/sb-admin.js"></script>
 
 @RenderSection("Scripts", required: false)
 </body>

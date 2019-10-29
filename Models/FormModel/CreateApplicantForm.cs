@@ -12,5 +12,7 @@ namespace swmc.Models.FormModel
         public List<Dependent> Dependents { get; set; }
         public List<Document> Documents { get; set; }
         public List<Allottee> Allottees { get; set; }
+        public List<DocumentType> DocumentTypes { get; set; }
+        public List<Position> Positions { get; set; }
     }
 }

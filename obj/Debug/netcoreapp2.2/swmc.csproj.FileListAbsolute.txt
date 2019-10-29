@@ -69,3 +69,6 @@ C:\Users\Laurean Ray Bahala\Desktop\ongoing-projects\swmc\obj\Debug\netcoreapp2.
 C:\Users\Laurean Ray Bahala\Desktop\ongoing-projects\swmc\obj\Debug\netcoreapp2.2\Razor\Views\Applicant\Index.g.cshtml.cs
 C:\Users\Laurean Ray Bahala\Desktop\ongoing-projects\swmc\obj\Debug\netcoreapp2.2\Razor\Views\Applicant\Success.g.cshtml.cs
 C:\Users\Laurean Ray Bahala\Desktop\ongoing-projects\swmc\obj\Debug\netcoreapp2.2\Razor\Views\Applicant\Archived.g.cshtml.cs
+C:\Users\Laurean Ray Bahala\Desktop\ongoing-projects\swmc\obj\Debug\netcoreapp2.2\Razor\Views\Applicant\Documents.g.cshtml.cs
+C:\Users\Laurean Ray Bahala\Desktop\ongoing-projects\swmc\obj\Debug\netcoreapp2.2\Razor\Views\Applicant\DocumentTypes.g.cshtml.cs
+C:\Users\Laurean Ray Bahala\Desktop\ongoing-projects\swmc\obj\Debug\netcoreapp2.2\Razor\Views\Applicant\Positions.g.cshtml.cs

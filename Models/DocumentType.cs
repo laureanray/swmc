@@ -3,14 +3,16 @@ using System.ComponentModel.DataAnnotations;
 
 namespace swmc.Models
 {
-    public class Position
+    public class DocumentType
     {
-        public int PositionId { get; set; }
-        [Required] 
-        public string PositionName { get; set; }
-        public string PositionCode { get; set; }
+        public int DocumentTypeId { get; set; }
+        [Required]
+        public string DocumentTypeName { get; set; }
+        [Required]
+        public string Issuer { get; set; }
         public DateTime DateCreated { get; set; }
         public DateTime DateUpdated { get; set; }
         public bool IsArchived { get; set; }
-    }    
+    }
+    
 }

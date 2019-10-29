@@ -1,4 +1,7 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using swmc.Models;
@@ -36,7 +39,105 @@ namespace swmc.Data
                     await userManager.AddPasswordAsync(admin, "P@$$w0rd");
                 }
             }
-            
+
+            var documentTypes = new List<DocumentType>()
+            {
+                new DocumentType()
+                {
+                    DocumentTypeName = "Birth Certificate",
+                    Issuer = "NSO"
+                },
+                new DocumentType()
+                {
+                    DocumentTypeName = "Passport",
+                    Issuer = "DFA"
+                },
+                new DocumentType()
+                {
+                    DocumentTypeName = "BST",
+                    Issuer = "IDK"
+                },
+                new DocumentType()
+                {
+                    DocumentTypeName = "Seaman's Book",
+                    Issuer = "IDK"
+                },
+                new DocumentType()
+                {
+                    DocumentTypeName = "Seafarers Registration Certificate",
+                    Issuer = "IDK"
+                },
+                new DocumentType()
+                {
+                    DocumentTypeName = "Visa",
+                    Issuer = "DFA"
+                },
+                new DocumentType()
+                {
+                    DocumentTypeName = "Medical Certificate",
+                    Issuer = "NSO"
+                }
+            };
+
+            if (!context.DocumentTypes.Any())
+            {
+                foreach (var dt in documentTypes)
+                {
+                    dt.DateCreated = DateTime.Now;
+                    context.DocumentTypes.Add(dt);
+                }
+
+                await context.SaveChangesAsync();
+            }
+
+
+            var positions = new List<Position>()
+            {
+                new Position()
+                {
+                    PositionName = "Captain",
+                    PositionCode = "CT"
+
+                },
+                new Position()
+                {
+                    PositionName = "Deck Officer",
+                    PositionCode = "DC"
+                },
+                new Position()
+                {
+                    PositionName = "Engineering Officer",
+                    PositionCode = "EO"
+                },
+                new Position()
+                {
+                    PositionName = "Electro-Technical",
+                    PositionCode = "ET"
+                },
+                new Position()
+                {
+                    PositionName = "Cadet",
+                    PositionCode = "CD"
+                },
+                new Position()
+                {
+                    PositionName = "Chief Cook",
+                    PositionCode = "CC"
+                }
+            };
+
+            if (!context.Positions.Any())
+            {
+                foreach(var po in positions)
+                {
+                    po.DateCreated = DateTime.Now;
+
+                    context.Positions.Add(po);
+                }
+
+                await context.SaveChangesAsync();
+            }
+
         }
     }
 }

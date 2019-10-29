@@ -49,7 +49,8 @@ namespace swmc.Models
         [Required]
         public bool IsActive { get; set; }
         [Required]
-        public string Position { get; set; }
+        public int PositionId { get; set; }
+        public Position Position { get; set; }
         [Required]
         public string LastSchoolAttended { get; set; }
         [Required]

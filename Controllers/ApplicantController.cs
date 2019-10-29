@@ -22,9 +22,13 @@ namespace swmc.Controllers
         }
 
         [HttpGet]
-        public IActionResult CreateApplicant()
+        public async Task<IActionResult> CreateApplicant()
         {
-            return View();
+            CreateApplicantForm model = new CreateApplicantForm();
+
+            var pos = await _context.Positions.Where(p => !p.IsArchived).ToListAsync();
+            model.Positions = new List<Position>(pos);
+            return View(model);
         }
 
 
@@ -37,6 +41,9 @@ namespace swmc.Controllers
 
             if (ModelState.IsValid)
             {
+                var position =
+                    await _context.Positions.FirstOrDefaultAsync(po => po.PositionId == model.Applicant.PositionId);
+                
                 
                 var family = new Family()
                 {
@@ -80,7 +87,7 @@ namespace swmc.Controllers
                     Dependents = model.Dependents,
                     Allottees = model.Allottees,
                     Documents = model.Documents,
-                    Position = model.Applicant.Position
+                    Position = position
                 };
 
                 if (model.ApplicantPhoto != null)
@@ -100,8 +107,11 @@ namespace swmc.Controllers
                 return RedirectToAction(nameof(Success));
             }
            
-            return View();
-     
+            CreateApplicantForm m = new CreateApplicantForm();
+
+            var pos = await _context.Positions.Where(p => !p.IsArchived).ToListAsync();
+            m.Positions = new List<Position>(pos);
+            return View(m);
         }
 
         public IActionResult Index()
@@ -114,8 +124,18 @@ namespace swmc.Controllers
             return View();
         }
 
+        public IActionResult DocumentTypes()
+        {
+            return View();
+        }
 
         public IActionResult Success()
+        {
+            return View();
+        }
+        
+        
+        public IActionResult Positions()
         {
             return View();
         }
