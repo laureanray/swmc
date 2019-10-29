@@ -4,7 +4,7 @@
 }
 
 <div class="container-fluid">
-    <h3> Applicants </h3>
+    <h3> Archived Applicants </h3>
 
     <div class="row mt-3">
         <div class="col">
@@ -30,22 +30,22 @@
 </div>
 
 <!-- Archive MOdal Modal -->
-<div class="modal fade" id="archiveModal" tabindex="-1" role="dialog" aria-labelledby="archiveModalLabel" aria-hidden="true">
+<div class="modal fade" id="restoreModal" tabindex="-1" role="dialog" aria-labelledby="restoreModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="archiveModalLabel">Archive Applicant</h5>
+        <h5 class="modal-title" id="restoreModalLabel">Restore Applicant Data</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-          Are you sure you want to archive applicant?
-          <input type="hidden" id="applicantToArchive" >
+          Are you sure you want to restore applicant?
+          <input type="hidden" id="applicantToRestore" >
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-        <button type="button" id="archiveBtn" class="btn btn-danger">Archive</button>
+        <button type="button" id="restoreBtn" class="btn btn-success">Restore</button>
       </div>
     </div>
   </div>
@@ -53,15 +53,19 @@
 
 <script >
     var table;
+    
+      
     function format ( d ) {
-         if(d.status === 0){
-                    d.status = "Active";
-                }else if(d.status === 1){
-                    d.status = "Embarked";
-                }else{
-                    d.status = "Archived";
+        console.log(d);
+        
+        if(d.status === 0){
+            d.status = "Active";
+        }else if(d.status === 1){
+            d.status = "Embarked";
+        }else{
+            d.status = "Archived";
         }
-
+        
         var table = "<div class='row'>" +
          "<div class='col-2'>" +
           "<h6> Applicant Photo </h6>" +
@@ -124,10 +128,10 @@
         return table;
     }
     
-    function archiveApplicant(applicantId, callback){
+    function restoreApplicant(applicantId, callback){
         $.ajax({
-            type: 'GEt',
-            url: '/api/Applicant/ArchiveApplicant?applicantId=' + applicantId,
+            type: 'GET',
+            url: '/api/Applicant/RestoreApplicant?applicantId=' + applicantId,
             contentType: 'application/json; charset=utf-8',
             success: callback,
             error: function(err){
@@ -138,7 +142,7 @@
     
     function initDataTable(data){
         for(var i = 0; i < data.length; i++){
-            data[i].controls = "<button class='btn btn-outline-danger archive' data-id='"+ data[i].applicantId +"'> Archive </button>";
+            data[i].controls = "<button class='btn btn-outline-success restore' data-id='"+ data[i].applicantId +"'> Restore </button>";
         }
         table = $("#applicantsTable").DataTable({
             data: data,
@@ -158,11 +162,11 @@
             ],
             destroy: true,
             drawCallback: function(settings){
-                $(".archive").off();
-                $(".archive").click(function(){
+                $(".restore").off();
+                $(".restore").click(function(){
                    var id = $(this).data('id');
-                   $("#applicantToArchive").val(id);
-                   $("#archiveModal").modal("show");
+                   $("#applicantToRestore").val(id);
+                   $("#restoreModal").modal("show");
                 });
             }      
         });
@@ -173,7 +177,7 @@
         $.ajax({
             type: 'GET',
             dataType: 'json',
-            url: '/api/Applicant/GetApplicants',
+            url: '/api/Applicant/GetArchivedApplicants',
             success: function(data){
                 callback(data);
             },
@@ -207,16 +211,16 @@
     }
   
     
-    $("#archiveBtn").click(function(){
-       $(this).html("Archiving...");
+    $("#restoreBtn").click(function(){
+       $(this).html("Restoring...");
        $(this).prop('disabled', true);
        setTimeout(function(){
-           archiveApplicant($("#applicantToArchive").val(), function(res){
+           restoreApplicant($("#applicantToRestore").val(), function(res){
                 console.log(res); 
                 if(res.message === "Success"){
-                    $(this).html("Archive");
+                    $(this).html("Restore");
                     $(this).prop('disabled', false) ;
-                    $("#archiveModal").modal("hide");
+                    $("#restoreModal").modal("hide");
                     init();
                 }
            });

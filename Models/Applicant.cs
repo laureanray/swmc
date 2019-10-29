@@ -4,8 +4,16 @@ using System.ComponentModel.DataAnnotations;
 
 namespace swmc.Models
 {
+    public enum Status
+    {
+        Active,
+        Embarked,
+        Archived
+    }
     public class Applicant
     {
+        
+        
         public int ApplicantId { get; set; }
         [Required]
         public string FirstName { get; set; }
@@ -47,12 +55,14 @@ namespace swmc.Models
         [Required]
         public string SchoolFrom { get; set; }
         public string SchoolTo { get; set; }
-        public string Status { get; set; }
+        public Status Status { get; set; }
         public Family Family { get; set; }
         public byte[] Photo { get; set; }
         public List<Document> Documents { get; set; }
         public List<Beneficiary> Beneficiaries { get; set; }
         public List<Allottee> Allottees { get; set; }
         public List<Dependent> Dependents { get; set; }
+        public DateTime DateCreated { get; set; }
+        public DateTime DateUpdated { get; set; }
     }
 }

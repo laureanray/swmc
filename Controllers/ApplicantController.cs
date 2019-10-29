@@ -26,6 +26,10 @@ namespace swmc.Controllers
         {
             return View();
         }
+
+
+  
+            
         [HttpPost]
         public async Task<IActionResult> CreateApplicant(CreateApplicantForm model)
         {
@@ -88,19 +92,16 @@ namespace swmc.Controllers
                     }
                 }
 
-                applicant.Status = "ACTIVE";
+                applicant.DateCreated = DateTime.Now;
+                applicant.Status = Status.Active;
                 Console.WriteLine(applicant);
                 _context.Applicants.Add(applicant);
                 var res = await _context.SaveChangesAsync();
-
                 return RedirectToAction(nameof(Success));
             }
-            else
-            {
-                return View();
-            }
-            Console.WriteLine(model.Applicant.FirstName);
+           
             return View();
+     
         }
 
         public IActionResult Index()
@@ -108,11 +109,9 @@ namespace swmc.Controllers
             return View();
         }
 
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<Applicant>>> GetApplicants()
+        public IActionResult Archived()
         {
-            var applicants = await _context.Applicants.ToListAsync();
-            return Json(applicants);
+            return View();
         }
 
 

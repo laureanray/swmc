@@ -82,6 +82,7 @@
       <e p="bin" t="ExcludeRecursive" />
       <e p="Controllers" t="Include">
         <e p="API" t="Include">
+          <e p="ApplicantController.cs" t="Include" />
           <e p="VesselController.cs" t="Include" />
         </e>
         <e p="ApplicantController.cs" t="Include" />
@@ -114,6 +115,8 @@
         <e p="FormModel" t="Include">
           <e p="CreateApplicantForm.cs" t="Include" />
         </e>
+        <e p="JsonResponse.cs" t="Include" />
+        <e p="Position.cs" t="Include" />
         <e p="Request.cs" t="Include" />
         <e p="Vessel.cs" t="Include" />
       </e>
@@ -136,6 +139,7 @@
         <e p="_ViewImports.cshtml" t="Include" />
         <e p="_ViewStart.cshtml" t="Include" />
         <e p="Applicant" t="Include">
+          <e p="Archived.cshtml" t="Include" />
           <e p="CreateApplicant.cshtml" t="Include" />
           <e p="Index.cshtml" t="Include" />
           <e p="Success.cshtml" t="Include" />
@@ -168,6 +172,8 @@
         <e p="favicon.png" t="Include" />
         <e p="images" t="Include">
           <e p="avatar.png" t="Include" />
+          <e p="details_close.png" t="Include" />
+          <e p="details_open.png" t="Include" />
         </e>
         <e p="js" t="Include">
           <e p="demo" t="Include">
