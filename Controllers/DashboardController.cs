@@ -9,7 +9,7 @@ using swmc.Models;
 
 namespace swmc.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     public class Dashboard : Controller
     {
         public IActionResult Index()

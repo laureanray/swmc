@@ -83,11 +83,13 @@
       <e p="Controllers" t="Include">
         <e p="API" t="Include">
           <e p="ApplicantController.cs" t="Include" />
+          <e p="UserController.cs" t="Include" />
           <e p="VesselController.cs" t="Include" />
         </e>
         <e p="ApplicantController.cs" t="Include" />
         <e p="DashboardController.cs" t="Include" />
         <e p="HomeController.cs" t="Include" />
+        <e p="UserController.cs" t="Include" />
         <e p="VesselController.cs" t="Include" />
       </e>
       <e p="Data" t="Include">
@@ -119,6 +121,7 @@
         <e p="JsonResponse.cs" t="Include" />
         <e p="Position.cs" t="Include" />
         <e p="Request.cs" t="Include" />
+        <e p="User.cs" t="Include" />
         <e p="Vessel.cs" t="Include" />
       </e>
       <e p="obj" t="ExcludeRecursive">
@@ -161,6 +164,9 @@
           <e p="_LoginPartial.cshtml" t="Include" />
           <e p="_ValidationScriptsPartial.cshtml" t="Include" />
           <e p="Error.cshtml" t="Include" />
+        </e>
+        <e p="User" t="Include">
+          <e p="Index.cshtml" t="Include" />
         </e>
         <e p="Vessel" t="Include">
           <e p="Index.cshtml" t="Include" />

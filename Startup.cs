@@ -57,7 +57,7 @@ namespace swmc
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ApplicationDbContext context, UserManager<ApplicationUser> userManager)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ApplicationDbContext context, UserManager<ApplicationUser> userManager, RoleManager<ApplicationRole> roleManager)
         {
             if (env.IsDevelopment())
             {
@@ -84,7 +84,7 @@ namespace swmc
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
 
-            DataBootstrapper.Initialize(context, userManager, env).Wait();
+            DataBootstrapper.Initialize(context, userManager, roleManager, env).Wait();
         }
     }
 }

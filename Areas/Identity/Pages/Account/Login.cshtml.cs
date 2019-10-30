@@ -82,7 +82,7 @@ namespace swmc.Areas.Identity.Pages.Account
                 if (user != null)
                 {
                     var result = await _signInManager.PasswordSignInAsync(user, Input.Password, Input.RememberMe, lockoutOnFailure: true);
-                    if (result.Succeeded)
+                    if (result.Succeeded && !user.IsArchived) 
                     {
                         _logger.LogInformation("User logged in.");
                         if (returnUrl.Equals("/"))

@@ -1,0 +1,201 @@
+﻿@{
+    ViewData["Title"] = "Users";
+    Layout = "_DashboardLayout";
+}
+
+<div class="container-fluid">
+    <h3> Users </h3>
+    <div class="row mt-3">
+        <div class="col">
+            <button class="btn btn-success" data-toggle="modal" data-target="#addModal"><i class="fas fa-fw fa-plus"></i> Add New User</button>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col">
+
+            <table id="usersTable" class="display">
+                <thead>
+                <tr>
+                    <th>Last Name</th>
+                    <th>First Name</th>    
+                    <th>Role</th>
+                    <th>Email</th>
+                    <th>Date Created</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+               
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<!-- Archive MOdal Modal -->
+<div class="modal fade" id="archiveModal" tabindex="-1" role="dialog" aria-labelledby="archiveModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="archiveModalLabel">Archive User</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          Are you sure you want to archive user?
+          <input type="hidden" id="userId" >
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button type="button" id="archiveBtn" class="btn btn-danger">Archive</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Add Document Type  Modal -->
+<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addModalLabel">Create New User</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="row">
+              <div class="col">
+                  <label for=""> First Name </label>
+                  <input type="text" class="form-control" id="firstName" placeholder="First Name">
+              </div>
+              <div class="col">
+                  <label for=""> Last Name </label>
+                  <input type="text" class="form-control" id="lastName" placeholder="Last Name">
+              </div>
+          </div>
+          <div class="row mt-2">
+              <div class="col">
+                  <label for=""> Email </label>
+                  <input type="text" class="form-control" id="email" placeholder="First Name">
+              </div>
+              <div class="col">
+                  <label for=""> Password </label>
+                  <input type="password" class="form-control" id="password" placeholder="Last Name">
+              </div>
+            </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button type="button" id="createBtn" class="btn btn-success" disabled>Create</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script >
+    function archiveUser(id, callback){
+         $.ajax({
+                type: 'GET',
+                url: "/api/User/ArchiveUser?id=" + id,
+                contentType: 'application/json; charset=utf-8',
+                success: callback,
+                error: function(err){
+                    console.log(err);
+                }
+        });
+    }
+    
+    function createUser(data, callback){
+       $.ajax({
+            type: 'POST',
+            url: '/api/User/AddUser',
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            data: JSON.stringify(data),
+            success: callback,
+            error: function(err){
+                console.log(err);
+            }
+       });
+    }
+
+    function getUsers(callback){
+        $.ajax({
+            type: 'GET',
+            url: "/api/User/GetUsers",
+            contentType: 'application/json; charset=utf-8',
+            success: callback,
+            error: function(err){
+                console.log(err);
+            }
+        });
+    }
+    
+     function initDataTable(data){
+            for(var i = 0; i < data.length; i++){
+                data[i].controls = "<button class='btn btn-outline-danger archive' data-id='"+ data[i].id +"'> Archive </button> " +
+                                   "<button class='btn btn-outline-secondary update' data-id='" + data[i].id + "'> Update </button>";
+            }
+            $("#usersTable").DataTable({
+                data: data,
+                columns: [
+                    { "data": "firstName" },
+                    { "data": "lastName" },
+                    { "data": "role" },
+                    { "data": "email" },
+                    { "data": "dateCreated" },
+                    { "data": "controls"}
+                ],
+                destroy: true,
+                drawCallback: function(settings){
+                    $(".archive").off();
+                    $(".archive").click(function(){
+                       var id = $(this).data('id');
+                       $("#userId").val(id);
+                       $("#archiveModal").modal("show");
+                    });
+                }      
+            });
+           
+        }
+    
+    function init(){
+        getUsers(function(data){
+            console.log(data);
+            initDataTable(data);
+        });
+    }
+    
+    init();
+    
+    $("#addModal input").keyup(function() {
+        if($("#firstName").val().length === 0 || 
+           $("#lastName").val().length === 0 || 
+           $("#email").val().length === 0 || 
+           $("#password").val().length === 0){
+                $("#createBtn").prop('disabled', true);
+           }else{
+                $("#createBtn").prop('disabled', false);
+           }
+    });
+    
+    $("#createBtn").click(function(){
+        var data = {
+            firstName: $("#firstName").val(),
+            lastName: $("#lastName").val(),
+            email: $("#email").val(),
+            password: $("#password").val()
+        }
+        
+        createUser(data, function(res){
+            if(res.message === "Success"){
+                $("#addModal").modal('hide');
+                init();
+            }
+        })
+    })
+</script>

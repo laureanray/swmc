@@ -11,7 +11,10 @@ namespace swmc.Data
     public class DataBootstrapper
     {
         public static byte[] defaultAvatar;
+        public static Dictionary<string, string> RoleDetails = new Dictionary<string, string>();
+
         public static async Task Initialize(ApplicationDbContext context, UserManager<ApplicationUser> userManager,
+            RoleManager<ApplicationRole> roleManager,
             IHostingEnvironment hostingEnvironment)
         {
             context.Database.EnsureCreated();
@@ -20,14 +23,60 @@ namespace swmc.Data
 
             defaultAvatar =
                 System.IO.File.ReadAllBytes(hostingEnvironment.ContentRootPath + "/wwwroot/images/avatar.png");
+            
+            
+            // Add the roles in the dictionary
+            RoleDetails.Add("Admin", "Admin Details");
+            RoleDetails.Add("HR", "HR Details");
+            RoleDetails.Add("Operations", "Operations Details");
+            RoleDetails.Add("Principal", "Principal Details");
+            // Iterate through the array then save and check
+            foreach (var role in RoleDetails)
+            {
+                if (await roleManager.FindByNameAsync(role.Key) == null)
+                {
+                    await roleManager.CreateAsync(new ApplicationRole(role.Key, role.Value, DateTime.Now));
+                }
+            }
 
-            ApplicationUser admin = new ApplicationUser()
+            var admin = new ApplicationUser()
             {
                 FirstName = "Administrator",
                 LastName = "Root",
                 Email = "admin@swmc.com",
                 UserName = "admin",
-                EmailConfirmed = true
+                EmailConfirmed = true,
+                DateCreated =  DateTime.Now
+            };
+            
+            var hr = new ApplicationUser()
+            {
+                FirstName = "John",
+                LastName = "Doe",
+                Email = "john.doe@swmc.com",
+                UserName = "john",
+                EmailConfirmed = true,
+                DateCreated =  DateTime.Now
+            };
+
+            var operations = new ApplicationUser()
+            {
+                FirstName = "Mark",
+                LastName = "Alvarez",
+                Email = "mark.alvarez@swmc.com",
+                UserName = "markalvarez",
+                EmailConfirmed = true,
+                DateCreated =  DateTime.Now
+            };
+
+            var principal = new ApplicationUser()
+            {
+                FirstName = "Juan",
+                LastName = "Dela Cruz",
+                Email = "juan.dc@swmc.com",
+                UserName = "juan",
+                EmailConfirmed = true,
+                DateCreated =  DateTime.Now
             };
 
             if (await userManager.FindByEmailAsync(admin.Email) == null)
@@ -37,6 +86,40 @@ namespace swmc.Data
                 if (result.Succeeded)
                 {
                     await userManager.AddPasswordAsync(admin, "P@$$w0rd");
+                    await userManager.AddToRoleAsync(admin, "Admin");
+                }
+            }
+            
+            if (await userManager.FindByEmailAsync(hr.Email) == null)
+            {
+                var result = await userManager.CreateAsync(hr);
+
+                if (result.Succeeded)
+                {
+                    await userManager.AddPasswordAsync(hr, "P@$$w0rd");
+                    await userManager.AddToRoleAsync(hr, "HR");
+                }
+            }
+            
+            if (await userManager.FindByEmailAsync(operations.Email) == null)
+            {
+                var result = await userManager.CreateAsync(operations);
+
+                if (result.Succeeded)
+                {
+                    await userManager.AddPasswordAsync(operations, "P@$$w0rd");
+                    await userManager.AddToRoleAsync(operations, "Operations");
+                }
+            }
+            
+            if (await userManager.FindByEmailAsync(principal.Email) == null)
+            {
+                var result = await userManager.CreateAsync(principal);
+
+                if (result.Succeeded)
+                {
+                    await userManager.AddPasswordAsync(principal, "P@$$w0rd");
+                    await userManager.AddToRoleAsync(principal, "Principal");
                 }
             }
 

@@ -1,15 +1,16 @@
 ﻿using System;
-using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations;
 
 namespace swmc.Models
 {
-    public class ApplicationUser : IdentityUser
+    public class User
     {
-        public ApplicationUser() : base() { }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public bool IsArchived { get; set; }
+        public string Role { get; set; }
+        public string Email { get; set; }
         public DateTime DateCreated { get; set; }
         public DateTime DateUpdated { get; set; }
-    }
+        public bool IsArchived { get; set; }
+    }    
 }

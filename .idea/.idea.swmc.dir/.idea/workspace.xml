@@ -26,6 +26,27 @@
     <setting file="file://$PROJECT_DIR$/Controllers/HomeController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Controllers/ApplicantController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Controllers/DashboardController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Views/Applicant/Positions.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Areas/Identity/Pages/Account/LoginWith2fa.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Areas/Identity/Pages/Account/Login.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Controllers/API/VesselController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Areas/Identity/Pages/Account/Manage/_Layout.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/User.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Views/Vessel/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Controllers/VesselController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Views/Applicant/DocumentTypes.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/DocumentType.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Views/Applicant/Documents.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Views/_ViewStart.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/DBC57F52-BDD4-45DA-8B29-C21452AD12F4/55/2b34e891/RazorPage`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/Allottee.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/Dependent.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/Beneficiary.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Views/Shared/_DashboardLayout.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Views/Shared/_Layout.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Views/Shared/_LoginPartial.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Views/Shared/_CookieConsentPartial.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Views/Dashboard/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Models/Family.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Models/EmbarkationRecord.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Models/Applicant.cs" root0="FORCE_HIGHLIGHTING" />
@@ -34,55 +55,32 @@
     <setting file="file://$PROJECT_DIR$/Models/Request.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Models/Vessel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Views/Applicant/CreateApplicant.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Views/Applicant/Positions.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Controllers/API/UserController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Models/FormModel/CreateApplicantForm.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Areas/Identity/Pages/Account/LoginWith2fa.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Areas/Identity/Pages/Account/Login.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Views/Applicant/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Controllers/API/VesselController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Areas/Identity/Pages/Account/Manage/_Layout.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Views/Applicant/Archived.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Views/Applicant/Success.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Models/JsonResponse.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Views/Vessel/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Controllers/VesselController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Views/Applicant/DocumentTypes.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Controllers/API/ApplicantController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Models/DocumentType.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Views/Applicant/Documents.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Controllers/UserController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Areas/Identity/Pages/Account/Login.cshtml.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Views/User/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Models/Position.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Program.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Data/ApplicationDbContext.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Views/_ViewStart.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/DBC57F52-BDD4-45DA-8B29-C21452AD12F4/55/2b34e891/RazorPage`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Data/DataBootstrapper.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Models/Allottee.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Models/Dependent.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Models/Beneficiary.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Startup.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Views/Shared/_DashboardLayout.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Areas/Identity/Pages/Account/ForgotPassword.cshtml.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Views/Shared/_Layout.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Views/Shared/_LoginPartial.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Models/ApplicationUser.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Areas/Identity/Pages/Account/LoginWith2fa.cshtml.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Views/Shared/_CookieConsentPartial.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Views/Dashboard/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Models/Request.cs" />
-        <option value="$PROJECT_DIR$/Models/Embarkation.cs" />
-        <option value="$PROJECT_DIR$/appsettings.json" />
         <option value="$PROJECT_DIR$/Views/Shared/_CookieConsentPartial.cshtml" />
         <option value="$PROJECT_DIR$/Models/Documents.cs" />
-        <option value="$PROJECT_DIR$/Models/ApplicationUser.cs" />
-        <option value="$PROJECT_DIR$/Startup.cs" />
         <option value="$PROJECT_DIR$/Models/ApplicationRole.cs" />
         <option value="$PROJECT_DIR$/Areas/Identity/Pages/Account/Manage/_Layout.cshtml" />
-        <option value="$PROJECT_DIR$/Controllers/DashboardController.cs" />
         <option value="$PROJECT_DIR$/Controllers/HomeController.cs" />
         <option value="$PROJECT_DIR$/Views/Shared/_NavBarPartial.cshtml" />
         <option value="$PROJECT_DIR$/Areas/Identity/Pages/Account/Login.cshtml" />
@@ -96,7 +94,6 @@
         <option value="$PROJECT_DIR$/Models/Benificiary.cs" />
         <option value="$PROJECT_DIR$/Models/Dependents.cs" />
         <option value="$PROJECT_DIR$/Areas/Identity/Pages/Account/ForgotPassword.cshtml.cs" />
-        <option value="$PROJECT_DIR$/Areas/Identity/Pages/Account/Login.cshtml.cs" />
         <option value="$PROJECT_DIR$/Views/Applicant/Success.cshtml" />
         <option value="$PROJECT_DIR$/wwwroot/css/site.css" />
         <option value="$PROJECT_DIR$/Models/Family.cs" />
@@ -108,7 +105,6 @@
         <option value="$PROJECT_DIR$/Views/Applicant/Documents.cshtml" />
         <option value="$PROJECT_DIR$/Models/Document.cs" />
         <option value="$PROJECT_DIR$/Data/ApplicationDbContext.cs" />
-        <option value="$PROJECT_DIR$/Data/DataBootstrapper.cs" />
         <option value="$PROJECT_DIR$/Models/Position.cs" />
         <option value="$PROJECT_DIR$/Models/DocumentType.cs" />
         <option value="$PROJECT_DIR$/Views/Applicant/DocumentTypes.cshtml" />
@@ -120,8 +116,18 @@
         <option value="$PROJECT_DIR$/Controllers/ApplicantController.cs" />
         <option value="$PROJECT_DIR$/Views/Applicant/Positions.cshtml" />
         <option value="$PROJECT_DIR$/wwwroot/js/sb-admin.js" />
-        <option value="$PROJECT_DIR$/Views/Shared/_DashboardLayout.cshtml" />
         <option value="$PROJECT_DIR$/Views/Dashboard/Index.cshtml" />
+        <option value="$PROJECT_DIR$/Controllers/UserController.cs" />
+        <option value="$PROJECT_DIR$/Views/Shared/_DashboardLayout.cshtml" />
+        <option value="$PROJECT_DIR$/Startup.cs" />
+        <option value="$PROJECT_DIR$/Controllers/DashboardController.cs" />
+        <option value="$PROJECT_DIR$/Models/UserResult.cs" />
+        <option value="$PROJECT_DIR$/Models/ApplicationUser.cs" />
+        <option value="$PROJECT_DIR$/Data/DataBootstrapper.cs" />
+        <option value="$PROJECT_DIR$/Models/User.cs" />
+        <option value="$PROJECT_DIR$/Controllers/API/UserController.cs" />
+        <option value="$PROJECT_DIR$/Areas/Identity/Pages/Account/Login.cshtml.cs" />
+        <option value="$PROJECT_DIR$/Views/User/Index.cshtml" />
       </list>
     </option>
   </component>
@@ -212,7 +218,8 @@
       <workItem from="1571753572939" duration="13844000" />
       <workItem from="1571831179367" duration="3618000" />
       <workItem from="1572268166125" duration="5755000" />
-      <workItem from="1572333623684" duration="17668000" />
+      <workItem from="1572333623684" duration="23155000" />
+      <workItem from="1572460744444" duration="4264000" />
     </task>
     <servers />
   </component>
@@ -234,45 +241,65 @@
     <state x="552" y="198" key="#com.intellij.execution.impl.EditConfigurationsDialog/1366.768/1920.1080" />
     <state x="740" y="279" key="FileChooserDialogImpl" />
     <state x="740" y="279" key="FileChooserDialogImpl/1366.768/1920.1080" />
-    <state width="1877" height="676" key="GridCell.Tab.0.bottom" />
-    <state width="1877" height="676" key="GridCell.Tab.0.bottom/1366.768/1920.1080" />
-    <state width="1877" height="676" key="GridCell.Tab.0.center" />
-    <state width="1877" height="676" key="GridCell.Tab.0.center/1366.768/1920.1080" />
-    <state width="1877" height="676" key="GridCell.Tab.0.left" />
-    <state width="1877" height="676" key="GridCell.Tab.0.left/1366.768/1920.1080" />
-    <state width="1877" height="676" key="GridCell.Tab.0.right" />
-    <state width="1877" height="676" key="GridCell.Tab.0.right/1366.768/1920.1080" />
+    <state width="1921" height="929" key="GridCell.Tab.0.bottom" />
+    <state width="1877" height="385" key="GridCell.Tab.0.bottom/1366.768" />
+    <state width="1921" height="929" key="GridCell.Tab.0.bottom/1366.768/1920.1080" />
+    <state width="1921" height="929" key="GridCell.Tab.0.center" />
+    <state width="1877" height="385" key="GridCell.Tab.0.center/1366.768" />
+    <state width="1921" height="929" key="GridCell.Tab.0.center/1366.768/1920.1080" />
+    <state width="1921" height="929" key="GridCell.Tab.0.left" />
+    <state width="1877" height="385" key="GridCell.Tab.0.left/1366.768" />
+    <state width="1921" height="929" key="GridCell.Tab.0.left/1366.768/1920.1080" />
+    <state width="1921" height="929" key="GridCell.Tab.0.right" />
+    <state width="1877" height="385" key="GridCell.Tab.0.right/1366.768" />
+    <state width="1921" height="929" key="GridCell.Tab.0.right/1366.768/1920.1080" />
     <state width="1877" height="385" key="GridCell.Tab.1.bottom" />
+    <state width="1877" height="385" key="GridCell.Tab.1.bottom/1366.768" />
     <state width="1877" height="385" key="GridCell.Tab.1.bottom/1366.768/1920.1080" />
     <state width="1877" height="385" key="GridCell.Tab.1.center" />
+    <state width="1877" height="385" key="GridCell.Tab.1.center/1366.768" />
     <state width="1877" height="385" key="GridCell.Tab.1.center/1366.768/1920.1080" />
     <state width="1877" height="385" key="GridCell.Tab.1.left" />
+    <state width="1877" height="385" key="GridCell.Tab.1.left/1366.768" />
     <state width="1877" height="385" key="GridCell.Tab.1.left/1366.768/1920.1080" />
     <state width="1877" height="385" key="GridCell.Tab.1.right" />
+    <state width="1877" height="385" key="GridCell.Tab.1.right/1366.768" />
     <state width="1877" height="385" key="GridCell.Tab.1.right/1366.768/1920.1080" />
     <state width="1877" height="385" key="GridCell.Tab.2.bottom" />
+    <state width="1877" height="385" key="GridCell.Tab.2.bottom/1366.768" />
     <state width="1877" height="385" key="GridCell.Tab.2.bottom/1366.768/1920.1080" />
     <state width="1877" height="385" key="GridCell.Tab.2.center" />
+    <state width="1877" height="385" key="GridCell.Tab.2.center/1366.768" />
     <state width="1877" height="385" key="GridCell.Tab.2.center/1366.768/1920.1080" />
     <state width="1877" height="385" key="GridCell.Tab.2.left" />
+    <state width="1877" height="385" key="GridCell.Tab.2.left/1366.768" />
     <state width="1877" height="385" key="GridCell.Tab.2.left/1366.768/1920.1080" />
     <state width="1877" height="385" key="GridCell.Tab.2.right" />
+    <state width="1877" height="385" key="GridCell.Tab.2.right/1366.768" />
     <state width="1877" height="385" key="GridCell.Tab.2.right/1366.768/1920.1080" />
     <state width="1877" height="385" key="GridCell.Tab.3.bottom" />
+    <state width="1877" height="385" key="GridCell.Tab.3.bottom/1366.768" />
     <state width="1877" height="385" key="GridCell.Tab.3.bottom/1366.768/1920.1080" />
     <state width="1877" height="385" key="GridCell.Tab.3.center" />
+    <state width="1877" height="385" key="GridCell.Tab.3.center/1366.768" />
     <state width="1877" height="385" key="GridCell.Tab.3.center/1366.768/1920.1080" />
     <state width="1877" height="385" key="GridCell.Tab.3.left" />
+    <state width="1877" height="385" key="GridCell.Tab.3.left/1366.768" />
     <state width="1877" height="385" key="GridCell.Tab.3.left/1366.768/1920.1080" />
     <state width="1877" height="385" key="GridCell.Tab.3.right" />
+    <state width="1877" height="385" key="GridCell.Tab.3.right/1366.768" />
     <state width="1877" height="385" key="GridCell.Tab.3.right/1366.768/1920.1080" />
     <state width="1877" height="385" key="GridCell.Tab.4.bottom" />
+    <state width="1877" height="385" key="GridCell.Tab.4.bottom/1366.768" />
     <state width="1877" height="385" key="GridCell.Tab.4.bottom/1366.768/1920.1080" />
     <state width="1877" height="385" key="GridCell.Tab.4.center" />
+    <state width="1877" height="385" key="GridCell.Tab.4.center/1366.768" />
     <state width="1877" height="385" key="GridCell.Tab.4.center/1366.768/1920.1080" />
     <state width="1877" height="385" key="GridCell.Tab.4.left" />
+    <state width="1877" height="385" key="GridCell.Tab.4.left/1366.768" />
     <state width="1877" height="385" key="GridCell.Tab.4.left/1366.768/1920.1080" />
     <state width="1877" height="385" key="GridCell.Tab.4.right" />
+    <state width="1877" height="385" key="GridCell.Tab.4.right/1366.768" />
     <state width="1877" height="385" key="GridCell.Tab.4.right/1366.768/1920.1080" />
     <state x="670" y="220" key="RiderGenerateDialog" />
     <state x="670" y="220" key="RiderGenerateDialog/1366.768/1920.1080" />
@@ -283,6 +310,7 @@
     <state x="616" y="243" width="672" height="677" key="run.anything.popup" />
     <state x="616" y="243" width="672" height="677" key="run.anything.popup/1366.768/1920.1080" />
     <state x="623" y="227" width="672" height="678" key="search.everywhere.popup" />
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/1366.768" />
     <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/1366.768/1920.1080" />
   </component>
   <component name="XDebuggerManager">
