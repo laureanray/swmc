@@ -1,10 +1,12 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Http;
 
 namespace swmc.Models.FormModel
 {
     public class CreateApplicantForm
     {
+        [Required]
         public IFormFile ApplicantPhoto { get; set; }
         public Applicant Applicant { get; set; }
         public Family Family { get; set; }

@@ -61,6 +61,25 @@
                 }else{
                     d.status = "Archived";
         }
+         
+         console.log(d);
+         
+        var dependents = "";
+        var skills = "";
+         for(var i = 0; i < d.dependents.length; i++){
+            dependents += "<tr>" +
+             "<td>" + (i + 1) +"</td>" +
+             "<td>" + d.dependents[i].name + "</td>" +
+             "<td>" + d.dependents[i].age + "</td>" +
+             "<td>" + d.dependents[i].relationship + "</td>" + 
+             "</tr>";
+         }
+         
+         for(var x = 0; x < d.skills.length; x++){
+             skills += "<li>" + d.skills[x].skillName + "</li>";
+         }
+         
+         console.log(dependents);
 
         var table = "<div class='row'>" +
          "<div class='col-2'>" +
@@ -103,7 +122,8 @@
                               "<td class='text-primary'><strong>" + d.status + "</strong></td>" +
                 "</tr>" +
             "</table>" +
-             "<h6 class='mt-2'> Family Information </h6>" +
+             "<h6 class='mt-4'> Skills </h6> <ul>" + skills + 
+              "</ul><h6 class='mt-4'> Family Information </h6>" +
                "<table class='table-bordered'>" +
                 "<tr>" +
                  "<td><strong>Father's Name</strong> </td>" +
@@ -118,9 +138,20 @@
                   "<td>" + d.family.numberOfChildren+ "</td>" +
                  "</tr>" +
                  "</table>" +
-              "<h6> Dependents Information </h6>" +
+              "<h6 class='mt-4'> Dependents Information </h6>" +
+               "<table class='table-bordered'>" +
+                "<tr>" +
+                 "<th>#</th>" +
+                 "<th> Dependents Name </th>" +
+                  "<th> Dependents Age </th>" +
+                   "<th> Dependents Relationship</th>" +
+                 "</tr>" 
+                + dependents +
+                 "</table>" +
            "</div> " +
          "</div>";      
+        
+        console.log(table);
         return table;
     }
     

@@ -20,5 +20,6 @@ namespace swmc.Data
         public DbSet<Vessel> Vessels { get; set; }
         public DbSet<DocumentType> DocumentTypes { get; set; }
         public DbSet<Position> Positions { get; set; }
+        public DbSet<Skill> Skills { get; set;  }
     }
 }

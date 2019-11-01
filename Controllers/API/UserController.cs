@@ -43,7 +43,8 @@ namespace swmc.Controllers.API
                     DateCreated = user.DateCreated,
                     DateUpdated = user.DateCreated,
                     IsArchived = user.IsArchived,
-                    Email = user.Email
+                    Email = user.Email,
+                    Id = user.Id
                 };
 
                 usersToReturn.Add(u);
@@ -61,15 +62,77 @@ namespace swmc.Controllers.API
             return users;
         }
 
-//        [Route("AddUser")]
-//        [HttpPost]
-//        public async Task<ActionResult<JsonResponse>> AddUser(ApplicationUser user)
-//        {
-//            var result = await _userManager.CreateAsync(user);
-//            if (result.Succeeded)
-//            {
-//                
-//            }
-//        } 
+        [Route("ArchiveUser")]
+        public async Task<ActionResult<JsonResponse>> ArchiveUser(string id)
+        {
+            var user = await _userManager.FindByIdAsync(id);
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            user.IsArchived = true;
+            user.DateUpdated = DateTime.Now;
+
+            _context.Entry(user).State = EntityState.Modified;
+
+            await _context.SaveChangesAsync();
+            return new JsonResponse()
+            {
+                Message = "Success"
+            };            
+        }
+        
+        [Route("RestoreUser")]
+        public async Task<ActionResult<JsonResponse>> RestoreUser(string id)
+        {
+            var user = await _userManager.FindByIdAsync(id);
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            user.IsArchived = false;
+            user.DateUpdated = DateTime.Now;
+
+            _context.Entry(user).State = EntityState.Modified;
+
+            await _context.SaveChangesAsync();
+            return new JsonResponse()
+            {
+                Message = "Success"
+            };            
+        }
+
+
+        [Route("AddUser")]
+        [HttpPost]
+        public async Task<ActionResult<JsonResponse>> AddUser(User user)
+        {
+            var u = new ApplicationUser()
+            {
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                Email = user.Email,
+                UserName = user.Email,
+                DateCreated = DateTime.Now 
+            };
+            
+            var result = await _userManager.CreateAsync(u, user.Password);
+            if (result.Succeeded)
+            {
+                await _userManager.AddToRoleAsync(u, user.Role);
+                await _context.SaveChangesAsync();
+
+                return new JsonResponse()
+                {
+                    Message = "Success"
+                };
+            }
+
+            return NotFound();
+        } 
     }
 }

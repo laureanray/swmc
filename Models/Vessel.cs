@@ -23,14 +23,13 @@ namespace swmc.Models
         public string CBA { get; set; }
         public string IMONumber { get; set; }
         public string VesselAbr { get; set; }
-        public string Status { get; set; }
         public string HorsePower { get; set; }
         public string Classification { get; set; }
         public string Type { get; set; }
         public string YearBuilt{ get; set; }
-        public DateTime DateEnrolled { get; set; }
+        public string YearEnrolled { get; set; }
         public DateTime DateAdded { get; set; }
-        public DateTime DateModified { get; set; }
+        public DateTime DateUpdated { get; set; }
         public bool IsArchived { get; set; }
     }    
 }

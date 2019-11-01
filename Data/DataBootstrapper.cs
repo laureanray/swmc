@@ -123,6 +123,36 @@ namespace swmc.Data
                 }
             }
 
+            var skills = new List<Skill>()
+            {
+                new Skill()
+                {
+                    SkillName = "Firefighting",
+                },
+                new Skill()
+                {
+                    SkillName = "Electronics"
+                },
+                new Skill()
+                {
+                    SkillName = "Mechanical"
+                },
+                new Skill()
+                {
+                    SkillName = "Telecommunications"
+                }
+            };
+
+            if (!context.Skills.Any())
+            {
+                foreach (var skill in skills)
+                {
+                    context.Skills.Add(skill);
+                }
+
+                await context.SaveChangesAsync();
+            }
+
             var documentTypes = new List<DocumentType>()
             {
                 new DocumentType()
@@ -217,6 +247,151 @@ namespace swmc.Data
 
                     context.Positions.Add(po);
                 }
+
+                await context.SaveChangesAsync();
+            }
+
+
+            var vessels = new List<Vessel>()
+            {
+                new Vessel()
+                {
+                    VesselName = "GRAND URANUS",
+                    Principal = "CIDO SHIPPING (KOREA) CO., LTD",
+                    Flag = "PANAMA",
+                    GrossTonnage = "72654",
+                    JSU = "0",
+                    EngineMake = "HYUNDAI MAN B&W",
+                    PortRegistry = "PANAMA",
+                    OfficialNumber = "43497",
+                    CBA = "IBF FKSU",
+                    IMONumber = "9472206",
+                    VesselAbr = "GRUR",
+                    HorsePower = "19040",
+                    Classification = "DNV",
+                    Type = "PCC",
+                    YearEnrolled = "2012",
+                    YearBuilt = "2012"
+                },
+                new Vessel()
+                {
+                    VesselName = "DREAM ANGEL",
+                    Principal = "CIDO SHIPPING (KOREA) CO., LTD",
+                    Flag = "PANAMA",
+                    GrossTonnage = "41678",
+                    JSU = "40",
+                    EngineMake = "MITSUI MAN B&W",
+                    PortRegistry = "PANAMA",
+                    OfficialNumber = "31564",
+                    CBA = "IBF FKSU",
+                    IMONumber = "41678",
+                    VesselAbr = "GRUR",
+                    HorsePower = "19040",
+                    Classification = "DNV",
+                    Type = "PCC",
+                    YearEnrolled = "2012",
+                    YearBuilt = "2012"
+                }
+            };
+
+            if (!context.Vessels.Any())
+            {
+                foreach (var vessel in vessels)
+                {
+                    vessel.DateAdded = DateTime.Now;
+                    context.Vessels.Add(vessel);
+                }
+
+                await context.SaveChangesAsync();
+            }
+
+
+            if (!context.Applicants.Any())
+            {
+                var family = new Family()
+                {
+                    FathersFirstName   = "Fathers",
+                    FathersMiddleName = "Middle",
+                    FathersLastName = "Last",
+                    MothersFirstName = "Mothers",
+                    MothersMiddleName = "Middle",
+                    MothersLastName = "Last",
+                    SpouseFirstName = "Spouse",
+                    SpouseMiddleName = "Middle",
+                    SpouseLastName = "Last",
+                    NumberOfChildren = 12
+                };
+                
+                var dependents = new List<Dependent>()
+                {
+                    new Dependent()
+                    {
+                        Age = 19,
+                        Name = "Maria Luna",
+                        Relationship = "Wife"
+                    },
+                    new Dependent()
+                    {
+                        Age = 5,
+                        Name = "Johnny Name",
+                        Relationship = "Son"
+                    }
+                };
+
+                var documents = new List<Document>()
+                {
+                    new Document()
+                    {
+                        DocumentType = documentTypes[0],
+                        DateExpiry = new DateTime(2017, 2, 2),
+                        DateSubmitted = new DateTime(2016, 6, 2)
+                    },
+                    new Document()
+                    {
+                        DocumentType = documentTypes[1],
+                        DateExpiry = new DateTime(2018, 2, 2),
+                        DateSubmitted = new DateTime(2016, 6, 2)
+                    },
+                    new Document()
+                    {
+                        DocumentType = documentTypes[2],
+                        DateExpiry = new DateTime(2018, 2, 2),
+                        DateSubmitted = new DateTime(2016, 6, 2)
+                    }
+                };
+
+                var applicant = new Applicant()
+                {
+                    Address = "123 Address St., Manila, NCR 1016",
+                    Age = 32,
+                    Documents = new List<Document>(documents),
+                    Dependents = new List<Dependent>(dependents),
+                    Skills = new List<Skill>(skills),
+                    Cellphone = "09123456789",
+                    Citizenship = "Filipino",
+                    Family = family,
+                    Gender = "Male",
+                    Position = positions[0],
+                    Height = 23,
+                    Weight = 42,
+                    Religion = "Christian",
+                    Telephone = "1231231",
+                    Status = Status.Active,
+                    Suffix = "Jr",
+                    SchoolFrom = "2005",
+                    SchoolTo = "2010",
+                    LastName = "Test",
+                    FirstName = "Juan",
+                    MiddleName = "Test",
+                    DateOfBirth = new DateTime(2001, 2, 1),
+                    PlaceOfBirth = "Quezon City",
+                    CivilStatus = "Married",
+                    DateCreated = DateTime.Now,
+                    LastSchoolAttended = "School",
+                    PositionId = 1
+                };
+
+                context.Applicants.Add(applicant);
 
                 await context.SaveChangesAsync();
             }

@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.2",
-    "signature": "e33fd6bb8ad684e10a9e5710cd677895debd8b7b"
+    "signature": "95da1eb89360ed90e4764f9488ce053da096f071"
   },
   "compilationOptions": {
     "defines": [
@@ -29,6 +29,7 @@
           "Microsoft.EntityFrameworkCore.Sqlite": "2.2.6",
           "Microsoft.NETCore.App": "2.2.0",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.2.4",
+          "Rotativa.AspNetCore": "1.1.1",
           "Sendgrid": "9.12.0"
         },
         "runtime": {
@@ -314,6 +315,20 @@
         },
         "compile": {
           "lib/netstandard1.0/Remotion.Linq.dll": {}
+        }
+      },
+      "Rotativa.AspNetCore/1.1.1": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Mvc": "2.2.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Rotativa.AspNetCore.dll": {
+            "assemblyVersion": "1.1.1.0",
+            "fileVersion": "1.1.1.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Rotativa.AspNetCore.dll": {}
         }
       },
       "Sendgrid/9.12.0": {
@@ -3867,6 +3882,13 @@
       "sha512": "sha512-fK/76UmpC0FXBlGDFVPLJHQlDLYnGC+XY3eoDgCgbtrhi0vzbXDQ3n/IYHhqSKqXQfGw/u04A1drWs7rFVkRjw==",
       "path": "remotion.linq/2.2.0",
       "hashPath": "remotion.linq.2.2.0.nupkg.sha512"
+    },
+    "Rotativa.AspNetCore/1.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-LzlleiGJ+r39cDm4ln/gd1s7QEIeFtYOcxS5AIwGcE4kk1+axULj48xMV1MTEr7U+yH73VBl+aUbkJsKAVmzAA==",
+      "path": "rotativa.aspnetcore/1.1.1",
+      "hashPath": "rotativa.aspnetcore.1.1.1.nupkg.sha512"
     },
     "Sendgrid/9.12.0": {
       "type": "package",

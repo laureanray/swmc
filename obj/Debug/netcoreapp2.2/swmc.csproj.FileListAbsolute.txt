@@ -73,3 +73,5 @@ C:\Users\Laurean Ray Bahala\Desktop\ongoing-projects\swmc\obj\Debug\netcoreapp2.
 C:\Users\Laurean Ray Bahala\Desktop\ongoing-projects\swmc\obj\Debug\netcoreapp2.2\Razor\Views\Applicant\DocumentTypes.g.cshtml.cs
 C:\Users\Laurean Ray Bahala\Desktop\ongoing-projects\swmc\obj\Debug\netcoreapp2.2\Razor\Views\Applicant\Positions.g.cshtml.cs
 C:\Users\Laurean Ray Bahala\Desktop\ongoing-projects\swmc\obj\Debug\netcoreapp2.2\Razor\Views\User\Index.g.cshtml.cs
+C:\Users\Laurean Ray Bahala\Desktop\ongoing-projects\swmc\obj\Debug\netcoreapp2.2\Razor\Views\User\Archived.g.cshtml.cs
+C:\Users\Laurean Ray Bahala\Desktop\ongoing-projects\swmc\obj\Debug\netcoreapp2.2\Razor\Views\Vessel\Archived.g.cshtml.cs

@@ -39,9 +39,9 @@ namespace swmc.Models
         [Required]
         public string PlaceOfBirth { get; set; }
         [Required]
-        public string Height { get; set; }
+        public int Height { get; set; }
         [Required]
-        public string Weight { get; set; }
+        public int Weight { get; set; }
         [Required]
         public string Cellphone { get; set; }
         [Required]
@@ -55,14 +55,16 @@ namespace swmc.Models
         public string LastSchoolAttended { get; set; }
         [Required]
         public string SchoolFrom { get; set; }
+        [Required]
         public string SchoolTo { get; set; }
         public Status Status { get; set; }
         public Family Family { get; set; }
         public byte[] Photo { get; set; }
         public List<Document> Documents { get; set; }
-        public List<Beneficiary> Beneficiaries { get; set; }
-        public List<Allottee> Allottees { get; set; }
+//        public List<Beneficiary> Beneficiaries { get; set; }
+//        public List<Allottee> Allottees { get; set; }
         public List<Dependent> Dependents { get; set; }
+        public List<Skill> Skills { get; set; }
         public DateTime DateCreated { get; set; }
         public DateTime DateUpdated { get; set; }
     }

@@ -118,9 +118,13 @@
         <e p="FormModel" t="Include">
           <e p="CreateApplicantForm.cs" t="Include" />
         </e>
+        <e p="JsonModel" t="Include">
+          <e p="JsonDocument.cs" t="Include" />
+        </e>
         <e p="JsonResponse.cs" t="Include" />
         <e p="Position.cs" t="Include" />
         <e p="Request.cs" t="Include" />
+        <e p="Skill.cs" t="Include" />
         <e p="User.cs" t="Include" />
         <e p="Vessel.cs" t="Include" />
       </e>
@@ -166,9 +170,11 @@
           <e p="Error.cshtml" t="Include" />
         </e>
         <e p="User" t="Include">
+          <e p="Archived.cshtml" t="Include" />
           <e p="Index.cshtml" t="Include" />
         </e>
         <e p="Vessel" t="Include">
+          <e p="Archived.cshtml" t="Include" />
           <e p="Index.cshtml" t="Include" />
         </e>
       </e>

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Routing;
 using Microsoft.EntityFrameworkCore;
 using swmc.Data;
 using swmc.Models;
+using swmc.Models.JsonModel;
 
 namespace swmc.Controllers.API
 {
@@ -74,10 +75,9 @@ namespace swmc.Controllers.API
             var applicants = await _context.Applicants
                 .Include(a => a.Position)
                 .Include(a => a.Family)
-                .Include(a => a.Beneficiaries)
                 .Include(a => a.Dependents)
-                .Include(a => a.Allottees)
                 .Include(a => a.Documents)
+                .Include( a => a.Skills)
                 .Where(a => !a.Status.Equals(Status.Archived)).ToListAsync();
             return applicants;
         }
@@ -86,8 +86,8 @@ namespace swmc.Controllers.API
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Applicant>>> GetArchivedApplicants()
         {
-            var applicants = await _context.Applicants.Include(a => a.Family).Include(a => a.Beneficiaries)
-                .Include(a => a.Dependents).Include(a => a.Allottees)
+            var applicants = await _context.Applicants.Include(a => a.Family)
+                .Include(a => a.Dependents)
                 .Include(a => a.Documents).Where(a => a.Status.Equals(Status.Archived)).ToListAsync();
             return applicants;
         }
@@ -138,6 +138,30 @@ namespace swmc.Controllers.API
             {
                 Message = "Success"
             });
+        }
+
+        [Route("GetDocuments")]
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<JsonDocument>>> GetDocuments()
+        {
+            var documents = new List<JsonDocument>();
+            
+            var docs =  await _context.Documents.Include(d => d.DocumentType).ToListAsync();
+
+            if (docs.Any())
+            {
+                foreach (var doc in docs)
+                {
+                    var applicant = await _context.Applicants.FirstOrDefaultAsync(a => a.ApplicantId == doc.ApplicantId);
+                    documents.Add(new JsonDocument()
+                    {
+                        Document = doc,
+                        Applicant = applicant
+                    });
+                }
+            }
+
+            return documents;
         }
 
         [Route("GetDocumentTypes")]
@@ -192,6 +216,8 @@ namespace swmc.Controllers.API
 
             return positions;
         }
+        
+        
 
       
     }

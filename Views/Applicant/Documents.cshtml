@@ -9,16 +9,14 @@
     <div class="row mt-3">
         <div class="col">
 
-            <table id="applicantsTable" class="display">
+            <table id="documentsTable" class="display">
                 <thead>
                 <tr>
-                    <th></th>
-                    <th>Applicant ID</th>
-                    <th>Last Name</th>
-                    <th>First Name</th>    
-                    <th>Position</th>
-                    <th>Date Created</th>
-                    <th></th>
+                    <th>Document ID</th>
+                    <th>Applicant Name</th>
+                    <th>Document Name</th>
+                    <th>Date Submitted</th>    
+                    <th>Date Expiry</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -29,142 +27,27 @@
     </div>
 </div>
 
-<!-- Archive MOdal Modal -->
-<div class="modal fade" id="archiveModal" tabindex="-1" role="dialog" aria-labelledby="archiveModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="archiveModalLabel">Archive Applicant</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-          Are you sure you want to archive applicant?
-          <input type="hidden" id="applicantToArchive" >
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-        <button type="button" id="archiveBtn" class="btn btn-danger">Archive</button>
-      </div>
-    </div>
-  </div>
-</div>
 
 <script >
-    var table;
-    function format ( d ) {
-         if(d.status === 0){
-                    d.status = "Active";
-                }else if(d.status === 1){
-                    d.status = "Embarked";
-                }else{
-                    d.status = "Archived";
-        }
-
-        var table = "<div class='row'>" +
-         "<div class='col-2'>" +
-          "<h6> Applicant Photo </h6>" +
-           "<img style='width: 100%' src='data:image/png;base64, "+ d.photo +"' alt=''>" +
-           "</div>" +
-          "<div class='col'>" +
-          "<h6> Additional Information </h6>" +
-           "<table class='table-bordered'>" +
-           "<tr>" +
-            "<td><strong>Address</strong> </td>" +
-             "<td>" + d.address + "</td>" +
-           "<td><strong>Age</strong> </td>" +
-                  "<td>" + d.age + "</td>" +
-                              "<td><strong> Cellphone </strong> </td>" +
-                               "<td>" + d.cellphone + "</td>" +
-            "</tr>" +
-            "<tr>" +
-            "<td><strong> Telephone </strong> </td>" +
-             "<td>" + d.telephone + "</td>" +
-                "<td><strong> Citizenship</strong> </td>" +
-             "<td>" + d.citizenship + "</td>" +
-             "<td><strong> Civil Status </strong> </td>" +
-                        "<td>" + d.civilStatus + "</td>" +
-            "</tr>" +
-             "<tr>" +
-              "<td><strong> Gender </strong> </td>" +
-           "<td>" + d.gender + "</td>" +
-              "<td><strong> Height </strong> </td>" +
-                          "<td>" + d.height + "</td>" +
-                             "<td><strong> Weight </strong> </td>" +
-                          "<td>" + d.weight + "</td>" +
-            "</tr>" +
-                "<tr>" +
-               "<td><strong> Religion </strong> </td>" +
-               "<td>" + d.religion + "</td>" +
-                  "<td><strong> Place Of Birth </strong> </td>" +
-               "<td>" + d.placeOfBirth + "</td>" +
-                  "<td class='bg-primary text-light'><strong> Applicant Status </strong> </td>" +
-                              "<td class='text-primary'><strong>" + d.status + "</strong></td>" +
-                "</tr>" +
-            "</table>" +
-             "<h6 class='mt-2'> Family Information </h6>" +
-               "<table class='table-bordered'>" +
-                "<tr>" +
-                 "<td><strong>Father's Name</strong> </td>" +
-                  "<td>" + d.family.fathersFirstName + " " + d.family.fathersLastName + "</td>" +
-                "<td><strong>Mother's Name </strong> </td>" +
-                  "<td>" + d.family.mothersFirstName + " " + d.family.mothersLastName + "</td>" +
-                   "<td><strong> Spouse' Name </strong> </td>" +
-                  "<td>" + d.family.spouseFirstName + " " + d.family.spouseLastName + "</td>" +
-                 "</tr>" +
-                 "<tr>" +
-                 "<td><strong> Number Of Children </strong> </td>" +
-                  "<td>" + d.family.numberOfChildren+ "</td>" +
-                 "</tr>" +
-                 "</table>" +
-              "<h6> Dependents Information </h6>" +
-           "</div> " +
-         "</div>";      
-        return table;
-    }
-    
-    function archiveApplicant(applicantId, callback){
-        $.ajax({
-            type: 'GEt',
-            url: '/api/Applicant/ArchiveApplicant?applicantId=' + applicantId,
-            contentType: 'application/json; charset=utf-8',
-            success: callback,
-            error: function(err){
-                console.log(err);
-            }
-        })
-    }
-    
     function initDataTable(data){
         for(var i = 0; i < data.length; i++){
-            data[i].controls = "<button class='btn btn-outline-danger archive' data-id='"+ data[i].applicantId +"'> Archive </button>";
+            data[i].documentId = data[i].document.documentId;
+            data[i].documentName = data[i].document.documentType.documentTypeName;
+            data[i].dateSubmitted = data[i].document.dateSubmitted;
+            data[i].dateExpiry = data[i].document.dateExpiry;
+            data[i].applicantName = data[i].applicant.firstName + " " + data[i].applicant.lastName;
         }
-        table = $("#applicantsTable").DataTable({
+        
+        
+        $("#documentsTable").DataTable({
             data: data,
             columns: [
-                {
-                    "className":      'details-control',
-                    "orderable":      false,
-                    "data":           null,
-                    "defaultContent": ''
-                },
-                { "data": "applicantId"},
-                { "data": "lastName" },
-                { "data": "firstName" },
-                { "data": "position" },
-                { "data": "dateCreated" },
-                { "data": "controls"}
+                { "data": "documentId"},
+                { "data": "applicantName"}, { "data": "documentName" },
+                { "data": "dateSubmitted" },
+                { "data": "dateExpiry" }
             ],
-            destroy: true,
-            drawCallback: function(settings){
-                $(".archive").off();
-                $(".archive").click(function(){
-                   var id = $(this).data('id');
-                   $("#applicantToArchive").val(id);
-                   $("#archiveModal").modal("show");
-                });
-            }      
+            destroy: true          
         });
        
     }
@@ -173,7 +56,7 @@
         $.ajax({
             type: 'GET',
             dataType: 'json',
-            url: '/api/Applicant/GetApplicants',
+            url: '/api/Applicant/GetDocuments',
             success: function(data){
                 callback(data);
             },
@@ -188,8 +71,10 @@
           getData(function(data){
                 console.log(data);
                 initDataTable(data);
-                $('#applicantsTable tbody').off();
-                $('#applicantsTable tbody').on('click', 'td.details-control', function () {
+
+                
+                $('#documentsTable tbody').off();
+                $('#documentsTable tbody').on('click', 'td.details-control', function () {
                         var tr = $(this).closest('tr');
                         var row = table.row( tr );
                         if ( row.child.isShown() ) {

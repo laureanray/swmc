@@ -25,15 +25,13 @@ namespace swmc.Controllers
         public async Task<IActionResult> CreateApplicant()
         {
             CreateApplicantForm model = new CreateApplicantForm();
-
+            var dts = await _context.DocumentTypes.Where(dt => !dt.IsArchived).ToListAsync();
             var pos = await _context.Positions.Where(p => !p.IsArchived).ToListAsync();
             model.Positions = new List<Position>(pos);
+            model.DocumentTypes = new List<DocumentType>(dts);
             return View(model);
         }
-
-
-  
-            
+           
         [HttpPost]
         public async Task<IActionResult> CreateApplicant(CreateApplicantForm model)
         {
@@ -83,9 +81,7 @@ namespace swmc.Controllers
                     LastSchoolAttended = model.Applicant.LastSchoolAttended,
                     SchoolFrom = model.Applicant.SchoolFrom,
                     SchoolTo = model.Applicant.SchoolTo,
-                    Beneficiaries = model.Beneficiaries,
                     Dependents = model.Dependents,
-                    Allottees = model.Allottees,
                     Documents = model.Documents,
                     Position = position
                 };
@@ -110,7 +106,9 @@ namespace swmc.Controllers
             CreateApplicantForm m = new CreateApplicantForm();
 
             var pos = await _context.Positions.Where(p => !p.IsArchived).ToListAsync();
+            var dts = await _context.DocumentTypes.Where(dt => !dt.IsArchived).ToListAsync();
             m.Positions = new List<Position>(pos);
+            m.DocumentTypes = new List<DocumentType>(dts);
             return View(m);
         }
 
@@ -134,8 +132,12 @@ namespace swmc.Controllers
             return View();
         }
         
-        
         public IActionResult Positions()
+        {
+            return View();
+        }
+
+        public IActionResult Documents()
         {
             return View();
         }

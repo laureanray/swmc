@@ -4,34 +4,197 @@
 }
 
 <!-- Modal Form -->
-<div class="modal fade" id="addVesselForm" tabindex="-1" role="dialog" aria-labelledby="addVesselFormTitle" aria-hidden="true">
+<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="addVesselFormTitle">Add Vessel</h5>
+                <h5 class="modal-title" id="addModalTitle">Add Vessel</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                              <div class="row">
-                                  <div class="col-md-4">
-                                      <label class="text-dark"> Vessel Name </label>
-                                      <input type="text" class="form-control form-control-user" placeholder="Vessel Name">
-                                  </div>
-                                  <div class="col-md-4">
-                                      <label class="text-dark"> Principal </label>
-                                      <input type="text" class="form-control form-control-user" placeholder="Principal">
-                                  </div>
-                                  <div class="col-md-4">
-                                      <label class="text-dark"> Flag </label>
-                                      <input type="text" class="form-control form-control-user"  placeholder="Flag">
-                                  </div>
-                              </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label class="text-dark"> Vessel Name </label>
+                        <input type="text" class="form-control form-control-user" id="vesselName" placeholder="Vessel Name">
+                    </div>
+                    <div class="col-md-4">
+                        <label class="text-dark"> Principal </label>
+                        <input type="text" class="form-control form-control-user" id="principal" placeholder="Principal">
+                    </div>
+                    <div class="col-md-4">
+                        <label class="text-dark"> Flag </label>
+                        <input type="text" class="form-control form-control-user" id="flag" placeholder="Flag">
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-4">
+                        <label class="text-dark"> Gross Tonnage </label>
+                        <input type="text" class="form-control form-control-user" id="grossTonnage" placeholder="Gross Tonnage">
+                    </div>
+                    <div class="col-md-4">
+                        <label class="text-dark"> JSU </label>
+                        <input type="text" class="form-control form-control-user" id="jsu" placeholder="JSU">
+                    </div>
+                    <div class="col-md-4">
+                        <label class="text-dark"> Engine Make </label>
+                        <input type="text" class="form-control form-control-user" id="engineMake" placeholder="Engine Make">
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-4">
+                        <label class="text-dark"> Port Registry </label>
+                        <input type="text" class="form-control form-control-user" id="portRegistry" placeholder="Port Registry">
+                    </div>
+                    <div class="col-md-4">
+                        <label class="text-dark"> Official Number </label>
+                        <input type="text" class="form-control form-control-user" id="officialNumber" placeholder="Official Number">
+                    </div>
+                    <div class="col-md-4">
+                        <label class="text-dark"> CBA </label>
+                        <input type="text" class="form-control form-control-user" id="cba" placeholder="CBA">
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-4">
+                        <label class="text-dark"> IMO Number </label>
+                        <input type="text" class="form-control form-control-user" id="imoNumber" placeholder="IMO Number">
+                    </div>
+                    <div class="col-md-4">
+                        <label class="text-dark"> Vessel Abr </label>
+                        <input type="text" class="form-control form-control-user" id="vesselAbr" placeholder="Vessel Abr">
+                    </div>
+                    <div class="col-md-4">
+                        <label class="text-dark"> Horse Power </label>
+                        <input type="text" class="form-control form-control-user" id="horsePower" placeholder="Horse Power">
+                    </div>
+                </div>
+                <div class="row mt-2">
+
+                    <div class="col-md-4">
+                        <label class="text-dark"> Classification </label>
+                        <input type="text" class="form-control form-control-user" id="classification" placeholder="Classification">
+                    </div>
+                    <div class="col-md-4">
+                        <label class="text-dark"> Type </label>
+                        <input type="text" class="form-control form-control-user" id="type" placeholder="Type">
+                    </div>
+                    <div class="col">
+                        <label class="text-dark"> Year Built </label>
+                        <input type="text" class="form-control form-control-user" id="yearBuilt" placeholder="Year Built">
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col">
+                        <label class="text-dark"> Year Enrolled </label>
+                        <input type="text" class="form-control form-control-user" id="yearEnrolled" placeholder="Year Enrolled">
+                    </div>
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-primary">Add Vessel </button>
+                <button type="button" class="btn btn-success" id="createBtn" disabled>Create </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Update Modal Form -->
+<div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="updateModalTitle">Update Vessel</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <label class="text-dark"> Vessel Name </label>
+                        <input type="text" class="form-control form-control-user" id="vesselName" placeholder="Vessel Name">
+                    </div>
+                    <div class="col-md-4">
+                        <label class="text-dark"> Principal </label>
+                        <input type="text" class="form-control form-control-user" id="principal" placeholder="Principal">
+                    </div>
+                    <div class="col-md-4">
+                        <label class="text-dark"> Flag </label>
+                        <input type="text" class="form-control form-control-user" id="flag" placeholder="Flag">
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-4">
+                        <label class="text-dark"> Gross Tonnage </label>
+                        <input type="text" class="form-control form-control-user" id="grossTonnage" placeholder="Gross Tonnage">
+                    </div>
+                    <div class="col-md-4">
+                        <label class="text-dark"> JSU </label>
+                        <input type="text" class="form-control form-control-user" id="jsu" placeholder="JSU">
+                    </div>
+                    <div class="col-md-4">
+                        <label class="text-dark"> Engine Make </label>
+                        <input type="text" class="form-control form-control-user" id="engineMake" placeholder="Engine Make">
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-4">
+                        <label class="text-dark"> Port Registry </label>
+                        <input type="text" class="form-control form-control-user" id="portRegistry" placeholder="Port Registry">
+                    </div>
+                    <div class="col-md-4">
+                        <label class="text-dark"> Official Number </label>
+                        <input type="text" class="form-control form-control-user" id="officialNumber" placeholder="Official Number">
+                    </div>
+                    <div class="col-md-4">
+                        <label class="text-dark"> CBA </label>
+                        <input type="text" class="form-control form-control-user" id="cba" placeholder="CBA">
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-4">
+                        <label class="text-dark"> IMO Number </label>
+                        <input type="text" class="form-control form-control-user" id="imoNumber" placeholder="IMO Number">
+                    </div>
+                    <div class="col-md-4">
+                        <label class="text-dark"> Vessel Abr </label>
+                        <input type="text" class="form-control form-control-user" id="vesselAbr" placeholder="Vessel Abr">
+                    </div>
+                    <div class="col-md-4">
+                        <label class="text-dark"> Horse Power </label>
+                        <input type="text" class="form-control form-control-user" id="horsePower" placeholder="Horse Power">
+                    </div>
+                </div>
+                <div class="row mt-2">
+
+                    <div class="col-md-4">
+                        <label class="text-dark"> Classification </label>
+                        <input type="text" class="form-control form-control-user" id="classification" placeholder="Classification">
+                    </div>
+                    <div class="col-md-4">
+                        <label class="text-dark"> Type </label>
+                        <input type="text" class="form-control form-control-user" id="type" placeholder="Type">
+                    </div>
+                    <div class="col">
+                        <label class="text-dark"> Year Built </label>
+                        <input type="text" class="form-control form-control-user" id="yearBuilt" placeholder="Year Built">
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col">
+                        <label class="text-dark"> Year Enrolled </label>
+                        <input type="text" class="form-control form-control-user" id="yearEnrolled" placeholder="Year Enrolled">
+                        <input type="hidden" name="" id="vesselIdToUpdate" >
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-success" id="updateBtn" disabled>Update </button>
             </div>
         </div>
     </div>
@@ -43,7 +206,7 @@
 
     <div class="row mt-4">
         <div class="col">
-            <button class="btn btn-primary" data-toggle="modal" data-target="#addVesselForm">
+            <button class="btn btn-success" data-toggle="modal" data-target="#addModal">
                 <i class="fas fa-fw fa-plus"></i>
                 Add Vessel
             </button>
@@ -56,14 +219,17 @@
             <table id="vesselTable" class="display">
                 <thead>
                 <tr>
+                    <th></th>
                     <th>ID</th>
                     <th>Vessel Name</th>
                     <th>Principal</th>
                     <th>Gross Tonnage</th>
+                    <th>Horsepower</th>
+                    <th>Year Enrolled</th>
+                    <th></th>
                 </tr>
                 </thead>
                 <tbody>
-               
                 </tbody>
             </table>
         </div>
@@ -71,17 +237,106 @@
 </div>
 
 
-<script >
+<!-- Archive Modal -->
+<div class="modal fade" id="archiveModal" tabindex="-1" role="dialog" aria-labelledby="archiveModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="archiveModalLabel">Archive Vessel</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to archive vessel?
+                <input type="hidden" id="vesselId">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="button" id="archiveBtn" class="btn btn-danger">Archive</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script >  
+    var table;
+    
+    function getVesselData(id, callback){
+        $.ajax({
+            type: 'GET',
+            url: "/api/Vessel/" + id,
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8',
+            success: callback,
+            error: function(err){
+                console.log(err);
+            } 
+        })
+    }
+    
     function initDataTable(data){
-        $("#vesselTable").DataTable({
+        for(var i = 0; i < data.length; i++){
+            data[i].controls = "<button class='btn btn-outline-danger archive' data-id='"+ data[i].vesselId +"'> Archive </button> " +
+                               "<button class='btn btn-outline-secondary update' data-id='" + data[i].vesselId + "'> Update </button>";
+        }
+        table = $("#vesselTable").DataTable({
             data: data,
             columns: [
+                {
+                    "className":      'details-control',
+                    "orderable":      false,
+                    "data":           null,
+                    "defaultContent": ''
+                },
                 { "data": "vesselId" },
                 { "data": "vesselName" },
                 { "data": "principal" },
-                { "data": "grossTonnage" }
+                { "data": "grossTonnage" },
+                { "data": "horsePower" },
+                { "data": "yearEnrolled" },
+                { "data": "controls" }
             ],
-            destroy: true            
+            destroy: true,
+            drawCallback: function(setting){
+                $(".archive").off();
+                $(".archive").click(function(){
+                   var id = $(this).data('id');
+                   $("#vesselId").val(id);
+                   $("#archiveModal").modal("show");
+                });
+                
+                $(".update").off();
+                $(".update").click(function(){
+                   var id = $(this).data('id');
+                   getVesselData(id, function(res){
+                      console.log(res); 
+                      $("#updateModal #cba").val(res.cba);
+                      $("#updateModal #classification").val(res.classification);
+                      $("#updateModal #engineMake").val(res.engineMake);
+                      $("#updateModal #flag").val(res.flag);
+                      $("#updateModal #grossTonnage").val(res.grossTonnage);
+                      $("#updateModal #horsePower").val(res.horsePower);
+                      $("#updateModal #imoNumber").val(res.imoNumber);
+                      $("#updateModal #jsu").val(res.jsu);
+                      $("#updateModal #officialNumber").val(res.officialNumber);
+                      $("#updateModal #portRegistry").val(res.portRegistry);
+                      $("#updateModal #principal").val(res.principal);
+                      $("#updateModal #type").val(res.type);
+                      $("#updateModal #vesselAbr").val(res.vesselAbr);
+                      $("#updateModal #vesselName").val(res.vesselName);
+                      $("#updateModal #yearBuilt").val(res.yearBuilt);
+                      $("#updateModal #yearEnrolled").val(res.yearEnrolled);
+                      $("#updateModal #vesselIdToUpdate").val(id);
+                      
+                      $("#updateModal").modal('show');
+                        check();
+
+                   });
+                });
+                
+            }        
+
         });
     }
     
@@ -89,7 +344,7 @@
         $.ajax({
             type: 'GET',
             dataType: 'json',
-            url: '/api/Vessel',
+            url: '/api/Vessel/GetVessels',
             success: function(data){
                 callback(data);
             },
@@ -99,9 +354,216 @@
         })
     }
     
-    getData(function(data){
-        console.log(data);
-        initDataTable(data);
+    function updateVessel(data, callback){
+        $.ajax({
+            type: 'POST',
+            contentType: "application/json; charset=utf-8",
+            url: "/api/Vessel/UpdateVessel",
+            dataType: 'json',
+            data: JSON.stringify(data),
+            success: callback,
+            error: function(err){
+                console.log(err);
+            }
+        });
+    }
+    
+    function addVessel(data, callback){
+        $.ajax({
+            type: 'POST',
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            data: JSON.stringify(data),
+            url: '/api/Vessel/AddVessel',
+            success: callback,
+            error: function(err){
+                console.log(err);
+            }
+        })
+    }
+    
+    function archiveVessel(id, callback){
+        $.ajax({
+            type: 'GET',
+            url: '/api/Vessel/ArchiveVessel?vesselId=' + id,
+            contentType: 'application/json; charset=utf-8',
+            success: callback,
+            error: function(err) {
+                console.log(err);
+            }
+        })
+    }
+    
+    function init(){
+        getData(function(data){
+            console.log(data);
+            initDataTable(data);
+        });
+    }
+    $("#updateModal input").keyup(function(){
+        check();
     });
+    
+    
+    $("#addModal input").keyup(function(){
+       if( $("#vesselName").val().length === 0 || 
+           $("#principal").val().length === 0 || 
+           $("#flag").val().length === 0 ||
+           $("#grossTonnage").val().length === 0 ||
+           $("#jsu").val().length === 0 || 
+           $("#engineMake").val().length === 0 ||
+           $("#portRegistry").val().length === 0 || 
+           $("#officialNumber").val().length === 0 ||
+           $("#cba").val().length === 0 ||
+           $("#imoNumber").val().length === 0 || 
+           $("#vesselAbr").val().length === 0 || 
+           $("#horsePower").val().length === 0 || 
+           $("#classification").val().length === 0 || 
+           $("#type").val().length === 0 || 
+           $("#yearBuilt").val().length === 0 ||
+           $("#yearEnrolled").val().length === 0
+           ){
+                $("#createBtn").prop('disabled', true);
+           } else{
+               $("#createBtn").prop('disabled', false);
+           }
+
+    });
+    
+    $("#createBtn").click(function(){
+        $(this).prop('disabled', true);
+        $(this).text('Creating...');
+        
+        var data = {
+            vesselName: $("#vesselName").val(),
+            principal: $("#principal").val(),
+            flag: $("#flag").val(),
+            grossTonnage: $("#grossTonnage").val(),
+            jsu: $("#jsu").val(),
+            engineMake: $("#engineMake").val(),
+            portRegistry: $("#portRegistry").val(),
+            officialNumber: $("#officialNumber").val(),
+            cba: $("#cba").val(),
+            imoNumber: $("#imoNumber").val(),
+            vesselAbr: $("#vesselAbr").val(),
+            horsePower: $("#horsePower").val(),
+            classification: $("#classification").val(),
+            type: $("#type").val(),
+            yearBuilt: $("#yearBuilt").val(),
+            yearEnrolled: $("#yearEnrolled").val()
+        };
+        
+        addVessel(data, function(res){
+            if(res.message === "Success"){
+                setTimeout(function(){
+                    $("#addModal").modal('hide');
+                    $(this).prop('disabled', false);
+                    $(this).text('Create');
+                    init();
+                }, 500);
+            }
+        })
+        
+    });
+    
+    
+    $("#archiveBtn").click(function(){
+        $(this).attr('disabled', true);
+        $(this).text('Archiving');
+        
+        archiveVessel($("#vesselId").val(), function(res){
+            if(res.message === "Success"){
+                setTimeout(function(){
+                    $("#archiveBtn").text('Archive');
+                    $("#archiveBtn").prop('disabled', false);
+                    $("#archiveModal").modal('hide');
+                    init();
+                }, 500);
+            }
+        })
+    });
+    
+    function check(){
+         if( $("#updateModal #vesselName").val().length === 0 || 
+       $("#updateModal #principal").val().length === 0 || 
+       $("#updateModal #flag").val().length === 0 ||
+       $("#updateModal #grossTonnage").val().length === 0 ||
+       $("#updateModal #jsu").val().length === 0 || 
+       $("#updateModal #engineMake").val().length === 0 ||
+       $("#updateModal #portRegistry").val().length === 0 || 
+       $("#updateModal #officialNumber").val().length === 0 ||
+       $("#updateModal #cba").val().length === 0 ||
+       $("#updateModal #imoNumber").val().length === 0 || 
+       $("#updateModal #vesselAbr").val().length === 0 || 
+       $("#updateModal #horsePower").val().length === 0 || 
+       $("#updateModal #classification").val().length === 0 || 
+       $("#updateModal #type").val().length === 0 || 
+       $("#updateModal #yearBuilt").val().length === 0 ||
+       $("#updateModal #yearEnrolled").val().length === 0
+       ){
+           $("#updateBtn").prop('disabled', true);
+       } else{
+           $("#updateBtn").prop('disabled', false);
+       }
+              var data = {
+                      vesselName: $("#updateModal #vesselName").val(),
+                      principal: $("#updateModal #principal").val(),
+                      flag: $("#updateModal #flag").val(),
+                      grossTonnage: $("#updateModal #grossTonnage").val(),
+                      jsu: $("#updateModal #jsu").val(),
+                      engineMake: $("#updateModal #engineMake").val(),
+                      portRegistry: $("#updateModal #portRegistry").val(),
+                      officialNumber: $("#updateModal #officialNumber").val(),
+                      cba: $("#updateModal #cba").val(),
+                      imoNumber: $("#updateModal #imoNumber").val(),
+                      vesselAbr: $("#updateModal #vesselAbr").val(),
+                      horsePower: $("#updateModal #horsePower").val(),
+                      classification: $("#updateModal #classification").val(),
+                      type: $("#updateModal #type").val(),
+                      yearBuilt: $("#updateModal #yearBuilt").val(),
+                      yearEnrolled: $("#updateModal #yearEnrolled").val()
+                  };
+         console.log(data);
+         console.log('check');
+    }
+    
+    $("#updateBtn").click(function(){
+      $(this).attr('disabled', true);
+      $(this).text('Updating...');
+      
+        var data = {
+             vesselId: $("#updateModal #vesselIdToUpdate").val(),
+             vesselName: $("#updateModal #vesselName").val(),
+             principal: $("#updateModal #principal").val(),
+             flag: $("#updateModal #flag").val(),
+             grossTonnage: $("#updateModal #grossTonnage").val(),
+             jsu: $("#updateModal #jsu").val(),
+             engineMake: $("#updateModal #engineMake").val(),
+             portRegistry: $("#updateModal #portRegistry").val(),
+             officialNumber: $("#updateModal #officialNumber").val(),
+             cba: $("#updateModal #cba").val(),
+             imoNumber: $("#updateModal #imoNumber").val(),
+             vesselAbr: $("#updateModal #vesselAbr").val(),
+             horsePower: $("#updateModal #horsePower").val(),
+             classification: $("#updateModal #classification").val(),
+             type: $("#updateModal #type").val(),
+             yearBuilt: $("#updateModal #yearBuilt").val(),
+             yearEnrolled: $("#updateModal #yearEnrolled").val()
+         };
+        
+        updateVessel(data, function(res){
+           if(res.message == "Success"){
+               setTimeout(function(){
+                    $("#updateBtn").attr('disabled', false);
+                     $("#updateBtn").text('Update');
+                     $("#updateModal").modal('hide');
+                     init();
+               }, 500);
+           } 
+        });
+  
+    });
+    
+    init();
     
 </script>

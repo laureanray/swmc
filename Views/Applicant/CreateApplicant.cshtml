@@ -147,13 +147,13 @@
 
                 <div class="row">
                     <div class="col-md-2">
-                        <label class="text-dark"> Height </label>
-                        <input type="text" class="form-control form-control-user" asp-for="Applicant.Height" placeholder="Height">
+                        <label class="text-dark"> Height (kgs) </label>
+                        <input type="number" class="form-control form-control-user" asp-for="Applicant.Height" placeholder="Height">
                         <span asp-validation-for="Applicant.PlaceOfBirth" class="text-danger"></span>
                     </div>
                     <div class="col-md-2">
-                        <label class="text-dark"> Weight </label>
-                        <input type="text" class="form-control form-control-user" asp-for="Applicant.Weight" placeholder="Weight">
+                        <label class="text-dark"> Weight (cm) </label>
+                        <input type="number" class="form-control form-control-user" asp-for="Applicant.Weight" placeholder="Weight">
                         <span asp-validation-for="Applicant.Weight" class="text-danger"></span>
                     </div>
                     <div class="col-md-4">
@@ -347,45 +347,6 @@
 
     </div>
     <div class="card-body collapse" id="collapse_3">
-
-        <h1 class="h6 text-gray-900 mb-4">Beneficiaries:</h1>
-
-        <div class="row">
-            <div class="col-md-4">
-                <label class="text-dark"> Name </label>
-            </div>
-            <div class="col-md-4">
-                <label class="text-dark"> Relationship </label>
-            </div>
-            <div class="col-md-4">
-                <label class="text-dark"> Address </label>
-            </div>
-        </div>
-
-        <div id="benRow">
-            <div class="row">
-                <div class="col-md-4">
-                    <input type="text" class="form-control form-control-user" asp-for="@Model.Beneficiaries[0].Name" placeholder="Name">
-                </div>
-                <div class="col-md-4">
-                    <input type="text" class="form-control form-control-user" asp-for="@Model.Beneficiaries[0].Relationship" placeholder="Relationship">
-                </div>
-                <div class="col-md-4">
-                    <input type="text" class="form-control form-control-user" asp-for="@Model.Beneficiaries[0].Address" placeholder="Address">
-                </div>
-            </div>
-        </div>
-
-
-        <div class="row justify-content-end mt-2">
-            <div class="col text-right">
-                <button class="btn btn-success" id="addBeneficiaries">
-                    <i class="fas fa-fw fa-plus"></i>
-                </button>
-            </div>
-        </div>
-        <br>
-
         <h1 class="h6 text-gray-900 mb-4">Dependents:</h1>
 
         <div class="row">
@@ -434,7 +395,7 @@
         </button>
     </div>
     <div class="card-body collapse" id="collapse_4">
-        <h1 class="h6 text-gray-900 mb-4">Dependents:</h1>
+        <h1 class="h6 text-gray-900 mb-4">Documents:</h1>
 
         <div class="row">
             <div class="col-md-4">
@@ -451,8 +412,9 @@
         <div id="docRow">
             <div class="row">
                 <div class="col-md-4">
-                    <input type="text" class="form-control form-control-user" asp-for="@Model.Documents[0].DocumentName" placeholder="Document Name">
+                    <select asp-for="@Model.Documents[0].DocumentTypeId" class="form-control"></select>
                 </div>
+          
                 <div class="col-md-4">
                     <input type="date" class="form-control form-control-user" asp-for="@Model.Documents[0].DateSubmitted" placeholder="Date Submitted">
                 </div>
@@ -472,55 +434,6 @@
         </div>
     </div>
 </div>
-
-
-<div class="card mb-4">
-    <div class="card-header py-3">
-        <!-- <h6 class="m-0 font-weight-bold text-primary">Alottee</h6> -->
-        <button class="btn btn-dark" type="button" data-toggle="collapse" data-target="#collapse_5" aria-expanded="false" aria-controls="collapseExample">
-            Alottee
-        </button>
-    </div>
-    <div class="card-body collapse" id="collapse_5">
-        <h1 class="h6 text-gray-900 mb-4">Alottee:</h1>
-
-        <div class="row">
-            <div class="col-md-4">
-                <label class="text-dark"> Name </label>
-            </div>
-            <div class="col-md-4">
-                <label class="text-dark"> Relationship </label>
-            </div>
-            <div class="col-md-4">
-                <label class="text-dark"> Address </label>
-            </div>
-        </div>
-
-        <div id="allRow">
-            <div class="row">
-                <div class="col-md-4">
-                    <input type="text" class="form-control form-control-user" asp-for="@Model.Allottees[0].Name" placeholder="Name">
-                </div>
-                <div class="col-md-4">
-                    <input type="text" class="form-control form-control-user" asp-for="@Model.Allottees[0].Relationship" placeholder="Relationship">
-                </div>
-                <div class="col-md-4">
-                    <input type="text" class="form-control form-control-user" asp-for="@Model.Allottees[0].Address" placeholder="Address">
-                </div>
-            </div>
-        </div>
-
-
-        <div class="row justify-content-end mt-2">
-            <div class="col text-right">
-                <button class="btn btn-success" id="addAllottee">
-                    <i class="fas fa-fw fa-plus"></i>
-                </button>
-            </div>
-        </div>
-    </div>
-</div>
-
 <button type="submit" class="btn btn-success btn-lg mb-4"> Add Applicant</button>
 
 </div>
@@ -528,27 +441,29 @@
 
 </form>
 <script>
-    $(document).ready(function(){
-      $("#addBeneficiaries").click(function(event){
-          event.preventDefault();
-          
-          var numOfRows = $("#benRow .row").length;
+    var dts;
 
-          $("#benRow").append(
-              '<div class="row mt-2">\n'+
-               '                <div class="col-md-4">\n'+
-               '                    <input type="text" class="form-control form-control-user" id="Beneficiaries_'+ numOfRows +'__Name" name="Beneficiaries[' + numOfRows +  '].Name" placeholder="Name">\n'+
-               '                </div>\n'+
-               '                <div class="col-md-4">\n'+
-               '                    <input type="text" class="form-control form-control-user" id="Beneficiaries_'+ numOfRows +'__Relationship"  name="Beneficiaries[' + numOfRows +  '].Relationship" placeholder="Relationship">\n'+
-               '                </div>\n'+
-               '                <div class="col-md-4">\n'+
-               '                    <input type="text" class="form-control form-control-user" id="Beneficiaries_'+ numOfRows +'__Address" name="Beneficiaries[' + numOfRows +  '].Address"  placeholder="Address">\n'+
-               '                </div>\n'+
-               '            </div>'
-          );
-      }); 
-      
+    function getDocumentTypes(callback){
+        $.ajax({
+            type: 'GET',
+            url: "/api/Applicant/GetDocumentTypes",
+            contentType: "application/json;charset=utf-8",
+            success: callback,
+            error: function(err){
+                console.log(err);
+            }
+        });
+    }
+    $(document).ready(function(){
+      getDocumentTypes(function(data){
+          dts = data;
+          for(var i = 0; i < data.length; i++){
+               $("#Documents_0__DocumentTypeId").append(
+                   "<option value='"+data[i].documentTypeId+"'>" + data[i].documentTypeName + "</option>"
+               );
+          }
+      });
+        
       $("#addDependents").click(function(event){
         event.preventDefault();
         
@@ -577,7 +492,7 @@
               $("#docRow").append(
                   '<div class="row mt-2">\n'+
                    '                <div class="col-md-4">\n'+
-                   '                    <input type="text" class="form-control form-control-user" id="Documents_'+ numOfRows +'__Name" name="Documents[' + numOfRows +  '].DocumentName" placeholder="Document Name">\n'+
+                   '                    <select class="form-control" data-val="true" data-val-required="The DocumentTypeId field is required." id="Documents_' + numOfRows + '__DocumentTypeId" name="Documents['+numOfRows+'].DocumentTypeId"></select>\n'+
                    '                </div>\n'+
                    '                <div class="col-md-4">\n'+
                    '                    <input type="date" class="form-control form-control-user" id="Documents_'+ numOfRows +'__Relationship"  name="Documents[' + numOfRows +  '].DateSubmitted" placeholder="Date Submitted">\n'+
@@ -587,29 +502,15 @@
                    '                </div>\n'+
                    '            </div>'
               );
+              
+            for(var i = 0; i < dts.length; i++){
+                 $("#Documents_"+ numOfRows +"__DocumentTypeId").append(
+                     "<option value='"+dts[i].documentTypeId+"'>" + dts[i].documentTypeName + "</option>"
+                 );
+            }
             }); 
       
-      $("#addAllottee").click(function(event){
-                    event.preventDefault();
-                    
-                    var numOfRows = $("#allRow .row").length;
-            
-                    $("#allRow").append(
-                        '<div class="row mt-2">\n'+
-                         '                <div class="col-md-4">\n'+
-                         '                    <input type="text" class="form-control form-control-user" id="Allottees_'+ numOfRows +'__Name" name="Allottees[' + numOfRows +  '].Name" placeholder="Name">\n'+
-                         '                </div>\n'+
-                         '                <div class="col-md-4">\n'+
-                         '                    <input type="text" class="form-control form-control-user" id="Allottees_'+ numOfRows +'__Relationship"  name="Allottees[' + numOfRows +  '].Relationship" placeholder="Relationship">\n'+
-                         '                </div>\n'+
-                         '                <div class="col-md-4">\n'+
-                         '                    <input type="text" class="form-control form-control-user" id="Allottees_'+ numOfRows +'__Address" name="Allottees[' + numOfRows +  '].Address"  placeholder="Address">\n'+
-                         '                </div>\n'+
-                         '            </div>'
-                    );
-                  }); 
-              
-        
+          
         
       document.getElementById("ApplicantPhoto").onchange = function() {
         var reader = new FileReader();

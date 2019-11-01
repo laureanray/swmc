@@ -28,5 +28,9 @@ namespace swmc.Controllers
         }
 
       
+        public IActionResult Archived()
+        {
+            return View();
+        }
     }
 }

@@ -107,9 +107,6 @@
         </div>
     </div>
 </div>
-
-
-
 <script >
     function archiveUser(id, callback){
          $.ajax({
@@ -122,7 +119,6 @@
                 }
         });
     }
-    
     
     function createUser(data, callback){
        $.ajax({
@@ -152,14 +148,8 @@
     
      function initDataTable(data){
             for(var i = 0; i < data.length; i++){
-                if(data[i].role === "Admin"){
-                    data[i].controls = "<button class='btn btn-outline-danger archive' data-id='"+ data[i].id +"' disabled> Archive </button> " +
-                                                       "<button class='btn btn-outline-secondary update' data-id='" + data[i].id + "'> Update </button>";
-                }else{
                 data[i].controls = "<button class='btn btn-outline-danger archive' data-id='"+ data[i].id +"'> Archive </button> " +
                                    "<button class='btn btn-outline-secondary update' data-id='" + data[i].id + "'> Update </button>";
-                
-                }
             }
             $("#usersTable").DataTable({
                 data: data,
@@ -227,14 +217,5 @@
                 }, 500);
             }
         })
-    });
-    
-    $("#archiveBtn").click(function(){
-       archiveUser($("#userId").val(), function(res){
-          if(res.message === "Success"){
-              $("#archiveModal").modal('hide');
-              init();
-          } 
-       });
-    });
+    })
 </script>
