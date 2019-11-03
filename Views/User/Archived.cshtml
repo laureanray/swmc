@@ -4,12 +4,7 @@
 }
 
 <div class="container-fluid">
-    <h3> Users </h3>
-    <div class="row mt-3">
-        <div class="col">
-            <button class="btn btn-success" data-toggle="modal" data-target="#addModal"><i class="fas fa-fw fa-plus"></i> Add New User</button>
-        </div>
-    </div>
+    <h3> Archived Users </h3>
     <div class="row mt-3">
         <div class="col">
 
@@ -34,84 +29,32 @@
 
 
 <!-- Archive Modal -->
-<div class="modal fade" id="archiveModal" tabindex="-1" role="dialog" aria-labelledby="archiveModalLabel" aria-hidden="true">
+<div class="modal fade" id="restoreModal" tabindex="-1" role="dialog" aria-labelledby="restoreModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="archiveModalLabel">Archive User</h5>
+                <h5 class="modal-title" id="restoreModalLabel">Restore User</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                Are you sure you want to archive user?
+                Are you sure you want to restore user?
                 <input type="hidden" id="userId">
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                <button type="button" id="archiveBtn" class="btn btn-danger">Archive</button>
+                <button type="button" id="restoreBtn" class="btn btn-danger">Restore</button>
             </div>
         </div>
     </div>
 </div>
 
-<!-- Add Document Type  Modal -->
-<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="addModalLabel">Create New User</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form>
-                    <div class="row">
-                        <div class="col">
-                            <label for=""> First Name </label>
-                            <input type="text" class="form-control" id="firstName" placeholder="First Name">
-                        </div>
-                        <div class="col">
-                            <label for=""> Last Name </label>
-                            <input type="text" class="form-control" id="lastName" placeholder="Last Name">
-                        </div>
-                    </div>
-                    <div class="row mt-2">
-                        <div class="col">
-                            <label for=""> Email </label>
-                            <input type="text" class="form-control" id="email" placeholder="First Name">
-                        </div>
-                        <div class="col">
-                            <label for=""> Password </label>
-                            <input type="password" class="form-control" id="password" placeholder="Last Name">
-                        </div>
-                    </div>
-                    <div class="row mt-2">
-                        <div class="col">
-                            <label for=""> Role </label>
-                            <select id="role" class="form-control">
-                                <option value="Admin">Admin</option>
-                                <option value="HR">HR</option>
-                                <option value="Operations">Operations</option>
-                                <option value="Principal">Principal</option>
-                            </select>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                <button type="button" id="createBtn" class="btn btn-success" disabled>Create</button>
-            </div>
-        </div>
-    </div>
-</div>
 <script >
-    function archiveUser(id, callback){
+    function restoreUser(id, callback){
          $.ajax({
                 type: 'GET',
-                url: "/api/User/ArchiveUser?id=" + id,
+                url: "/api/User/RestoreUser?id=" + id,
                 contentType: 'application/json; charset=utf-8',
                 success: callback,
                 error: function(err){
@@ -137,7 +80,7 @@
     function getUsers(callback){
         $.ajax({
             type: 'GET',
-            url: "/api/User/GetUsers",
+            url: "/api/User/GetArchivedUsers",
             contentType: 'application/json; charset=utf-8',
             success: callback,
             error: function(err){
@@ -148,8 +91,7 @@
     
      function initDataTable(data){
             for(var i = 0; i < data.length; i++){
-                data[i].controls = "<button class='btn btn-outline-danger archive' data-id='"+ data[i].id +"'> Archive </button> " +
-                                   "<button class='btn btn-outline-secondary update' data-id='" + data[i].id + "'> Update </button>";
+                data[i].controls = "<button class='btn btn-outline-success restore' data-id='"+ data[i].id +"'> Restore </button> ";
             }
             $("#usersTable").DataTable({
                 data: data,
@@ -163,11 +105,11 @@
                 ],
                 destroy: true,
                 drawCallback: function(settings){
-                    $(".archive").off();
-                    $(".archive").click(function(){
+                    $(".restore").off();
+                    $(".restore").click(function(){
                        var id = $(this).data('id');
                        $("#userId").val(id);
-                       $("#archiveModal").modal("show");
+                       $("#restoreModal").modal("show");
                     });
                 }      
             });

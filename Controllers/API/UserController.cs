@@ -55,11 +55,30 @@ namespace swmc.Controllers.API
         
         [Route("GetArchivedUsers")]
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<ApplicationUser>>> GetArchivedUsers()
+        public async Task<ActionResult<IEnumerable<User>>> GetArchivedUsers()
         {
             var users = await _context.Users.Where(u => u.IsArchived).ToListAsync();
+            var usersToReturn = new List<User>();
+            
+            foreach (var user in users)
+            {
+                var roles = await _userManager.GetRolesAsync(user);
+                var u = new User()
+                {
+                    FirstName = user.FirstName,
+                    LastName = user.LastName,
+                    Role = roles[0],
+                    DateCreated = user.DateCreated,
+                    DateUpdated = user.DateCreated,
+                    IsArchived = user.IsArchived,
+                    Email = user.Email,
+                    Id = user.Id
+                };
 
-            return users;
+                usersToReturn.Add(u);
+            }
+
+            return usersToReturn;
         }
 
         [Route("ArchiveUser")]

@@ -30,6 +30,11 @@ namespace swmc.Controllers
             return View();
         }
 
+        public IActionResult Archived()
+        {
+            return View(); 
+        }
+
       
     }
 }

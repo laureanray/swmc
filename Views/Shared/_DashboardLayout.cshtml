@@ -128,6 +128,7 @@
             <div class="dropdown-menu" aria-labelledby="pagesDropdown">
                 <h6 class="dropdown-header">Principal Request</h6>
                 <a class="dropdown-item" asp-controller="Request" asp-action="Index">Manage Requests</a>
+                <a class="dropdown-item" asp-controller="Request" asp-action="Archived">Archived Requests</a>
             </div>
         </li>
          <li class="nav-item dropdown">
@@ -147,9 +148,9 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="pagesDropdown">
                     <h6 class="dropdown-header">Reports</h6>
-                    <a class="dropdown-item" href="login.html">Applicant Report</a>
-                    <a class="dropdown-item" href="login.html">Request Report</a>
-                    <a class="dropdown-item" href="login.html">Embarkation Report</a>
+                    <a class="dropdown-item" asp-controller="Report" asp-action="ApplicantReport">Applicant Report</a>
+                    <a class="dropdown-item" asp-controller="Report" asp-action="RequestReport">Request Report</a>
+                    <a class="dropdown-item" asp-controller="Report" asp-action="EmbarkationReport">Embarkation Report</a>
                 </div>
         </li>
       <li class="nav-item dropdown">
@@ -160,6 +161,8 @@
                 <div class="dropdown-menu" aria-labelledby="pagesDropdown">
                     <h6 class="dropdown-header">Users</h6>
                     <a class="dropdown-item" asp-controller="User" asp-action="Index">User Accounts</a>
+                    <a class="dropdown-item" asp-controller="User" asp-action="Archived">Archived Accounts</a>
+
                 </div>
         </li>
     </ul>

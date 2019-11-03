@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Internal;
 using swmc.Data;
@@ -42,9 +43,31 @@ namespace swmc.Controllers.API
         [HttpPost]
         public async Task<ActionResult<JsonResponse>> AddRequest(Request request)
         {
-            _context.Requests.Add(request);
-            await _context.Requests.AddAsync(request);
 
+
+
+            for (int i = 0; i < request.Requirements.Count; i++)
+            {
+                var skills = new List<Skill>();
+
+                for (int j = 0; j < request.Requirements[i].Skills.Count; j++)
+                {
+                    var skill = await _context.Skills.FirstOrDefaultAsync(s =>
+                        s.SkillId == request.Requirements[i].Skills[j].SkillId);
+
+                    skills.Add(skill);
+                }
+                
+                request.Requirements[i].Skills = new List<Skill>(skills);
+            }
+            
+
+       
+            
+            _context.Requests.Add(request);
+            var res = await _context.SaveChangesAsync();            
+            
+            
             return new JsonResponse()
             {
                 Message = "Success"
@@ -75,5 +98,30 @@ namespace swmc.Controllers.API
 
         }
 
+        
+        
+        [Route("RestoreRequest")]
+        [HttpGet]
+        public async Task<ActionResult<JsonResponse>> RestoreRequest(int requestId)
+        {
+            var request = await _context.Requests.FirstOrDefaultAsync(r => r.RequestId == requestId);
+
+            if (request == null)
+            {
+                return NotFound();
+            }
+
+            request.IsArchived = false;
+
+            _context.Entry(request).State = EntityState.Modified;
+
+            await _context.SaveChangesAsync();
+
+            return new JsonResponse()
+            {
+                Message =  "Success"
+            };
+
+        }
     }
 }

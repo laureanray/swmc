@@ -176,6 +176,7 @@
           <e p="RequestReport.cshtml" t="Include" />
         </e>
         <e p="Request" t="Include">
+          <e p="Archived.cshtml" t="Include" />
           <e p="Index.cshtml" t="Include" />
         </e>
         <e p="Shared" t="Include">
