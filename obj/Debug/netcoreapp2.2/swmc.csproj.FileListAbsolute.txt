@@ -75,3 +75,8 @@ C:\Users\Laurean Ray Bahala\Desktop\ongoing-projects\swmc\obj\Debug\netcoreapp2.
 C:\Users\Laurean Ray Bahala\Desktop\ongoing-projects\swmc\obj\Debug\netcoreapp2.2\Razor\Views\User\Index.g.cshtml.cs
 C:\Users\Laurean Ray Bahala\Desktop\ongoing-projects\swmc\obj\Debug\netcoreapp2.2\Razor\Views\User\Archived.g.cshtml.cs
 C:\Users\Laurean Ray Bahala\Desktop\ongoing-projects\swmc\obj\Debug\netcoreapp2.2\Razor\Views\Vessel\Archived.g.cshtml.cs
+C:\Users\Laurean Ray Bahala\Desktop\ongoing-projects\swmc\obj\Debug\netcoreapp2.2\Razor\Views\Applicant\Skills.g.cshtml.cs
+C:\Users\Laurean Ray Bahala\Desktop\ongoing-projects\swmc\obj\Debug\netcoreapp2.2\Razor\Views\Request\Index.g.cshtml.cs
+C:\Users\Laurean Ray Bahala\Desktop\ongoing-projects\swmc\obj\Debug\netcoreapp2.2\Razor\Views\Report\ApplicantReport.g.cshtml.cs
+C:\Users\Laurean Ray Bahala\Desktop\ongoing-projects\swmc\obj\Debug\netcoreapp2.2\Razor\Views\Report\EmbarkationReport.g.cshtml.cs
+C:\Users\Laurean Ray Bahala\Desktop\ongoing-projects\swmc\obj\Debug\netcoreapp2.2\Razor\Views\Report\RequestReport.g.cshtml.cs

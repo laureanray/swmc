@@ -81,12 +81,8 @@
          
          console.log(dependents);
 
-        var table = "<div class='row'>" +
-         "<div class='col-2'>" +
-          "<h6> Applicant Photo </h6>" +
-           "<img style='width: 100%' src='data:image/png;base64, "+ d.photo +"' alt=''>" +
-           "</div>" +
-          "<div class='col'>" +
+        var table = "<div class='row' style='width: 100%'>" +
+          "<div class='col-6 mt-2'>" +
           "<h6> Additional Information </h6>" +
            "<table class='table-bordered'>" +
            "<tr>" +
@@ -149,6 +145,10 @@
                 + dependents +
                  "</table>" +
            "</div> " +
+            "<div class='col-2'>" +
+             "<h6 class='mt-2'> Applicant Photo </h6>" +
+              "<img style='width: 100%' src='data:image/png;base64, "+ d.photo +"' alt=''>" +
+              "</div>" +
          "</div>";      
         
         console.log(table);

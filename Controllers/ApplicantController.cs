@@ -141,5 +141,10 @@ namespace swmc.Controllers
         {
             return View();
         }
+
+        public IActionResult Skills()
+        {
+            return View();
+        }
     }
 }

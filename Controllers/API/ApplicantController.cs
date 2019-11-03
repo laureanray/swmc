@@ -88,6 +88,8 @@ namespace swmc.Controllers.API
         {
             var applicants = await _context.Applicants.Include(a => a.Family)
                 .Include(a => a.Dependents)
+                .Include( a => a.Skills)
+                .Include( a => a.Position)
                 .Include(a => a.Documents).Where(a => a.Status.Equals(Status.Archived)).ToListAsync();
             return applicants;
         }

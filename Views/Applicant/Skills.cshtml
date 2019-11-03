@@ -1,0 +1,112 @@
+﻿@{
+    ViewData["Title"] = "Applicants";
+    Layout = "_DashboardLayout";
+}
+
+<div class="container-fluid">
+    <h3> Documents  </h3>
+
+    <div class="row mt-3">
+        <div class="col">
+
+            <table id="applicantsTable" class="display">
+                <thead>
+                <tr>
+                    <th>Applicant Name</th>
+                    <th>Skills</th>
+                    <th>Position</th>
+                    <th>Date Created</th>
+                    <th>Date Updated</th>   
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+               
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<script >
+    function initDataTable(data){
+        for(var i = 0; i < data.length; i++){
+            data[i].documentId = data[i].document.documentId;
+            data[i].documentName = data[i].document.documentType.documentTypeName;
+            data[i].dateSubmitted = data[i].document.dateSubmitted;
+            data[i].dateExpiry = data[i].document.dateExpiry;
+            data[i].applicantName = data[i].applicant.firstName + " " + data[i].applicant.lastName;
+        }
+        
+        
+        $("#applicantsTable").DataTable({
+            data: data,
+            columns: [
+                { "data": "documentId"},
+                { "data": "applicantName"}, { "data": "documentName" },
+                { "data": "dateSubmitted" },
+                { "data": "dateExpiry" }
+            ],
+            destroy: true          
+        });
+       
+    }
+    
+    function getData(callback){
+        $.ajax({
+            type: 'GET',
+            dataType: 'json',
+            url: '/api/Applicant/GetDocuments',
+            success: function(data){
+                callback(data);
+            },
+            error: function(err){
+                console.log(err);
+            }
+        })
+    }
+    
+    
+    function init(){
+          getData(function(data){
+                console.log(data);
+                initDataTable(data);              
+                $('#applicantsTable tbody').off();
+                $('#applicantsTable tbody').on('click', 'td.details-control', function () {
+                        var tr = $(this).closest('tr');
+                        var row = table.row( tr );
+                        if ( row.child.isShown() ) {
+                            // This row is already open - close it
+                            row.child.hide();
+                            tr.removeClass('shown');
+                        }
+                        else {
+                            // Open this row
+                            row.child( format(row.data()) ).show();
+                            tr.addClass('shown');
+                        }
+                    } );
+            });
+    }
+  
+    
+    $("#archiveBtn").click(function(){
+       $(this).html("Archiving...");
+       $(this).prop('disabled', true);
+       setTimeout(function(){
+           archiveApplicant($("#applicantToArchive").val(), function(res){
+                console.log(res); 
+                if(res.message === "Success"){
+                    $(this).html("Archive");
+                    $(this).prop('disabled', false) ;
+                    $("#archiveModal").modal("hide");
+                    init();
+                }
+           });
+       }, 500);
+    });
+    
+    
+    init();
+</script>

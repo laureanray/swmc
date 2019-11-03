@@ -396,6 +396,70 @@ namespace swmc.Data
                 await context.SaveChangesAsync();
             }
 
+            var requirements = new List<Requirement>()
+            {
+                new Requirement()
+                {
+                    Position = positions[0],
+                    Quantity = 2,
+                    Skills = new List<Skill>(skills)
+                },
+                new Requirement()
+                {
+                    Position = positions[1],
+                    Quantity = 10,
+                    Skills = new List<Skill>()
+                    {
+                        skills[0]
+                    }
+                },
+                new Requirement()
+                {
+                    Position = positions[2],
+                    Quantity = 5,
+                    Skills = new List<Skill>(skills)
+                },
+                new Requirement()
+                {
+                    Position = positions[3],
+                    Quantity = 4,
+                    Skills = new List<Skill>(skills)
+                },
+                new Requirement()
+                {
+                    Position = positions[4],
+                    Quantity = 6,
+                    Skills = new List<Skill>()
+                    {
+                        skills[0]
+                    }
+                },
+                new Requirement()
+                {
+                    Position = positions[5],
+                    Quantity = 2,
+                    Skills = new List<Skill>()
+                    {
+                        skills[0]
+                    }
+                }
+            };
+
+            var request = new Request()
+            {
+                   Vessel = vessels[0],
+                   Destination = "South Korea",
+                   Remarks = "Remarks",
+                   Requirements = new List<Requirement>(requirements)
+            };
+            
+            if (!context.Requests.Any())
+            {
+                context.Requests.Add(request);
+
+                await context.SaveChangesAsync();
+            }
+
         }
     }
 }

@@ -83,12 +83,15 @@
       <e p="Controllers" t="Include">
         <e p="API" t="Include">
           <e p="ApplicantController.cs" t="Include" />
+          <e p="RequestController.cs" t="Include" />
           <e p="UserController.cs" t="Include" />
           <e p="VesselController.cs" t="Include" />
         </e>
         <e p="ApplicantController.cs" t="Include" />
         <e p="DashboardController.cs" t="Include" />
         <e p="HomeController.cs" t="Include" />
+        <e p="ReportController.cs" t="Include" />
+        <e p="RequestController.cs" t="Include" />
         <e p="UserController.cs" t="Include" />
         <e p="VesselController.cs" t="Include" />
       </e>
@@ -124,6 +127,7 @@
         <e p="JsonResponse.cs" t="Include" />
         <e p="Position.cs" t="Include" />
         <e p="Request.cs" t="Include" />
+        <e p="Requirement.cs" t="Include" />
         <e p="Skill.cs" t="Include" />
         <e p="User.cs" t="Include" />
         <e p="Vessel.cs" t="Include" />
@@ -140,6 +144,10 @@
       <e p="Properties" t="Include">
         <e p="launchSettings.json" t="Include" />
       </e>
+      <e p="Rotativa" t="Include">
+        <e p="wkhtmltoimage.exe" t="Include" />
+        <e p="wkhtmltopdf.exe" t="Include" />
+      </e>
       <e p="ScaffoldingReadme.txt" t="Include" />
       <e p="Startup.cs" t="Include" />
       <e p="swmc.csproj" t="IncludeRecursive" />
@@ -153,12 +161,21 @@
           <e p="DocumentTypes.cshtml" t="Include" />
           <e p="Index.cshtml" t="Include" />
           <e p="Positions.cshtml" t="Include" />
+          <e p="Skills.cshtml" t="Include" />
           <e p="Success.cshtml" t="Include" />
         </e>
         <e p="Dashboard" t="Include">
           <e p="Index.cshtml" t="Include" />
         </e>
         <e p="Home" t="Include">
+          <e p="Index.cshtml" t="Include" />
+        </e>
+        <e p="Report" t="Include">
+          <e p="ApplicantReport.cshtml" t="Include" />
+          <e p="EmbarkationReport.cshtml" t="Include" />
+          <e p="RequestReport.cshtml" t="Include" />
+        </e>
+        <e p="Request" t="Include">
           <e p="Index.cshtml" t="Include" />
         </e>
         <e p="Shared" t="Include">

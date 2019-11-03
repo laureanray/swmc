@@ -56,76 +56,105 @@
     
       
     function format ( d ) {
-        console.log(d);
-        
         if(d.status === 0){
-            d.status = "Active";
-        }else if(d.status === 1){
-            d.status = "Embarked";
-        }else{
-            d.status = "Archived";
-        }
+                            d.status = "Active";
+                        }else if(d.status === 1){
+                            d.status = "Embarked";
+                        }else{
+                            d.status = "Archived";
+                }
+                 
+                 console.log(d);
+                 
+                var dependents = "";
+                var skills = "";
+                 for(var i = 0; i < d.dependents.length; i++){
+                    dependents += "<tr>" +
+                     "<td>" + (i + 1) +"</td>" +
+                     "<td>" + d.dependents[i].name + "</td>" +
+                     "<td>" + d.dependents[i].age + "</td>" +
+                     "<td>" + d.dependents[i].relationship + "</td>" + 
+                     "</tr>";
+                 }
+                 
+                 for(var x = 0; x < d.skills.length; x++){
+                     skills += "<li>" + d.skills[x].skillName + "</li>";
+                 }
+                 
+                 console.log(dependents);
         
-        var table = "<div class='row'>" +
-         "<div class='col-2'>" +
-          "<h6> Applicant Photo </h6>" +
-           "<img style='width: 100%' src='data:image/png;base64, "+ d.photo +"' alt=''>" +
-           "</div>" +
-          "<div class='col'>" +
-          "<h6> Additional Information </h6>" +
-           "<table class='table-bordered'>" +
-           "<tr>" +
-            "<td><strong>Address</strong> </td>" +
-             "<td>" + d.address + "</td>" +
-           "<td><strong>Age</strong> </td>" +
-                  "<td>" + d.age + "</td>" +
-                              "<td><strong> Cellphone </strong> </td>" +
-                               "<td>" + d.cellphone + "</td>" +
-            "</tr>" +
-            "<tr>" +
-            "<td><strong> Telephone </strong> </td>" +
-             "<td>" + d.telephone + "</td>" +
-                "<td><strong> Citizenship</strong> </td>" +
-             "<td>" + d.citizenship + "</td>" +
-             "<td><strong> Civil Status </strong> </td>" +
-                        "<td>" + d.civilStatus + "</td>" +
-            "</tr>" +
-             "<tr>" +
-              "<td><strong> Gender </strong> </td>" +
-           "<td>" + d.gender + "</td>" +
-              "<td><strong> Height </strong> </td>" +
-                          "<td>" + d.height + "</td>" +
-                             "<td><strong> Weight </strong> </td>" +
-                          "<td>" + d.weight + "</td>" +
-            "</tr>" +
-                "<tr>" +
-               "<td><strong> Religion </strong> </td>" +
-               "<td>" + d.religion + "</td>" +
-                  "<td><strong> Place Of Birth </strong> </td>" +
-               "<td>" + d.placeOfBirth + "</td>" +
-                  "<td class='bg-primary text-light'><strong> Applicant Status </strong> </td>" +
-                              "<td class='text-primary'><strong>" + d.status + "</strong></td>" +
-                "</tr>" +
-            "</table>" +
-             "<h6 class='mt-2'> Family Information </h6>" +
-               "<table class='table-bordered'>" +
-                "<tr>" +
-                 "<td><strong>Father's Name</strong> </td>" +
-                  "<td>" + d.family.fathersFirstName + " " + d.family.fathersLastName + "</td>" +
-                "<td><strong>Mother's Name </strong> </td>" +
-                  "<td>" + d.family.mothersFirstName + " " + d.family.mothersLastName + "</td>" +
-                   "<td><strong> Spouse' Name </strong> </td>" +
-                  "<td>" + d.family.spouseFirstName + " " + d.family.spouseLastName + "</td>" +
-                 "</tr>" +
-                 "<tr>" +
-                 "<td><strong> Number Of Children </strong> </td>" +
-                  "<td>" + d.family.numberOfChildren+ "</td>" +
-                 "</tr>" +
-                 "</table>" +
-              "<h6> Dependents Information </h6>" +
-           "</div> " +
-         "</div>";      
-        return table;
+                var table = "<div class='row'  style='width: 100%'>" +
+                  "<div class='col-6'>" +
+                  "<h6> Additional Information </h6>" +
+                   "<table class='table-bordered'>" +
+                   "<tr>" +
+                    "<td><strong>Address</strong> </td>" +
+                     "<td>" + d.address + "</td>" +
+                   "<td><strong>Age</strong> </td>" +
+                          "<td>" + d.age + "</td>" +
+                                      "<td><strong> Cellphone </strong> </td>" +
+                                       "<td>" + d.cellphone + "</td>" +
+                    "</tr>" +
+                    "<tr>" +
+                    "<td><strong> Telephone </strong> </td>" +
+                     "<td>" + d.telephone + "</td>" +
+                        "<td><strong> Citizenship</strong> </td>" +
+                     "<td>" + d.citizenship + "</td>" +
+                     "<td><strong> Civil Status </strong> </td>" +
+                                "<td>" + d.civilStatus + "</td>" +
+                    "</tr>" +
+                     "<tr>" +
+                      "<td><strong> Gender </strong> </td>" +
+                   "<td>" + d.gender + "</td>" +
+                      "<td><strong> Height </strong> </td>" +
+                                  "<td>" + d.height + "</td>" +
+                                     "<td><strong> Weight </strong> </td>" +
+                                  "<td>" + d.weight + "</td>" +
+                    "</tr>" +
+                        "<tr>" +
+                       "<td><strong> Religion </strong> </td>" +
+                       "<td>" + d.religion + "</td>" +
+                          "<td><strong> Place Of Birth </strong> </td>" +
+                       "<td>" + d.placeOfBirth + "</td>" +
+                          "<td class='bg-primary text-light'><strong> Applicant Status </strong> </td>" +
+                                      "<td class='text-primary'><strong>" + d.status + "</strong></td>" +
+                        "</tr>" +
+                    "</table>" +
+                     "<h6 class='mt-4'> Skills </h6> <ul>" + skills + 
+                      "</ul><h6 class='mt-4'> Family Information </h6>" +
+                       "<table class='table-bordered'>" +
+                        "<tr>" +
+                         "<td><strong>Father's Name</strong> </td>" +
+                          "<td>" + d.family.fathersFirstName + " " + d.family.fathersLastName + "</td>" +
+                        "<td><strong>Mother's Name </strong> </td>" +
+                          "<td>" + d.family.mothersFirstName + " " + d.family.mothersLastName + "</td>" +
+                           "<td><strong> Spouse' Name </strong> </td>" +
+                          "<td>" + d.family.spouseFirstName + " " + d.family.spouseLastName + "</td>" +
+                         "</tr>" +
+                         "<tr>" +
+                         "<td><strong> Number Of Children </strong> </td>" +
+                          "<td>" + d.family.numberOfChildren+ "</td>" +
+                         "</tr>" +
+                         "</table>" +
+                      "<h6 class='mt-4'> Dependents Information </h6>" +
+                       "<table class='table-bordered'>" +
+                        "<tr>" +
+                         "<th>#</th>" +
+                         "<th> Dependents Name </th>" +
+                          "<th> Dependents Age </th>" +
+                           "<th> Dependents Relationship</th>" +
+                         "</tr>" 
+                        + dependents +
+                         "</table>" +
+                   "</div> " +
+                "<div class='col-2'>" +
+                 "<h6> Applicant Photo </h6>" +
+                  "<img style='width: 100%' src='data:image/png;base64, "+ d.photo +"' alt=''>" +
+                  "</div>" +
+                 "</div>";      
+                
+                console.log(table);
+                return table;
     }
     
     function restoreApplicant(applicantId, callback){

@@ -27,10 +27,15 @@
     <setting file="file://$PROJECT_DIR$/Controllers/ApplicantController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Controllers/DashboardController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Views/Applicant/Positions.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Controllers/API/RequestController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Areas/Identity/Pages/Account/LoginWith2fa.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Areas/Identity/Pages/Account/Login.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Views/Report/EmbarkationReport.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Controllers/API/VesselController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Views/Report/RequestReport.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Areas/Identity/Pages/Account/Manage/_Layout.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Views/Report/ApplicantReport.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Controllers/ReportController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Models/User.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Views/Vessel/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Controllers/VesselController.cs" root0="FORCE_HIGHLIGHTING" />
@@ -38,6 +43,7 @@
     <setting file="file://$PROJECT_DIR$/Models/DocumentType.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Views/Applicant/Documents.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Views/User/Archived.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Controllers/RequestController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Views/_ViewStart.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/DBC57F52-BDD4-45DA-8B29-C21452AD12F4/55/2b34e891/RazorPage`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Models/Allottee.cs" root0="FORCE_HIGHLIGHTING" />
@@ -50,7 +56,9 @@
     <setting file="file://$PROJECT_DIR$/Views/Dashboard/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Models/Family.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Models/EmbarkationRecord.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/Requirement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Models/Applicant.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Views/Request/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Models/Document.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Models/ApplicationRole.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Views/Vessel/Archived.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
@@ -71,6 +79,7 @@
     <setting file="file://$PROJECT_DIR$/Program.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Data/ApplicationDbContext.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Data/DataBootstrapper.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Views/Applicant/Skills.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Startup.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Areas/Identity/Pages/Account/ForgotPassword.cshtml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Models/ApplicationUser.cs" root0="FORCE_HIGHLIGHTING" />
@@ -81,21 +90,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Views/Shared/_NavBarPartial.cshtml" />
-        <option value="$PROJECT_DIR$/Areas/Identity/Pages/Account/Login.cshtml" />
-        <option value="$PROJECT_DIR$/Views/Shared/_Layout.cshtml" />
-        <option value="$PROJECT_DIR$/Views/Shared/_LoginPartial.cshtml" />
-        <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/Models/Benificiary.cs" />
-        <option value="$PROJECT_DIR$/Models/Dependents.cs" />
-        <option value="$PROJECT_DIR$/Areas/Identity/Pages/Account/ForgotPassword.cshtml.cs" />
-        <option value="$PROJECT_DIR$/Views/Applicant/Success.cshtml" />
         <option value="$PROJECT_DIR$/wwwroot/css/site.css" />
         <option value="$PROJECT_DIR$/Models/Dependent.cs" />
         <option value="$PROJECT_DIR$/Models/Beneficiary.cs" />
         <option value="$PROJECT_DIR$/Models/Allottee.cs" />
         <option value="$PROJECT_DIR$/Models/JsonResponse.cs" />
-        <option value="$PROJECT_DIR$/Views/Applicant/Archived.cshtml" />
         <option value="$PROJECT_DIR$/Models/Position.cs" />
         <option value="$PROJECT_DIR$/Models/DocumentType.cs" />
         <option value="$PROJECT_DIR$/Views/Applicant/DocumentTypes.cshtml" />
@@ -120,18 +119,28 @@
         <option value="$PROJECT_DIR$/Models/Document.cs" />
         <option value="$PROJECT_DIR$/Models/Family.cs" />
         <option value="$PROJECT_DIR$/Views/Applicant/CreateApplicant.cshtml" />
-        <option value="$PROJECT_DIR$/Controllers/ApplicantController.cs" />
         <option value="$PROJECT_DIR$/Models/JsonModel.cs" />
         <option value="$PROJECT_DIR$/Models/JsonModel/Document.cs" />
         <option value="$PROJECT_DIR$/Models/JsonModel/JsonDocument.cs" />
         <option value="$PROJECT_DIR$/Views/Applicant/Documents.cshtml" />
-        <option value="$PROJECT_DIR$/Views/Shared/_DashboardLayout.cshtml" />
         <option value="$PROJECT_DIR$/Models/Applicant.cs" />
-        <option value="$PROJECT_DIR$/Data/ApplicationDbContext.cs" />
-        <option value="$PROJECT_DIR$/Data/DataBootstrapper.cs" />
-        <option value="$PROJECT_DIR$/Controllers/API/ApplicantController.cs" />
-        <option value="$PROJECT_DIR$/Views/Applicant/Index.cshtml" />
         <option value="$PROJECT_DIR$/Models/Skill.cs" />
+        <option value="$PROJECT_DIR$/Controllers/API/ApplicantController.cs" />
+        <option value="$PROJECT_DIR$/Views/Applicant/Archived.cshtml" />
+        <option value="$PROJECT_DIR$/Controllers/ApplicantController.cs" />
+        <option value="$PROJECT_DIR$/Views/Applicant/Skills.cshtml" />
+        <option value="$PROJECT_DIR$/Models/Requirement.cs" />
+        <option value="$PROJECT_DIR$/Data/DataBootstrapper.cs" />
+        <option value="$PROJECT_DIR$/Models/Request.cs" />
+        <option value="$PROJECT_DIR$/Data/ApplicationDbContext.cs" />
+        <option value="$PROJECT_DIR$/Controllers/RequestController.cs" />
+        <option value="$PROJECT_DIR$/Views/Shared/_DashboardLayout.cshtml" />
+        <option value="$PROJECT_DIR$/Controllers/ReportController.cs" />
+        <option value="$PROJECT_DIR$/Views/Applicant/Index.cshtml" />
+        <option value="$PROJECT_DIR$/Views/Report/ApplicantReport.cshtml" />
+        <option value="$PROJECT_DIR$/Views/Request/Index.cshtml" />
+        <option value="$PROJECT_DIR$/Models/RequestViewModel.cs" />
+        <option value="$PROJECT_DIR$/Controllers/API/RequestController.cs" />
       </list>
     </option>
   </component>
@@ -230,7 +239,8 @@
       <workItem from="1572333623684" duration="23155000" />
       <workItem from="1572460744444" duration="13413000" />
       <workItem from="1572546855682" duration="9206000" />
-      <workItem from="1572605188568" duration="8703000" />
+      <workItem from="1572605188568" duration="9603000" />
+      <workItem from="1572670633141" duration="7939000" />
     </task>
     <servers />
   </component>
@@ -254,17 +264,17 @@
     <state x="788" y="382" key="#com.intellij.ide.actions.DebugLogConfigureAction/1366.768/1920.1080" />
     <state x="740" y="279" key="FileChooserDialogImpl" />
     <state x="740" y="279" key="FileChooserDialogImpl/1366.768/1920.1080" />
-    <state width="1921" height="630" key="GridCell.Tab.0.bottom" />
-    <state width="1877" height="385" key="GridCell.Tab.0.bottom/1366.768" />
+    <state width="1367" height="614" key="GridCell.Tab.0.bottom" />
+    <state width="1367" height="614" key="GridCell.Tab.0.bottom/1366.768" />
     <state width="1921" height="630" key="GridCell.Tab.0.bottom/1366.768/1920.1080" />
-    <state width="1921" height="630" key="GridCell.Tab.0.center" />
-    <state width="1877" height="385" key="GridCell.Tab.0.center/1366.768" />
+    <state width="1367" height="614" key="GridCell.Tab.0.center" />
+    <state width="1367" height="614" key="GridCell.Tab.0.center/1366.768" />
     <state width="1921" height="630" key="GridCell.Tab.0.center/1366.768/1920.1080" />
-    <state width="1921" height="630" key="GridCell.Tab.0.left" />
-    <state width="1877" height="385" key="GridCell.Tab.0.left/1366.768" />
+    <state width="1367" height="614" key="GridCell.Tab.0.left" />
+    <state width="1367" height="614" key="GridCell.Tab.0.left/1366.768" />
     <state width="1921" height="630" key="GridCell.Tab.0.left/1366.768/1920.1080" />
-    <state width="1921" height="630" key="GridCell.Tab.0.right" />
-    <state width="1877" height="385" key="GridCell.Tab.0.right/1366.768" />
+    <state width="1367" height="614" key="GridCell.Tab.0.right" />
+    <state width="1367" height="614" key="GridCell.Tab.0.right/1366.768" />
     <state width="1921" height="630" key="GridCell.Tab.0.right/1366.768/1920.1080" />
     <state width="1921" height="394" key="GridCell.Tab.1.bottom" />
     <state width="1877" height="385" key="GridCell.Tab.1.bottom/1366.768" />
@@ -316,7 +326,8 @@
     <state width="1921" height="394" key="GridCell.Tab.4.right/1366.768/1920.1080" />
     <state x="670" y="220" key="RiderGenerateDialog" />
     <state x="670" y="220" key="RiderGenerateDialog/1366.768/1920.1080" />
-    <state x="448" y="85" key="SettingsEditor" />
+    <state x="336" y="52" key="SettingsEditor" />
+    <state x="336" y="52" key="SettingsEditor/1366.768" />
     <state x="448" y="85" key="SettingsEditor/1366.768/1920.1080" />
     <state x="689" y="289" width="540" height="524" key="StructurePopup" />
     <state x="689" y="289" width="540" height="524" key="StructurePopup/1366.768/1920.1080" />
@@ -480,52 +491,52 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Controllers/API/ApplicantController.cs</url>
-          <line>178</line>
+          <line>180</line>
           <properties documentPath="$PROJECT_DIR$/Controllers/API/ApplicantController.cs" initialLine="149">
             <startOffsets>
-              <option value="5539" />
+              <option value="5623" />
             </startOffsets>
             <endOffsets>
-              <option value="5540" />
+              <option value="5624" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="43" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Controllers/API/ApplicantController.cs</url>
-          <line>179</line>
+          <line>181</line>
           <properties documentPath="$PROJECT_DIR$/Controllers/API/ApplicantController.cs" initialLine="150">
             <startOffsets>
-              <option value="5553" />
+              <option value="5637" />
             </startOffsets>
             <endOffsets>
-              <option value="5583" />
+              <option value="5667" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="44" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Controllers/API/ApplicantController.cs</url>
-          <line>181</line>
+          <line>183</line>
           <properties documentPath="$PROJECT_DIR$/Controllers/API/ApplicantController.cs" initialLine="152">
             <startOffsets>
-              <option value="5597" />
+              <option value="5681" />
             </startOffsets>
             <endOffsets>
-              <option value="5628" />
+              <option value="5712" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="45" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Controllers/API/ApplicantController.cs</url>
-          <line>183</line>
+          <line>185</line>
           <properties documentPath="$PROJECT_DIR$/Controllers/API/ApplicantController.cs" initialLine="154">
             <startOffsets>
-              <option value="5642" />
+              <option value="5726" />
             </startOffsets>
             <endOffsets>
-              <option value="5676" />
+              <option value="5760" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="46" />
@@ -713,6 +724,20 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="69" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Views/Request/Index.cshtml</url>
+          <line>96</line>
+          <properties documentPath="$PROJECT_DIR$/Views/Request/Index.cshtml" initialLine="96" isMultiMethodBreakpoint="true">
+            <option name="multiMethodBreakpoint" value="true" />
+            <startOffsets>
+              <option value="-1" />
+            </startOffsets>
+            <endOffsets>
+              <option value="-1" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="70" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
