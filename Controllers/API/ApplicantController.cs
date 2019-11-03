@@ -68,6 +68,13 @@ namespace swmc.Controllers.API
             });
         }
 
+        [Route("GetSkills")]
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Skill>>> GetSkills()
+        {
+            return await _context.Skills.ToListAsync();
+        }
+        
         [Route("GetApplicants")]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Applicant>>> GetApplicants()

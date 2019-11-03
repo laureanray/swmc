@@ -27,6 +27,16 @@ namespace swmc.Controllers.API
         {
             return await _context.Requests.Where(r => !r.IsArchived).Include(r => r.Requirements).Include(r => r.Vessel).ToListAsync();
         }
+        
+        [Route("GetArchivedRequests")]
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Request>>> GetArchivedResults()
+        {
+            return await _context.Requests.Where(r => r.IsArchived).Include(r => r.Requirements).Include(r => r.Vessel)
+                .ToListAsync();
+        }
+        
+        
 
         [Route("AddRequest")]
         [HttpPost]
@@ -39,6 +49,30 @@ namespace swmc.Controllers.API
             {
                 Message = "Success"
             };
+        }
+
+        [Route("ArchiveRequest")]
+        [HttpGet]
+        public async Task<ActionResult<JsonResponse>> ArchiveRequest(int requestId)
+        {
+            var request = await _context.Requests.FirstOrDefaultAsync(r => r.RequestId == requestId);
+
+            if (request == null)
+            {
+                return NotFound();
+            }
+
+            request.IsArchived = true;
+
+            _context.Entry(request).State = EntityState.Modified;
+
+            await _context.SaveChangesAsync();
+
+            return new JsonResponse()
+            {
+                Message =  "Success"
+            };
+
         }
 
     }

@@ -253,6 +253,7 @@
             <e p="Chart.bundle.js" t="Include" />
             <e p="Chart.bundle.min.js" t="Include" />
             <e p="chart.js" t="Include" />
+            <e p="Chart.min.css" t="Include" />
             <e p="Chart.min.js" t="Include" />
           </e>
           <e p="datatables" t="Include">
@@ -1984,6 +1985,11 @@
             <e p="jquery.validate.unobtrusive.js" t="Include" />
             <e p="jquery.validate.unobtrusive.min.js" t="Include" />
             <e p="LICENSE.txt" t="Include" />
+          </e>
+          <e p="select2" t="Include">
+            <e p="en.js" t="Include" />
+            <e p="select2.full.min.js" t="Include" />
+            <e p="select2.min.css" t="Include" />
           </e>
         </e>
       </e>

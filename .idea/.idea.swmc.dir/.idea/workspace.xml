@@ -49,6 +49,7 @@
     <setting file="file://$PROJECT_DIR$/Models/Allottee.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Models/Dependent.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Models/Beneficiary.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Views/Home/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Views/Shared/_DashboardLayout.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Views/Shared/_Layout.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Views/Shared/_LoginPartial.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
@@ -100,7 +101,6 @@
         <option value="$PROJECT_DIR$/Views/Applicant/DocumentTypes.cshtml" />
         <option value="$PROJECT_DIR$/Views/Applicant/Positions.cshtml" />
         <option value="$PROJECT_DIR$/wwwroot/js/sb-admin.js" />
-        <option value="$PROJECT_DIR$/Views/Dashboard/Index.cshtml" />
         <option value="$PROJECT_DIR$/Controllers/UserController.cs" />
         <option value="$PROJECT_DIR$/Startup.cs" />
         <option value="$PROJECT_DIR$/Controllers/DashboardController.cs" />
@@ -125,7 +125,6 @@
         <option value="$PROJECT_DIR$/Views/Applicant/Documents.cshtml" />
         <option value="$PROJECT_DIR$/Models/Applicant.cs" />
         <option value="$PROJECT_DIR$/Models/Skill.cs" />
-        <option value="$PROJECT_DIR$/Controllers/API/ApplicantController.cs" />
         <option value="$PROJECT_DIR$/Views/Applicant/Archived.cshtml" />
         <option value="$PROJECT_DIR$/Controllers/ApplicantController.cs" />
         <option value="$PROJECT_DIR$/Views/Applicant/Skills.cshtml" />
@@ -134,13 +133,15 @@
         <option value="$PROJECT_DIR$/Models/Request.cs" />
         <option value="$PROJECT_DIR$/Data/ApplicationDbContext.cs" />
         <option value="$PROJECT_DIR$/Controllers/RequestController.cs" />
-        <option value="$PROJECT_DIR$/Views/Shared/_DashboardLayout.cshtml" />
         <option value="$PROJECT_DIR$/Controllers/ReportController.cs" />
         <option value="$PROJECT_DIR$/Views/Applicant/Index.cshtml" />
         <option value="$PROJECT_DIR$/Views/Report/ApplicantReport.cshtml" />
-        <option value="$PROJECT_DIR$/Views/Request/Index.cshtml" />
         <option value="$PROJECT_DIR$/Models/RequestViewModel.cs" />
+        <option value="$PROJECT_DIR$/Views/Dashboard/Index.cshtml" />
+        <option value="$PROJECT_DIR$/Views/Shared/_DashboardLayout.cshtml" />
+        <option value="$PROJECT_DIR$/Controllers/API/ApplicantController.cs" />
         <option value="$PROJECT_DIR$/Controllers/API/RequestController.cs" />
+        <option value="$PROJECT_DIR$/Views/Request/Index.cshtml" />
       </list>
     </option>
   </component>
@@ -240,7 +241,8 @@
       <workItem from="1572460744444" duration="13413000" />
       <workItem from="1572546855682" duration="9206000" />
       <workItem from="1572605188568" duration="9603000" />
-      <workItem from="1572670633141" duration="7939000" />
+      <workItem from="1572670633141" duration="8426000" />
+      <workItem from="1572773243578" duration="11730000" />
     </task>
     <servers />
   </component>
@@ -334,6 +336,7 @@
     <state x="826" y="391" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup" />
     <state x="826" y="391" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup/1366.768/1920.1080" />
     <state x="616" y="243" width="672" height="677" key="run.anything.popup" />
+    <state x="616" y="243" width="672" height="677" key="run.anything.popup/1366.768" />
     <state x="616" y="243" width="672" height="677" key="run.anything.popup/1366.768/1920.1080" />
     <state x="623" y="227" width="672" height="678" key="search.everywhere.popup" />
     <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/1366.768" />
@@ -491,52 +494,52 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Controllers/API/ApplicantController.cs</url>
-          <line>180</line>
+          <line>187</line>
           <properties documentPath="$PROJECT_DIR$/Controllers/API/ApplicantController.cs" initialLine="149">
             <startOffsets>
-              <option value="5623" />
+              <option value="5827" />
             </startOffsets>
             <endOffsets>
-              <option value="5624" />
+              <option value="5828" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="43" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Controllers/API/ApplicantController.cs</url>
-          <line>181</line>
+          <line>188</line>
           <properties documentPath="$PROJECT_DIR$/Controllers/API/ApplicantController.cs" initialLine="150">
             <startOffsets>
-              <option value="5637" />
+              <option value="5841" />
             </startOffsets>
             <endOffsets>
-              <option value="5667" />
+              <option value="5871" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="44" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Controllers/API/ApplicantController.cs</url>
-          <line>183</line>
+          <line>190</line>
           <properties documentPath="$PROJECT_DIR$/Controllers/API/ApplicantController.cs" initialLine="152">
             <startOffsets>
-              <option value="5681" />
+              <option value="5885" />
             </startOffsets>
             <endOffsets>
-              <option value="5712" />
+              <option value="5916" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="45" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Controllers/API/ApplicantController.cs</url>
-          <line>185</line>
+          <line>192</line>
           <properties documentPath="$PROJECT_DIR$/Controllers/API/ApplicantController.cs" initialLine="154">
             <startOffsets>
-              <option value="5726" />
+              <option value="5930" />
             </startOffsets>
             <endOffsets>
-              <option value="5760" />
+              <option value="5964" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="46" />
@@ -724,20 +727,6 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="69" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Views/Request/Index.cshtml</url>
-          <line>96</line>
-          <properties documentPath="$PROJECT_DIR$/Views/Request/Index.cshtml" initialLine="96" isMultiMethodBreakpoint="true">
-            <option name="multiMethodBreakpoint" value="true" />
-            <startOffsets>
-              <option value="-1" />
-            </startOffsets>
-            <endOffsets>
-              <option value="-1" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="70" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
