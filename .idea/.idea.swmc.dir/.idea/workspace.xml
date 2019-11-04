@@ -146,8 +146,8 @@
         <option value="$PROJECT_DIR$/Controllers/DashboardController.cs" />
         <option value="$PROJECT_DIR$/Views/Shared/_DashboardLayout.cshtml" />
         <option value="$PROJECT_DIR$/Models/User.cs" />
-        <option value="$PROJECT_DIR$/Controllers/API/UserController.cs" />
         <option value="$PROJECT_DIR$/Views/User/Index.cshtml" />
+        <option value="$PROJECT_DIR$/Controllers/API/UserController.cs" />
       </list>
     </option>
   </component>
@@ -248,7 +248,7 @@
       <workItem from="1572546855682" duration="9206000" />
       <workItem from="1572605188568" duration="9603000" />
       <workItem from="1572670633141" duration="8426000" />
-      <workItem from="1572773243578" duration="26371000" />
+      <workItem from="1572773243578" duration="26957000" />
     </task>
     <servers />
   </component>
@@ -272,17 +272,17 @@
     <state x="788" y="382" key="#com.intellij.ide.actions.DebugLogConfigureAction/1366.768/1920.1080" />
     <state x="740" y="279" key="FileChooserDialogImpl" />
     <state x="740" y="279" key="FileChooserDialogImpl/1366.768/1920.1080" />
-    <state width="1367" height="614" key="GridCell.Tab.0.bottom" />
-    <state width="1367" height="614" key="GridCell.Tab.0.bottom/1366.768" />
+    <state width="1367" height="303" key="GridCell.Tab.0.bottom" />
+    <state width="1367" height="303" key="GridCell.Tab.0.bottom/1366.768" />
     <state width="1921" height="630" key="GridCell.Tab.0.bottom/1366.768/1920.1080" />
-    <state width="1367" height="614" key="GridCell.Tab.0.center" />
-    <state width="1367" height="614" key="GridCell.Tab.0.center/1366.768" />
+    <state width="1367" height="303" key="GridCell.Tab.0.center" />
+    <state width="1367" height="303" key="GridCell.Tab.0.center/1366.768" />
     <state width="1921" height="630" key="GridCell.Tab.0.center/1366.768/1920.1080" />
-    <state width="1367" height="614" key="GridCell.Tab.0.left" />
-    <state width="1367" height="614" key="GridCell.Tab.0.left/1366.768" />
+    <state width="1367" height="303" key="GridCell.Tab.0.left" />
+    <state width="1367" height="303" key="GridCell.Tab.0.left/1366.768" />
     <state width="1921" height="630" key="GridCell.Tab.0.left/1366.768/1920.1080" />
-    <state width="1367" height="614" key="GridCell.Tab.0.right" />
-    <state width="1367" height="614" key="GridCell.Tab.0.right/1366.768" />
+    <state width="1367" height="303" key="GridCell.Tab.0.right" />
+    <state width="1367" height="303" key="GridCell.Tab.0.right/1366.768" />
     <state width="1921" height="630" key="GridCell.Tab.0.right/1366.768/1920.1080" />
     <state width="1367" height="303" key="GridCell.Tab.1.bottom" />
     <state width="1367" height="303" key="GridCell.Tab.1.bottom/1366.768" />

@@ -196,8 +196,11 @@ namespace swmc.Controllers.API
             userToUpdate.FirstName = user.FirstName;
             userToUpdate.LastName = user.LastName;
             userToUpdate.DateUpdated = DateTime.Now;
-            ;
-            await _userManager.ChangePasswordAsync(userToUpdate, user.CurrentPassword, user.Password);
+
+            if (!String.IsNullOrEmpty(user.Password))
+            {
+                await _userManager.ChangePasswordAsync(userToUpdate, user.CurrentPassword, user.Password);
+            }
             await _userManager.RemoveFromRoleAsync(userToUpdate, roles[0]);
             await _userManager.AddToRoleAsync(userToUpdate, user.Role);
 
