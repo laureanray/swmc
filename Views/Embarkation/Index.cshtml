@@ -1,0 +1,428 @@
+﻿@{
+    ViewData["Title"] = "Applicants";
+    Layout = "_DashboardLayout";
+}
+
+<div class="container-fluid">
+    <h3> Embarkation </h3>
+    <div class="row mt-3">
+        <div class="col">
+            <button class="btn btn-success" data-toggle="modal" data-target="#addModal"><i class="fas fa-fw fa-plus"></i> Embark </button>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col">
+            <table id="embarkationsTable" class="display">
+                <thead>
+                <tr>
+                    <th></th>
+                    <th>Request ID</th>
+                    <th>Vessel</th>
+                    <th>Destination</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Archive MOdal Modal -->
+<div class="modal fade" id="archiveModal" tabindex="-1" role="dialog" aria-labelledby="archiveModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="archiveModalLabel">Archive Request</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to archive request?
+                <input type="hidden" id="requestToArchive">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="button" id="archiveBtn" class="btn btn-danger">Archive</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Add Document Type  Modal -->
+<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addModalLabel">Create New Request</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="row">
+                        <div class="col-3">
+                            <label for=""> Vessel </label>
+                            @* <input type="text" class="form-control" id="documentTypeName" placeholder="Document Type Name"> *@
+                            <select name="" id="vesselId" class="form-control">
+                            </select>
+                        </div>
+                        <div class="col-3">
+                            <label for=""> Destination </label>
+                            <input type="text" class="form-control" id="destination" placeholder="Destination">
+                        </div>
+
+                        <div class="col-3">
+                            <label for=""> Start Date </label>
+                            <input type="date" class="form-control" id="operationStartDate" placeholder="Operation Start Date">
+                        </div>
+                        <div class="col-3">
+                            <label for=""> End Date </label>
+                            <input type="date" class="form-control" id="operationEndDate" placeholder="Operation End Date">
+                        </div>
+                    </div>
+
+                    <div class="row mt-2">
+                        <div class="col">
+                            <label for=""> Remarks </label>
+                            <textarea name="" id="remarks" cols="30" rows="3" class="form-control" placeholder="Remarks"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="row mt-2">
+                        <div class="col">
+                            <div class="row">
+                                <div class="col">
+                                    <h5> Requirements </h5>
+                                </div>
+                                <div class="col text-right">
+                                    <button class="btn btn-success" id="addNew"> Add New </button>
+                                </div>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col requirements">
+                                    <div class="row">
+                                        <div class="col-3">
+                                            <h6> Position </h6>
+                                        </div>
+                                        <div class="col-2">
+                                            <h6> Quantity </h6>
+                                        </div>
+                                        <div class="col-5">
+                                            <h6> Skills </h6>
+                                        </div>
+                                        <div class="col-2">
+                                            <h6> Delete </h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="button" id="createBtn" class="btn btn-success" >Create</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script >
+     var positions;
+     var skills;
+     
+     
+     getPositions(function(res) {
+        positions = res;
+     });
+     
+     getSkills(function(res){
+        skills = res; 
+     });
+     
+     $("#addNew").click(function(e){
+            e.preventDefault();
+            var options = "";
+            var skillOptions = "";
+            
+            for(var i = 0; i < positions.length; i++){
+                options += "<option value='" + positions[i].positionId + "'> " + positions[i].positionName + "</option>";
+            }
+            
+            for(var i = 0; i < skills.length; i++)
+            {
+                skillOptions += "<option value='" + skills[i].skillId + "'>" + skills[i].skillName + "</option>";
+            }
+            
+            var select = "<select class='form-control position'>" + options + "</select>";
+            
+            var skillsSelect = "<select class='form-control skills'  name=\"states[]\" multiple=\"multiple\">" + skillOptions + "</select>";
+            
+            
+           $(".requirements").append(
+                "<div class='row mt-2'>" +
+                 "<div class='col-3'>" +
+                   select +     
+                 "</div>" +
+                 "<div class='col-2'>" +
+                  "<input type='number' class='form-control qty' placeholder='Qty.'>" +
+                 "</div>" +
+                 "<div class='col-5'>" +
+                    skillsSelect + 
+                 "</div>" +
+                 "<div class='col-2'>" +
+                  "<button class='btn btn-danger remove'><i class='fas fa-trash'></button>" +
+               "</div>"+
+                "</div>"
+           ); 
+           
+           $(".skills").select2();
+           
+           $(".remove").off();
+           
+           $(".remove").click(function(){
+               $(this).parent().parent().remove();
+           })
+     });
+    
+
+     var table;
+        function format ( d ) {
+           return "<p> Test <p>";
+        }
+        
+    function archiveRequest(requestId, callback){
+        $.ajax({
+            type: 'GEt',
+            url: '/api/Request/ArchiveRequest?requestId=' + requestId,
+            contentType: 'application/json; charset=utf-8',
+            success: callback,
+            error: function(err){
+            }
+        })
+    }
+    
+    function getPositions(callback){
+          $.ajax({
+            type: 'GEt',
+            url: '/api/Applicant/GetPositions',
+            contentType: 'application/json; charset=utf-8',
+            success: callback,
+            error: function(err){
+                console.log(err);
+            }
+          });
+    }
+    
+    function getSkills(callback){
+              $.ajax({
+                type: 'GEt',
+                url: '/api/Applicant/GetSkills',
+                contentType: 'application/json; charset=utf-8',
+                success: callback,
+                error: function(err){
+                    console.log(err);
+                }
+              });
+        }
+    
+    function initDataTable(data){
+        for(var i = 0; i < data.length; i++){
+            data[i].controls = "<button class='btn btn-outline-danger archive' data-id='"+ data[i].requestId +"'> Archive </button> " +
+                               "<button class='btn btn-outline-secondary update' data-id='" + data[i].reqiestId + "'> Update </button>";
+            data[i].vesselName = data[i].vessel.vesselName;
+        }
+        table = $("#embarkationsTable").DataTable({
+            data: data,
+            columns: [
+                 {
+                    "className":      'details-control',
+                    "orderable":      false,
+                    "data":           null,
+                    "defaultContent": ''
+                },
+                { "data": "requestId"},
+                { "data": "vesselName" },
+                { "data": "destination" },
+                { "data": "operationStartDate" },
+                { "data": "operationEndDate" },
+                { "data": "controls"}
+            ],
+            destroy: true,
+            drawCallback: function(settings){
+                $(".archive").off();
+                $(".archive").click(function(){
+                   var id = $(this).data('id');
+                   $("#requestToArchive").val(id);
+                   $("#archiveModal").modal("show");
+                });
+            }      
+        });
+       
+    }
+    
+    function getData(callback){
+        $.ajax({
+            type: 'GET',
+            dataType: 'json',
+            url: '/api/Request/GetRequests',
+            success: function(data){
+                callback(data);
+            },
+            error: function(err){
+                console.log(err);
+            }
+        })
+    }
+    
+    function getVessel(callback){
+        $.ajax({
+            type: 'GET',
+            url: '/api/Vessel/GetVessels',
+            dataType: 'json',
+            success: callback,
+            error: function(err){
+                console.log(err);
+            }
+        })
+    }
+    
+    
+    function init(){
+          getData(function(data){
+                console.log(data);
+                initDataTable(data);
+                $('#embarkationsTable tbody').off();
+                $('#embarkationsTable tbody').on('click', 'td.details-control', function () {
+                        var tr = $(this).closest('tr');
+                        var row = table.row( tr );
+                        if ( row.child.isShown() ) {
+                            // This row is already open - close it
+                            row.child.hide();
+                            tr.removeClass('shown');
+                        }
+                        else {
+                            // Open this row
+                            row.child( format(row.data()) ).show();
+                            tr.addClass('shown');
+                        }
+                    } );
+            });
+    }
+    
+    function addRequest(data, callback){
+        $.ajax({
+            type: 'POST',
+            url: '/api/Request/AddRequest',
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8',
+            data: JSON.stringify(data),
+            success: callback,
+            error: function(err){
+            }
+        });
+    }
+  
+    
+    $("#archiveBtn").click(function(){
+       $(this).html("Archiving...");
+       $(this).prop('disabled', true);
+       setTimeout(function(){
+           archiveRequest($("#requestToArchive").val(), function(res){
+                console.log(res); 
+                if(res.message === "Success"){
+                    $(this).html("Archive");
+                    $(this).prop('disabled', false) ;
+                    $("#archiveModal").modal("hide");
+                    init();
+                }
+           });
+       }, 500);
+    });
+    
+    $("#createBtn").click(function(){
+         $(this).prop('disabled', true);
+         $(this).html("Creating...");
+         
+         var requirementsLength = $(".requirements .row").length - 1;
+         var requirements = [];
+         
+         for(var i = 0; i < requirementsLength; i++)
+         {
+            var skills = [];
+            var selectedSkills = $($(".skills")[i]).val();
+            
+            
+            for(var j = 0; j < selectedSkills.length; j++)
+            {
+                skills.push({
+                    skillId: selectedSkills[j]
+                });
+            }
+            
+            
+             
+            requirements.push(
+                {
+                    positionId: $($(".position")[i]).val(),
+                    quantity: $($(".qty")[i]).val(),
+                    skills: skills
+                }
+            ); 
+            
+            console.log($($(".position")[i]).val());
+         }
+         
+         var data = {
+             vesselId: $("#vesselId").val(),
+             destination: $("#destination").val(),
+             operationStartDate: $("#operationStartDate").val(),
+             operationEndDate: $("#operationEndDate").val(),
+             remarks: $("#remarks").val(),
+             requirements: requirements
+         };
+         
+         console.log(data);
+         
+         addRequest(data, function(res){
+              if(res.message === "Success"){
+                    $(this).prop('disabled', false);
+                    $(this).html("Create");
+                    $("#addModal").modal("hide");
+                    init();
+              } 
+         });
+         
+    });
+    //
+    // $("#addModal input").keyup(function(){
+    //     if($("#documentTypeName").val().length > 0 &&
+    //        $("#issuer").val().length > 0){
+    //         $("#createBtn").prop("disabled", false);
+    //     }else{
+    //         $("#createBtn").prop("disabled", true);
+    //     }
+    // });
+    
+    
+
+    getVessel(function(res){
+        console.log(res);
+        for(var i = 0; i < res.length; i++){
+            $("#vesselId").append(
+                "<option value='"+ res[i].vesselId +"'>" + res[i].vesselName + "</option>"
+            );
+        }
+    });
+    
+    init();
+</script>

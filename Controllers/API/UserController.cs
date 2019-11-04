@@ -52,6 +52,31 @@ namespace swmc.Controllers.API
 
             return usersToReturn;
         }
+
+        [Route("GetUser")]
+        [HttpGet]
+        public async Task<ActionResult<User>> GetUser(string id)
+        {
+            var user = await _context.Users.FirstOrDefaultAsync(us => us.Id == id);
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            var role = await _userManager.GetRolesAsync(user);
+
+            var u = new User()
+            {
+                Email = user.Email,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                Role = role[0]
+            };
+
+
+            return u;
+        }
         
         [Route("GetArchivedUsers")]
         [HttpGet]
@@ -152,6 +177,39 @@ namespace swmc.Controllers.API
             }
 
             return NotFound();
+        } 
+        
+        
+        [Route("UpdateUser")]
+        [HttpPost]
+        public async Task<ActionResult<JsonResponse>> UpdateUser(User user)
+        {
+            var userToUpdate = await _userManager.FindByIdAsync(user.Id);
+            var roles = await _userManager.GetRolesAsync(userToUpdate);
+            if (userToUpdate == null)
+            {
+                return NotFound();
+            }
+
+
+            userToUpdate.Email = user.Email;
+            userToUpdate.FirstName = user.FirstName;
+            userToUpdate.LastName = user.LastName;
+            userToUpdate.DateUpdated = DateTime.Now;
+            ;
+            await _userManager.ChangePasswordAsync(userToUpdate, user.CurrentPassword, user.Password);
+            await _userManager.RemoveFromRoleAsync(userToUpdate, roles[0]);
+            await _userManager.AddToRoleAsync(userToUpdate, user.Role);
+
+            _context.Entry(userToUpdate).State = EntityState.Modified;
+            
+            await _context.SaveChangesAsync();
+            
+
+            return new JsonResponse()
+            {
+                Message = "Success"
+            };
         } 
     }
 }

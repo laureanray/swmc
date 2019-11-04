@@ -21,28 +21,28 @@
     <link rel="icon"
           type="image/png"
           href="~/favicon.png"/>
-    
-    <link rel="stylesheet" href="~/lib/chart.js/Chart.min.css" >
-    <link rel="stylesheet" href="~/lib/select2/select2.min.css" >
-    
-    
-<!-- Bootstrap core JavaScript-->
-<script src="~/lib/jquery/dist/jquery.min.js"></script>
-<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
 
-<!-- Core plugin JavaScript-->
-<script src="~/lib/jquery-easing/jquery.easing.min.js"></script>
+    <link rel="stylesheet" href="~/lib/chart.js/Chart.min.css">
+    <link rel="stylesheet" href="~/lib/select2/select2.min.css">
 
-<!-- Page level plugin JavaScript-->
-<script src="~/lib/chart.js/Chart.min.js"></script>
-<script src="~/lib/datatables/datatables.min.js"></script>
 
-<script src="~/lib/select2/select2.full.min.js"></script>   
-<script src="~/lib/select2/en.js"></script>   
+    <!-- Bootstrap core JavaScript-->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
 
-    
+    <!-- Core plugin JavaScript-->
+    <script src="~/lib/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Page level plugin JavaScript-->
+    <script src="~/lib/chart.js/Chart.min.js"></script>
+    <script src="~/lib/datatables/datatables.min.js"></script>
+
+    <script src="~/lib/select2/select2.full.min.js"></script>
+    <script src="~/lib/select2/en.js"></script>
+
+
     <!-- Custom scripts for all pages-->
-<script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
 </head>
 <body id="page-top">
 <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
@@ -89,49 +89,63 @@
                 <span>Dashboard</span>
             </a>
         </li>
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-fw fa-folder"></i>
-                <span>Applicant</span>
-            </a>
-            <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-                <h6 class="dropdown-header">Applicant</h6>
-                <a class="dropdown-item" asp-controller="Applicant" asp-action="CreateApplicant"><i class="fas fa-fw fa-plus"></i> Create New </a>
-                <a class="dropdown-item" asp-controller="Applicant" asp-action="Index"><i class="fas fa-fw fa-file-alt"></i> Applicants</a>
-                <a class="dropdown-item" asp-controller="Applicant" asp-action="Archived"><i class="fas fa-fw fa-archive"></i> Archived </a>
-                <a class="dropdown-item" asp-controller="Applicant" asp-action="Skills"><i class="fas fa-fw fa-certificate"></i> Credential/Skills</a>
-                <a class="dropdown-item" asp-controller="Applicant" asp-action="Documents"><i class="fas fa-fw fa-file"></i> Documents </a>
-                <div class="dropdown-divider"></div>
-                <h6 class="dropdown-header">Document Type</h6>
-                <a class="dropdown-item" asp-controller="Applicant" asp-action="DocumentTypes"><i class="fas fa-fw fa-file-alt"></i> Document Types  </a>
-                <div class="dropdown-divider"></div>
-                <h6 class="dropdown-header">Positions</h6>
-                <a class="dropdown-item" asp-controller="Applicant" asp-action="Positions" ><i class="fas fa-fw fa-users"></i> Manage Positions</a>
-            </div>
-        </li>
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-fw fa-ship"></i>
-                <span>Vessel</span>
-            </a>
-            <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-                <h6 class="dropdown-header">Vessel Records</h6>
-                <a class="dropdown-item" asp-controller="Vessel" asp-action="Index">Manage Vessels</a>
-                 <a class="dropdown-item" asp-controller="Vessel" asp-action="Archived">Archived Vessels</a>
-            </div>
-        </li>
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-fw fa-plus"></i>
-                <span>Request</span>
-            </a>
-            <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-                <h6 class="dropdown-header">Principal Request</h6>
-                <a class="dropdown-item" asp-controller="Request" asp-action="Index">Manage Requests</a>
-                <a class="dropdown-item" asp-controller="Request" asp-action="Archived">Archived Requests</a>
-            </div>
-        </li>
-         <li class="nav-item dropdown">
+        @if (User.IsInRole("Admin") || User.IsInRole("HR"))
+        {
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Applicant</span>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+                    <h6 class="dropdown-header">Applicant</h6>
+                    <a class="dropdown-item" asp-controller="Applicant" asp-action="CreateApplicant"><i class="fas fa-fw fa-plus"></i> Create New </a>
+                    <a class="dropdown-item" asp-controller="Applicant" asp-action="Index"><i class="fas fa-fw fa-file-alt"></i> Applicants</a>
+                    <a class="dropdown-item" asp-controller="Applicant" asp-action="Archived"><i class="fas fa-fw fa-archive"></i> Archived </a>
+                    <a class="dropdown-item" asp-controller="Applicant" asp-action="Skills"><i class="fas fa-fw fa-certificate"></i> Credential/Skills</a>
+                    <a class="dropdown-item" asp-controller="Applicant" asp-action="Documents"><i class="fas fa-fw fa-file"></i> Documents </a>
+                    <div class="dropdown-divider"></div>
+                    <h6 class="dropdown-header">Document Type</h6>
+                    <a class="dropdown-item" asp-controller="Applicant" asp-action="DocumentTypes"><i class="fas fa-fw fa-file-alt"></i> Document Types </a>
+                    <div class="dropdown-divider"></div>
+                    <h6 class="dropdown-header">Positions</h6>
+                    <a class="dropdown-item" asp-controller="Applicant" asp-action="Positions"><i class="fas fa-fw fa-users"></i> Manage Positions</a>
+                </div>
+            </li>
+        }
+
+
+        @if (User.IsInRole("Admin") || User.IsInRole(("Operations")))
+        {
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-fw fa-ship"></i>
+                    <span>Vessel</span>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+                    <h6 class="dropdown-header">Vessel Records</h6>
+                    <a class="dropdown-item" asp-controller="Vessel" asp-action="Index">Manage Vessels</a>
+                    <a class="dropdown-item" asp-controller="Vessel" asp-action="Archived">Archived Vessels</a>
+                </div>
+            </li>
+        }
+
+        @if (User.IsInRole("Admin") || User.IsInRole("Operations") || User.IsInRole("Principal"))
+        {
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-fw fa-plus"></i>
+                    <span>Request</span>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+                    <h6 class="dropdown-header">Principal Request</h6>
+                    <a class="dropdown-item" asp-controller="Request" asp-action="Index">Manage Requests</a>
+                    <a class="dropdown-item" asp-controller="Request" asp-action="Archived">Archived Requests</a>
+                </div>
+            </li>
+        }
+        @if (User.IsInRole("Admin") || User.IsInRole(("Operations")))
+        {
+            <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-fw fa-anchor"></i>
                     <span>Embarkation</span>
@@ -140,8 +154,12 @@
                     <h6 class="dropdown-header">Embarkation</h6>
                     <a class="dropdown-item" href="login.html">Manage Embarkation</a>
                 </div>
-        </li>
-         <li class="nav-item dropdown">
+            </li>
+        }
+
+        @if (User.IsInRole("Admin") || User.IsInRole(("Operations")))
+        {
+            <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-fw fa-file"></i>
                     <span>Reports</span>
@@ -152,8 +170,11 @@
                     <a class="dropdown-item" asp-controller="Report" asp-action="RequestReport">Request Report</a>
                     <a class="dropdown-item" asp-controller="Report" asp-action="EmbarkationReport">Embarkation Report</a>
                 </div>
-        </li>
-      <li class="nav-item dropdown">
+            </li>
+        }
+        @if (User.IsInRole("Admin"))
+        {
+            <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-fw fa-users"></i>
                     <span>Users</span>
@@ -164,7 +185,9 @@
                     <a class="dropdown-item" asp-controller="User" asp-action="Archived">Archived Accounts</a>
 
                 </div>
-        </li>
+            </li>
+        }
+
     </ul>
 
     <div id="content-wrapper">

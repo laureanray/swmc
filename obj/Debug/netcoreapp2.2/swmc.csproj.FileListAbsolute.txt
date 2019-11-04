@@ -81,3 +81,6 @@ C:\Users\Laurean Ray Bahala\Desktop\ongoing-projects\swmc\obj\Debug\netcoreapp2.
 C:\Users\Laurean Ray Bahala\Desktop\ongoing-projects\swmc\obj\Debug\netcoreapp2.2\Razor\Views\Report\EmbarkationReport.g.cshtml.cs
 C:\Users\Laurean Ray Bahala\Desktop\ongoing-projects\swmc\obj\Debug\netcoreapp2.2\Razor\Views\Report\RequestReport.g.cshtml.cs
 C:\Users\Laurean Ray Bahala\Desktop\ongoing-projects\swmc\obj\Debug\netcoreapp2.2\Razor\Views\Request\Archived.g.cshtml.cs
+C:\Users\Laurean Ray Bahala\Desktop\ongoing-projects\swmc\obj\Debug\netcoreapp2.2\Razor\Views\Embarkation\Disembarked.g.cshtml.cs
+C:\Users\Laurean Ray Bahala\Desktop\ongoing-projects\swmc\obj\Debug\netcoreapp2.2\Razor\Views\Embarkation\Embarked.g.cshtml.cs
+C:\Users\Laurean Ray Bahala\Desktop\ongoing-projects\swmc\obj\Debug\netcoreapp2.2\Razor\Views\Embarkation\Index.g.cshtml.cs

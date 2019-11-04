@@ -23,5 +23,6 @@ namespace swmc.Data
         public DbSet<Skill> Skills { get; set;  }
         public DbSet<Request> Requests { get; set; }
         public DbSet<Requirement> Requirements { get; set; }
+        public DbSet<Embarkation> Embarkations { get; set; }
     }
 }

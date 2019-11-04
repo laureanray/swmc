@@ -108,6 +108,64 @@
     </div>
 </div>
 
+<!-- Update User Modal -->
+<div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="updateModalLabel">Update User</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="row">
+                        <input type="hidden" id="userIdToUpdate">
+                        <div class="col">
+                            <label for=""> First Name </label>
+                            <input type="text" class="form-control" id="update_firstName" placeholder="First Name">
+                        </div>
+                        <div class="col">
+                            <label for=""> Last Name </label>
+                            <input type="text" class="form-control" id="update_lastName" placeholder="Last Name">
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col">
+                            <label for=""> Email </label>
+                            <input type="text" class="form-control" id="update_email" placeholder="First Name">
+                        </div>
+                        <div class="col">
+                            <label for=""> Current Password </label>
+                            <input type="password" class="form-control" id="update_currentPassword" placeholder="Last Name">
+                        </div>
+                         <div class="col">
+                                <label for=""> Password </label>
+                                <input type="password" class="form-control" id="update_password" placeholder="Last Name">
+                            </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col">
+                            <label for=""> Role </label>
+                            <select id="update_role" class="form-control">
+                                <option value="Admin">Admin</option>
+                                <option value="HR">HR</option>
+                                <option value="Operations">Operations</option>
+                                <option value="Principal">Principal</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="button" id="updateBtn" class="btn btn-success" disabled>Update</button>
+            </div>
+        </div>
+    </div>
+
+</div>
 
 
 <script >
@@ -137,7 +195,23 @@
             }
        });
     }
-
+    
+    
+     function updateUser(data, callback){
+           $.ajax({
+                type: 'POST',
+                url: '/api/User/UpdateUser',
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'json',
+                data: JSON.stringify(data),
+                success: callback,
+                error: function(err){
+                    console.log(err);
+                }
+           });
+        }
+    
+    
     function getUsers(callback){
         $.ajax({
             type: 'GET',
@@ -149,6 +223,19 @@
             }
         });
     }
+    
+    function getUserData(id, callback){
+         $.ajax({
+            type: 'GET',
+            url: "/api/User/GetUser?id="+id,
+            contentType: 'application/json; charset=utf-8',
+            success: callback,
+            error: function(err){
+                console.log(err);
+            }
+        });
+    }
+    
     
      function initDataTable(data){
             for(var i = 0; i < data.length; i++){
@@ -178,6 +265,21 @@
                        var id = $(this).data('id');
                        $("#userId").val(id);
                        $("#archiveModal").modal("show");
+                    });
+                    
+                    $(".update").off();
+                    $(".update").click(function(){
+                        var id = $(this).data('id');
+                        $("#userIdToUpdate").val(id);
+                        
+                        getUserData(id, function(user)
+                        {
+                            $("#update_firstName").val(user.firstName);
+                            $("#update_lastName").val(user.lastName);
+                            $("#update_email").val(user.email);
+                            $("#updateModal").modal('show');
+                        });
+                        
                     });
                 }      
             });
@@ -237,4 +339,30 @@
           } 
        });
     });
+    
+    $("#updateBtn").click(function(){
+        $(this).prop('disabled', true);
+        $(this).text('Updating...');
+        var data = {
+            id: $("#userIdToUpdate").val(),
+            firstName: $("#update_firstName").val(),
+            lastName: $("#update_lastName").val(),
+            email: $("#update_email").val(),
+            password: $("#update_password").val(),
+            currentPassword: $("#update_currentPassword").val(),
+            role: $("#update_role").val()
+        };
+        
+        updateUser(data, function(res){
+            if(res.message === "Success"){
+                setTimeout(function(){
+                    $("#updateBtn").prop('disabled', false);
+                    $("#updateBtn").text('Update');
+                    init();            
+                    $("#updateModal").modal('hide');
+                }, 500);
+            }
+        });
+    });
+    
 </script>

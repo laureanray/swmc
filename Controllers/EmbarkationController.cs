@@ -9,10 +9,20 @@ using swmc.Models;
 
 namespace swmc.Controllers
 {
-    [Authorize(Roles = "Admin, Operations, HR, Principal")]
-    public class Dashboard : Controller
+    [Authorize(Roles = "Admin")]
+    public class EmbarkationController : Controller
     {
         public IActionResult Index()
+        {
+            return View();
+        }
+
+        public IActionResult Embarked()
+        {
+            return View();
+        }
+
+        public IActionResult Disembarked()
         {
             return View();
         }
