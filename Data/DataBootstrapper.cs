@@ -319,7 +319,7 @@ namespace swmc.Data
                     SpouseFirstName = "Spouse",
                     SpouseMiddleName = "Middle",
                     SpouseLastName = "Last",
-                    NumberOfChildren = 12
+                    NumberOfChildren = "12"
                 };
                 
                 var dependents = new List<Dependent>()

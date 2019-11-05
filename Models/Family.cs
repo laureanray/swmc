@@ -13,8 +13,7 @@ namespace swmc.Models
         [Required]
         public string SpouseMiddleName { get; set; }
         public string SpouseSuffix { get; set; }
-        [Required]
-        public int NumberOfChildren { get; set; }
+        public string NumberOfChildren { get; set; }
         [Required]
         public string FathersFirstName { get; set; }
         [Required]

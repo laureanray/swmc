@@ -6,7 +6,6 @@ namespace swmc.Models.FormModel
 {
     public class CreateApplicantForm
     {
-        [Required]
         public IFormFile ApplicantPhoto { get; set; }
         public Applicant Applicant { get; set; }
         public Family Family { get; set; }

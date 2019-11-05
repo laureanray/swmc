@@ -125,6 +125,7 @@
         </e>
         <e p="JsonModel" t="Include">
           <e p="JsonDocument.cs" t="Include" />
+          <e p="UpdateSkills.cs" t="Include" />
         </e>
         <e p="JsonResponse.cs" t="Include" />
         <e p="Position.cs" t="Include" />

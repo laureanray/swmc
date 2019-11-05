@@ -5,7 +5,11 @@
 
 <div class="container-fluid">
     <h3> Documents  </h3>
-
+    @* <div class="row mt-3"> *@
+    @*     <div class="col"> *@
+    @*         <button class="btn btn-success" data-toggle="modal" data-target="#addSkillModal"><i class="fas fa-fw fa-plus"></i> Add Skills </button> *@
+    @*     </div> *@
+    @* </div> *@
     <div class="row mt-3">
         <div class="col">
 
@@ -15,8 +19,6 @@
                     <th>Applicant Name</th>
                     <th>Skills</th>
                     <th>Position</th>
-                    <th>Date Created</th>
-                    <th>Date Updated</th>   
                     <th></th>
                 </tr>
                 </thead>
@@ -28,27 +30,178 @@
     </div>
 </div>
 
+<!-- Add Skills Modal -->
+<div class="modal fade" id="addSkillModal" tabindex="-1" role="dialog" aria-labelledby="addSkillModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addSkillModalLabel">Update Skills</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-3">
+                    @* <select class="form-control" id="applicants"></select> *@
+                </div>
+                <div class="col-9">
+                   <select class="form-control" id="skillsToAdd" name="states[]" multiple="multiple"></select>
+                </div>
+            </div>
+        </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button type="button" id="saveBtn" class="btn btn-success">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Update Skills Modal -->
+<div class="modal fade" id="updateSkillModal" tabindex="-1" role="dialog" aria-labelledby="updateSkillModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="updateSkillModalLabel">Update Skills</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-3">
+                    <label for=""> Applicant Name</label>
+                    <input type="hidden" id="applicantId">
+                    <strong><p id="applicantName">  </p></strong>
+                </div>
+                <div class="col-9">
+                    <label for=""> Skillset </label>
+                   <select class="form-control" id="skills"  name="states[]" multiple="multiple"></select>
+                </div>
+            </div>
+        </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button type="button" id="updateBtn" class="btn btn-success">Update</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <script >
+
+
+    function getSkills(cb){
+        $.ajax({
+            type: 'GET',
+            url: '/api/Applicant/GetSkills',
+            success: cb,
+            error: function(err){
+                console.log(err);
+            }
+        })
+    }
+    
+    function updateSkills(data, callback){
+        $.ajax({
+            type: 'POST',
+            url: '/api/Applicant/UpdateApplicantSkills',
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8',
+            data: JSON.stringify(data),
+            success: callback,
+            error: function(err) {
+                console.log(err);
+            }
+             
+        });
+    }
+    
+    function getApplicant(id, cb){
+        $.ajax({
+            type: 'GET',
+            url: '/api/Applicant/GetApplicant?applicantId=' + id,
+            contentType: 'application/json;charset=utf-8',
+            success: cb,
+            error: function(err){
+                console.log(err);
+            }
+        })
+    }
+    
+    function getApplicants(callback){
+          $.ajax({
+                type: 'GET',
+                url: '/api/Applicant/GetApplicants',
+                contentType: 'application/json;charset=utf-8',
+                success: callback,
+                error: function(err){
+                    console.log(err);
+                }
+            })
+    }
+
     function initDataTable(data){
         for(var i = 0; i < data.length; i++){
-            data[i].documentId = data[i].document.documentId;
-            data[i].documentName = data[i].document.documentType.documentTypeName;
-            data[i].dateSubmitted = data[i].document.dateSubmitted;
-            data[i].dateExpiry = data[i].document.dateExpiry;
-            data[i].applicantName = data[i].applicant.firstName + " " + data[i].applicant.lastName;
+            data[i].applicantName = data[i].firstName + " " + data[i].lastName;
+            data[i].skillSet = "";
+            for(var j = 0; j < data[i].skills.length; j++)
+            {
+                if((j + 1) === data[i].skills.length){
+                    data[i].skillSet +=  "and " + data[i].skills[j].skillName + "";
+                }else{
+                    data[i].skillSet += data[i].skills[j].skillName + ", ";
+                }
+            }
+            data[i].position = data[i].position.positionName;
+            data[i].controls = "<button class='btn btn-outline-success update' data-id='"+ data[i].applicantId +"'> Update Skills </button>";
         }
         
         
         $("#applicantsTable").DataTable({
             data: data,
             columns: [
-                { "data": "documentId"},
-                { "data": "applicantName"}, { "data": "documentName" },
-                { "data": "dateSubmitted" },
-                { "data": "dateExpiry" }
+                { "data": "applicantName"},
+                { "data": "skillSet"},
+                { "data": "position" },
+                { "data": "controls" }
             ],
-            destroy: true          
+            destroy: true,
+            drawCallback: function(settings){
+                $(".update").off();
+                $(".update").click(function()
+                {
+                    var id = $(this).data('id');
+                    
+                    getSkills(function(skills) {
+                        for(var i = 0; i < skills.length; i++){
+                            $("#skills").append("<option value='" + skills[i].skillId + "'> " + skills[i].skillName + " </option>");
+                        }
+                        
+                        $("#skills").select2();
+                        
+                          getApplicant(id, function(res){
+                                            console.log(res);
+                                            
+                                            $("#applicantId").val(id);
+                                            var skills = [];
+                                            
+                                            for(var i = 0; i < res.skills.length; i++){
+                                                skills.push(res.skills[i].skillId);
+                                            }
+                                            
+                                            $("#applicantName").html(res.firstName + " " + res.lastName);
+                                            $("#skills").val(skills);
+                                            $("#skills").trigger('change');
+                                            $("#updateSkillModal").modal('show');
+                                        });
+                    });
+                    
+              
+                });
+            }
         });
        
     }
@@ -57,7 +210,7 @@
         $.ajax({
             type: 'GET',
             dataType: 'json',
-            url: '/api/Applicant/GetDocuments',
+            url: '/api/Applicant/GetApplicants',
             success: function(data){
                 callback(data);
             },
@@ -72,41 +225,62 @@
           getData(function(data){
                 console.log(data);
                 initDataTable(data);              
-                $('#applicantsTable tbody').off();
-                $('#applicantsTable tbody').on('click', 'td.details-control', function () {
-                        var tr = $(this).closest('tr');
-                        var row = table.row( tr );
-                        if ( row.child.isShown() ) {
-                            // This row is already open - close it
-                            row.child.hide();
-                            tr.removeClass('shown');
-                        }
-                        else {
-                            // Open this row
-                            row.child( format(row.data()) ).show();
-                            tr.addClass('shown');
-                        }
-                    } );
+               
             });
     }
   
     
-    $("#archiveBtn").click(function(){
-       $(this).html("Archiving...");
+    $("#updateBtn").click(function(){
+       $(this).html("Updating...");
        $(this).prop('disabled', true);
        setTimeout(function(){
-           archiveApplicant($("#applicantToArchive").val(), function(res){
+           var s = $("#skills").val();
+           var skills = [];
+           for(var i = 0; i < s.length; i++){
+               skills.push({
+                skillId: parseInt(s[i])
+               });
+           }
+           
+           var data = {
+               applicantId: $("#applicantId").val(),
+               skills: skills
+           };
+           
+           console.log(data);
+           
+           updateSkills(data, function(res){
                 console.log(res); 
                 if(res.message === "Success"){
-                    $(this).html("Archive");
+                    $(this).html("Update");
                     $(this).prop('disabled', false) ;
-                    $("#archiveModal").modal("hide");
+                    $("#updateSkillModal").modal("hide");
                     init();
                 }
            });
        }, 500);
     });
     
+    
+    $("#addSkillModal").on('show.bs.modal', function(e){
+        getApplicants(function(applicants){
+            for(var i = 0; i < applicants.length; i++){
+                $("#applicants").append(
+                    "<option value='" + applicants[i].applicantId + "'> " + applicants[i].firstName + " " + applicants[i].lastName + " </option>"
+                );
+            }
+            
+            $("#applicants").select2();
+        });
+        
+        getSkills(function(skills) {
+             for(var i = 0; i < skills.length; i++){
+                 $("#skillsToAdd").append("<option value='" + skills[i].skillId + "'> " + skills[i].skillName + " </option>");
+             }
+             
+             $("#skillsToAdd").select2();
+        });    
+    });
     
     init();
 </script>

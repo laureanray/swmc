@@ -31,6 +31,8 @@ namespace swmc.Controllers
             model.DocumentTypes = new List<DocumentType>(dts);
             return View(model);
         }
+        
+        
            
         [HttpPost]
         public async Task<IActionResult> CreateApplicant(CreateApplicantForm model)
@@ -48,9 +50,11 @@ namespace swmc.Controllers
                     FathersSuffix = model.Family.FathersSuffix,
                     FathersFirstName = model.Family.FathersFirstName,
                     FathersLastName = model.Family.FathersLastName,
+                    FathersMiddleName = model.Family.FathersMiddleName,
                     MothersSuffix = model.Family.MothersSuffix,
                     MothersFirstName = model.Family.MothersFirstName,
                     MothersLastName = model.Family.MothersLastName,
+                    MothersMiddleName = model.Family.MothersMiddleName,
                     SpouseSuffix = model.Family.SpouseSuffix,
                     SpouseFirstName = model.Family.SpouseFirstName,
                     SpouseLastName = model.Family.SpouseLastName,

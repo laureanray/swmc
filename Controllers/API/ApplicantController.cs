@@ -88,6 +88,20 @@ namespace swmc.Controllers.API
                 .Where(a => !a.Status.Equals(Status.Archived)).ToListAsync();
             return applicants;
         }
+
+        [Route("GetApplicant")]
+        [HttpGet]
+        public async Task<ActionResult<Applicant>> GetApplicant(int applicantId)
+        {
+            var applicant = await _context.Applicants.Include(a => a.Skills).FirstOrDefaultAsync(a => a.ApplicantId == applicantId);
+
+            if (applicant == null)
+            {
+                return NotFound();
+            }
+            
+            return applicant;
+        }
         
         [Route("GetArchivedApplicants")]
         [HttpGet]
@@ -224,6 +238,34 @@ namespace swmc.Controllers.API
             var positions = await _context.Positions.Where(p => p.IsArchived).ToListAsync();
 
             return positions;
+        }
+
+        [Route("UpdateApplicantSkills")]
+        [HttpPost]
+        public async Task<ActionResult<JsonResponse>> UpdateApplicantSkills(UpdateSkills model)
+        {
+            var applicant = await _context.Applicants.Include(a => a.Skills).FirstOrDefaultAsync(a => a.ApplicantId == model.ApplicantId);
+
+            if (applicant == null) return NotFound();
+
+            var skills = new List<Skill>();
+            for (int i = 0; i < model.Skills.Count; i++)
+            {
+                var skill = await _context.Skills.FirstOrDefaultAsync(s => s.SkillId == model.Skills[i].SkillId);
+                
+                skills.Add(skill);
+            }
+
+            applicant.Skills = new List<Skill>(skills);
+            applicant.DateUpdated = DateTime.Now;
+            _context.Entry(applicant).State = EntityState.Modified;
+
+            await _context.SaveChangesAsync();
+            
+            return new JsonResponse()
+            {
+                Message = "Success"
+            };
         }
         
         
