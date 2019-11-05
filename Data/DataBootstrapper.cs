@@ -123,31 +123,31 @@ namespace swmc.Data
                 }
             }
 
-            var skills = new List<Skill>()
+            var skillTypes = new List<SkillType>()
             {
-                new Skill()
+                new SkillType()
                 {
                     SkillName = "Firefighting",
                 },
-                new Skill()
+                new SkillType()
                 {
                     SkillName = "Electronics"
                 },
-                new Skill()
+                new SkillType()
                 {
                     SkillName = "Mechanical"
                 },
-                new Skill()
+                new SkillType()
                 {
                     SkillName = "Telecommunications"
                 }
             };
 
-            if (!context.Skills.Any())
+            if (!context.SkillTypes.Any())
             {
-                foreach (var skill in skills)
+                foreach (var skillType in skillTypes)
                 {
-                    context.Skills.Add(skill);
+                    context.SkillTypes.Add(skillType);
                 }
 
                 await context.SaveChangesAsync();
@@ -305,6 +305,7 @@ namespace swmc.Data
                 await context.SaveChangesAsync();
             }
 
+            Applicant applicant = new Applicant();
 
             if (!context.Applicants.Any())
             {
@@ -360,13 +361,31 @@ namespace swmc.Data
                     }
                 };
 
-                var applicant = new Applicant()
+                applicant = new Applicant()
                 {
                     Address = "123 Address St., Manila, NCR 1016",
                     Age = 32,
                     Documents = new List<Document>(documents),
                     Dependents = new List<Dependent>(dependents),
-                    Skills = new List<Skill>(skills),
+                    Skills = new List<Skill>()
+                    {
+                        new Skill()
+                        {
+                            SkillType = skillTypes[0]
+                        },
+                        new Skill()
+                        {
+                            SkillType = skillTypes[1]
+                        },
+                        new Skill()
+                        {
+                            SkillType = skillTypes[2]
+                        },
+                        new Skill()
+                        {
+                            SkillType = skillTypes[3]
+                        }
+                    },
                     Cellphone = "09123456789",
                     Citizenship = "Filipino",
                     Family = family,
@@ -402,7 +421,25 @@ namespace swmc.Data
                 {
                     Position = positions[0],
                     Quantity = 2,
-                    Skills = new List<Skill>(skills)
+                    Skills = new List<Skill>()
+                    {
+                        new Skill()
+                        {
+                            SkillType = skillTypes[0]
+                        },
+                        new Skill()
+                        {
+                            SkillType = skillTypes[1]
+                        },
+                        new Skill()
+                        {
+                            SkillType = skillTypes[2]
+                        },
+                        new Skill()
+                        {
+                            SkillType = skillTypes[3]
+                        }
+                    }
                 },
                 new Requirement()
                 {
@@ -410,20 +447,59 @@ namespace swmc.Data
                     Quantity = 10,
                     Skills = new List<Skill>()
                     {
-                        skills[0]
+                        new Skill()
+                        {
+                            SkillType = skillTypes[0]
+                        },
+                        new Skill()
+                        {
+                            SkillType = skillTypes[1]
+                        },
+                        new Skill()
+                        {
+                            SkillType = skillTypes[2]
+                        },
+                        new Skill()
+                        {
+                            SkillType = skillTypes[3]
+                        }
                     }
                 },
                 new Requirement()
                 {
                     Position = positions[2],
                     Quantity = 5,
-                    Skills = new List<Skill>(skills)
+                    Skills = new List<Skill>()
+                    {
+                        new Skill()
+                        {
+                            SkillType = skillTypes[0]
+                        },
+                        new Skill()
+                        {
+                            SkillType = skillTypes[1]
+                        }
+                    }
                 },
                 new Requirement()
                 {
                     Position = positions[3],
                     Quantity = 4,
-                    Skills = new List<Skill>(skills)
+                    Skills = new List<Skill>()
+                    {
+                        new Skill()
+                        {
+                            SkillType = skillTypes[0]
+                        },
+                        new Skill()
+                        {
+                            SkillType = skillTypes[1]
+                        },
+                        new Skill()
+                        {
+                            SkillType = skillTypes[2]
+                        }
+                    }
                 },
                 new Requirement()
                 {
@@ -431,7 +507,22 @@ namespace swmc.Data
                     Quantity = 6,
                     Skills = new List<Skill>()
                     {
-                        skills[0]
+                        new Skill()
+                        {
+                            SkillType = skillTypes[0]
+                        },
+                        new Skill()
+                        {
+                            SkillType = skillTypes[1]
+                        },
+                        new Skill()
+                        {
+                            SkillType = skillTypes[2]
+                        },
+                        new Skill()
+                        {
+                            SkillType = skillTypes[3]
+                        }
                     }
                 },
                 new Requirement()
@@ -440,7 +531,10 @@ namespace swmc.Data
                     Quantity = 2,
                     Skills = new List<Skill>()
                     {
-                        skills[0]
+                        new Skill()
+                        {
+                            SkillType = skillTypes[0]
+                        }
                     }
                 }
             };
@@ -450,16 +544,35 @@ namespace swmc.Data
                    Vessel = vessels[0],
                    Destination = "South Korea",
                    Remarks = "Remarks",
-                   Requirements = new List<Requirement>(requirements)
+                   Requirements = new List<Requirement>(requirements),
+                   StartDate = new DateTime(2014, 2, 5),
+                   EndDate = new DateTime(2012, 2, 4)
             };
+            
             
             if (!context.Requests.Any())
             {
                 context.Requests.Add(request);
-
                 await context.SaveChangesAsync();
             }
 
+        
+            var embarkation = new Embarkation()
+            {
+                Request = request,
+                EmbarkationStatus = EmbarkationStatus.Embarked,
+                Applicants = new List<Applicant>()
+                {
+                    applicant                
+                }
+            };
+
+            if (!context.Embarkations.Any())
+            {
+                context.Embarkations.Add(embarkation);
+                await context.SaveChangesAsync();
+            }
+            
         }
     }
 }

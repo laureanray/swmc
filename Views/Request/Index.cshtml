@@ -82,11 +82,11 @@
 
                         <div class="col-3">
                             <label for=""> Start Date </label>
-                            <input type="date" class="form-control" id="operationStartDate" placeholder="Operation Start Date">
+                            <input type="date" class="form-control" id="startDate" placeholder="Operation Start Date">
                         </div>
                         <div class="col-3">
                             <label for=""> End Date </label>
-                            <input type="date" class="form-control" id="operationEndDate" placeholder="Operation End Date">
+                            <input type="date" class="form-control" id="endDate" placeholder="Operation End Date">
                         </div>
                     </div>
 
@@ -155,13 +155,16 @@
             var options = "";
             var skillOptions = "";
             
+           console.log(skills);
+
+            
             for(var i = 0; i < positions.length; i++){
                 options += "<option value='" + positions[i].positionId + "'> " + positions[i].positionName + "</option>";
             }
             
             for(var i = 0; i < skills.length; i++)
             {
-                skillOptions += "<option value='" + skills[i].skillId + "'>" + skills[i].skillName + "</option>";
+                skillOptions += "<option value='" + skills[i].skillTypeId + "'>" + skills[i].skillName + "</option>";
             }
             
             var select = "<select class='form-control position'>" + options + "</select>";
@@ -198,7 +201,41 @@
 
      var table;
         function format ( d ) {
-           return "<p> Test <p>";
+           console.log(d);
+           
+           var requirements = "";
+
+           for(var i = 0; i < d.requirements.length; i++){
+               var skills = "";
+               
+               
+               for(var j = 0; j < d.requirements[i].skills.length; j++){
+                  if((j + 1) === d.requirements[i].skills.length){
+                    skills +=  d.requirements[i].skills[j].skillType.skillName + "";
+                  }else{
+                    skills += d.requirements[i].skills[j].skillType.skillName + ", ";
+                  }
+               }
+               requirements += ("<tr>" +
+                "<td> " + d.requirements[i].position.positionName + "</td>" +
+                "<td> " + d.requirements[i].quantity + "</td>" +
+                "<td> " + skills + "</td>" +
+                "</tr>");
+           }
+           
+           console.log(requirements);
+           
+           return "<h6> Requirements </h6>" +
+            "<table class=\"table\">\n"+
+                   "  <thead>\n"+
+                   "    <tr>\n"+
+                   "      <th scope=\"col\">Position</th>\n"+
+                   "      <th scope=\"col\">Quantity</th>\n"+
+                   "      <th scope=\"col\">Skills</th>\n"+
+                   "    </tr>\n"+
+                   "  </thead>\n"+
+                   "  <tbody>" + requirements + "</tbody>\n"+
+                   "</table>";
         }
         
     function archiveRequest(requestId, callback){
@@ -227,7 +264,7 @@
     function getSkills(callback){
               $.ajax({
                 type: 'GEt',
-                url: '/api/Applicant/GetSkills',
+                url: '/api/Applicant/GetSkillTypes',
                 contentType: 'application/json; charset=utf-8',
                 success: callback,
                 error: function(err){
@@ -241,6 +278,8 @@
             data[i].controls = "<button class='btn btn-outline-danger archive' data-id='"+ data[i].requestId +"'> Archive </button> " +
                                "<button class='btn btn-outline-secondary update' data-id='" + data[i].reqiestId + "'> Update </button>";
             data[i].vesselName = data[i].vessel.vesselName;
+            data[i].startDate = moment(data[i].startDate).format('LL');
+            data[i].endDate = moment(data[i].startDate).format('LL');
         }
         table = $("#requestsTable").DataTable({
             data: data,
@@ -254,8 +293,8 @@
                 { "data": "requestId"},
                 { "data": "vesselName" },
                 { "data": "destination" },
-                { "data": "operationStartDate" },
-                { "data": "operationEndDate" },
+                { "data": "startDate" },
+                { "data": "endDate" },
                 { "data": "controls"}
             ],
             destroy: true,
@@ -333,6 +372,10 @@
         });
     }
   
+    $("#archiveModal").on('show.bs.modal', function(){
+        $("#archiveBtn").html("Archive");
+        $("#archiveBtn").prop('disabled', false);
+    });
     
     $("#archiveBtn").click(function(){
        $(this).html("Archiving...");
@@ -366,7 +409,7 @@
             for(var j = 0; j < selectedSkills.length; j++)
             {
                 skills.push({
-                    skillId: selectedSkills[j]
+                    skillTypeId: selectedSkills[j]
                 });
             }
             
@@ -386,8 +429,8 @@
          var data = {
              vesselId: $("#vesselId").val(),
              destination: $("#destination").val(),
-             operationStartDate: $("#operationStartDate").val(),
-             operationEndDate: $("#operationEndDate").val(),
+             startDate: $("#startDate").val(),
+             endDate: $("#endDate").val(),
              remarks: $("#remarks").val(),
              requirements: requirements
          };
@@ -396,8 +439,8 @@
          
          addRequest(data, function(res){
               if(res.message === "Success"){
-                    $(this).prop('disabled', false);
-                    $(this).html("Create");
+                    $("#createBtn").prop('disabled', false);
+                    $("#createBtn").html("Create");
                     $("#addModal").modal("hide");
                     init();
               } 
@@ -424,6 +467,34 @@
             );
         }
     });
+    
+    $("#addModal input").keyup(function(){
+        validate();
+    }); 
+    
+    Date.prototype.toDateInputValue = (function() {
+        var local = new Date(this);
+        local.setMinutes(this.getMinutes() - this.getTimezoneOffset());
+        return local.toJSON().slice(0,10);
+    });
+    
+    $("#addModal").on('show.modal.bs', function(){
+         $('#startDate').val(new Date().toDateInputValue()); 
+    });
+    
+    function validate(){
+        var startDate = $("#startDate").val();
+        var endDate = $("#endDate").val();
+        var currentDate = moment();
+        
+        console.log($("#destination").val().length);
+        
+        if((moment(startDate).add(1, "days").isBefore(currentDate) || $("#destination").val().length === 0) || moment(endDate).isSameOrBefore(startDate)){
+            $("#createBtn").prop('disabled', true);
+        }else{
+            $("#createBtn").prop('disabled', false);
+        }
+    }
     
     init();
 </script>

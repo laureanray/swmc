@@ -26,7 +26,13 @@ namespace swmc.Controllers.API
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Request>>> GetVessels()
         {
-            return await _context.Requests.Where(r => !r.IsArchived).Include(r => r.Requirements).Include(r => r.Vessel).ToListAsync();
+            return await _context.Requests.Where(r => !r.IsArchived)
+                .Include(r => r.Requirements)
+                .ThenInclude(r => r.Skills)
+                .ThenInclude(r => r.SkillType)
+                .Include(r => r.Requirements)
+                .ThenInclude(r => r.Position)
+                .Include(r => r.Vessel).ToListAsync();
         }
         
         [Route("GetArchivedRequests")]
@@ -38,32 +44,10 @@ namespace swmc.Controllers.API
         }
         
         
-
         [Route("AddRequest")]
         [HttpPost]
         public async Task<ActionResult<JsonResponse>> AddRequest(Request request)
         {
-
-
-
-            for (int i = 0; i < request.Requirements.Count; i++)
-            {
-                var skills = new List<Skill>();
-
-                for (int j = 0; j < request.Requirements[i].Skills.Count; j++)
-                {
-                    var skill = await _context.Skills.FirstOrDefaultAsync(s =>
-                        s.SkillId == request.Requirements[i].Skills[j].SkillId);
-
-                    skills.Add(skill);
-                }
-                
-                request.Requirements[i].Skills = new List<Skill>(skills);
-            }
-            
-
-       
-            
             _context.Requests.Add(request);
             var res = await _context.SaveChangesAsync();            
             

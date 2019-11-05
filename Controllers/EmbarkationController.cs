@@ -26,5 +26,10 @@ namespace swmc.Controllers
         {
             return View();
         }
+
+        public IActionResult Embark()
+        {
+            return View();
+        }
     }
 }

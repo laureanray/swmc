@@ -109,27 +109,6 @@ namespace swmc.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("swmc.Models.Allottee", b =>
-                {
-                    b.Property<int>("AllotteeId")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Address");
-
-                    b.Property<int>("ApplicantId");
-
-                    b.Property<string>("Name");
-
-                    b.Property<string>("Relationship");
-
-                    b.HasKey("AllotteeId");
-
-                    b.HasIndex("ApplicantId");
-
-                    b.ToTable("Allottee");
-                });
-
             modelBuilder.Entity("swmc.Models.Applicant", b =>
                 {
                     b.Property<int>("ApplicantId")
@@ -150,7 +129,13 @@ namespace swmc.Migrations
                     b.Property<string>("CivilStatus")
                         .IsRequired();
 
+                    b.Property<DateTime>("DateCreated");
+
                     b.Property<DateTime>("DateOfBirth");
+
+                    b.Property<DateTime>("DateUpdated");
+
+                    b.Property<int?>("EmbarkationId");
 
                     b.Property<string>("FirstName")
                         .IsRequired();
@@ -158,8 +143,7 @@ namespace swmc.Migrations
                     b.Property<string>("Gender")
                         .IsRequired();
 
-                    b.Property<string>("Height")
-                        .IsRequired();
+                    b.Property<int>("Height");
 
                     b.Property<bool>("IsActive");
 
@@ -177,8 +161,7 @@ namespace swmc.Migrations
                     b.Property<string>("PlaceOfBirth")
                         .IsRequired();
 
-                    b.Property<string>("Position")
-                        .IsRequired();
+                    b.Property<int>("PositionId");
 
                     b.Property<string>("Religion")
                         .IsRequired();
@@ -186,20 +169,23 @@ namespace swmc.Migrations
                     b.Property<string>("SchoolFrom")
                         .IsRequired();
 
-                    b.Property<string>("SchoolTo");
-
-                    b.Property<string>("Status")
+                    b.Property<string>("SchoolTo")
                         .IsRequired();
+
+                    b.Property<int>("Status");
 
                     b.Property<string>("Suffix");
 
                     b.Property<string>("Telephone")
                         .IsRequired();
 
-                    b.Property<string>("Weight")
-                        .IsRequired();
+                    b.Property<int>("Weight");
 
                     b.HasKey("ApplicantId");
+
+                    b.HasIndex("EmbarkationId");
+
+                    b.HasIndex("PositionId");
 
                     b.ToTable("Applicants");
                 });
@@ -242,12 +228,18 @@ namespace swmc.Migrations
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken();
 
+                    b.Property<DateTime>("DateCreated");
+
+                    b.Property<DateTime>("DateUpdated");
+
                     b.Property<string>("Email")
                         .HasMaxLength(256);
 
                     b.Property<bool>("EmailConfirmed");
 
                     b.Property<string>("FirstName");
+
+                    b.Property<bool>("IsArchived");
 
                     b.Property<string>("LastName");
 
@@ -287,27 +279,6 @@ namespace swmc.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("swmc.Models.Beneficiary", b =>
-                {
-                    b.Property<int>("BeneficiaryId")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Address");
-
-                    b.Property<int>("ApplicantId");
-
-                    b.Property<string>("Name");
-
-                    b.Property<string>("Relationship");
-
-                    b.HasKey("BeneficiaryId");
-
-                    b.HasIndex("ApplicantId");
-
-                    b.ToTable("Beneficiary");
-                });
-
             modelBuilder.Entity("swmc.Models.Dependent", b =>
                 {
                     b.Property<int>("DependentId")
@@ -341,13 +312,55 @@ namespace swmc.Migrations
 
                     b.Property<DateTime>("DateSubmitted");
 
-                    b.Property<string>("DocumentName");
+                    b.Property<int>("DocumentTypeId");
 
                     b.HasKey("DocumentId");
 
                     b.HasIndex("ApplicantId");
 
+                    b.HasIndex("DocumentTypeId");
+
                     b.ToTable("Documents");
+                });
+
+            modelBuilder.Entity("swmc.Models.DocumentType", b =>
+                {
+                    b.Property<int>("DocumentTypeId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("DateCreated");
+
+                    b.Property<DateTime>("DateUpdated");
+
+                    b.Property<string>("DocumentTypeName")
+                        .IsRequired();
+
+                    b.Property<bool>("IsArchived");
+
+                    b.Property<string>("Issuer")
+                        .IsRequired();
+
+                    b.HasKey("DocumentTypeId");
+
+                    b.ToTable("DocumentTypes");
+                });
+
+            modelBuilder.Entity("swmc.Models.Embarkation", b =>
+                {
+                    b.Property<int>("EmbarkationId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("EmbarkationStatus");
+
+                    b.Property<int>("RequestId");
+
+                    b.HasKey("EmbarkationId");
+
+                    b.HasIndex("RequestId");
+
+                    b.ToTable("Embarkations");
                 });
 
             modelBuilder.Entity("swmc.Models.Family", b =>
@@ -358,29 +371,38 @@ namespace swmc.Migrations
 
                     b.Property<int>("ApplicantId");
 
-                    b.Property<string>("FathersFirstName");
+                    b.Property<string>("FathersFirstName")
+                        .IsRequired();
 
-                    b.Property<string>("FathersLastName");
+                    b.Property<string>("FathersLastName")
+                        .IsRequired();
 
-                    b.Property<string>("FathersMiddleName");
+                    b.Property<string>("FathersMiddleName")
+                        .IsRequired();
 
                     b.Property<string>("FathersSuffix");
 
-                    b.Property<string>("MothersFirstName");
+                    b.Property<string>("MothersFirstName")
+                        .IsRequired();
 
-                    b.Property<string>("MothersLastName");
+                    b.Property<string>("MothersLastName")
+                        .IsRequired();
 
-                    b.Property<string>("MothersMiddleName");
+                    b.Property<string>("MothersMiddleName")
+                        .IsRequired();
 
                     b.Property<string>("MothersSuffix");
 
-                    b.Property<int>("NumberOfChildren");
+                    b.Property<string>("NumberOfChildren");
 
-                    b.Property<string>("SpouseFirstName");
+                    b.Property<string>("SpouseFirstName")
+                        .IsRequired();
 
-                    b.Property<string>("SpouseLastName");
+                    b.Property<string>("SpouseLastName")
+                        .IsRequired();
 
-                    b.Property<string>("SpouseMiddleName");
+                    b.Property<string>("SpouseMiddleName")
+                        .IsRequired();
 
                     b.Property<string>("SpouseSuffix");
 
@@ -390,6 +412,95 @@ namespace swmc.Migrations
                         .IsUnique();
 
                     b.ToTable("Families");
+                });
+
+            modelBuilder.Entity("swmc.Models.Position", b =>
+                {
+                    b.Property<int>("PositionId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("DateCreated");
+
+                    b.Property<DateTime>("DateUpdated");
+
+                    b.Property<bool>("IsArchived");
+
+                    b.Property<string>("PositionCode");
+
+                    b.Property<string>("PositionName")
+                        .IsRequired();
+
+                    b.HasKey("PositionId");
+
+                    b.ToTable("Positions");
+                });
+
+            modelBuilder.Entity("swmc.Models.Request", b =>
+                {
+                    b.Property<int>("RequestId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Destination");
+
+                    b.Property<DateTime>("EndDate");
+
+                    b.Property<bool>("IsArchived");
+
+                    b.Property<string>("Remarks");
+
+                    b.Property<DateTime>("StartDate");
+
+                    b.Property<int>("VesselId");
+
+                    b.HasKey("RequestId");
+
+                    b.HasIndex("VesselId");
+
+                    b.ToTable("Requests");
+                });
+
+            modelBuilder.Entity("swmc.Models.Requirement", b =>
+                {
+                    b.Property<int>("RequirementId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("PositionId");
+
+                    b.Property<int>("Quantity");
+
+                    b.Property<int?>("RequestId");
+
+                    b.HasKey("RequirementId");
+
+                    b.HasIndex("PositionId");
+
+                    b.HasIndex("RequestId");
+
+                    b.ToTable("Requirements");
+                });
+
+            modelBuilder.Entity("swmc.Models.Skill", b =>
+                {
+                    b.Property<int>("SkillId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("ApplicantId");
+
+                    b.Property<int?>("RequirementId");
+
+                    b.Property<string>("SkillName");
+
+                    b.HasKey("SkillId");
+
+                    b.HasIndex("ApplicantId");
+
+                    b.HasIndex("RequirementId");
+
+                    b.ToTable("Skills");
                 });
 
             modelBuilder.Entity("swmc.Models.Vessel", b =>
@@ -404,9 +515,7 @@ namespace swmc.Migrations
 
                     b.Property<DateTime>("DateAdded");
 
-                    b.Property<DateTime>("DateEnrolled");
-
-                    b.Property<DateTime>("DateModified");
+                    b.Property<DateTime>("DateUpdated");
 
                     b.Property<string>("EngineMake")
                         .IsRequired();
@@ -433,8 +542,6 @@ namespace swmc.Migrations
                     b.Property<string>("Principal")
                         .IsRequired();
 
-                    b.Property<string>("Status");
-
                     b.Property<string>("Type");
 
                     b.Property<string>("VesselAbr");
@@ -443,6 +550,8 @@ namespace swmc.Migrations
                         .IsRequired();
 
                     b.Property<string>("YearBuilt");
+
+                    b.Property<string>("YearEnrolled");
 
                     b.HasKey("VesselId");
 
@@ -494,25 +603,21 @@ namespace swmc.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("swmc.Models.Allottee", b =>
+            modelBuilder.Entity("swmc.Models.Applicant", b =>
                 {
-                    b.HasOne("swmc.Models.Applicant", "Applicant")
-                        .WithMany("Allottees")
-                        .HasForeignKey("ApplicantId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
+                    b.HasOne("swmc.Models.Embarkation")
+                        .WithMany("Applicants")
+                        .HasForeignKey("EmbarkationId");
 
-            modelBuilder.Entity("swmc.Models.Beneficiary", b =>
-                {
-                    b.HasOne("swmc.Models.Applicant", "Applicant")
-                        .WithMany("Beneficiaries")
-                        .HasForeignKey("ApplicantId")
+                    b.HasOne("swmc.Models.Position", "Position")
+                        .WithMany()
+                        .HasForeignKey("PositionId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("swmc.Models.Dependent", b =>
                 {
-                    b.HasOne("swmc.Models.Applicant", "Applicant")
+                    b.HasOne("swmc.Models.Applicant")
                         .WithMany("Dependents")
                         .HasForeignKey("ApplicantId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -520,18 +625,62 @@ namespace swmc.Migrations
 
             modelBuilder.Entity("swmc.Models.Document", b =>
                 {
-                    b.HasOne("swmc.Models.Applicant", "Applicant")
+                    b.HasOne("swmc.Models.Applicant")
                         .WithMany("Documents")
                         .HasForeignKey("ApplicantId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("swmc.Models.DocumentType", "DocumentType")
+                        .WithMany()
+                        .HasForeignKey("DocumentTypeId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("swmc.Models.Embarkation", b =>
+                {
+                    b.HasOne("swmc.Models.Request", "Request")
+                        .WithMany()
+                        .HasForeignKey("RequestId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("swmc.Models.Family", b =>
                 {
-                    b.HasOne("swmc.Models.Applicant", "Applicant")
+                    b.HasOne("swmc.Models.Applicant")
                         .WithOne("Family")
                         .HasForeignKey("swmc.Models.Family", "ApplicantId")
                         .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("swmc.Models.Request", b =>
+                {
+                    b.HasOne("swmc.Models.Vessel", "Vessel")
+                        .WithMany()
+                        .HasForeignKey("VesselId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("swmc.Models.Requirement", b =>
+                {
+                    b.HasOne("swmc.Models.Position", "Position")
+                        .WithMany()
+                        .HasForeignKey("PositionId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("swmc.Models.Request")
+                        .WithMany("Requirements")
+                        .HasForeignKey("RequestId");
+                });
+
+            modelBuilder.Entity("swmc.Models.Skill", b =>
+                {
+                    b.HasOne("swmc.Models.Applicant")
+                        .WithMany("Skills")
+                        .HasForeignKey("ApplicantId");
+
+                    b.HasOne("swmc.Models.Requirement")
+                        .WithMany("Skills")
+                        .HasForeignKey("RequirementId");
                 });
 #pragma warning restore 612, 618
         }

@@ -68,11 +68,11 @@ namespace swmc.Controllers.API
             });
         }
 
-        [Route("GetSkills")]
+        [Route("GetSkillTypes")]
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Skill>>> GetSkills()
+        public async Task<ActionResult<IEnumerable<SkillType>>> GetSkillTypes()
         {
-            return await _context.Skills.ToListAsync();
+            return await _context.SkillTypes.ToListAsync();
         }
         
         [Route("GetApplicants")]
@@ -85,6 +85,7 @@ namespace swmc.Controllers.API
                 .Include(a => a.Dependents)
                 .Include(a => a.Documents)
                 .Include( a => a.Skills)
+                .ThenInclude(a => a.SkillType)
                 .Where(a => !a.Status.Equals(Status.Archived)).ToListAsync();
             return applicants;
         }
@@ -93,7 +94,7 @@ namespace swmc.Controllers.API
         [HttpGet]
         public async Task<ActionResult<Applicant>> GetApplicant(int applicantId)
         {
-            var applicant = await _context.Applicants.Include(a => a.Skills).FirstOrDefaultAsync(a => a.ApplicantId == applicantId);
+            var applicant = await _context.Applicants.Include(a => a.Skills).ThenInclude(a => a.SkillType).FirstOrDefaultAsync(a => a.ApplicantId == applicantId);
 
             if (applicant == null)
             {
@@ -249,11 +250,14 @@ namespace swmc.Controllers.API
             if (applicant == null) return NotFound();
 
             var skills = new List<Skill>();
-            for (int i = 0; i < model.Skills.Count; i++)
+            for (int i = 0; i < model.SkillTypes.Count; i++)
             {
-                var skill = await _context.Skills.FirstOrDefaultAsync(s => s.SkillId == model.Skills[i].SkillId);
+                var skillType = await _context.SkillTypes.FirstOrDefaultAsync(s => s.SkillTypeId == model.SkillTypes[i].SkillTypeId);
                 
-                skills.Add(skill);
+                skills.Add(new Skill()
+                {
+                    SkillType = skillType
+                });
             }
 
             applicant.Skills = new List<Skill>(skills);

@@ -1,8 +1,9 @@
-﻿namespace swmc.Models
+﻿using System.Collections.Generic;
+
+namespace swmc.Models
 {
     public enum EmbarkationStatus
     {
-        Pending,
         Embarked,
         Disembarked
     }
@@ -11,6 +12,7 @@
         public int EmbarkationId { get; set; }
         public int RequestId { get; set; }
         public Request Request { get; set; }
+        public List<Applicant> Applicants { get; set; }
         public EmbarkationStatus EmbarkationStatus { get; set; }
     }
 }

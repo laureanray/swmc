@@ -3,143 +3,182 @@
     Layout = "_DashboardLayout";
 }
 
+<style>
+    .select2-selection__rendered {
+        line-height: 31px !important;
+    }
+    .select2-container .select2-selection--single {
+        height: 35px !important;
+    }
+    .select2-selection__arrow {
+        height: 34px !important;
+    }
+</style>
 <div class="container-fluid">
-    <h3> Embarkation </h3>
-    <div class="row mt-3">
+    <h3> Embark </h3>
+    <div class="row pt-2 pb-5">
         <div class="col">
-            <button class="btn btn-success" data-toggle="modal" data-target="#addModal"><i class="fas fa-fw fa-plus"></i> Embark </button>
-        </div>
-    </div>
-    <div class="row mt-3">
-        <div class="col">
-            <table id="embarkationsTable" class="display">
-                    <thead>
-                <tr>
-                    <th></th>
-                    <th>Request ID</th>
-                    <th>Vessel</th>
-                    <th>Destination</th>
-                    <th>Start Date</th>
-                    <th>End Date</th>
-                    <th></th>
-                </tr>
-                </thead>
-                <tbody>
-
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div>
-
-<!-- Archive MOdal Modal -->
-<div class="modal fade" id="archiveModal" tabindex="-1" role="dialog" aria-labelledby="archiveModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="archiveModalLabel">Archive Request</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                Are you sure you want to archive request?
-                <input type="hidden" id="requestToArchive">
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                <button type="button" id="archiveBtn" class="btn btn-danger">Archive</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<!-- Add Document Type  Modal -->
-<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="addModalLabel">Create New Request</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form>
-                    <div class="row">
-                        <div class="col-3">
-                            <label for=""> Vessel </label>
-                            @* <input type="text" class="form-control" id="documentTypeName" placeholder="Document Type Name"> *@
-                            <select name="" id="vesselId" class="form-control">
-                            </select>
-                        </div>
-                        <div class="col-3">
-                            <label for=""> Destination </label>
-                            <input type="text" class="form-control" id="destination" placeholder="Destination">
-                        </div>
-
-                        <div class="col-3">
-                            <label for=""> Start Date </label>
-                            <input type="date" class="form-control" id="operationStartDate" placeholder="Operation Start Date">
-                        </div>
-                        <div class="col-3">
-                            <label for=""> End Date </label>
-                            <input type="date" class="form-control" id="operationEndDate" placeholder="Operation End Date">
-                        </div>
+            <form>
+                <div class="row">
+                    <div class="col-12">
+                        <label for=""> Request </label>
+                        @* <input type="text" class="form-control" id="documentTypeName" placeholder="Document Type Name"> *@
+                        <select name="" id="requests" class="form-control" style="width: 100%">
+                        </select>
                     </div>
 
-                    <div class="row mt-2">
-                        <div class="col">
-                            <label for=""> Remarks </label>
-                            <textarea name="" id="remarks" cols="30" rows="3" class="form-control" placeholder="Remarks"></textarea>
-                        </div>
-                    </div>
+                </div>
 
-                    <div class="row mt-2">
-                        <div class="col">
-                            <div class="row">
-                                <div class="col">
-                                    <h5> Requirements </h5>
-                                </div>
-                                <div class="col text-right">
-                                    <button class="btn btn-success" id="addNew"> Add New </button>
-                                </div>
+                <div class="row mt-4">
+                    <div class="col">
+                        <label for=""> Request Details </label>
+                        <div class="row">
+                            <div class="col-6">
+                                <dl class="dl-horizontal">
+                                    <dt>Destination</dt>
+                                    <dd id="destination"></dd>
+                                    <dt>Vessel Name</dt>
+                                    <dd id="vesselName"></dd>
+                                    <dt>Start Date</dt>
+                                    <dd id="startDate"></dd>
+                                </dl>
                             </div>
-                            <div class="row mt-2">
-                                <div class="col requirements">
-                                    <div class="row">
-                                        <div class="col-3">
-                                            <h6> Position </h6>
-                                        </div>
-                                        <div class="col-2">
-                                            <h6> Quantity </h6>
-                                        </div>
-                                        <div class="col-5">
-                                            <h6> Skills </h6>
-                                        </div>
-                                        <div class="col-2">
-                                            <h6> Delete </h6>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="col-6">
+                                <dl class="dl-horizontal">
+                                    <dt>Principal</dt>
+                                    <dd id="principal"></dd>
+                                    <dt>Vessel Abbr</dt>
+                                    <dd id="vesselAbr"></dd>
+                                    <dt>End Date</dt>
+                                    <dd id="endDate"></dd>
+                                </dl>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="row mt-2">
+                    <div class="col">
+                        <div class="row">
+                            <div class="col">
+                                <h5> Requirements </h5>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-2">
+                                <h6> Position </h6>
+                            </div>
+                            <div class="col-1">
+                                <h6> Qty </h6>
+                            </div>
+                            <div class="col-5">
+                                <h6> Skills </h6>
+                            </div>
+                            <div class="col-4">
+                                <h6> Applicant </h6>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col requirements">
                             </div>
                         </div>
                     </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                <button type="button" id="createBtn" class="btn btn-success" >Create</button>
-            </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col">
+                        <a  class="btn btn-secondary" asp-controller="Embarkation" asp-action="Index">Back</a>
+                        <button type="button" id="createBtn" class="btn btn-success">Embark</button>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 </div>
+
 
 <script >
      var positions;
      var skills;
+     var requests;
      
+     function updateSelected(){
+        getRequest(function(request){
+            var id = $("#requests").val();
+            var selected = request.filter(function(req) {
+                return req.requestId === parseInt(id); 
+            });
+            
+            console.log(selected);
+            
+            if(selected.length > 0){
+                $("#vesselName").html(selected[0].vessel.vesselName);
+                $("#destination").html(selected[0].destination);
+                $("#vesselAbr").html(selected[0].vessel.vesselAbr);
+                $("#principal").html(selected[0].vessel.principal);
+                $("#startDate").html(moment(selected[0].startDate).format('LLL'));
+                $("#endDate").html(moment(selected[0].endDate).format('LLL'));
+            }
+            var requirements = selected[0].requirements;
+            
+           $(".requirements").html('');
+                
+
+            for(var i = 0; i < requirements.length; i++){
+                console.log(requirements[i]);
+                
+                var skillsText = "";
+                
+                for(var j = 0; j < requirements[i].skills.length; j++){
+                     if((j + 1) === requirements[i].skills.length){
+                        skillsText +=  requirements[i].skills[j].skillType.skillName + "";
+                    }else{
+                        skillsText += requirements[i].skills[j].skillType.skillName + ", ";
+                    }
+                }
+                
+     
+                $(".requirements").append(
+                    " <div class=\"row border-top py-2\">\n"+
+                     "    <div class=\"col-2\">\n"+
+                     "        <span>" + requirements[i].position.positionName +" </span>\n"+
+                     "    </div>\n"+
+                     "    <div class=\"col-1\">\n"+
+                     "        <span>"+ requirements[i].quantity +"</span>\n"+
+                     "    </div>\n"+
+                     "    <div class=\"col-5\">\n"+
+                     "        <span>" + skillsText + " </span>\n"+
+                     "    </div>\n"+
+                     "    <div class=\"col-4\">\n"+
+                     "        <span> Applicant </span>\n"+
+                     "    </div>\n"+
+                     "</div>"
+                );
+            }
+            
+        });
+     }
+      
+     
+     getRequest(function(request){
+ 
+        for(var i = 0; i < request.length; i++)
+        {
+             var date = moment(request[i].startDate).format('LL');
+             $("#requests").append(
+                    "<option value='"+request[i].requestId+"'> "+ request[i].vessel.vesselName + " (" + request[i].destination +") " + date + "</option>"
+             );
+             
+             $("#requests").select2();
+ 
+        }
+                   
+        updateSelected();
+         $("#requests").on('change', updateSelected);
+     });
+     
+    
      
      getPositions(function(res) {
         positions = res;
@@ -223,6 +262,18 @@
           });
     }
     
+    function getRequest(callback){
+        $.ajax({
+            type: 'GET',
+            url: '/api/Request/GetRequests',
+            contentType: 'application/json; charset=utf-8',
+            success: callback,
+            error: function(err){
+                console.log(err);
+            }
+          });
+    }
+    
     function getSkills(callback){
               $.ajax({
                 type: 'GEt',
@@ -237,9 +288,11 @@
     
     function initDataTable(data){
         for(var i = 0; i < data.length; i++){
-            data[i].controls = "<button class='btn btn-outline-danger archive' data-id='"+ data[i].requestId +"'> Archive </button> " +
-                               "<button class='btn btn-outline-secondary update' data-id='" + data[i].reqiestId + "'> Update </button>";
-            data[i].vesselName = data[i].vessel.vesselName;
+            data[i].destination = data[i].request.destination;
+            data[i].startDate = moment(data[i].request.startDate).format('LL');
+            data[i].endDate = moment(data[i].request.endDate).format('LL');
+            data[i].vesselName = data[i].request.vessel.vesselName;
+
         }
         table = $("#embarkationsTable").DataTable({
             data: data,
@@ -250,12 +303,11 @@
                     "data":           null,
                     "defaultContent": ''
                 },
-                { "data": "requestId"},
+                { "data": "embarkationId"},
                 { "data": "vesselName" },
                 { "data": "destination" },
-                { "data": "operationStartDate" },
-                { "data": "operationEndDate" },
-                { "data": "controls"}
+                { "data": "startDate" },
+                { "data": "endDate" }
             ],
             destroy: true,
             drawCallback: function(settings){
@@ -274,7 +326,7 @@
         $.ajax({
             type: 'GET',
             dataType: 'json',
-            url: '/api/Request/GetRequests',
+            url: '/api/Embarkation/GetEmbarkations',
             success: function(data){
                 callback(data);
             },
@@ -397,7 +449,7 @@
               if(res.message === "Success"){
                     $(this).prop('disabled', false);
                     $(this).html("Create");
-                    $("#addModal").modal("hide");
+                    $("#embarkModal").modal("hide");
                     init();
               } 
          });

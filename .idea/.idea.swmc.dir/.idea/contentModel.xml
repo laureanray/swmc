@@ -83,6 +83,7 @@
       <e p="Controllers" t="Include">
         <e p="API" t="Include">
           <e p="ApplicantController.cs" t="Include" />
+          <e p="EmbarkationController.cs" t="Include" />
           <e p="RequestController.cs" t="Include" />
           <e p="UserController.cs" t="Include" />
           <e p="VesselController.cs" t="Include" />
@@ -101,14 +102,11 @@
         <e p="DataBootstrapper.cs" t="Include" />
       </e>
       <e p="Migrations" t="Include">
-        <e p="20191022175150_initial.cs" t="Include" />
-        <e p="20191022175150_initial.Designer.cs" t="Include" />
-        <e p="20191023124139_required.cs" t="Include" />
-        <e p="20191023124139_required.Designer.cs" t="Include" />
+        <e p="20191105134838_init.cs" t="Include" />
+        <e p="20191105134838_init.Designer.cs" t="Include" />
         <e p="ApplicationDbContextModelSnapshot.cs" t="Include" />
       </e>
       <e p="Models" t="Include">
-        <e p="Allottee.cs" t="Include" />
         <e p="Applicant.cs" t="Include" />
         <e p="ApplicantSkills.cs" t="Include" />
         <e p="ApplicationRole.cs" t="Include" />
@@ -132,6 +130,7 @@
         <e p="Request.cs" t="Include" />
         <e p="Requirement.cs" t="Include" />
         <e p="Skill.cs" t="Include" />
+        <e p="SkillType.cs" t="Include" />
         <e p="User.cs" t="Include" />
         <e p="Vessel.cs" t="Include" />
       </e>
@@ -172,6 +171,7 @@
         </e>
         <e p="Embarkation" t="Include">
           <e p="Disembarked.cshtml" t="Include" />
+          <e p="Embark.cshtml" t="Include" />
           <e p="Embarked.cshtml" t="Include" />
           <e p="Index.cshtml" t="Include" />
         </e>
@@ -1994,6 +1994,9 @@
             <e p="jquery.validate.unobtrusive.js" t="Include" />
             <e p="jquery.validate.unobtrusive.min.js" t="Include" />
             <e p="LICENSE.txt" t="Include" />
+          </e>
+          <e p="momentjs" t="Include">
+            <e p="moment.js" t="Include" />
           </e>
           <e p="select2" t="Include">
             <e p="en.js" t="Include" />

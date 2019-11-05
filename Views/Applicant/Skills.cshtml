@@ -96,7 +96,7 @@
     function getSkills(cb){
         $.ajax({
             type: 'GET',
-            url: '/api/Applicant/GetSkills',
+            url: '/api/Applicant/GetSkillTypes',
             success: cb,
             error: function(err){
                 console.log(err);
@@ -150,9 +150,9 @@
             for(var j = 0; j < data[i].skills.length; j++)
             {
                 if((j + 1) === data[i].skills.length){
-                    data[i].skillSet +=  "and " + data[i].skills[j].skillName + "";
+                    data[i].skillSet +=  data[i].skills[j].skillType.skillName + "";
                 }else{
-                    data[i].skillSet += data[i].skills[j].skillName + ", ";
+                    data[i].skillSet += data[i].skills[j].skillType.skillName + ", ";
                 }
             }
             data[i].position = data[i].position.positionName;
@@ -176,27 +176,30 @@
                     var id = $(this).data('id');
                     
                     getSkills(function(skills) {
+                        $("#skills").html("");
                         for(var i = 0; i < skills.length; i++){
-                            $("#skills").append("<option value='" + skills[i].skillId + "'> " + skills[i].skillName + " </option>");
+                            $("#skills").append("<option value='" + skills[i].skillTypeId + "'> " + skills[i].skillName + " </option>");
                         }
                         
                         $("#skills").select2();
                         
                           getApplicant(id, function(res){
-                                            console.log(res);
-                                            
-                                            $("#applicantId").val(id);
-                                            var skills = [];
-                                            
-                                            for(var i = 0; i < res.skills.length; i++){
-                                                skills.push(res.skills[i].skillId);
-                                            }
-                                            
-                                            $("#applicantName").html(res.firstName + " " + res.lastName);
-                                            $("#skills").val(skills);
-                                            $("#skills").trigger('change');
-                                            $("#updateSkillModal").modal('show');
-                                        });
+                                console.log(res);
+                                
+                                $("#applicantId").val(id);
+                                var skills = [];
+                                
+                                console.log(res);
+                                
+                                for(var i = 0; i < res.skills.length; i++){
+                                    skills.push(res.skills[i].skillType.skillTypeId);
+                                }
+                                
+                                $("#applicantName").html(res.firstName + " " + res.lastName);
+                                $("#skills").val(skills);
+                                $("#skills").trigger('change');
+                                $("#updateSkillModal").modal('show');
+                            });
                     });
                     
               
@@ -238,13 +241,13 @@
            var skills = [];
            for(var i = 0; i < s.length; i++){
                skills.push({
-                skillId: parseInt(s[i])
+                skillTypeId: parseInt(s[i])
                });
            }
            
            var data = {
                applicantId: $("#applicantId").val(),
-               skills: skills
+               skillTypes: skills
            };
            
            console.log(data);
@@ -252,35 +255,15 @@
            updateSkills(data, function(res){
                 console.log(res); 
                 if(res.message === "Success"){
-                    $(this).html("Update");
-                    $(this).prop('disabled', false) ;
+                    $("#updateBtn").html("Update");
+                    $("#updateBtn").prop('disabled', false) ;
                     $("#updateSkillModal").modal("hide");
                     init();
                 }
            });
        }, 500);
     });
-    
-    
-    $("#addSkillModal").on('show.bs.modal', function(e){
-        getApplicants(function(applicants){
-            for(var i = 0; i < applicants.length; i++){
-                $("#applicants").append(
-                    "<option value='" + applicants[i].applicantId + "'> " + applicants[i].firstName + " " + applicants[i].lastName + " </option>"
-                );
-            }
-            
-            $("#applicants").select2();
-        });
-        
-        getSkills(function(skills) {
-             for(var i = 0; i < skills.length; i++){
-                 $("#skillsToAdd").append("<option value='" + skills[i].skillId + "'> " + skills[i].skillName + " </option>");
-             }
-             
-             $("#skillsToAdd").select2();
-        });    
-    });
+ 
     
     init();
 </script>
