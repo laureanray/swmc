@@ -106,6 +106,53 @@
     </div>
 
 <script >
+   
+   $.ajax({
+        type: 'GET',
+        url: '/api/Applicant/GetApplicants',
+        success: function(data){
+            $("#totalApplicants").html(data.length);
+        },
+        error: function(err){
+            console.log(err);
+        }
+   });
+   
+   
+   $.ajax({
+        type: 'GET',
+        url: '/api/Applicant/GetEmbarkedApplicants',
+        success: function(data){
+            $("#embarked").html(data.length);
+        },
+        error: function(err){
+            console.log(err);
+        }
+   });
+   
+     $.ajax({
+           type: 'GET',
+           url: '/api/Vessel/GetVessels',
+           success: function(data){
+               $("#vessels").html(data.length);
+           },
+           error: function(err){
+               console.log(err);
+           }
+      });
+     
+     $.ajax({
+                type: 'GET',
+                url: '/api/Request/GetRequests',
+                success: function(data){
+                    $("#requests").html(data.length);
+                },
+                error: function(err){
+                    console.log(err);
+                }
+           });
+    
+
  window.chartColors = {
       red: 'rgb(255, 99, 132)',
       orange: 'rgb(255, 159, 64)',

@@ -138,6 +138,12 @@
                     }
                 }
                 
+                var applicants = "";
+                
+                // for(var x = 0; x < requirements[i].)
+                
+                var applicant = "<select class='applicant_select' data-id='" + requirements[i].requirementId + "'> " + applicants + "</select>";
+                
      
                 $(".requirements").append(
                     " <div class=\"row border-top py-2\">\n"+
@@ -151,7 +157,7 @@
                      "        <span>" + skillsText + " </span>\n"+
                      "    </div>\n"+
                      "    <div class=\"col-4\">\n"+
-                     "        <span> Applicant </span>\n"+
+                     "        <span>" + applicant + " </span>\n"+
                      "    </div>\n"+
                      "</div>"
                 );

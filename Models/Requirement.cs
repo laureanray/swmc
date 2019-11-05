@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace swmc.Models
 {
-    public class Requirement
+    public class  Requirement
     {
         public int RequirementId { get; set; }
         public List<Skill> Skills { get; set; }
