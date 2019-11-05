@@ -120,6 +120,7 @@
         <e p="Family.cs" t="Include" />
         <e p="FormModel" t="Include">
           <e p="CreateApplicantForm.cs" t="Include" />
+          <e p="UpdateApplicantForm.cs" t="Include" />
         </e>
         <e p="JsonModel" t="Include">
           <e p="JsonDocument.cs" t="Include" />
@@ -165,6 +166,7 @@
           <e p="Positions.cshtml" t="Include" />
           <e p="Skills.cshtml" t="Include" />
           <e p="Success.cshtml" t="Include" />
+          <e p="UpdateApplicant.cshtml" t="Include" />
         </e>
         <e p="Dashboard" t="Include">
           <e p="Index.cshtml" t="Include" />
@@ -213,7 +215,7 @@
         </e>
         <e p="favicon.png" t="Include" />
         <e p="images" t="Include">
-          <e p="avatar.png" t="Include" />
+          <e p="avatar.webp" t="Include" />
           <e p="details_close.png" t="Include" />
           <e p="details_open.png" t="Include" />
         </e>

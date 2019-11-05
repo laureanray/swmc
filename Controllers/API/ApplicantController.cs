@@ -292,9 +292,10 @@ namespace swmc.Controllers.API
             // add query to or weth embarked applicants with less than a month
             var applicants = await _context.Applicants.Include(a => a.Skills).Include(a => a.Position).Where(a => a.Status.Equals(Status.Active)).ToListAsync();
             var applicantsToReturn = new List<Applicant>();
-            int count = 0;
+   
             foreach(var applicant in applicants)
             {
+                int count = 0;
 //                var count = applicant.Skills.Interssct(requirement.Skills).Count();
 
                 for (int i = 0; i < requirement.Skills.Count; i++)

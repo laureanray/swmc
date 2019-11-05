@@ -22,7 +22,7 @@ namespace swmc.Data
             // Create default admin if not already in the database
 
             defaultAvatar =
-                System.IO.File.ReadAllBytes(hostingEnvironment.ContentRootPath + "/wwwroot/images/avatar.png");
+                System.IO.File.ReadAllBytes(hostingEnvironment.ContentRootPath + "/wwwroot/images/avatar.webp");
             
             
             // Add the roles in the dictionary

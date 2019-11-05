@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Internal;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using swmc.Data;
 using swmc.Models;
@@ -98,6 +99,10 @@ namespace swmc.Controllers
                         applicant.Photo = memoryStream.ToArray();
                     }
                 }
+                else
+                {
+                    applicant.Photo = DataBootstrapper.defaultAvatar;
+                }
 
                 applicant.DateCreated = DateTime.Now;
                 applicant.Status = Status.Active;
@@ -150,5 +155,18 @@ namespace swmc.Controllers
         {
             return View();
         }
+
+//        public async Task <IActionResult> UpdateApplicant([FromQuery] int applicantId)
+//        {
+//            var applicant = await _context.Applicants.FirstOrDefaultAsync(a => a.ApplicantId == applicantId);
+//
+//            if (applicant == null) return NotFound();
+//            
+//            UpdateApplicantForm model = new UpdateApplicantForm();
+//            model.Applicant = applicant;
+//
+//
+//            return View(model);
+//        }
     }
 }

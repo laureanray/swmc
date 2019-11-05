@@ -279,7 +279,7 @@
                                "<button class='btn btn-outline-secondary update' data-id='" + data[i].reqiestId + "'> Update </button>";
             data[i].vesselName = data[i].vessel.vesselName;
             data[i].startDate = moment(data[i].startDate).format('LL');
-            data[i].endDate = moment(data[i].startDate).format('LL');
+            data[i].endDate = moment(data[i].endDate).format('LL');
         }
         table = $("#requestsTable").DataTable({
             data: data,

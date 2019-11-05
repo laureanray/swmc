@@ -89,7 +89,7 @@
                 <div class="row mt-4">
                     <div class="col">
                         <a  class="btn btn-secondary" asp-controller="Embarkation" asp-action="Index">Back</a>
-                        <button type="button" id="createBtn" class="btn btn-success">Embark</button>
+                        <button type="button" id="embarkBtn" class="btn btn-success">Embark</button>
                     </div>
                 </div>
             </form>
@@ -102,6 +102,19 @@
      var positions;
      var skills;
      var requests;
+     var selectedRequestId;
+     function getMatchingApplicant(idx, requirementId, callback){
+         $.ajax({
+            type: 'GET',
+            url: '/api/Applicant/GetApplicantsThatMatches?requirementId=' + requirementId,
+            success: function(data){
+                callback(data, idx);
+            },
+            error: function(err){
+                console.log(err);
+            }
+         })
+     }
      
      function updateSelected(){
         getRequest(function(request){
@@ -111,6 +124,8 @@
             });
             
             console.log(selected);
+            
+            selectedRequestId = selected[0].requestId;
             
             if(selected.length > 0){
                 $("#vesselName").html(selected[0].vessel.vesselName);
@@ -126,42 +141,65 @@
                 
 
             for(var i = 0; i < requirements.length; i++){
-                console.log(requirements[i]);
+                // console.log(requirements[i]);
                 
-                var skillsText = "";
+        
                 
-                for(var j = 0; j < requirements[i].skills.length; j++){
-                     if((j + 1) === requirements[i].skills.length){
-                        skillsText +=  requirements[i].skills[j].skillType.skillName + "";
-                    }else{
-                        skillsText += requirements[i].skills[j].skillType.skillName + ", ";
+                getMatchingApplicant(i, requirements[i].requirementId, function(matchingApplicants, idx){
+                            var skillsText = "";
+                                    
+                                    
+                                    console.log(requirements[idx].skills);
+                                    for(var j = 0; j < requirements[idx].skills.length; j++){
+                                         if((j + 1) === requirements[idx].skills.length){
+                                            skillsText += requirements[idx].skills[j].skillType.skillName + " ";
+                                        }else{
+                                            skillsText += requirements[idx].skills[j].skillType.skillName + ", ";
+                                        }
+                                    }
+                                    
+                                    console.log(skillsText);
+                                    
+                    var applicants = "";
+                    var applicant;
+
+                    for(var q = 0; q < matchingApplicants.length; q++){
+                        console.log(matchingApplicants[q]);
+                        applicants += "<option value='"+ matchingApplicants[q].applicantId +"'>" + matchingApplicants[q].firstName + 
+                            " "+ matchingApplicants[q].middleName + " "  + matchingApplicants[q].lastName + "</option>";
                     }
-                }
-                
-                var applicants = "";
-                
-                // for(var x = 0; x < requirements[i].)
-                
-                var applicant = "<select class='applicant_select' data-id='" + requirements[i].requirementId + "'> " + applicants + "</select>";
-                
-     
-                $(".requirements").append(
-                    " <div class=\"row border-top py-2\">\n"+
-                     "    <div class=\"col-2\">\n"+
-                     "        <span>" + requirements[i].position.positionName +" </span>\n"+
-                     "    </div>\n"+
-                     "    <div class=\"col-1\">\n"+
-                     "        <span>"+ requirements[i].quantity +"</span>\n"+
-                     "    </div>\n"+
-                     "    <div class=\"col-5\">\n"+
-                     "        <span>" + skillsText + " </span>\n"+
-                     "    </div>\n"+
-                     "    <div class=\"col-4\">\n"+
-                     "        <span>" + applicant + " </span>\n"+
-                     "    </div>\n"+
-                     "</div>"
-                );
+                    
+                    
+                    if(matchingApplicants.length > 0){
+                        applicant = "<select class='applicant_select' data-id='" + requirements[idx].requirementId + "'> " + applicants + "</select>";
+                    }else{
+                        applicant = "<span class='text-danger'> No matching applicants found. </span>";
+                    }
+                    
+                                    
+                         
+                    $(".requirements").append(
+                        " <div class=\"row border-top py-2\">\n"+
+                         "    <div class=\"col-2\">\n"+
+                         "        <span>" + requirements[idx].position.positionName +" </span>\n"+
+                         "    </div>\n"+
+                         "    <div class=\"col-1\">\n"+
+                         "        <span>"+ requirements[idx].quantity +"</span>\n"+
+                         "    </div>\n"+
+                         "    <div class=\"col-5\">\n"+
+                         "        <span>" + skillsText + " </span>\n"+
+                         "    </div>\n"+
+                         "    <div class=\"col-4\">\n"+
+                         "        <span>" + applicant + " </span>\n"+
+                         "    </div>\n"+
+                         "</div>"
+                    );
+                    
+                    $('.applicant_select').select2();
+
+                });
             }
+            
             
         });
      }
@@ -407,59 +445,43 @@
        }, 500);
     });
     
-    $("#createBtn").click(function(){
-         $(this).prop('disabled', true);
-         $(this).html("Creating...");
-         
-         var requirementsLength = $(".requirements .row").length - 1;
-         var requirements = [];
-         
-         for(var i = 0; i < requirementsLength; i++)
-         {
-            var skills = [];
-            var selectedSkills = $($(".skills")[i]).val();
-            
-            
-            for(var j = 0; j < selectedSkills.length; j++)
-            {
-                skills.push({
-                    skillId: selectedSkills[j]
-                });
+    function embark(data, callback){
+        $.ajax({
+            type: 'POST',
+            url: '/api/Embarkation/AddEmbarkation',
+            data: JSON.stringify(data),
+            success: callback,
+            error: function(err){
+                console.log(err);
             }
-            
-            
-             
-            requirements.push(
-                {
-                    positionId: $($(".position")[i]).val(),
-                    quantity: $($(".qty")[i]).val(),
-                    skills: skills
-                }
-            ); 
-            
-            console.log($($(".position")[i]).val());
-         }
-         
+        });
+    }    
+        
+    $("#embarkBtn").click(function(){
+        
+        var applicants = [];
+        
+        var selects = $(".applicant_select");
+        
+        for(var i = 0; i < selects.length; i++){
+            console.log($(selects[i]).val());
+            applicants.push({
+                applicantId: parseInt($(selects[i]).val())
+            });
+        }
+        
          var data = {
-             vesselId: $("#vesselId").val(),
-             destination: $("#destination").val(),
-             operationStartDate: $("#operationStartDate").val(),
-             operationEndDate: $("#operationEndDate").val(),
-             remarks: $("#remarks").val(),
-             requirements: requirements
+             requestId: selectedRequestId,
+             applicants: applicants
          };
-         
-         console.log(data);
-         
-         addRequest(data, function(res){
-              if(res.message === "Success"){
-                    $(this).prop('disabled', false);
-                    $(this).html("Create");
-                    $("#embarkModal").modal("hide");
-                    init();
-              } 
-         });
-         
+        
+        console.log(data);
+        
+        embark(data, function(res){
+            if(res.message === "Success"){
+                alert('Embarked');    
+            }
+        })
     });
     //
     // $("#addModal input").keyup(function(){

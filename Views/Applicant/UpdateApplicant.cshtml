@@ -1,0 +1,528 @@
+﻿@model swmc.Models.FormModel.UpdateApplicantForm;
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = "_DashboardLayout";
+}
+
+
+<form asp-controller="Applicant" asp-action="CreateApplicant" enctype="multipart/form-data">
+<div class="container-fluid">
+<h3> Applicant Registration</h3>
+
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+</div>
+
+<div class="card mb-4">
+    <div class="card-header py-3">
+         <button class="btn btn-dark" type="button" data-toggle="collapse" data-target="#collapse_1" aria-expanded="false" aria-controls="collapseExample">
+                    Applicant Details
+                </button>
+        <!-- <a class="btn btn-dark" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"> -->
+        <!-- Link with href -->
+        <!-- </a> -->
+    </div>
+    <div class="card-body">
+
+
+        <!-- Personal Background -->
+
+        <div class="row">
+            <div class="col-md-3">
+                <label class="text-dark"> Applicant Photo </label>
+
+                <div class="input-group mb-3">
+
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+                    </div>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input"  asp-for="ApplicantPhoto" aria-describedby="inputGroupFileAddon01">
+                        <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                    </div>
+                </div>
+
+
+                <div class="box">
+                    <img id="image" class="box" style="height: auto; width: 100%;"/>
+                </div>
+
+
+            </div>
+
+            <div class="col-md-9">
+                <div class="row">
+                    <div class="col-md-4">
+                        <label class="text-dark"> First Name </label>
+                        <input type="text" class="form-control form-control-user" asp-for="Applicant.FirstName" placeholder="First Name">
+                        <span asp-validation-for="Applicant.FirstName" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="text-dark"> Last Name </label>
+                        <input type="text" class="form-control form-control-user" asp-for="Applicant.LastName" placeholder="Last Name">
+                        <span asp-validation-for="Applicant.LastName" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="text-dark"> Middle Name </label>
+                        <input type="text" class="form-control form-control-user" asp-for="Applicant.MiddleName" placeholder="Middle Name">
+                        <span asp-validation-for="Applicant.MiddleName" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <label class="text-dark"> Civil Status </label>
+                        <select class="form-control" asp-for="Applicant.CivilStatus">
+                            <option value="" disabled selected>Civil Status</option>
+                            <option value="Married">Married</option>
+                            <option value="Single">Single</option>
+                            <option value="Divorced">Divorced</option>
+                            <option value="Widowed">Widowed</option>
+                        </select>
+                        <span asp-validation-for="Applicant.CivilStatus" class="text-danger"></span>
+                    </div>
+                    <div class="col-sm-3">
+                        <label class="text-dark"> Gender </label>
+                        <select class="form-control" asp-for="Applicant.Gender">
+                            <option value="" disabled selected>Gender</option>
+                            <option>Male</option>
+                            <option>Female</option>
+                        </select>
+                        <span asp-validation-for="Applicant.Gender" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="text-dark"> Age </label>
+                        <input type="text" class="form-control form-control-user" asp-for="Applicant.Age" placeholder="Age">
+                        <span asp-validation-for="Applicant.Age" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="text-dark"> Suffix </label>
+                        <input type="text" class="form-control form-control-user" asp-for="Applicant.Suffix" placeholder="Suffix">
+                        <span asp-validation-for="Applicant.Suffix" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <label class="text-dark"> Address </label>
+                        <input type="text" class="form-control form-control-user" asp-for="Applicant.Address" placeholder="Address">
+                        <span asp-validation-for="Applicant.Address" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="text-dark"> Religion </label>
+                        <input type="text" class="form-control form-control-user" asp-for="Applicant.Religion" placeholder="Religion">
+                        <span asp-validation-for="Applicant.Religion" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="text-dark"> Citizenship </label>
+                        <input type="text" class="form-control form-control-user" asp-for="Applicant.Citizenship" placeholder="Citizenship">
+                        <span asp-validation-for="Applicant.Citizenship" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="text-dark"> Date of Birth </label>
+                        <input type="date" asp-for="Applicant.DateOfBirth" class="form-control form-control-user">
+                        <span asp-validation-for="Applicant.PlaceOfBirth" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="text-dark"> Place of Birth </label>
+                        <input type="text" class="form-control form-control-user" asp-for="Applicant.PlaceOfBirth" placeholder="Place of Birth">
+                        <span asp-validation-for="Applicant.PlaceOfBirth" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <label class="text-dark"> Height (kgs) </label>
+                        <input type="number" class="form-control form-control-user" asp-for="Applicant.Height" placeholder="Height">
+                        <span asp-validation-for="Applicant.PlaceOfBirth" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="text-dark"> Weight (cm) </label>
+                        <input type="number" class="form-control form-control-user" asp-for="Applicant.Weight" placeholder="Weight">
+                        <span asp-validation-for="Applicant.Weight" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="text-dark"> Cellphone </label>
+                        <input type="text" class="form-control form-control-user" asp-for="Applicant.Cellphone" placeholder="Cellphone">
+                        <span asp-validation-for="Applicant.Cellphone" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="text-dark"> Telephone </label>
+                        <input type="text" class="form-control form-control-user" asp-for="Applicant.Telephone" placeholder="Telephone">
+                        <span asp-validation-for="Applicant.Telephone" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="row">
+                    @* <div class="col-md-6"> *@
+                    @*     <label class="text-dark"> Status </label> *@
+                    @*     <select class="form-control" > *@
+                    @*         <option value="" disabled selected>Status</option> *@
+                    @*         <option>Active</option> *@
+                    @*         <option>Not Active</option> *@
+                    @*     </select> *@
+                    @* </div> *@
+                    <div class="col-md-6">
+                        <label class="text-dark"> Position </label>
+                      <select class="form-control" asp-for="Applicant.PositionId" 
+                                  asp-items="@(new SelectList(Model.Positions,"PositionId","PositionName"))">
+                              <option>Please select one</option>
+                          </select>
+                        <span asp-validation-for="Applicant.PositionId" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Family Background -->
+<div class="card mb-4">
+    <div class="card-header py-3">
+        <!-- <h6 class="m-0 font-weight-bold text-primary"></h6> -->
+        <button class="btn btn-dark" type="button" data-toggle="collapse" data-target="#collapse_1" aria-expanded="false" aria-controls="collapseExample">
+            Family Background
+        </button>
+    </div>
+    <div class="card-body collapse" id="collapse_1">
+
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="h6 text-gray-900 mb-4">Name of Spouse:</h1>
+                <div class="row">
+                    <div class="col-md-3">
+                        <label class="text-dark"> First Name </label>
+                        <input type="text" class="form-control form-control-user" asp-for="Family.SpouseFirstName" placeholder="First Name">
+                        <span asp-validation-for="Family.SpouseFirstName" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="text-dark"> Last Name </label>
+                        <input type="text" class="form-control form-control-user" asp-for="Family.SpouseLastName" placeholder="Last Name">
+                        <span asp-validation-for="Family.SpouseLastName" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="text-dark"> Middle Name </label>
+                        <input type="text" class="form-control form-control-user" asp-for="Family.SpouseMiddleName" placeholder="Middle Name">
+                        <span asp-validation-for="Family.SpouseMiddleName" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="text-dark"> Suffix </label>
+                        <input type="text" class="form-control form-control-user" asp-for="Family.SpouseSuffix" placeholder="Suffix">
+                        <span asp-validation-for="Family.SpouseSuffix" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <label class="text-dark"> No. of Children </label>
+                        <input type="text" class="form-control form-control-user" asp-for="Family.NumberOfChildren" placeholder="No. of Children">
+                        <span asp-validation-for="Family.NumberOfChildren" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <br>
+
+                <h1 class="h6 text-gray-900 mb-4">Father's name:</h1>
+                <div class="row">
+                    <div class="col-md-3">
+                        <label class="text-dark"> First Name </label>
+                        <input type="text" class="form-control form-control-user" asp-for="Family.FathersFirstName" placeholder="First Name">
+                        <span asp-validation-for="Family.FathersFirstName" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="text-dark"> Last Name </label>
+                        <input type="text" class="form-control form-control-user" asp-for="Family.FathersLastName" placeholder="Last Name">
+                        <span asp-validation-for="Family.FathersLastName" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="text-dark"> Middle Name </label>
+                        <input type="text" class="form-control form-control-user" asp-for="Family.FathersMiddleName" placeholder="Middle Name">
+                        <span asp-validation-for="Family.FathersMiddleName" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="text-dark"> Suffix </label>
+                        <input type="text" class="form-control form-control-user" asp-for="Family.FathersSuffix" placeholder="Suffix">
+                        <span asp-validation-for="Family.FathersSuffix" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <br>
+
+                <h1 class="h6 text-gray-900 mb-4">Mothers's name:</h1>
+                <div class="row">
+                    <div class="col-md-3">
+                        <label class="text-dark"> First Name </label>
+                        <input type="text" class="form-control form-control-user" asp-for="Family.MothersFirstName" placeholder="First Name">
+                        <span asp-validation-for="Family.MothersFirstName" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="text-dark"> Last Name </label>
+                        <input type="text" class="form-control form-control-user" asp-for="Family.MothersLastName" placeholder="Last Name">
+                        <span asp-validation-for="Family.MothersLastName" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="text-dark"> Middle Name </label>
+                        <input type="text" class="form-control form-control-user" asp-for="Family.MothersMiddleName" placeholder="Middle Name">
+                        <span asp-validation-for="Family.MothersMiddleName" class="text-danger"></span>
+
+
+                    </div>
+                    <div class="col-md-2">
+                        <label class="text-dark"> Suffix </label>
+                        <input type="text" class="form-control form-control-user" asp-for="Family.MothersSuffix" placeholder="Suffix">
+                        <span asp-validation-for="Family.MothersSuffix" class="text-danger"></span>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Educational and Goverment Identities -->
+<div class="card mb-4">
+    <div class="card-header py-3">
+        <!-- <h6 class="m-0 font-weight-bold text-primary"></h6> -->
+        <button class="btn btn-dark" type="button" data-toggle="collapse" data-target="#collapse_2" aria-expanded="false" aria-controls="collapseExample">
+            Educational and Goverment Identities
+        </button>
+    </div>
+    <div class="card-body collapse" id="collapse_2">
+
+        <div class="row">
+            <div class="col-md-10">
+                <label class="text-dark"> Last School Attended </label>
+                <input type="text" class="form-control form-control-user" asp-for="Applicant.LastSchoolAttended" placeholder="Last School Attended">
+                    <span asp-validation-for="Applicant.LastSchoolAttended" class="text-danger"></span>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row">
+            <div class="col-md-3">
+                <label class="text-dark"> From </label>
+                <input type="text" class="form-control form-control-user" asp-for="Applicant.SchoolFrom" placeholder="From Year">
+                <span asp-validation-for="Applicant.SchoolFrom" class="text-danger"></span>
+            </div>
+
+
+            <div class="col-md-3">
+                <label class="text-dark"> To </label>
+                <input type="text" class="form-control form-control-user" asp-for="Applicant.SchoolTo" placeholder="To Year">
+                <span asp-validation-for="Applicant.SchoolTo" class="text-danger"></span>
+            </div>
+        </div>
+
+        <br>
+
+
+    </div>
+</div>
+<div class="card mb-4">
+    <div class="card-header py-3">
+        <!-- <h6 class="m-0 font-weight-bold text-primary">Legal Beneficiaries and Dependents</h6> -->
+        <button class="btn btn-dark" type="button" data-toggle="collapse" data-target="#collapse_3" aria-expanded="false" aria-controls="collapseExample">
+            Legal Beneficiaries and Dependents
+        </button>
+
+    </div>
+    <div class="card-body collapse" id="collapse_3">
+        <h1 class="h6 text-gray-900 mb-4">Dependents:</h1>
+
+        <div class="row">
+            <div class="col-md-4">
+                <label class="text-dark"> Name </label>
+            </div>
+            <div class="col-md-4">
+                <label class="text-dark"> Relationship </label>
+            </div>
+            <div class="col-md-4">
+                <label class="text-dark"> Age </label>
+            </div>
+        </div>
+
+        <div id="depRow">
+            <div class="row">
+                <div class="col-md-4">
+                    <input type="text" class="form-control form-control-user" asp-for="@Model.Dependents[0].Name" placeholder="Name">
+                </div>
+                <div class="col-md-4">
+                    <input type="text" class="form-control form-control-user" asp-for="@Model.Dependents[0].Relationship" placeholder="Relationship">
+                </div>
+                <div class="col-md-4">
+                    <input type="text" class="form-control form-control-user" asp-for="@Model.Dependents[0].Age" placeholder="Age">
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row justify-content-end mt-2">
+            <div class="col text-right">
+                <button class="btn btn-success" id="addDependents">
+                    <i class="fas fa-fw fa-plus"></i>
+                </button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="card mb-4">
+    <div class="card-header py-3">
+        <!-- <h6 class="m-0 font-weight-bold text-primary">Documents</h6> -->
+        <button class="btn btn-dark" type="button" data-toggle="collapse" data-target="#collapse_4" aria-expanded="false" aria-controls="collapseExample">
+            Documents
+        </button>
+    </div>
+    <div class="card-body collapse" id="collapse_4">
+        <h1 class="h6 text-gray-900 mb-4">Documents:</h1>
+
+        <div class="row">
+            <div class="col-md-4">
+                <label class="text-dark"> Document Name </label>
+            </div>
+            <div class="col-md-4">
+                <label class="text-dark"> Date Submitted </label>
+            </div>
+            <div class="col-md-4">
+                <label class="text-dark"> Date Expiry </label>
+            </div>
+        </div>
+
+        <div id="docRow">
+            <div class="row">
+                <div class="col-md-4">
+                    <select asp-for="@Model.Documents[0].DocumentTypeId" class="form-control"></select>
+                </div>
+          
+                <div class="col-md-4">
+                    <input type="date" class="form-control form-control-user" asp-for="@Model.Documents[0].DateSubmitted" placeholder="Date Submitted">
+                </div>
+                <div class="col-md-4">
+                    <input type="date" class="form-control form-control-user" asp-for="@Model.Documents[0].DateExpiry" placeholder="Date Expiry">
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row justify-content-end mt-2">
+            <div class="col text-right">
+                <button class="btn btn-success" id="addDocument">
+                    <i class="fas fa-fw fa-plus"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<button type="submit" class="btn btn-success btn-lg mb-4"> Add Applicant</button>
+
+</div>
+
+
+</form>
+<script>
+    var dts;
+
+    function getDocumentTypes(callback){
+        $.ajax({
+            type: 'GET',
+            url: "/api/Applicant/GetDocumentTypes",
+            contentType: "application/json;charset=utf-8",
+            success: callback,
+            error: function(err){
+                console.log(err);
+            }
+        });
+    }
+    $(document).ready(function(){
+      getDocumentTypes(function(data){
+          dts = data;
+          for(var i = 0; i < data.length; i++){
+               $("#Documents_0__DocumentTypeId").append(
+                   "<option value='"+data[i].documentTypeId+"'>" + data[i].documentTypeName + "</option>"
+               );
+          }
+      });
+        
+      $("#addDependents").click(function(event){
+        event.preventDefault();
+        
+        var numOfRows = $("#depRow .row").length;
+
+        $("#depRow").append(
+            '<div class="row mt-2">\n'+
+             '                <div class="col-md-4">\n'+
+             '                    <input type="text" class="form-control form-control-user" id="Dependents_'+ numOfRows +'__Name" name="Dependents[' + numOfRows +  '].Name" placeholder="Name">\n'+
+             '                </div>\n'+
+             '                <div class="col-md-4">\n'+
+             '                    <input type="text" class="form-control form-control-user" id="Dependents_'+ numOfRows +'__Relationship"  name="Dependents[' + numOfRows +  '].Relationship" placeholder="Relationship">\n'+
+             '                </div>\n'+
+             '                <div class="col-md-4">\n'+
+             '                    <input type="text" class="form-control form-control-user" id="Dependents_'+ numOfRows +'__Address" name="Dependents[' + numOfRows +  '].Age"  placeholder="Age">\n'+
+             '                </div>\n'+
+             '            </div>'
+        );
+      }); 
+      
+      $("#addDocument").click(function(event){
+              event.preventDefault();
+              
+              var numOfRows = $("#docRow .row").length;
+      
+              $("#docRow").append(
+                  '<div class="row mt-2">\n'+
+                   '                <div class="col-md-4">\n'+
+                   '                    <select class="form-control" data-val="true" data-val-required="The DocumentTypeId field is required." id="Documents_' + numOfRows + '__DocumentTypeId" name="Documents['+numOfRows+'].DocumentTypeId"></select>\n'+
+                   '                </div>\n'+
+                   '                <div class="col-md-4">\n'+
+                   '                    <input type="date" class="form-control form-control-user" id="Documents_'+ numOfRows +'__Relationship"  name="Documents[' + numOfRows +  '].DateSubmitted" placeholder="Date Submitted">\n'+
+                   '                </div>\n'+
+                   '                <div class="col-md-4">\n'+
+                   '                    <input type="date" class="form-control form-control-user" id="Documents_'+ numOfRows +'__Address" name="Documents[' + numOfRows +  '].DateExpiry"  placeholder="Date Expiry">\n'+
+                   '                </div>\n'+
+                   '            </div>'
+              );
+              
+            for(var i = 0; i < dts.length; i++){
+                 $("#Documents_"+ numOfRows +"__DocumentTypeId").append(
+                     "<option value='"+dts[i].documentTypeId+"'>" + dts[i].documentTypeName + "</option>"
+                 );
+            }
+            }); 
+      
+          
+        
+      document.getElementById("ApplicantPhoto").onchange = function() {
+        var reader = new FileReader();
+        
+        reader.onload = function(e) {
+          // get loaded data and render thumbnail.
+          document.getElementById("image").src = e.target.result;
+        };
+        
+        // read the image file as a data URL.
+        reader.readAsDataURL(this.files[0]);
+        };
+      console.log('ready');
+    });
+</script>

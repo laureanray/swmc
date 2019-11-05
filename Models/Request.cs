@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace swmc.Models
 {
+    
     public class Request
     {
         public int RequestId { get; set; }

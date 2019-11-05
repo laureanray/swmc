@@ -34,5 +34,29 @@ namespace swmc.Controllers.API
             return embarkations;
         }
         
+        [Route("AddEmbarkation")]
+        [HttpPost]
+        public async Task<ActionResult<JsonResponse>> AddEmbarkation(Embarkation embarkation)
+        {
+
+            _context.Embarkations.Add(embarkation);
+
+            for (var i = 0; i < embarkation.Applicants.Count; i++)
+            {
+                var applicant =
+                    await _context.Applicants.FirstOrDefaultAsync(a =>
+                        a.ApplicantId == embarkation.Applicants[i].ApplicantId);
+
+                applicant.Status = Status.Embarked;
+                _context.Entry(applicant).State = EntityState.Modified;
+                await _context.SaveChangesAsync();
+            }
+            
+            return new JsonResponse()
+            {
+                Message = "Success"
+            };
+        }
+
     }
 }
