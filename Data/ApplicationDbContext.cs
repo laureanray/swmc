@@ -31,7 +31,6 @@ namespace swmc.Data
                 .HasForeignKey(ae => ae.EmbarkationId);
         }
 
-
         public DbSet<Applicant> Applicants { get; set; }
         public DbSet<Document> Documents { get; set; }
         public DbSet<Family> Families { get; set; }

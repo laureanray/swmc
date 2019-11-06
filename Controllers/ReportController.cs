@@ -65,5 +65,46 @@ namespace swmc.Controllers
             return View(m);
         }
         
+        [HttpPost]        
+        public async Task<ActionResult> _RequestReport(RequestReport model)
+        {
+            DateTime startDateTime = model.DateFrom;
+            DateTime endDateTime = model.DateTo.AddDays(1).AddTicks(-1);
+
+            var requests = await _context.Requests.Include(a => a.Vessel)
+                .Where(a => a.DateCreated >= startDateTime && a.DateCreated <= endDateTime).ToListAsync();
+            
+            RequestViewModel m = new RequestViewModel();
+            m.Requests = new List<Request>(requests);
+            m.DateFrom = model.DateFrom;
+            m.DateTo = model.DateTo;
+
+            return new ViewAsPdf("_RequestReport", m)
+            {
+                PageOrientation = Orientation.Landscape,
+                FileName = "REQUEST_REP_" + DateTime.Now + ".pdf"
+            };
+        }
+        
+        [HttpPost]        
+        public async Task<ActionResult> _EmbarkationReport(EmbarkationReport model)
+        {
+            DateTime startDateTime = model.DateFrom;
+            DateTime endDateTime = model.DateTo.AddDays(1).AddTicks(-1);
+
+            var embarkations = await _context.Embarkations.Include(a => a.Request).ThenInclude(a => a.Vessel)
+                .Where(a => a.DateCreated >= startDateTime && a.DateCreated <= endDateTime).ToListAsync();
+            
+            EmbarkationViewModel m = new EmbarkationViewModel();
+            m.Embarkations = new List<Embarkation>(embarkations);
+            m.DateFrom = model.DateFrom;
+            m.DateTo = model.DateTo;
+
+            return new ViewAsPdf("_EmbarkationReport", m)
+            {
+                PageOrientation = Orientation.Landscape,
+                FileName = "EMBARKATION_REP_" + DateTime.Now + ".pdf"
+            };
+        }
     }
 }

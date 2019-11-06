@@ -1,0 +1,59 @@
+﻿@using System.Security.Cryptography
+@model swmc.ViewModels.EmbarkationViewModel
+
+@{
+    ViewBag.Title = "Test";
+    Layout = null;
+}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="~/css/report.css">
+</head> 
+<body>
+<div class="container-fluid">
+    <div class="reports-header">
+        <h5 class="mt-3 display-4" style="font-size: 30px;"> Embarkation Reports </h5>
+        <p class="py-2"> @Model.DateFrom - @Model.DateTo </p>
+    </div>
+    <table class="table table-bordered table-sm mt-2">
+        <thead>
+        <tr>
+            <th> Embarkation ID  </th>
+            <th> Vessel Name </th>
+            <th> Number Of Applicants </th>
+            <th> Destination </th>
+            <th> Embarkation Status </th>
+            <th> Date Created  </th>
+        </tr>
+        </thead>
+        <tbody>
+        @if (Model.Embarkations.Count > 0)
+        {    
+            foreach (var p in Model.Embarkations)
+            {
+                <tr>
+                    <td> @p.EmbarkationId</td>
+                    <td> @p.Request.Vessel.VesselName</td>
+                    <td> @p.Applicants.Count() </td>
+                    <td> @p.Request.Destination</td>
+                    <td> @p.EmbarkationStatus </td>
+                    <td> @p.DateCreated </td>
+                </tr>
+            }
+        }
+        </tbody>
+    </table>
+    
+    <p class="small text-dark"> Generated: @DateTime.Now </p>
+
+</div>
+
+</body>
+</html>

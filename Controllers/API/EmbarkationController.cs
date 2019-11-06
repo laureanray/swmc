@@ -34,6 +34,18 @@ namespace swmc.Controllers.API
             return embarkations;
         }
         
+        [Route("GetDisembarked")]
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Embarkation>>> GetDisembarked()
+        {
+            var embarkations = await _context.Embarkations
+                .Include(e => e.Applicants)
+                .Include(e => e.Request).ThenInclude(e => e.Vessel)
+                .Where(e => e.EmbarkationStatus.Equals(EmbarkationStatus.Disembarked)).ToListAsync();
+
+            return embarkations;
+        }
+        
         [Route("AddEmbarkation")]
         [HttpPost]
         public async Task<ActionResult<JsonResponse>> AddEmbarkation(Embarkation embarkation)
@@ -43,10 +55,11 @@ namespace swmc.Controllers.API
 
             embarkation.Request = req;
             embarkation.EmbarkationStatus = EmbarkationStatus.Embarked;
+            embarkation.DateCreated = DateTime.Now;
+            
             
             _context.Embarkations.Add(embarkation);
 
-            var appls = new List<Applicant>();
             
             foreach (var applicant in embarkation.Applicants)
             {
@@ -54,12 +67,9 @@ namespace swmc.Controllers.API
                     await _context.Applicants.FirstOrDefaultAsync(a => a.ApplicantId == applicant.ApplicantId);
                 
                 applicantToUpdate.Status = Status.Embarked;
-                appls.Add(applicantToUpdate);
                 _context.Entry(applicantToUpdate).State = EntityState.Modified;
-                _context.SaveChanges();
             }
 
-            embarkation.Applicants = new List<ApplicantEmbarkation>();
             
             var res2 = await _context.SaveChangesAsync();    
 

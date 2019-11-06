@@ -48,6 +48,7 @@ namespace swmc.Controllers.API
         [HttpPost]
         public async Task<ActionResult<JsonResponse>> AddRequest(Request request)
         {
+            request.DateCreated = DateTime.Now;
             _context.Requests.Add(request);
             var res = await _context.SaveChangesAsync();            
             

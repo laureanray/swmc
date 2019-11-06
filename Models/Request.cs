@@ -15,5 +15,7 @@ namespace swmc.Models
         public string Remarks { get; set; }
         public List<Requirement> Requirements { get; set; }
         public bool IsArchived { get; set; }
+        public DateTime DateCreated { get; set; }
+        public DateTime DateUpdated { get; set; }
     }
 }    

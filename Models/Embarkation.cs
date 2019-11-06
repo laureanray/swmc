@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace swmc.Models
 {
@@ -14,5 +15,7 @@ namespace swmc.Models
         public Request Request { get; set; }
         public IEnumerable<ApplicantEmbarkation> Applicants { get; set; }
         public EmbarkationStatus EmbarkationStatus { get; set; }
+        public DateTime DateCreated { get; set; }
+        public DateTime DateUpdate { get; set; }
     }
 }

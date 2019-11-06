@@ -313,7 +313,8 @@ namespace swmc.Controllers.API
                 var a = applicant.Position.Equals(requirement.Position);
                 
                 if (count == requirement.Skills.Count &&
-                    applicant.Position.Equals(requirement.Position))
+                    applicant.Position.Equals(requirement.Position) &&
+                    applicant.Status.Equals(Status.Active))
                 {
                     applicantsToReturn.Add(applicant);
                 }
