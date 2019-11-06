@@ -81,6 +81,9 @@
     <setting file="file://$PROJECT_DIR$/Views/Applicant/Archived.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Views/Applicant/Success.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Models/JsonResponse.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Views/Report/_ApplicantReport.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ViewModels/ApplicantViewModel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ViewModels/ApplicantReport.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Controllers/API/ApplicantController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Controllers/UserController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Views/Embarkation/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
@@ -104,10 +107,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Views/Vessel/Archived.cshtml" />
-        <option value="$PROJECT_DIR$/Controllers/API/VesselController.cs" />
-        <option value="$PROJECT_DIR$/Views/Vessel/Index.cshtml" />
-        <option value="$PROJECT_DIR$/Models/Document.cs" />
         <option value="$PROJECT_DIR$/Views/Applicant/CreateApplicant.cshtml" />
         <option value="$PROJECT_DIR$/Models/JsonModel.cs" />
         <option value="$PROJECT_DIR$/Models/JsonModel/Document.cs" />
@@ -118,7 +117,6 @@
         <option value="$PROJECT_DIR$/Controllers/ReportController.cs" />
         <option value="$PROJECT_DIR$/Models/RequestViewModel.cs" />
         <option value="$PROJECT_DIR$/Controllers/RequestController.cs" />
-        <option value="$PROJECT_DIR$/Views/Report/ApplicantReport.cshtml" />
         <option value="$PROJECT_DIR$/Views/Report/EmbarkationReport.cshtml" />
         <option value="$PROJECT_DIR$/Views/Report/RequestReport.cshtml" />
         <option value="$PROJECT_DIR$/Controllers/UserController.cs" />
@@ -148,13 +146,18 @@
         <option value="$PROJECT_DIR$/Views/Applicant/Index.cshtml" />
         <option value="$PROJECT_DIR$/Views/Applicant/UpdateApplicant.cshtml" />
         <option value="$PROJECT_DIR$/Models/FormModel/UpdateApplicantForm.cs" />
-        <option value="$PROJECT_DIR$/Data/DataBootstrapper.cs" />
         <option value="$PROJECT_DIR$/Controllers/ApplicantController.cs" />
         <option value="$PROJECT_DIR$/Views/Request/Index.cshtml" />
         <option value="$PROJECT_DIR$/Models/Request.cs" />
         <option value="$PROJECT_DIR$/Controllers/API/ApplicantController.cs" />
         <option value="$PROJECT_DIR$/Views/Embarkation/Embark.cshtml" />
+        <option value="$PROJECT_DIR$/Startup.cs" />
         <option value="$PROJECT_DIR$/Controllers/API/EmbarkationController.cs" />
+        <option value="$PROJECT_DIR$/Data/DataBootstrapper.cs" />
+        <option value="$PROJECT_DIR$/ViewModels/ApplicantViewModel.cs" />
+        <option value="$PROJECT_DIR$/Views/Report/_ApplicantReport.cshtml" />
+        <option value="$PROJECT_DIR$/ViewModels/ApplicantReport.cs" />
+        <option value="$PROJECT_DIR$/Views/Report/ApplicantReport.cshtml" />
       </list>
     </option>
   </component>
@@ -257,7 +260,7 @@
       <workItem from="1572670633141" duration="8426000" />
       <workItem from="1572773243578" duration="28528000" />
       <workItem from="1572857102025" duration="1650000" />
-      <workItem from="1572870589207" duration="49391000" />
+      <workItem from="1572870589207" duration="52925000" />
     </task>
     <servers />
   </component>
@@ -282,65 +285,65 @@
     <state x="740" y="277" key="FileChooserDialogImpl" />
     <state x="740" y="277" key="FileChooserDialogImpl/1366.768" />
     <state x="740" y="279" key="FileChooserDialogImpl/1366.768/1920.1080" />
-    <state width="1367" height="248" key="GridCell.Tab.0.bottom" />
-    <state width="1367" height="248" key="GridCell.Tab.0.bottom/1366.768" />
+    <state width="1367" height="441" key="GridCell.Tab.0.bottom" />
+    <state width="1367" height="441" key="GridCell.Tab.0.bottom/1366.768" />
     <state width="1921" height="630" key="GridCell.Tab.0.bottom/1366.768/1920.1080" />
-    <state width="1367" height="248" key="GridCell.Tab.0.center" />
-    <state width="1367" height="248" key="GridCell.Tab.0.center/1366.768" />
+    <state width="1367" height="441" key="GridCell.Tab.0.center" />
+    <state width="1367" height="441" key="GridCell.Tab.0.center/1366.768" />
     <state width="1921" height="630" key="GridCell.Tab.0.center/1366.768/1920.1080" />
-    <state width="1367" height="248" key="GridCell.Tab.0.left" />
-    <state width="1367" height="248" key="GridCell.Tab.0.left/1366.768" />
+    <state width="1367" height="441" key="GridCell.Tab.0.left" />
+    <state width="1367" height="441" key="GridCell.Tab.0.left/1366.768" />
     <state width="1921" height="630" key="GridCell.Tab.0.left/1366.768/1920.1080" />
-    <state width="1367" height="248" key="GridCell.Tab.0.right" />
-    <state width="1367" height="248" key="GridCell.Tab.0.right/1366.768" />
+    <state width="1367" height="441" key="GridCell.Tab.0.right" />
+    <state width="1367" height="441" key="GridCell.Tab.0.right/1366.768" />
     <state width="1921" height="630" key="GridCell.Tab.0.right/1366.768/1920.1080" />
-    <state width="1367" height="248" key="GridCell.Tab.1.bottom" />
-    <state width="1367" height="248" key="GridCell.Tab.1.bottom/1366.768" />
+    <state width="1367" height="306" key="GridCell.Tab.1.bottom" />
+    <state width="1367" height="306" key="GridCell.Tab.1.bottom/1366.768" />
     <state width="1921" height="394" key="GridCell.Tab.1.bottom/1366.768/1920.1080" />
-    <state width="1367" height="248" key="GridCell.Tab.1.center" />
-    <state width="1367" height="248" key="GridCell.Tab.1.center/1366.768" />
+    <state width="1367" height="306" key="GridCell.Tab.1.center" />
+    <state width="1367" height="306" key="GridCell.Tab.1.center/1366.768" />
     <state width="1921" height="394" key="GridCell.Tab.1.center/1366.768/1920.1080" />
-    <state width="1367" height="248" key="GridCell.Tab.1.left" />
-    <state width="1367" height="248" key="GridCell.Tab.1.left/1366.768" />
+    <state width="1367" height="306" key="GridCell.Tab.1.left" />
+    <state width="1367" height="306" key="GridCell.Tab.1.left/1366.768" />
     <state width="1921" height="394" key="GridCell.Tab.1.left/1366.768/1920.1080" />
-    <state width="1367" height="248" key="GridCell.Tab.1.right" />
-    <state width="1367" height="248" key="GridCell.Tab.1.right/1366.768" />
+    <state width="1367" height="306" key="GridCell.Tab.1.right" />
+    <state width="1367" height="306" key="GridCell.Tab.1.right/1366.768" />
     <state width="1921" height="394" key="GridCell.Tab.1.right/1366.768/1920.1080" />
-    <state width="1367" height="248" key="GridCell.Tab.2.bottom" />
-    <state width="1367" height="248" key="GridCell.Tab.2.bottom/1366.768" />
+    <state width="1367" height="306" key="GridCell.Tab.2.bottom" />
+    <state width="1367" height="306" key="GridCell.Tab.2.bottom/1366.768" />
     <state width="1921" height="394" key="GridCell.Tab.2.bottom/1366.768/1920.1080" />
-    <state width="1367" height="248" key="GridCell.Tab.2.center" />
-    <state width="1367" height="248" key="GridCell.Tab.2.center/1366.768" />
+    <state width="1367" height="306" key="GridCell.Tab.2.center" />
+    <state width="1367" height="306" key="GridCell.Tab.2.center/1366.768" />
     <state width="1921" height="394" key="GridCell.Tab.2.center/1366.768/1920.1080" />
-    <state width="1367" height="248" key="GridCell.Tab.2.left" />
-    <state width="1367" height="248" key="GridCell.Tab.2.left/1366.768" />
+    <state width="1367" height="306" key="GridCell.Tab.2.left" />
+    <state width="1367" height="306" key="GridCell.Tab.2.left/1366.768" />
     <state width="1921" height="394" key="GridCell.Tab.2.left/1366.768/1920.1080" />
-    <state width="1367" height="248" key="GridCell.Tab.2.right" />
-    <state width="1367" height="248" key="GridCell.Tab.2.right/1366.768" />
+    <state width="1367" height="306" key="GridCell.Tab.2.right" />
+    <state width="1367" height="306" key="GridCell.Tab.2.right/1366.768" />
     <state width="1921" height="394" key="GridCell.Tab.2.right/1366.768/1920.1080" />
-    <state width="1367" height="248" key="GridCell.Tab.3.bottom" />
-    <state width="1367" height="248" key="GridCell.Tab.3.bottom/1366.768" />
+    <state width="1367" height="306" key="GridCell.Tab.3.bottom" />
+    <state width="1367" height="306" key="GridCell.Tab.3.bottom/1366.768" />
     <state width="1921" height="394" key="GridCell.Tab.3.bottom/1366.768/1920.1080" />
-    <state width="1367" height="248" key="GridCell.Tab.3.center" />
-    <state width="1367" height="248" key="GridCell.Tab.3.center/1366.768" />
+    <state width="1367" height="306" key="GridCell.Tab.3.center" />
+    <state width="1367" height="306" key="GridCell.Tab.3.center/1366.768" />
     <state width="1921" height="394" key="GridCell.Tab.3.center/1366.768/1920.1080" />
-    <state width="1367" height="248" key="GridCell.Tab.3.left" />
-    <state width="1367" height="248" key="GridCell.Tab.3.left/1366.768" />
+    <state width="1367" height="306" key="GridCell.Tab.3.left" />
+    <state width="1367" height="306" key="GridCell.Tab.3.left/1366.768" />
     <state width="1921" height="394" key="GridCell.Tab.3.left/1366.768/1920.1080" />
-    <state width="1367" height="248" key="GridCell.Tab.3.right" />
-    <state width="1367" height="248" key="GridCell.Tab.3.right/1366.768" />
+    <state width="1367" height="306" key="GridCell.Tab.3.right" />
+    <state width="1367" height="306" key="GridCell.Tab.3.right/1366.768" />
     <state width="1921" height="394" key="GridCell.Tab.3.right/1366.768/1920.1080" />
-    <state width="1367" height="248" key="GridCell.Tab.4.bottom" />
-    <state width="1367" height="248" key="GridCell.Tab.4.bottom/1366.768" />
+    <state width="1367" height="306" key="GridCell.Tab.4.bottom" />
+    <state width="1367" height="306" key="GridCell.Tab.4.bottom/1366.768" />
     <state width="1921" height="394" key="GridCell.Tab.4.bottom/1366.768/1920.1080" />
-    <state width="1367" height="248" key="GridCell.Tab.4.center" />
-    <state width="1367" height="248" key="GridCell.Tab.4.center/1366.768" />
+    <state width="1367" height="306" key="GridCell.Tab.4.center" />
+    <state width="1367" height="306" key="GridCell.Tab.4.center/1366.768" />
     <state width="1921" height="394" key="GridCell.Tab.4.center/1366.768/1920.1080" />
-    <state width="1367" height="248" key="GridCell.Tab.4.left" />
-    <state width="1367" height="248" key="GridCell.Tab.4.left/1366.768" />
+    <state width="1367" height="306" key="GridCell.Tab.4.left" />
+    <state width="1367" height="306" key="GridCell.Tab.4.left/1366.768" />
     <state width="1921" height="394" key="GridCell.Tab.4.left/1366.768/1920.1080" />
-    <state width="1367" height="248" key="GridCell.Tab.4.right" />
-    <state width="1367" height="248" key="GridCell.Tab.4.right/1366.768" />
+    <state width="1367" height="306" key="GridCell.Tab.4.right" />
+    <state width="1367" height="306" key="GridCell.Tab.4.right/1366.768" />
     <state width="1921" height="394" key="GridCell.Tab.4.right/1366.768/1920.1080" />
     <state x="670" y="220" key="RiderGenerateDialog" />
     <state x="670" y="220" key="RiderGenerateDialog/1366.768/1920.1080" />
@@ -869,6 +872,45 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="109" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Controllers/API/EmbarkationController.cs</url>
+          <line>43</line>
+          <properties documentPath="$PROJECT_DIR$/Controllers/API/EmbarkationController.cs" initialLine="43">
+            <startOffsets>
+              <option value="1303" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1357" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="110" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Controllers/API/EmbarkationController.cs</url>
+          <line>39</line>
+          <properties documentPath="$PROJECT_DIR$/Controllers/API/EmbarkationController.cs" initialLine="39">
+            <startOffsets>
+              <option value="1235" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1236" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="111" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Controllers/API/EmbarkationController.cs</url>
+          <line>50</line>
+          <properties documentPath="$PROJECT_DIR$/Controllers/API/EmbarkationController.cs" initialLine="50">
+            <startOffsets>
+              <option value="1625" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1663" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="112" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

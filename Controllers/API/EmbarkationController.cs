@@ -48,9 +48,13 @@ namespace swmc.Controllers.API
                         a.ApplicantId == embarkation.Applicants[i].ApplicantId);
 
                 applicant.Status = Status.Embarked;
+                embarkation.Applicants[i] = applicant;
                 _context.Entry(applicant).State = EntityState.Modified;
-                await _context.SaveChangesAsync();
+                
             }
+            
+            await _context.SaveChangesAsync();
+            
             
             return new JsonResponse()
             {

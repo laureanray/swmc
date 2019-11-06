@@ -546,7 +546,7 @@ namespace swmc.Data
                    Remarks = "Remarks",
                    Requirements = new List<Requirement>(requirements),
                    StartDate = new DateTime(2014, 2, 5),
-                   EndDate = new DateTime(2012, 2, 4)
+                   EndDate = new DateTime(2014, 5, 5)
             };
             
             

@@ -154,6 +154,10 @@
       <e p="ScaffoldingReadme.txt" t="Include" />
       <e p="Startup.cs" t="Include" />
       <e p="swmc.csproj" t="IncludeRecursive" />
+      <e p="ViewModels" t="Include">
+        <e p="ApplicantReport.cs" t="Include" />
+        <e p="ApplicantViewModel.cs" t="Include" />
+      </e>
       <e p="Views" t="Include">
         <e p="_ViewImports.cshtml" t="Include" />
         <e p="_ViewStart.cshtml" t="Include" />
@@ -181,6 +185,7 @@
           <e p="Index.cshtml" t="Include" />
         </e>
         <e p="Report" t="Include">
+          <e p="_ApplicantReport.cshtml" t="Include" />
           <e p="ApplicantReport.cshtml" t="Include" />
           <e p="EmbarkationReport.cshtml" t="Include" />
           <e p="RequestReport.cshtml" t="Include" />

@@ -26,7 +26,12 @@ namespace swmc.Controllers
         {
             return View();
         }
+
         
+        public async Task<ActionResult> _ApplicantReport()
+        {
+                
+        }
         
     }
 }

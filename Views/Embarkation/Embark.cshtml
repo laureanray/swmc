@@ -18,7 +18,6 @@
     <h3> Embark </h3>
     <div class="row pt-2 pb-5">
         <div class="col">
-            <form>
                 <div class="row">
                     <div class="col-12">
                         <label for=""> Request </label>
@@ -92,7 +91,6 @@
                         <button type="button" id="embarkBtn" class="btn btn-success">Embark</button>
                     </div>
                 </div>
-            </form>
         </div>
     </div>
 </div>
@@ -449,6 +447,8 @@
         $.ajax({
             type: 'POST',
             url: '/api/Embarkation/AddEmbarkation',
+            dataType: 'json',
+            contentType: 'application/json;charset=utf-8',
             data: JSON.stringify(data),
             success: callback,
             error: function(err){
