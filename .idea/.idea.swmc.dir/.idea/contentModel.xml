@@ -108,6 +108,7 @@
       </e>
       <e p="Models" t="Include">
         <e p="Applicant.cs" t="Include" />
+        <e p="ApplicantEmbarkation.cs" t="Include" />
         <e p="ApplicantSkills.cs" t="Include" />
         <e p="ApplicationRole.cs" t="Include" />
         <e p="ApplicationUser.cs" t="Include" />

@@ -561,9 +561,12 @@ namespace swmc.Data
             {
                 Request = request,
                 EmbarkationStatus = EmbarkationStatus.Embarked,
-                Applicants = new List<Applicant>()
+                Applicants = new List<ApplicantEmbarkation>()
                 {
-                    applicant                
+                    new ApplicantEmbarkation()
+                    {
+                        Applicant = applicant
+                    }         
                 }
             };
 

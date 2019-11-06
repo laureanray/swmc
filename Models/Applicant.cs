@@ -15,6 +15,7 @@ namespace swmc.Models
         
         
         public int ApplicantId { get; set; }
+        public IEnumerable<ApplicantEmbarkation> Embarkations { get; set; }
         [Required]
         public string FirstName { get; set; }
         [Required]

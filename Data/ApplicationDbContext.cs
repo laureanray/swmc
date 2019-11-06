@@ -14,6 +14,24 @@ namespace swmc.Data
         {
         }
 
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+            builder.Entity<ApplicantEmbarkation>()
+                .HasKey(ae => new {ae.ApplicantId, ae.EmbarkationId});
+
+            builder.Entity<ApplicantEmbarkation>()
+                .HasOne(ae => ae.Applicant)
+                .WithMany(ae => ae.Embarkations)
+                .HasForeignKey(ae => ae.ApplicantId);
+            
+            builder.Entity<ApplicantEmbarkation>()
+                .HasOne(ae => ae.Embarkation)
+                .WithMany(ae => ae.Applicants)
+                .HasForeignKey(ae => ae.EmbarkationId);
+        }
+
+
         public DbSet<Applicant> Applicants { get; set; }
         public DbSet<Document> Documents { get; set; }
         public DbSet<Family> Families { get; set; }

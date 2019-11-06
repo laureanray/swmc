@@ -39,20 +39,30 @@ namespace swmc.Controllers.API
         public async Task<ActionResult<JsonResponse>> AddEmbarkation(Embarkation embarkation)
         {
 
+            var req = await _context.Requests.FirstOrDefaultAsync(s => s.RequestId == embarkation.RequestId);
+
+            embarkation.Request = req;
+            embarkation.EmbarkationStatus = EmbarkationStatus.Embarked;
+            
             _context.Embarkations.Add(embarkation);
 
+            var appls = new List<Applicant>();
+            
             foreach (var applicant in embarkation.Applicants)
             {
                 var applicantToUpdate =
                     await _context.Applicants.FirstOrDefaultAsync(a => a.ApplicantId == applicant.ApplicantId);
                 
                 applicantToUpdate.Status = Status.Embarked;
-
+                appls.Add(applicantToUpdate);
                 _context.Entry(applicantToUpdate).State = EntityState.Modified;
+                _context.SaveChanges();
             }
+
+            embarkation.Applicants = new List<ApplicantEmbarkation>();
             
-            var res = await _context.SaveChangesAsync();
-            
+            var res2 = await _context.SaveChangesAsync();    
+
             
             return new JsonResponse()
             {

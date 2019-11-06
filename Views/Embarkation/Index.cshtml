@@ -384,7 +384,10 @@
     function getData(callback){
         $.ajax({
             type: 'GET',
-            dataType: 'json',
+            contentType: 'application/json;charset=utf-8',
+            header: {
+                "Content-Length": "300"
+            },
             url: '/api/Embarkation/GetEmbarkations',
             success: function(data){
                 callback(data);
