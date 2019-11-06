@@ -13,6 +13,7 @@ using Microsoft.EntityFrameworkCore;
 using swmc.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Rotativa.AspNetCore;
 using swmc.Models;
 
 namespace swmc
@@ -88,6 +89,7 @@ namespace swmc
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
 
+            RotativaConfiguration.Setup(env, "..\\Rotativa\\");
             DataBootstrapper.Initialize(context, userManager, roleManager, env).Wait();
         }
     }

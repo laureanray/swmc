@@ -19,19 +19,19 @@
 <body>
 <div class="container-fluid">
     <div class="reports-header">
-        <h5 class="mt-3 display-4" style="font-size: 30px;"> Delivery Reports </h5>
+        <h5 class="mt-3 display-4" style="font-size: 30px;"> Applicant Reports </h5>
         <p class="py-2"> @Model.DateFrom - @Model.DateTo </p>
     </div>
     <table class="table table-bordered table-sm mt-2">
         <thead>
         <tr>
-            <th> Order ID  </th>
-            <th> Date Ordered</th>
-            <th> Customer Name </th>
-            <th> Product Name </th>
-            <th> Quantity </th>
-            <th> Total Price  </th>
+            <th> Applicant ID  </th>
+            <th> Name </th>
+            <th> Cellphone </th>
+            <th> Telephone </th>
             <th> Address </th>
+            <th> Position </th>
+            <th> Date Created  </th>
         </tr>
         </thead>
         <tbody>
@@ -45,8 +45,8 @@
                     <td> @p.Cellphone </td>
                     <td> @p.Telephone </td>
                     <td> @p.Address</td>
+                    <td> @p.Position.PositionName </td>
                     <td> @p.DateCreated </td>
-                    <td> @p.DateUpdated </td>
                 </tr>
             }
         }
