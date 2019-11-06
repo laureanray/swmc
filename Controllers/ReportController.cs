@@ -28,10 +28,10 @@ namespace swmc.Controllers
         }
 
         
-        public async Task<ActionResult> _ApplicantReport()
-        {
-                
-        }
+//        public async Task<ActionResult> _ApplicantReport()
+//        {
+//
+//        }
         
     }
 }

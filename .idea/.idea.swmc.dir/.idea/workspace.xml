@@ -114,7 +114,6 @@
         <option value="$PROJECT_DIR$/Views/Applicant/Documents.cshtml" />
         <option value="$PROJECT_DIR$/Models/Applicant.cs" />
         <option value="$PROJECT_DIR$/Views/Applicant/Archived.cshtml" />
-        <option value="$PROJECT_DIR$/Controllers/ReportController.cs" />
         <option value="$PROJECT_DIR$/Models/RequestViewModel.cs" />
         <option value="$PROJECT_DIR$/Controllers/RequestController.cs" />
         <option value="$PROJECT_DIR$/Views/Report/EmbarkationReport.cshtml" />
@@ -158,6 +157,7 @@
         <option value="$PROJECT_DIR$/Views/Report/_ApplicantReport.cshtml" />
         <option value="$PROJECT_DIR$/ViewModels/ApplicantReport.cs" />
         <option value="$PROJECT_DIR$/Views/Report/ApplicantReport.cshtml" />
+        <option value="$PROJECT_DIR$/Controllers/ReportController.cs" />
       </list>
     </option>
   </component>
@@ -260,7 +260,7 @@
       <workItem from="1572670633141" duration="8426000" />
       <workItem from="1572773243578" duration="28528000" />
       <workItem from="1572857102025" duration="1650000" />
-      <workItem from="1572870589207" duration="52925000" />
+      <workItem from="1572870589207" duration="53005000" />
     </task>
     <servers />
   </component>
