@@ -34,10 +34,6 @@ namespace swmc.Controllers
             return View();
         }
 
-        public IActionResult RequestReport()
-        {
-            return View();
-        }
 
         [HttpPost]        
         public async Task<ActionResult> _ApplicantReport(ApplicantReport model)
@@ -61,8 +57,6 @@ namespace swmc.Controllers
                 FileName = "APPLICANT_REP_" + DateTime.Now + ".pdf"
             };
 
-     
-            return View(m);
         }
         
         [HttpPost]        

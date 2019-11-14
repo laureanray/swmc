@@ -170,7 +170,7 @@
     function initDataTable(data){
         for(var i = 0; i < data.length; i++){
             data[i].controls = "<button class='btn btn-outline-danger archive' data-id='"+ data[i].applicantId +"'> Archive </button>" +
-             "  <button class='btn btn-outline-success update' data-id='"+ data[i].applicantId +"'> Update </button>";
+             "  <a class='btn btn-outline-success update' href='/Applicant/UpdateApplicant?applicantId="+ data[i].applicantId +"' data-id='"+ data[i].applicantId +"'> Update </a>";
         }
         table = $("#applicantsTable").DataTable({
             data: data,

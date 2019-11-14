@@ -306,10 +306,34 @@ namespace swmc.Data
             }
 
             Applicant applicant = new Applicant();
+            Applicant applicant2 = new Applicant();
+            Applicant applicant3 = new Applicant();
+            Applicant applicant4 = new Applicant();
+            Applicant applicant5 = new Applicant();
+            Applicant applicant6 = new Applicant();
+            Applicant applicant7 = new Applicant();
+            Applicant applicant8 = new Applicant();
+            Applicant applicant9 = new Applicant();
+            Applicant applicant10 = new Applicant();
+
 
             if (!context.Applicants.Any())
             {
                 var family = new Family()
+                {
+                    FathersFirstName   = "Fathers",
+                    FathersMiddleName = "Middle",
+                    FathersLastName = "Last",
+                    MothersFirstName = "Mothers",
+                    MothersMiddleName = "Middle",
+                    MothersLastName = "Last",
+                    SpouseFirstName = "Spouse",
+                    SpouseMiddleName = "Middle",
+                    SpouseLastName = "Last",
+                    NumberOfChildren = "12"
+                };
+                
+                var family2 = new Family()
                 {
                     FathersFirstName   = "Fathers",
                     FathersMiddleName = "Middle",
@@ -338,6 +362,23 @@ namespace swmc.Data
                         Relationship = "Son"
                     }
                 };
+                
+                var dependents2 = new List<Dependent>()
+                {
+                    new Dependent()
+                    {
+                        Age = 19,
+                        Name = "Maria Luna",
+                        Relationship = "Wife"
+                    },
+                    new Dependent()
+                    {
+                        Age = 5,
+                        Name = "Johnny Name",
+                        Relationship = "Son"
+                    }
+                };
+
 
                 var documents = new List<Document>()
                 {
@@ -360,8 +401,82 @@ namespace swmc.Data
                         DateSubmitted = new DateTime(2016, 6, 2)
                     }
                 };
+                
+                
+                var documents2 = new List<Document>()
+                {
+                    new Document()
+                    {
+                        DocumentType = documentTypes[0],
+                        DateExpiry = new DateTime(2017, 2, 2),
+                        DateSubmitted = new DateTime(2016, 6, 2)
+                    },
+                    new Document()
+                    {
+                        DocumentType = documentTypes[1],
+                        DateExpiry = new DateTime(2018, 2, 2),
+                        DateSubmitted = new DateTime(2016, 6, 2)
+                    },
+                    new Document()
+                    {
+                        DocumentType = documentTypes[2],
+                        DateExpiry = new DateTime(2018, 2, 2),
+                        DateSubmitted = new DateTime(2016, 6, 2)
+                    }
+                };
+
 
                 applicant = new Applicant()
+                {
+                    Address = "123 Address St., Manila, NCR 1016",
+                    Age = 32,
+                    Documents = new List<Document>(documents2),
+                    Dependents = new List<Dependent>(dependents2),
+                    Skills = new List<Skill>()
+                    {
+                        new Skill()
+                        {
+                            SkillType = skillTypes[0]
+                        },
+                        new Skill()
+                        {
+                            SkillType = skillTypes[1]
+                        },
+                        new Skill()
+                        {
+                            SkillType = skillTypes[2]
+                        },
+                        new Skill()
+                        {
+                            SkillType = skillTypes[3]
+                        }
+                    },
+                    Cellphone = "09123456789",
+                    Citizenship = "Filipino",
+                    Family = family2,
+                    Gender = "Male",
+                    Position = positions[0],
+                    Height = 23,
+                    Weight = 42,
+                    Religion = "Christian",
+                    Telephone = "1231231",
+                    Status = Status.Active,
+                    Suffix = "Jr",
+                    SchoolFrom = "2005",
+                    SchoolTo = "2010",
+                    LastName = "Test",
+                    FirstName = "Juan",
+                    MiddleName = "Test",
+                    DateOfBirth = new DateTime(2001, 2, 1),
+                    PlaceOfBirth = "Quezon City",
+                    CivilStatus = "Married",
+                    DateCreated = DateTime.Now,
+                    LastSchoolAttended = "School",
+                    PositionId = 1,
+                    Photo = defaultAvatar
+                };
+                
+                applicant2 = new Applicant()
                 {
                     Address = "123 Address St., Manila, NCR 1016",
                     Age = 32,
@@ -390,28 +505,30 @@ namespace swmc.Data
                     Citizenship = "Filipino",
                     Family = family,
                     Gender = "Male",
-                    Position = positions[0],
-                    Height = 23,
-                    Weight = 42,
-                    Religion = "Christian",
+                    Position = positions[2],
+                    Height = 32,
+                    Weight = 50,
+                    Religion = "Roman Catholic",
                     Telephone = "1231231",
                     Status = Status.Active,
-                    Suffix = "Jr",
+                    Suffix = "",
                     SchoolFrom = "2005",
-                    SchoolTo = "2010",
-                    LastName = "Test",
-                    FirstName = "Juan",
-                    MiddleName = "Test",
+                    SchoolTo = "2012",
+                    LastName = "Cruiser",
+                    FirstName = "Peter",
+                    MiddleName = "David",
                     DateOfBirth = new DateTime(2001, 2, 1),
-                    PlaceOfBirth = "Quezon City",
-                    CivilStatus = "Married",
+                    PlaceOfBirth = "Manila City",
+                    CivilStatus = "Single",
                     DateCreated = DateTime.Now,
                     LastSchoolAttended = "School",
-                    PositionId = 1
+                    PositionId = 1,
+                    Photo = defaultAvatar
                 };
 
                 context.Applicants.Add(applicant);
-
+                context.Applicants.Add(applicant2);
+                
                 await context.SaveChangesAsync();
             }
 
@@ -547,7 +664,8 @@ namespace swmc.Data
                    Requirements = new List<Requirement>(requirements),
                    StartDate = new DateTime(2014, 2, 5),
                    EndDate = new DateTime(2014, 5, 5),
-                   DateCreated = DateTime.Now
+                   DateCreated = DateTime.Now,
+                   ApplicationUser = principal
             };
             
             

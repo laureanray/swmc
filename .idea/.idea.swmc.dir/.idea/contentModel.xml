@@ -192,10 +192,8 @@
         <e p="Report" t="Include">
           <e p="_ApplicantReport.cshtml" t="Include" />
           <e p="_EmbarkationReport.cshtml" t="Include" />
-          <e p="_RequestReport.cshtml" t="Include" />
           <e p="ApplicantReport.cshtml" t="Include" />
           <e p="EmbarkationReport.cshtml" t="Include" />
-          <e p="RequestReport.cshtml" t="Include" />
         </e>
         <e p="Request" t="Include">
           <e p="Archived.cshtml" t="Include" />
@@ -230,6 +228,7 @@
           <e p="avatar.webp" t="Include" />
           <e p="details_close.png" t="Include" />
           <e p="details_open.png" t="Include" />
+          <e p="logo.png" t="Include" />
         </e>
         <e p="js" t="Include">
           <e p="demo" t="Include">

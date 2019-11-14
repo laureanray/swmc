@@ -5,9 +5,9 @@
 }
 
 
-<form asp-controller="Applicant" asp-action="CreateApplicant" enctype="multipart/form-data">
+<form asp-controller="Applicant" asp-action="UpdateApplicant" method="POST" enctype="multipart/form-data">
 <div class="container-fluid">
-<h3> Applicant Registration</h3>
+<h3> Update Applicant </h3>
 
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
 </div>
@@ -43,7 +43,11 @@
 
 
                 <div class="box">
-                    <img id="image" class="box" style="height: auto; width: 100%;"/>
+                    @{ 
+                        var base64 = Convert.ToBase64String(@Model.Applicant.Photo); 
+                        var imgSrc = String.Format("data:image/gif;base64,{0}", base64); 
+                    } 
+                    <img src="@imgSrc" id="image" class="box" style="height: auto; width: 100%;"/>
                 </div>
 
 
@@ -52,6 +56,7 @@
             <div class="col-md-9">
                 <div class="row">
                     <div class="col-md-4">
+                        <input type="hidden" name="" asp-for="ApplicantId">
                         <label class="text-dark"> First Name </label>
                         <input type="text" class="form-control form-control-user" asp-for="Applicant.FirstName" placeholder="First Name">
                         <span asp-validation-for="Applicant.FirstName" class="text-danger"></span>
@@ -434,7 +439,7 @@
         </div>
     </div>
 </div>
-<button type="submit" class="btn btn-success btn-lg mb-4"> Add Applicant</button>
+<button type="submit" class="btn btn-success btn-lg mb-4"> Update Applicant</button>
 
 </div>
 
