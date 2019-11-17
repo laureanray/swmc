@@ -57,13 +57,13 @@ namespace swmc.Controllers
             m.DateTo = model.DateTo;
             m.GeneratedBy = user.FirstName + " " + user.LastName;
 
-            return new ViewAsPdf("_ApplicantReport", m)
-            {
-                PageOrientation = Orientation.Landscape,
-                FileName = "APPLICANT_REP_" + DateTime.Now + ".pdf"
-            };
+//            return new ViewAsPdf("_ApplicantReport", m)
+//            {
+//                PageOrientation = Orientation.Landscape,
+//                FileName = "APPLICANT_REP_" + DateTime.Now + ".pdf"
+//            };
 
-//            return View(m);
+            return View(m);
 
         }
         

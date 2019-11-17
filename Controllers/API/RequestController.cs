@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http;
 using Microsoft.EntityFrameworkCore;
@@ -16,17 +17,34 @@ namespace swmc.Controllers.API
     public class RequestController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
-
-        public RequestController(ApplicationDbContext context)
+        private readonly UserManager<ApplicationUser> _userManager;
+        public RequestController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         [Route("GetRequests")]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Request>>> GetVessels()
         {
-            return await _context.Requests.Where(r => !r.IsArchived)
+            var user = await _userManager.GetUserAsync(HttpContext.User);
+            var roles = await _userManager.GetRolesAsync(user);
+
+            if (roles.Any(role => role.Equals("Admin")))
+            {
+                return await _context.Requests.Where(r => !r.IsArchived)
+                    .Include(r => r.Requirements)
+                    .ThenInclude(r => r.Skills)
+                    .ThenInclude(r => r.SkillType)
+                    .Include(r => r.Requirements)
+                    .ThenInclude(r => r.Position)
+                    .Include(r => r.Vessel).ToListAsync();
+            }
+                
+           
+            
+            return await _context.Requests.Where(r => !r.IsArchived && r.ApplicationUser.Id.Equals(user.Id))
                 .Include(r => r.Requirements)
                 .ThenInclude(r => r.Skills)
                 .ThenInclude(r => r.SkillType)
@@ -48,11 +66,12 @@ namespace swmc.Controllers.API
         [HttpPost]
         public async Task<ActionResult<JsonResponse>> AddRequest(Request request)
         {
+            var user = await _userManager.GetUserAsync(HttpContext.User);
+
             request.DateCreated = DateTime.Now;
+            request.ApplicationUser = user;
             _context.Requests.Add(request);
             var res = await _context.SaveChangesAsync();            
-            
-            
             return new JsonResponse()
             {
                 Message = "Success"

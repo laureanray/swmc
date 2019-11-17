@@ -90,6 +90,11 @@
                         <label class="text-dark"> Year Enrolled </label>
                         <input type="text" class="form-control form-control-user" id="yearEnrolled" placeholder="Year Enrolled">
                     </div>
+                    <div class="col">
+                                            <label class="text-dark"> Owner </label>
+                                            <input type="text" class="form-control form-control-user" id="owner" placeholder="Owner">
+                                        </div>
+                                        
                 </div>
             </div>
             <div class="modal-footer">
@@ -328,6 +333,7 @@
                       $("#updateModal #yearBuilt").val(res.yearBuilt);
                       $("#updateModal #yearEnrolled").val(res.yearEnrolled);
                       $("#updateModal #vesselIdToUpdate").val(id);
+                      $("#updateModal #owner").val(res.owner);
                       
                       $("#updateModal").modal('show');
                         check();
@@ -421,7 +427,12 @@
            $("#classification").val().length === 0 || 
            $("#type").val().length === 0 || 
            $("#yearBuilt").val().length === 0 ||
-           $("#yearEnrolled").val().length === 0
+           $("#yearEnrolled").val().length === 0 || 
+           $("#owner").val().length === 0<div class="col">
+                                                                 <label class="text-dark"> Year Enrolled </label>
+                                                                 <input type="text" class="form-control form-control-user" id="yearEnrolled" placeholder="Year Enrolled">
+                                                             </div>
+                                                             
            ){
                 $("#createBtn").prop('disabled', true);
            } else{
@@ -499,7 +510,8 @@
        $("#updateModal #classification").val().length === 0 || 
        $("#updateModal #type").val().length === 0 || 
        $("#updateModal #yearBuilt").val().length === 0 ||
-       $("#updateModal #yearEnrolled").val().length === 0
+       $("#updateModal #yearEnrolled").val().length === 0 || 
+       $("#updateModal #owner").val().length === 0
        ){
            $("#updateBtn").prop('disabled', true);
        } else{
@@ -521,7 +533,8 @@
                       classification: $("#updateModal #classification").val(),
                       type: $("#updateModal #type").val(),
                       yearBuilt: $("#updateModal #yearBuilt").val(),
-                      yearEnrolled: $("#updateModal #yearEnrolled").val()
+                      yearEnrolled: $("#updateModal #yearEnrolled").val(),
+                      owner: $("#updateModal #owner").val()
                   };
          console.log(data);
          console.log('check');

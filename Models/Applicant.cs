@@ -68,5 +68,6 @@ namespace swmc.Models
         public List<Skill> Skills { get; set; }
         public DateTime DateCreated { get; set; }
         public DateTime DateUpdated { get; set; }
+        public bool IsComplete { get; set; }
     }
 }

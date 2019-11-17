@@ -31,5 +31,6 @@ namespace swmc.Models
         public DateTime DateAdded { get; set; }
         public DateTime DateUpdated { get; set; }
         public bool IsArchived { get; set; }
+        public string Owner { get; set; }
     }    
 }

@@ -113,9 +113,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Controllers/UserController.cs" />
-        <option value="$PROJECT_DIR$/Views/User/Archived.cshtml" />
-        <option value="$PROJECT_DIR$/Models/User.cs" />
         <option value="$PROJECT_DIR$/Controllers/API/UserController.cs" />
         <option value="$PROJECT_DIR$/Models/ApplicantSkills.cs" />
         <option value="$PROJECT_DIR$/.gitignore" />
@@ -133,7 +130,6 @@
         <option value="$PROJECT_DIR$/Views/Embarkation/Embark.cshtml" />
         <option value="$PROJECT_DIR$/ViewModels/ApplicantReport.cs" />
         <option value="$PROJECT_DIR$/Views/Report/ApplicantReport.cshtml" />
-        <option value="$PROJECT_DIR$/Models/Applicant.cs" />
         <option value="$PROJECT_DIR$/Models/ApplicantEmbarkation.cs" />
         <option value="$PROJECT_DIR$/Views/Embarkation/Index.cshtml" />
         <option value="$PROJECT_DIR$/Startup.cs" />
@@ -150,7 +146,6 @@
         <option value="$PROJECT_DIR$/ViewModels/EmbarkationViewModel.cs" />
         <option value="$PROJECT_DIR$/Views/Report/_EmbarkationReport.cshtml" />
         <option value="$PROJECT_DIR$/Controllers/API/EmbarkationController.cs" />
-        <option value="$PROJECT_DIR$/Controllers/API/RequestController.cs" />
         <option value="$PROJECT_DIR$/Views/User/Index.cshtml" />
         <option value="$PROJECT_DIR$/Views/Applicant/Index.cshtml" />
         <option value="$PROJECT_DIR$/Models/FormModel/UpdateApplicantForm.cs" />
@@ -160,10 +155,15 @@
         <option value="$PROJECT_DIR$/Data/DataBootstrapper.cs" />
         <option value="$PROJECT_DIR$/Views/_ViewImports.cshtml" />
         <option value="$PROJECT_DIR$/ViewModels/ApplicantViewModel.cs" />
-        <option value="$PROJECT_DIR$/Controllers/ReportController.cs" />
         <option value="$PROJECT_DIR$/Views/Shared/_DashboardLayout.cshtml" />
         <option value="$PROJECT_DIR$/Controllers/VesselController.cs" />
+        <option value="$PROJECT_DIR$/Controllers/API/RequestController.cs" />
         <option value="$PROJECT_DIR$/Views/Report/_ApplicantReport.cshtml" />
+        <option value="$PROJECT_DIR$/Controllers/ReportController.cs" />
+        <option value="$PROJECT_DIR$/Models/Applicant.cs" />
+        <option value="$PROJECT_DIR$/Models/Vessel.cs" />
+        <option value="$PROJECT_DIR$/Controllers/API/VesselController.cs" />
+        <option value="$PROJECT_DIR$/Views/Vessel/Index.cshtml" />
       </list>
     </option>
   </component>
@@ -271,7 +271,7 @@
       <workItem from="1573701013158" duration="13863000" />
       <workItem from="1573915929044" duration="1344000" />
       <workItem from="1573970255036" duration="3561000" />
-      <workItem from="1574013089701" duration="575000" />
+      <workItem from="1574013089701" duration="2323000" />
     </task>
     <servers />
   </component>

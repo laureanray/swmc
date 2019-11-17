@@ -135,6 +135,7 @@ namespace swmc.Controllers.API
             vesselToUpdate.Type = vessel.Type;
             vesselToUpdate.OfficialNumber = vessel.OfficialNumber;
             vesselToUpdate.DateUpdated = DateTime.Now;
+            vesselToUpdate.Owner = vessel.Owner;
 
             _context.Entry(vesselToUpdate).State = EntityState.Modified;
 
