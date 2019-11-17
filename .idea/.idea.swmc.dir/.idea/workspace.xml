@@ -59,6 +59,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/DBC57F52-BDD4-45DA-8B29-C21452AD12F4/55/2b34e891/RazorPage`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Models/Dependent.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Models/Beneficiary.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Views/_ViewImports.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Models/Skill.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Views/Home/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Views/Embarkation/Embark.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
@@ -112,7 +113,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Controllers/RequestController.cs" />
         <option value="$PROJECT_DIR$/Views/Report/EmbarkationReport.cshtml" />
         <option value="$PROJECT_DIR$/Controllers/UserController.cs" />
         <option value="$PROJECT_DIR$/Views/User/Archived.cshtml" />
@@ -132,10 +132,8 @@
         <option value="$PROJECT_DIR$/Views/Dashboard/Index.cshtml" />
         <option value="$PROJECT_DIR$/Views/Request/Index.cshtml" />
         <option value="$PROJECT_DIR$/Views/Embarkation/Embark.cshtml" />
-        <option value="$PROJECT_DIR$/ViewModels/ApplicantViewModel.cs" />
         <option value="$PROJECT_DIR$/ViewModels/ApplicantReport.cs" />
         <option value="$PROJECT_DIR$/Views/Report/ApplicantReport.cshtml" />
-        <option value="$PROJECT_DIR$/Views/Report/_ApplicantReport.cshtml" />
         <option value="$PROJECT_DIR$/Models/Applicant.cs" />
         <option value="$PROJECT_DIR$/Models/ApplicantEmbarkation.cs" />
         <option value="$PROJECT_DIR$/Views/Embarkation/Index.cshtml" />
@@ -156,13 +154,16 @@
         <option value="$PROJECT_DIR$/Controllers/API/RequestController.cs" />
         <option value="$PROJECT_DIR$/Views/User/Index.cshtml" />
         <option value="$PROJECT_DIR$/Views/Shared/_DashboardLayout.cshtml" />
-        <option value="$PROJECT_DIR$/Controllers/ReportController.cs" />
         <option value="$PROJECT_DIR$/Views/Applicant/Index.cshtml" />
         <option value="$PROJECT_DIR$/Models/FormModel/UpdateApplicantForm.cs" />
         <option value="$PROJECT_DIR$/Views/Applicant/UpdateApplicant.cshtml" />
         <option value="$PROJECT_DIR$/Controllers/ApplicantController.cs" />
         <option value="$PROJECT_DIR$/Models/Request.cs" />
         <option value="$PROJECT_DIR$/Data/DataBootstrapper.cs" />
+        <option value="$PROJECT_DIR$/Views/_ViewImports.cshtml" />
+        <option value="$PROJECT_DIR$/ViewModels/ApplicantViewModel.cs" />
+        <option value="$PROJECT_DIR$/Controllers/ReportController.cs" />
+        <option value="$PROJECT_DIR$/Views/Report/_ApplicantReport.cshtml" />
       </list>
     </option>
   </component>
@@ -267,7 +268,9 @@
       <workItem from="1572857102025" duration="1650000" />
       <workItem from="1572870589207" duration="67950000" />
       <workItem from="1573188850577" duration="8448000" />
-      <workItem from="1573701013158" duration="3196000" />
+      <workItem from="1573701013158" duration="13863000" />
+      <workItem from="1573915929044" duration="1344000" />
+      <workItem from="1573970255036" duration="2305000" />
     </task>
     <servers />
   </component>
@@ -292,21 +295,21 @@
     <state x="740" y="277" key="FileChooserDialogImpl" />
     <state x="740" y="277" key="FileChooserDialogImpl/1366.768" />
     <state x="740" y="279" key="FileChooserDialogImpl/1366.768/1920.1080" />
-    <state width="1921" height="658" key="GridCell.Tab.0.bottom" />
+    <state width="1921" height="637" key="GridCell.Tab.0.bottom" />
     <state width="1367" height="4" key="GridCell.Tab.0.bottom/1366.768" />
-    <state width="1921" height="658" key="GridCell.Tab.0.bottom/1366.768/1920.1080" />
+    <state width="1921" height="637" key="GridCell.Tab.0.bottom/1366.768/1920.1080" />
     <state width="1281" height="409" key="GridCell.Tab.0.bottom/1920.1080" />
-    <state width="1921" height="658" key="GridCell.Tab.0.center" />
+    <state width="1921" height="637" key="GridCell.Tab.0.center" />
     <state width="1367" height="4" key="GridCell.Tab.0.center/1366.768" />
-    <state width="1921" height="658" key="GridCell.Tab.0.center/1366.768/1920.1080" />
+    <state width="1921" height="637" key="GridCell.Tab.0.center/1366.768/1920.1080" />
     <state width="1281" height="409" key="GridCell.Tab.0.center/1920.1080" />
-    <state width="1921" height="658" key="GridCell.Tab.0.left" />
+    <state width="1921" height="637" key="GridCell.Tab.0.left" />
     <state width="1367" height="4" key="GridCell.Tab.0.left/1366.768" />
-    <state width="1921" height="658" key="GridCell.Tab.0.left/1366.768/1920.1080" />
+    <state width="1921" height="637" key="GridCell.Tab.0.left/1366.768/1920.1080" />
     <state width="1281" height="409" key="GridCell.Tab.0.left/1920.1080" />
-    <state width="1921" height="658" key="GridCell.Tab.0.right" />
+    <state width="1921" height="637" key="GridCell.Tab.0.right" />
     <state width="1367" height="4" key="GridCell.Tab.0.right/1366.768" />
-    <state width="1921" height="658" key="GridCell.Tab.0.right/1366.768/1920.1080" />
+    <state width="1921" height="637" key="GridCell.Tab.0.right/1366.768/1920.1080" />
     <state width="1281" height="409" key="GridCell.Tab.0.right/1920.1080" />
     <state width="1921" height="225" key="GridCell.Tab.1.bottom" />
     <state width="1367" height="4" key="GridCell.Tab.1.bottom/1366.768" />
@@ -979,32 +982,6 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="123" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Data/DataBootstrapper.cs</url>
-          <line>23</line>
-          <properties documentPath="$PROJECT_DIR$/Data/DataBootstrapper.cs" initialLine="23">
-            <startOffsets>
-              <option value="765" />
-            </startOffsets>
-            <endOffsets>
-              <option value="893" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="132" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Data/DataBootstrapper.cs</url>
-          <line>28</line>
-          <properties documentPath="$PROJECT_DIR$/Data/DataBootstrapper.cs" initialLine="28">
-            <startOffsets>
-              <option value="979" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1021" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="133" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Controllers/ApplicantController.cs</url>

@@ -18,13 +18,13 @@ namespace swmc.Data
             IHostingEnvironment hostingEnvironment)
         {
             context.Database.EnsureCreated();
-            
+
             // Create default admin if not already in the database
 
             defaultAvatar =
                 System.IO.File.ReadAllBytes(hostingEnvironment.ContentRootPath + "/wwwroot/images/avatar.webp");
-            
-            
+
+
             // Add the roles in the dictionary
             RoleDetails.Add("Admin", "Admin Details");
             RoleDetails.Add("HR", "HR Details");
@@ -46,9 +46,9 @@ namespace swmc.Data
                 Email = "admin@swmc.com",
                 UserName = "admin",
                 EmailConfirmed = true,
-                DateCreated =  DateTime.Now
+                DateCreated = DateTime.Now
             };
-            
+
             var hr = new ApplicationUser()
             {
                 FirstName = "John",
@@ -56,7 +56,7 @@ namespace swmc.Data
                 Email = "john.doe@swmc.com",
                 UserName = "john",
                 EmailConfirmed = true,
-                DateCreated =  DateTime.Now
+                DateCreated = DateTime.Now
             };
 
             var operations = new ApplicationUser()
@@ -66,7 +66,7 @@ namespace swmc.Data
                 Email = "mark.alvarez@swmc.com",
                 UserName = "markalvarez",
                 EmailConfirmed = true,
-                DateCreated =  DateTime.Now
+                DateCreated = DateTime.Now
             };
 
             var principal = new ApplicationUser()
@@ -76,7 +76,7 @@ namespace swmc.Data
                 Email = "juan.dc@swmc.com",
                 UserName = "juan",
                 EmailConfirmed = true,
-                DateCreated =  DateTime.Now
+                DateCreated = DateTime.Now
             };
 
             if (await userManager.FindByEmailAsync(admin.Email) == null)
@@ -89,7 +89,7 @@ namespace swmc.Data
                     await userManager.AddToRoleAsync(admin, "Admin");
                 }
             }
-            
+
             if (await userManager.FindByEmailAsync(hr.Email) == null)
             {
                 var result = await userManager.CreateAsync(hr);
@@ -100,7 +100,7 @@ namespace swmc.Data
                     await userManager.AddToRoleAsync(hr, "HR");
                 }
             }
-            
+
             if (await userManager.FindByEmailAsync(operations.Email) == null)
             {
                 var result = await userManager.CreateAsync(operations);
@@ -111,7 +111,7 @@ namespace swmc.Data
                     await userManager.AddToRoleAsync(operations, "Operations");
                 }
             }
-            
+
             if (await userManager.FindByEmailAsync(principal.Email) == null)
             {
                 var result = await userManager.CreateAsync(principal);
@@ -210,7 +210,6 @@ namespace swmc.Data
                 {
                     PositionName = "Captain",
                     PositionCode = "CT"
-
                 },
                 new Position()
                 {
@@ -241,7 +240,7 @@ namespace swmc.Data
 
             if (!context.Positions.Any())
             {
-                foreach(var po in positions)
+                foreach (var po in positions)
                 {
                     po.DateCreated = DateTime.Now;
 
@@ -321,7 +320,7 @@ namespace swmc.Data
             {
                 var family = new Family()
                 {
-                    FathersFirstName   = "Fathers",
+                    FathersFirstName = "Fathers",
                     FathersMiddleName = "Middle",
                     FathersLastName = "Last",
                     MothersFirstName = "Mothers",
@@ -332,8 +331,79 @@ namespace swmc.Data
                     SpouseLastName = "Last",
                     NumberOfChildren = "12"
                 };
-                
+
                 var family2 = new Family()
+                {
+                    FathersFirstName = "Fathers",
+                    FathersMiddleName = "Middle",
+                    FathersLastName = "Last",
+                    MothersFirstName = "Mothers",
+                    MothersMiddleName = "Middle",
+                    MothersLastName = "Last",
+                    SpouseFirstName = "Spouse",
+                    SpouseMiddleName = "Middle",
+                    SpouseLastName = "Last",
+                    NumberOfChildren = "12"
+                };
+
+                var family3 = new Family()
+                {
+                    FathersFirstName = "Fathers",
+                    FathersMiddleName = "Middle",
+                    FathersLastName = "Last",
+                    MothersFirstName = "Mothers",
+                    MothersMiddleName = "Middle",
+                    MothersLastName = "Last",
+                    SpouseFirstName = "Spouse",
+                    SpouseMiddleName = "Middle",
+                    SpouseLastName = "Last",
+                    NumberOfChildren = "12"
+                };
+
+                var family4 = new Family()
+                {
+                    FathersFirstName = "Fathers",
+                    FathersMiddleName = "Middle",
+                    FathersLastName = "Last",
+                    MothersFirstName = "Mothers",
+                    MothersMiddleName = "Middle",
+                    MothersLastName = "Last",
+                    SpouseFirstName = "Spouse",
+                    SpouseMiddleName = "Middle",
+                    SpouseLastName = "Last",
+                    NumberOfChildren = "12"
+                };
+
+                var family5 = new Family()
+                {
+                    FathersFirstName = "Fathers",
+                    FathersMiddleName = "Middle",
+                    FathersLastName = "Last",
+                    MothersFirstName = "Mothers",
+                    MothersMiddleName = "Middle",
+                    MothersLastName = "Last",
+                    SpouseFirstName = "Spouse",
+                    SpouseMiddleName = "Middle",
+                    SpouseLastName = "Last",
+                    NumberOfChildren = "12"
+                };
+
+                var family6 = new Family()
+                {
+                    FathersFirstName = "Fathers",
+                    FathersMiddleName = "Middle",
+                    FathersLastName = "Last",
+                    MothersFirstName = "Mothers",
+                    MothersMiddleName = "Middle",
+                    MothersLastName = "Last",
+                    SpouseFirstName = "Spouse",
+                    SpouseMiddleName = "Middle",
+                    SpouseLastName = "Last",
+                    NumberOfChildren = "12"
+                };
+
+                
+                var family7 = new Family()
                 {
                     FathersFirstName   = "Fathers",
                     FathersMiddleName = "Middle",
@@ -347,6 +417,51 @@ namespace swmc.Data
                     NumberOfChildren = "12"
                 };
                 
+                var family8 = new Family()
+                {
+                    FathersFirstName   = "Fathers",
+                    FathersMiddleName = "Middle",
+                    FathersLastName = "Last",
+                    MothersFirstName = "Mothers",
+                    MothersMiddleName = "Middle",
+                    MothersLastName = "Last",
+                    SpouseFirstName = "Spouse",
+                    SpouseMiddleName = "Middle",
+                    SpouseLastName = "Last",
+                    NumberOfChildren = "12"
+                };
+
+                
+                var family9 = new Family()
+                {
+                    FathersFirstName   = "Fathers",
+                    FathersMiddleName = "Middle",
+                    FathersLastName = "Last",
+                    MothersFirstName = "Mothers",
+                    MothersMiddleName = "Middle",
+                    MothersLastName = "Last",
+                    SpouseFirstName = "Spouse",
+                    SpouseMiddleName = "Middle",
+                    SpouseLastName = "Last",
+                    NumberOfChildren = "12"
+                };
+
+                
+                var family10 = new Family()
+                {
+                    FathersFirstName   = "Fathers",
+                    FathersMiddleName = "Middle",
+                    FathersLastName = "Last",
+                    MothersFirstName = "Mothers",
+                    MothersMiddleName = "Middle",
+                    MothersLastName = "Last",
+                    SpouseFirstName = "Spouse",
+                    SpouseMiddleName = "Middle",
+                    SpouseLastName = "Last",
+                    NumberOfChildren = "12"
+                };
+
+
                 var dependents = new List<Dependent>()
                 {
                     new Dependent()
@@ -362,7 +477,7 @@ namespace swmc.Data
                         Relationship = "Son"
                     }
                 };
-                
+
                 var dependents2 = new List<Dependent>()
                 {
                     new Dependent()
@@ -401,8 +516,8 @@ namespace swmc.Data
                         DateSubmitted = new DateTime(2016, 6, 2)
                     }
                 };
-                
-                
+
+
                 var documents2 = new List<Document>()
                 {
                     new Document()
@@ -453,7 +568,7 @@ namespace swmc.Data
                     },
                     Cellphone = "09123456789",
                     Citizenship = "Filipino",
-                    Family = family2,
+                    Family = family,
                     Gender = "Male",
                     Position = positions[0],
                     Height = 23,
@@ -475,7 +590,7 @@ namespace swmc.Data
                     PositionId = 1,
                     Photo = defaultAvatar
                 };
-                
+
                 applicant2 = new Applicant()
                 {
                     Address = "123 Address St., Manila, NCR 1016",
@@ -503,7 +618,412 @@ namespace swmc.Data
                     },
                     Cellphone = "09123456789",
                     Citizenship = "Filipino",
-                    Family = family,
+                    Family = family2,
+                    Gender = "Male",
+                    Position = positions[2],
+                    Height = 32,
+                    Weight = 50,
+                    Religion = "Roman Catholic",
+                    Telephone = "1231231",
+                    Status = Status.Active,
+                    Suffix = "",
+                    SchoolFrom = "2005",
+                    SchoolTo = "2012",
+                    LastName = "Cruiser",
+                    FirstName = "Peter",
+                    MiddleName = "David",
+                    DateOfBirth = new DateTime(2001, 2, 1),
+                    PlaceOfBirth = "Manila City",
+                    CivilStatus = "Single",
+                    DateCreated = DateTime.Now,
+                    LastSchoolAttended = "School",
+                    PositionId = 1,
+                    Photo = defaultAvatar
+                };
+
+                
+
+                applicant3 = new Applicant()
+                {
+                    Address = "123 Address St., Manila, NCR 1016",
+                    Age = 32,
+                    Documents = new List<Document>(documents),
+                    Dependents = new List<Dependent>(dependents),
+                    Skills = new List<Skill>()
+                    {
+                        new Skill()
+                        {
+                            SkillType = skillTypes[0]
+                        },
+                        new Skill()
+                        {
+                            SkillType = skillTypes[1]
+                        },
+                        new Skill()
+                        {
+                            SkillType = skillTypes[2]
+                        },
+                        new Skill()
+                        {
+                            SkillType = skillTypes[3]
+                        }
+                    },
+                    Cellphone = "09123456789",
+                    Citizenship = "Filipino",
+                    Family = family3,
+                    Gender = "Male",
+                    Position = positions[2],
+                    Height = 32,
+                    Weight = 50,
+                    Religion = "Roman Catholic",
+                    Telephone = "1231231",
+                    Status = Status.Active,
+                    Suffix = "",
+                    SchoolFrom = "2005",
+                    SchoolTo = "2012",
+                    LastName = "Cruiser",
+                    FirstName = "Peter",
+                    MiddleName = "David",
+                    DateOfBirth = new DateTime(2001, 2, 1),
+                    PlaceOfBirth = "Manila City",
+                    CivilStatus = "Single",
+                    DateCreated = DateTime.Now,
+                    LastSchoolAttended = "School",
+                    PositionId = 1,
+                    Photo = defaultAvatar
+                };
+
+
+                applicant4 = new Applicant()
+                {
+                    Address = "123 Address St., Manila, NCR 1016",
+                    Age = 32,
+                    Documents = new List<Document>(documents),
+                    Dependents = new List<Dependent>(dependents),
+                    Skills = new List<Skill>()
+                    {
+                        new Skill()
+                        {
+                            SkillType = skillTypes[0]
+                        },
+                        new Skill()
+                        {
+                            SkillType = skillTypes[1]
+                        },
+                        new Skill()
+                        {
+                            SkillType = skillTypes[2]
+                        },
+                        new Skill()
+                        {
+                            SkillType = skillTypes[3]
+                        }
+                    },
+                    Cellphone = "09123456789",
+                    Citizenship = "Filipino",
+                    Family = family4,
+                    Gender = "Male",
+                    Position = positions[2],
+                    Height = 32,
+                    Weight = 50,
+                    Religion = "Roman Catholic",
+                    Telephone = "1231231",
+                    Status = Status.Active,
+                    Suffix = "",
+                    SchoolFrom = "2005",
+                    SchoolTo = "2012",
+                    LastName = "Cruiser",
+                    FirstName = "Peter",
+                    MiddleName = "David",
+                    DateOfBirth = new DateTime(2001, 2, 1),
+                    PlaceOfBirth = "Manila City",
+                    CivilStatus = "Single",
+                    DateCreated = DateTime.Now,
+                    LastSchoolAttended = "School",
+                    PositionId = 1,
+                    Photo = defaultAvatar
+                };
+
+
+                applicant5 = new Applicant()
+                {
+                    Address = "123 Address St., Manila, NCR 1016",
+                    Age = 32,
+                    Documents = new List<Document>(documents),
+                    Dependents = new List<Dependent>(dependents),
+                    Skills = new List<Skill>()
+                    {
+                        new Skill()
+                        {
+                            SkillType = skillTypes[0]
+                        },
+                        new Skill()
+                        {
+                            SkillType = skillTypes[1]
+                        },
+                        new Skill()
+                        {
+                            SkillType = skillTypes[2]
+                        },
+                        new Skill()
+                        {
+                            SkillType = skillTypes[3]
+                        }
+                    },
+                    Cellphone = "09123456789",
+                    Citizenship = "Filipino",
+                    Family = family5,
+                    Gender = "Male",
+                    Position = positions[2],
+                    Height = 32,
+                    Weight = 50,
+                    Religion = "Roman Catholic",
+                    Telephone = "1231231",
+                    Status = Status.Active,
+                    Suffix = "",
+                    SchoolFrom = "2005",
+                    SchoolTo = "2012",
+                    LastName = "Cruiser",
+                    FirstName = "Peter",
+                    MiddleName = "David",
+                    DateOfBirth = new DateTime(2001, 2, 1),
+                    PlaceOfBirth = "Manila City",
+                    CivilStatus = "Single",
+                    DateCreated = DateTime.Now,
+                    LastSchoolAttended = "School",
+                    PositionId = 1,
+                    Photo = defaultAvatar
+                };
+
+                applicant6 = new Applicant()
+                {
+                    Address = "123 Address St., Manila, NCR 1016",
+                    Age = 32,
+                    Documents = new List<Document>(documents),
+                    Dependents = new List<Dependent>(dependents),
+                    Skills = new List<Skill>()
+                    {
+                        new Skill()
+                        {
+                            SkillType = skillTypes[0]
+                        },
+                        new Skill()
+                        {
+                            SkillType = skillTypes[1]
+                        },
+                        new Skill()
+                        {
+                            SkillType = skillTypes[2]
+                        },
+                        new Skill()
+                        {
+                            SkillType = skillTypes[3]
+                        }
+                    },
+                    Cellphone = "09123456789",
+                    Citizenship = "Filipino",
+                    Family = family6,
+                    Gender = "Male",
+                    Position = positions[2],
+                    Height = 32,
+                    Weight = 50,
+                    Religion = "Roman Catholic",
+                    Telephone = "1231231",
+                    Status = Status.Active,
+                    Suffix = "",
+                    SchoolFrom = "2005",
+                    SchoolTo = "2012",
+                    LastName = "Cruiser",
+                    FirstName = "Peter",
+                    MiddleName = "David",
+                    DateOfBirth = new DateTime(2001, 2, 1),
+                    PlaceOfBirth = "Manila City",
+                    CivilStatus = "Single",
+                    DateCreated = DateTime.Now,
+                    LastSchoolAttended = "School",
+                    PositionId = 1,
+                    Photo = defaultAvatar
+                };
+
+                applicant7 = new Applicant()
+                {
+                    Address = "123 Address St., Manila, NCR 1016",
+                    Age = 32,
+                    Documents = new List<Document>(documents),
+                    Dependents = new List<Dependent>(dependents),
+                    Skills = new List<Skill>()
+                    {
+                        new Skill()
+                        {
+                            SkillType = skillTypes[0]
+                        },
+                        new Skill()
+                        {
+                            SkillType = skillTypes[1]
+                        },
+                        new Skill()
+                        {
+                            SkillType = skillTypes[2]
+                        },
+                        new Skill()
+                        {
+                            SkillType = skillTypes[3]
+                        }
+                    },
+                    Cellphone = "09123456789",
+                    Citizenship = "Filipino",
+                    Family = family7,
+                    Gender = "Male",
+                    Position = positions[2],
+                    Height = 32,
+                    Weight = 50,
+                    Religion = "Roman Catholic",
+                    Telephone = "1231231",
+                    Status = Status.Active,
+                    Suffix = "",
+                    SchoolFrom = "2005",
+                    SchoolTo = "2012",
+                    LastName = "Cruiser",
+                    FirstName = "Peter",
+                    MiddleName = "David",
+                    DateOfBirth = new DateTime(2001, 2, 1),
+                    PlaceOfBirth = "Manila City",
+                    CivilStatus = "Single",
+                    DateCreated = DateTime.Now,
+                    LastSchoolAttended = "School",
+                    PositionId = 1,
+                    Photo = defaultAvatar
+                };
+
+                applicant8 = new Applicant()
+                {
+                    Address = "123 Address St., Manila, NCR 1016",
+                    Age = 32,
+                    Documents = new List<Document>(documents),
+                    Dependents = new List<Dependent>(dependents),
+                    Skills = new List<Skill>()
+                    {
+                        new Skill()
+                        {
+                            SkillType = skillTypes[0]
+                        },
+                        new Skill()
+                        {
+                            SkillType = skillTypes[1]
+                        },
+                        new Skill()
+                        {
+                            SkillType = skillTypes[2]
+                        },
+                        new Skill()
+                        {
+                            SkillType = skillTypes[3]
+                        }
+                    },
+                    Cellphone = "09123456789",
+                    Citizenship = "Filipino",
+                    Family = family8,
+                    Gender = "Male",
+                    Position = positions[2],
+                    Height = 32,
+                    Weight = 50,
+                    Religion = "Roman Catholic",
+                    Telephone = "1231231",
+                    Status = Status.Active,
+                    Suffix = "",
+                    SchoolFrom = "2005",
+                    SchoolTo = "2012",
+                    LastName = "Cruiser",
+                    FirstName = "Peter",
+                    MiddleName = "David",
+                    DateOfBirth = new DateTime(2001, 2, 1),
+                    PlaceOfBirth = "Manila City",
+                    CivilStatus = "Single",
+                    DateCreated = DateTime.Now,
+                    LastSchoolAttended = "School",
+                    PositionId = 1,
+                    Photo = defaultAvatar
+                };
+
+                applicant9 = new Applicant()
+                {
+                    Address = "123 Address St., Manila, NCR 1016",
+                    Age = 32,
+                    Documents = new List<Document>(documents),
+                    Dependents = new List<Dependent>(dependents),
+                    Skills = new List<Skill>()
+                    {
+                        new Skill()
+                        {
+                            SkillType = skillTypes[0]
+                        },
+                        new Skill()
+                        {
+                            SkillType = skillTypes[1]
+                        },
+                        new Skill()
+                        {
+                            SkillType = skillTypes[2]
+                        },
+                        new Skill()
+                        {
+                            SkillType = skillTypes[3]
+                        }
+                    },
+                    Cellphone = "09123456789",
+                    Citizenship = "Filipino",
+                    Family = family9,
+                    Gender = "Male",
+                    Position = positions[2],
+                    Height = 32,
+                    Weight = 50,
+                    Religion = "Roman Catholic",
+                    Telephone = "1231231",
+                    Status = Status.Active,
+                    Suffix = "",
+                    SchoolFrom = "2005",
+                    SchoolTo = "2012",
+                    LastName = "Cruiser",
+                    FirstName = "Peter",
+                    MiddleName = "David",
+                    DateOfBirth = new DateTime(2001, 2, 1),
+                    PlaceOfBirth = "Manila City",
+                    CivilStatus = "Single",
+                    DateCreated = DateTime.Now,
+                    LastSchoolAttended = "School",
+                    PositionId = 1,
+                    Photo = defaultAvatar
+                };
+
+
+                applicant10 = new Applicant()
+                {
+                    Address = "123 Address St., Manila, NCR 1016",
+                    Age = 32,
+                    Documents = new List<Document>(documents),
+                    Dependents = new List<Dependent>(dependents),
+                    Skills = new List<Skill>()
+                    {
+                        new Skill()
+                        {
+                            SkillType = skillTypes[0]
+                        },
+                        new Skill()
+                        {
+                            SkillType = skillTypes[1]
+                        },
+                        new Skill()
+                        {
+                            SkillType = skillTypes[2]
+                        },
+                        new Skill()
+                        {
+                            SkillType = skillTypes[3]
+                        }
+                    },
+                    Cellphone = "09123456789",
+                    Citizenship = "Filipino",
+                    Family = family10,
                     Gender = "Male",
                     Position = positions[2],
                     Height = 32,
@@ -528,7 +1048,15 @@ namespace swmc.Data
 
                 context.Applicants.Add(applicant);
                 context.Applicants.Add(applicant2);
-                
+                context.Applicants.Add(applicant3);
+                context.Applicants.Add(applicant4);
+                context.Applicants.Add(applicant5);
+                context.Applicants.Add(applicant6);
+                context.Applicants.Add(applicant7);
+                context.Applicants.Add(applicant8);
+                context.Applicants.Add(applicant9);
+                context.Applicants.Add(applicant10);
+
                 await context.SaveChangesAsync();
             }
 
@@ -658,24 +1186,24 @@ namespace swmc.Data
 
             var request = new Request()
             {
-                   Vessel = vessels[0],
-                   Destination = "South Korea",
-                   Remarks = "Remarks",
-                   Requirements = new List<Requirement>(requirements),
-                   StartDate = new DateTime(2014, 2, 5),
-                   EndDate = new DateTime(2014, 5, 5),
-                   DateCreated = DateTime.Now,
-                   ApplicationUser = principal
+                Vessel = vessels[0],
+                Destination = "South Korea",
+                Remarks = "Remarks",
+                Requirements = new List<Requirement>(requirements),
+                StartDate = new DateTime(2014, 2, 5),
+                EndDate = new DateTime(2014, 5, 5),
+                DateCreated = DateTime.Now,
+                ApplicationUser = principal
             };
-            
-            
+
+
             if (!context.Requests.Any())
             {
                 context.Requests.Add(request);
                 await context.SaveChangesAsync();
             }
 
-        
+
             var embarkation = new Embarkation()
             {
                 Request = request,
@@ -685,7 +1213,7 @@ namespace swmc.Data
                     new ApplicantEmbarkation()
                     {
                         Applicant = applicant
-                    }         
+                    }
                 }
             };
 
@@ -694,7 +1222,6 @@ namespace swmc.Data
                 context.Embarkations.Add(embarkation);
                 await context.SaveChangesAsync();
             }
-            
         }
     }
 }

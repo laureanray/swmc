@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Rotativa.AspNetCore;
@@ -18,10 +19,12 @@ namespace swmc.Controllers
     public class ReportController : Controller
     {
         private readonly ApplicationDbContext _context;
-
-        public ReportController(ApplicationDbContext context)
+        private readonly UserManager<ApplicationUser> _userManager;
+        
+        public ReportController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         public IActionResult ApplicantReport()
@@ -41,6 +44,8 @@ namespace swmc.Controllers
             DateTime startDateTime = model.DateFrom;
             DateTime endDateTime = model.DateTo.AddDays(1).AddTicks(-1);
 
+            var user = await _userManager.GetUserAsync(HttpContext.User);
+
             var applicants = await _context.Applicants.Include(a => a.Position).Where(a => a.Status.Equals(model.ApplicantStatus))
                 .Where(a => a.DateCreated >= startDateTime && a.DateCreated <= endDateTime).ToListAsync();
             
@@ -50,12 +55,15 @@ namespace swmc.Controllers
             m.Applicants = new List<Applicant>(applicants);
             m.DateFrom = model.DateFrom;
             m.DateTo = model.DateTo;
+            m.GeneratedBy = user.FirstName + " " + user.LastName;
 
             return new ViewAsPdf("_ApplicantReport", m)
             {
                 PageOrientation = Orientation.Landscape,
                 FileName = "APPLICANT_REP_" + DateTime.Now + ".pdf"
             };
+
+//            return View(m);
 
         }
         
