@@ -133,7 +133,6 @@
         <option value="$PROJECT_DIR$/Models/ApplicantEmbarkation.cs" />
         <option value="$PROJECT_DIR$/Views/Embarkation/Index.cshtml" />
         <option value="$PROJECT_DIR$/Startup.cs" />
-        <option value="$PROJECT_DIR$/Controllers/API/ApplicantController.cs" />
         <option value="$PROJECT_DIR$/Controllers/DashboardController.cs" />
         <option value="$PROJECT_DIR$/Controllers/EmbarkationController.cs" />
         <option value="$PROJECT_DIR$/Views/Embarkation/Disembarked.cshtml" />
@@ -147,12 +146,10 @@
         <option value="$PROJECT_DIR$/Views/Report/_EmbarkationReport.cshtml" />
         <option value="$PROJECT_DIR$/Controllers/API/EmbarkationController.cs" />
         <option value="$PROJECT_DIR$/Views/User/Index.cshtml" />
-        <option value="$PROJECT_DIR$/Views/Applicant/Index.cshtml" />
         <option value="$PROJECT_DIR$/Models/FormModel/UpdateApplicantForm.cs" />
         <option value="$PROJECT_DIR$/Views/Applicant/UpdateApplicant.cshtml" />
         <option value="$PROJECT_DIR$/Controllers/ApplicantController.cs" />
         <option value="$PROJECT_DIR$/Models/Request.cs" />
-        <option value="$PROJECT_DIR$/Data/DataBootstrapper.cs" />
         <option value="$PROJECT_DIR$/Views/_ViewImports.cshtml" />
         <option value="$PROJECT_DIR$/ViewModels/ApplicantViewModel.cs" />
         <option value="$PROJECT_DIR$/Views/Shared/_DashboardLayout.cshtml" />
@@ -164,6 +161,9 @@
         <option value="$PROJECT_DIR$/Models/Vessel.cs" />
         <option value="$PROJECT_DIR$/Controllers/API/VesselController.cs" />
         <option value="$PROJECT_DIR$/Views/Vessel/Index.cshtml" />
+        <option value="$PROJECT_DIR$/Controllers/API/ApplicantController.cs" />
+        <option value="$PROJECT_DIR$/Views/Applicant/Index.cshtml" />
+        <option value="$PROJECT_DIR$/Data/DataBootstrapper.cs" />
       </list>
     </option>
   </component>
@@ -271,7 +271,7 @@
       <workItem from="1573701013158" duration="13863000" />
       <workItem from="1573915929044" duration="1344000" />
       <workItem from="1573970255036" duration="3561000" />
-      <workItem from="1574013089701" duration="2323000" />
+      <workItem from="1574013089701" duration="4017000" />
     </task>
     <servers />
   </component>
@@ -551,52 +551,52 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Controllers/API/ApplicantController.cs</url>
-          <line>203</line>
+          <line>219</line>
           <properties documentPath="$PROJECT_DIR$/Controllers/API/ApplicantController.cs" initialLine="149">
             <startOffsets>
-              <option value="6393" />
+              <option value="6863" />
             </startOffsets>
             <endOffsets>
-              <option value="6394" />
+              <option value="6864" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="43" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Controllers/API/ApplicantController.cs</url>
-          <line>204</line>
+          <line>220</line>
           <properties documentPath="$PROJECT_DIR$/Controllers/API/ApplicantController.cs" initialLine="150">
             <startOffsets>
-              <option value="6407" />
+              <option value="6877" />
             </startOffsets>
             <endOffsets>
-              <option value="6437" />
+              <option value="6907" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="44" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Controllers/API/ApplicantController.cs</url>
-          <line>206</line>
+          <line>222</line>
           <properties documentPath="$PROJECT_DIR$/Controllers/API/ApplicantController.cs" initialLine="152">
             <startOffsets>
-              <option value="6451" />
+              <option value="6921" />
             </startOffsets>
             <endOffsets>
-              <option value="6482" />
+              <option value="6952" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="45" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Controllers/API/ApplicantController.cs</url>
-          <line>208</line>
+          <line>224</line>
           <properties documentPath="$PROJECT_DIR$/Controllers/API/ApplicantController.cs" initialLine="154">
             <startOffsets>
-              <option value="6496" />
+              <option value="6966" />
             </startOffsets>
             <endOffsets>
-              <option value="6530" />
+              <option value="7000" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="46" />
@@ -813,69 +813,69 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Controllers/API/ApplicantController.cs</url>
-          <line>255</line>
+          <line>271</line>
           <properties documentPath="$PROJECT_DIR$/Controllers/API/ApplicantController.cs" initialLine="246">
             <startOffsets>
-              <option value="7993" />
-              <option value="8083" />
+              <option value="8463" />
+              <option value="8553" />
             </startOffsets>
             <endOffsets>
-              <option value="8119" />
-              <option value="8117" />
+              <option value="8589" />
+              <option value="8587" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="79" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Controllers/API/ApplicantController.cs</url>
-          <line>257</line>
+          <line>273</line>
           <properties documentPath="$PROJECT_DIR$/Controllers/API/ApplicantController.cs" initialLine="248">
             <startOffsets>
-              <option value="8133" />
-              <option value="8156" />
+              <option value="8603" />
+              <option value="8626" />
             </startOffsets>
             <endOffsets>
-              <option value="8155" />
-              <option value="8174" />
+              <option value="8625" />
+              <option value="8644" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="80" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Controllers/API/ApplicantController.cs</url>
-          <line>270</line>
+          <line>287</line>
           <properties documentPath="$PROJECT_DIR$/Controllers/API/ApplicantController.cs" initialLine="258">
             <startOffsets>
-              <option value="8592" />
+              <option value="9075" />
             </startOffsets>
             <endOffsets>
-              <option value="8635" />
+              <option value="9118" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="81" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Controllers/API/ApplicantController.cs</url>
-          <line>271</line>
+          <line>288</line>
           <properties documentPath="$PROJECT_DIR$/Controllers/API/ApplicantController.cs" initialLine="259">
             <startOffsets>
-              <option value="8648" />
+              <option value="9131" />
             </startOffsets>
             <endOffsets>
-              <option value="8685" />
+              <option value="9168" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="82" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Controllers/API/ApplicantController.cs</url>
-          <line>274</line>
+          <line>291</line>
           <properties documentPath="$PROJECT_DIR$/Controllers/API/ApplicantController.cs" initialLine="262">
             <startOffsets>
-              <option value="8767" />
+              <option value="9250" />
             </startOffsets>
             <endOffsets>
-              <option value="8801" />
+              <option value="9284" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="83" />

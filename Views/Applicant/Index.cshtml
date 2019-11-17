@@ -63,6 +63,8 @@
         }
          
          console.log(d);
+        
+        var ds = d.isComplete === true ? 'Complete' : 'Incomplete';
          
         var dependents = "";
         var skills = "";
@@ -116,8 +118,10 @@
                "<td>" + d.placeOfBirth + "</td>" +
                   "<td class='bg-primary text-light'><strong> Applicant Status </strong> </td>" +
                               "<td class='text-primary'><strong>" + d.status + "</strong></td>" +
-                "</tr>" +
+                "</tr>" +   
             "</table>" +
+             "<h6 class='mt-4'> Document Status: </h6>" +
+              "<span class='text-primart'>" + ds + "</span> " +
              "<h6 class='mt-4'> Skills </h6> <ul>" + skills + 
               "</ul><h6 class='mt-4'> Family Information </h6>" +
                "<table class='table-bordered'>" +

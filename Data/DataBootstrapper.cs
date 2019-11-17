@@ -298,6 +298,7 @@ namespace swmc.Data
                 foreach (var vessel in vessels)
                 {
                     vessel.DateAdded = DateTime.Now;
+                    vessel.Owner = "Owner";
                     context.Vessels.Add(vessel);
                 }
 
@@ -514,7 +515,32 @@ namespace swmc.Data
                         DocumentType = documentTypes[2],
                         DateExpiry = new DateTime(2018, 2, 2),
                         DateSubmitted = new DateTime(2016, 6, 2)
+                    },
+                    new Document()
+                    {
+                        DocumentType = documentTypes[3],
+                        DateExpiry = new DateTime(2018, 2, 2),
+                        DateSubmitted = new DateTime(2016, 6, 2)
+                    },
+                    new Document()
+                    {
+                        DocumentType = documentTypes[4],
+                        DateExpiry = new DateTime(2018, 2, 2),
+                        DateSubmitted = new DateTime(2016, 6, 2)
+                    },
+                    new Document()
+                    {
+                        DocumentType = documentTypes[5],
+                        DateExpiry = new DateTime(2018, 2, 2),
+                        DateSubmitted = new DateTime(2016, 6, 2)
+                    },
+                    new Document()
+                    {
+                        DocumentType = documentTypes[6],
+                        DateExpiry = new DateTime(2018, 2, 2),
+                        DateSubmitted = new DateTime(2016, 6, 2)
                     }
+                    
                 };
 
 

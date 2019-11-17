@@ -80,6 +80,8 @@ namespace swmc.Controllers.API
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Applicant>>> GetApplicants()
         {
+            
+            
             var applicants = await _context.Applicants
                 .Include(a => a.Position)
                 .Include(a => a.Family)
@@ -88,6 +90,20 @@ namespace swmc.Controllers.API
                 .Include( a => a.Skills)
                 .ThenInclude(a => a.SkillType)
                 .Where(a => !a.Status.Equals(Status.Archived)).ToListAsync();
+
+            foreach (var applicant in applicants)
+            {
+                var documents = await _context.DocumentTypes.Where(dt => !dt.IsArchived).ToListAsync();
+                if (applicant.Documents.Count() == documents.Count())
+                {
+                    applicant.IsComplete = true;
+                }
+                else
+                {
+                    applicant.IsActive = false;
+                }
+            }
+
             return applicants;
         }
 
@@ -267,6 +283,7 @@ namespace swmc.Controllers.API
                     SkillType = skillType
                 });
             }
+            
 
             applicant.Skills = new List<Skill>(skills);
             applicant.DateUpdated = DateTime.Now;

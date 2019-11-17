@@ -428,11 +428,7 @@
            $("#type").val().length === 0 || 
            $("#yearBuilt").val().length === 0 ||
            $("#yearEnrolled").val().length === 0 || 
-           $("#owner").val().length === 0<div class="col">
-                                                                 <label class="text-dark"> Year Enrolled </label>
-                                                                 <input type="text" class="form-control form-control-user" id="yearEnrolled" placeholder="Year Enrolled">
-                                                             </div>
-                                                             
+           $("#owner").val().length === 0                                                             
            ){
                 $("#createBtn").prop('disabled', true);
            } else{
@@ -461,7 +457,8 @@
             classification: $("#classification").val(),
             type: $("#type").val(),
             yearBuilt: $("#yearBuilt").val(),
-            yearEnrolled: $("#yearEnrolled").val()
+            yearEnrolled: $("#yearEnrolled").val(),
+            owner: $("#owner").val(),
         };
         
         addVessel(data, function(res){
@@ -561,7 +558,8 @@
              classification: $("#updateModal #classification").val(),
              type: $("#updateModal #type").val(),
              yearBuilt: $("#updateModal #yearBuilt").val(),
-             yearEnrolled: $("#updateModal #yearEnrolled").val()
+             yearEnrolled: $("#updateModal #yearEnrolled").val(),
+             owner: $("#updateModal #owner").val()
          };
         
         updateVessel(data, function(res){
