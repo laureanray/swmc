@@ -63,7 +63,7 @@ namespace swmc.Controllers
                 FileName = "APPLICANT_REP_" + DateTime.Now + ".pdf"
             };
 
-//            return View(m);
+            return View(m);
 
         }
         

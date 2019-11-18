@@ -155,7 +155,6 @@
         <option value="$PROJECT_DIR$/Views/Shared/_DashboardLayout.cshtml" />
         <option value="$PROJECT_DIR$/Controllers/VesselController.cs" />
         <option value="$PROJECT_DIR$/Controllers/API/RequestController.cs" />
-        <option value="$PROJECT_DIR$/Views/Report/_ApplicantReport.cshtml" />
         <option value="$PROJECT_DIR$/Models/Applicant.cs" />
         <option value="$PROJECT_DIR$/Models/Vessel.cs" />
         <option value="$PROJECT_DIR$/Controllers/API/VesselController.cs" />
@@ -163,6 +162,7 @@
         <option value="$PROJECT_DIR$/Controllers/API/ApplicantController.cs" />
         <option value="$PROJECT_DIR$/Views/Applicant/Index.cshtml" />
         <option value="$PROJECT_DIR$/Data/DataBootstrapper.cs" />
+        <option value="$PROJECT_DIR$/Views/Report/_ApplicantReport.cshtml" />
         <option value="$PROJECT_DIR$/Controllers/ReportController.cs" />
       </list>
     </option>
@@ -272,7 +272,7 @@
       <workItem from="1573915929044" duration="1344000" />
       <workItem from="1573970255036" duration="3561000" />
       <workItem from="1574013089701" duration="4668000" />
-      <workItem from="1574049016444" duration="30000" />
+      <workItem from="1574049016444" duration="579000" />
     </task>
     <servers />
   </component>
